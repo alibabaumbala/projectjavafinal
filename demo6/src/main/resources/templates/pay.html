@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="/css/listhotel.css">
+  <link rel="stylesheet" href="/css/detail.css">
+  <link rel="stylesheet" href="/css/progress.css">
+  <link rel="stylesheet" href="/css/voucher.css">
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<!--  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>-->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>-->
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--SWAL-->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <!-- RESPONSIVE -->
+  <link rel="stylesheet" href="/css/responsive.css">
+  <!-- FONT HELGA -->
+  <style>
+    @font-face {
+      src: url(/font/SVN-Helga.otf);
+      font-family: helga
+    }
+  </style>
+</head>
+<body>
+<head  th:replace="~{header.html}"></head>
+
+<div class="container">
+  <ul class="progressbar">
+    <li class="active">Step 1</li>
+    <li>Step 2</li>
+    <li>Step 3</li>
+  </ul>
+</div>
+<div class="main">
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <div class="payinfo" th:attr="locationhotel=${location},idhotel=${idhotel},idroom=${idroom}">
+        <div class="pay-block">
+          <div style="color: #ff5b00;font-size: 18px;font-weight:bold">
+            <div class="pay-title" style="margin-bottom: 0;margin-left: 6px;">Xác nhận thông tin</div>
+          </div>
+        </div>
+        <div class="iteminfo">
+          <div style="display:inline-flex;align-items:center">
+            <div style="width: 6px;height: 28px; background-color: #ff5b00;border-radius: 6px">
+            </div>
+            <p style="margin-bottom:0;font-size: 18px;font-weight: 400;" class="pay-title">Thông tin đơn hàng</p>
+          </div>
+          <div style="padding: 8px">
+            <div class="thongtinhotel">
+              <div class="thongtinhotel-img">
+                <img th:src="${imgroom}" alt="">
+              </div>
+              <div class="thongtinhotel-content">
+                <p style="font-weight: 700;font-size: 18px;">Khánh Sạn Vinpearl Phú Quốc</p>
+                <p style="font-size:16px" th:text="${nameroom}"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="iteminfo">
+          <div style="display:inline-flex;align-items:center">
+            <div style="width: 6px;height: 38px; background-color: #ff5b00;border-radius: 6px">
+            </div>
+            <div class="pay-title">
+              <p style="margin-bottom:0;font-size: 18px;font-weight: 400;">Thông tin liên lạc</p>
+              <p style="color:#757575;font-size:16px">Chúng tôi sẽ thông báo mọi thay đổi về đơn hàng cho bạn</p>
+            </div>
+          </div>
+          <!-- NHẬP THÔNG TIN -->
+          <div style="padding: 8px">
+            <div class="thongtinhotel form-input-info">
+              <form style="width:100%;font-size: 18px;" >
+                <div class="form-group">
+                  <label for="">Họ và tên người đại diện</label>
+                  <input style="height: 40px;font-size:18px" type="text" class="form-control" id="ndd" th:value="${user.getHo()} + ' ' + ${user.getTen()}">
+                </div>
+                <div class="form-group">
+                  <label for="">Số điện thoại liên lạc</label>
+                  <input style="height: 40px;font-size:18px" type="text" class="form-control" id="sdd" placeholder="" th:value="${user.phone}">
+                </div>
+                <div class="form-group">
+                  <label for="">Địa chỉ email</label>
+                  <input style="height: 40px;font-size:18px" type="email" class="form-control" id="mdd" th:value="${user.email}">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- ƯU ĐÃI -->
+        <div class="iteminfo">
+          <div style="display:inline-flex;align-items:center">
+            <div style="width: 6px;height: 38px; background-color: #ff5b00;border-radius: 6px">
+            </div>
+            <div class="pay-title">
+              <p style="margin-bottom:0;font-size: 18px;font-weight: 400;">Loại ưu đãi</p>
+            </div>
+          </div>
+          <div style="padding: 8px">
+            <div class="thongtinhotel form-input-info">
+              <form style="width:100%;font-size: 18px;">
+                <div class="form-group inputvoucher">
+                  <label for="">Nhập mã ưu đãi</label>
+                  <input style="height: 40px;font-size:18px" type="text" class="form-control txtvoucher" placeholder="Mã ưu đãi của bạn">
+                  <button type="button" class="btnvoucher">Xác nhận</button>
+                </div>
+              </form>
+            </div>
+            <!-- VOUCHER -->
+            <div style="padding: 14px 0px;display: none" id="voucherform">
+              <div class="containervoucher">
+                <div class="card">
+                  <div class="mainvoucher">
+                    <div class="co-img">
+                      <img src="https://cdn-icons-png.flaticon.com/512/3595/3595867.png"
+                           alt="" />
+                    </div>
+                    <div class="vertical"></div>
+                    <div>
+                      <div class="content">
+                        <h2 class="">Ưu đãi cho bạn</h2>
+                        <h1 class="valuediscount">10% <span>Coupon</span></h1>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="copy-button">
+                    <input id="copyvalue" type="text" readonly value="GOFREE" />
+                    <button onclick="copyIt()" class="copybtn">Áp mã thành công</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- VOUCHER -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="bill">
+        <div class="bill-title bill-item" style="border-bottom: 1px solid #ccc">Thông tin đặt phòng</div>
+        <div class="bill-title bill-item" style="border-bottom: 1px dashed #ccc">Thời gian giữ phòng</div>
+        <div class="bill-item">
+          <h3 class="bill-title">VinHolidays Fiesta Phú Quốc</h3>
+          <!-- Ngày nhận trả -->
+          <div class="bill-date">
+            <div>
+              <div class="bill-date-title">Nhận phòng</div>
+              <div>
+                <div class="bill-date-input" th:text="${checkin}"></div>
+              </div>
+            </div>
+            <div>
+              <img src="https://booking.vinpearl.com/static/media/hotel-timeline.aefc7908.svg" alt="">
+            </div>
+            <div>
+              <div class="bill-date-title">Trả phòng</div>
+              <div>
+                <div class="bill-date-input" th:text="${checkout}"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Người -->
+          <div class="bill-people">
+            <div class="bill-people-item">
+              <input type="number" class="form-control" style="font-size: 16px" th:value="${adult}" th:min="${adult}" disabled>
+              <div>Người lớn</div>
+            </div>
+            <div class="bill-people-item">
+              <input style="font-size: 16px" type="number" class="form-control" th:value="${child}" th:min="${adult}" disabled>
+              <div>Trẻ em</div>
+            </div>
+          </div>
+          <div style="display: flex;justify-content:space-between">
+            <p>Số ngày</p>
+            <b th:text="${dff}+' Ngày'">3 ngày 2 đêm</b>
+          </div>
+          <div class="bill-item" style="display: flex;justify-content:space-between; border-bottom: 1px solid #ccc;padding: 8px 0px">
+            <p>Số phòng</p>
+            <input style="font-size: 16px;width:50px" type="number" name="" id="" value="1" class="form-control sophong" th:min="1">
+          </div>
+          <div style="display: flex;justify-content:space-between;padding: 8px 0;">
+            <div style="display: flex">
+              <img style="width:32px;object-fit: contain" src="https://res.klook.com/image/upload/v1649666436/ued/Hotel/illustration_Earn_Klook_credits___save_xl.png" alt="">
+              <b class="bill-title">Tổng cộng:</b>
+            </div>
+            <b class="total" style="color: #ff5b00;font-weight:800;font-size: 20px;" valuenew="" th:value="${priceroom}" th:text="${priceroom}+' '+VND"></b>
+          </div>
+          <div style="width:100%;display: flex;justify-content: flex-end;">
+            <button id="bookingok" type="submit" class="btn btn-success submitbooking" style="padding:10px !important;font-size: 16px;background-color: #ff5722;border: none;font-weight: 600;">Tiến hành đặt phòng</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/js.js"></script>
+<script th:inline="javascript">
+  let totalValue = document.querySelector('.total')
+  totalValue.innerText = setPrice(totalValue.innerText)
+  totalValue.setAttribute("valueori",totalValue.getAttribute("value"))
+
+  function setPrice(price)
+  {
+    let result = "";
+    var price1 = Number(price.substring(0,price.indexOf(' ')))
+    result= new Intl.NumberFormat({ style: 'currency', currency: 'JPY' }).format(price1)+" VND"
+    return result;
+  }
+
+  let sophong = document.querySelector('.sophong')
+  sophong.onchange = function(e)
+  {
+    num = this.value
+    totalValue.innerText = setPrice(totalValue.getAttribute('value') * num + " VND")
+    totalValue.setAttribute('valuenew',totalValue.innerText.substring(0,totalValue.innerText.indexOf(' ')).replaceAll('.',''))
+  }
+
+//  XỬ LÝ VOUCHER + DATA SUBMIT BOOKING
+  /*<![CDATA[*/
+    var listvoucher = /*[[${listvoucher}]]*/ "list";
+    var place = /*[[${location}]]*/ "place";
+    var iduser = /*[[${session.inforlogin}]]*/ "iduser";
+    var idhotel = /*[[${idhotel}]]*/ "list";
+    var idroom = /*[[${idroom}]]*/ "idroom";
+    var checkin = /*[[${checkin}]]*/ "checkin";
+    var checkout = /*[[${checkout}]]*/ "checkout";
+    var adult = /*[[${adult}]]*/ "adult";
+    var child = /*[[${child}]]*/ "child";
+  /*]]>*/
+
+  function checkID(id)
+  {
+    for(let i = 0;i<listvoucher.length;i++)
+    {
+      if(listvoucher[i].idvoucher == id)
+      {
+        return [true,listvoucher[i].discount]
+      }
+    }
+    return false;
+  }
+  let inputVoucher = document.querySelector('.txtvoucher')
+  inputVoucher.onchange = function()
+  {
+    totalValue.setAttribute('value',totalValue.getAttribute('valueori'))
+  }
+  document.querySelector('.btnvoucher').onclick = function()
+  {
+    if(checkID(inputVoucher.value)[0]==true)
+    {
+      document.getElementById('voucherform').style.display="block"
+      document.querySelector('.valuediscount').innerText = checkID(inputVoucher.value)[1]+ " Coupon";
+      document.getElementById('copyvalue').setAttribute("value",inputVoucher.value)
+      let dis = checkID(inputVoucher.value)[1].replace('%','')/100;
+      let saleoff = totalValue.getAttribute('value')*(1-dis)
+      // console.log(totalValue.value)
+      totalValue.setAttribute('value',saleoff)
+      totalValue.innerText = setPrice(totalValue.getAttribute('value') + " VND")
+    }
+    else if(checkID(inputVoucher.value)==false)
+    {
+      document.getElementById('voucherform').style.display="none"
+      totalValue.setAttribute('value',totalValue.getAttribute('valueori'));
+      totalValue.innerText = setPrice(totalValue.getAttribute('valueori') + " VND")
+    }
+  }
+
+  $(document).ready(function () {
+    $('#bookingok').click(function ()
+    {
+      let data = {
+        iduser:iduser,
+        idhotel:idhotel,
+        location:place,
+        idroom:idroom,
+        checkin:checkin,
+        checkout:checkout,
+        adult:adult,
+        child:child,
+        sophong:$('.sophong').val(),
+        totalprice:document.querySelector('.total').innerText.substring(0,document.querySelector('.total').innerText.indexOf(' ')).replaceAll('.',''),
+        representative:$('#ndd').val(),
+        phonecontact:$('#sdd').val(),
+        emailcontact:$('#mdd').val(),
+      }
+      $.ajax({
+        type: "POST",
+        url: "http://localhost:8080/api/api/booking",
+        data: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept':'application/json'
+        },
+        success: function (data) {
+          swal({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Đặt phòng thành công',
+            showConfirmButton: false,
+            timer: 3000
+          })
+        },
+        error: function (e) {
+
+        }
+      });
+    })
+  });
+
+
+
+</script>
+</body>
+</html>

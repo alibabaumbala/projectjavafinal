@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="com.example.demo.model.Bookinghotel">
+        <table name="bookinghotel" schema="java-final" catalog=""/>
+        <attributes>
+            <id name="idbooking">
+                <column name="idbooking"/>
+            </id>
+            <basic name="iduser">
+                <column name="iduser"/>
+            </basic>
+            <basic name="location">
+                <column name="location"/>
+            </basic>
+            <basic name="idhotel">
+                <column name="idhotel"/>
+            </basic>
+            <basic name="idroom">
+                <column name="idroom"/>
+            </basic>
+            <basic name="checkin">
+                <column name="checkin"/>
+            </basic>
+            <basic name="checkout">
+                <column name="checkout"/>
+            </basic>
+            <basic name="adult">
+                <column name="adult" nullable="false" precision="50"/>
+            </basic>
+            <basic name="child">
+                <column name="child" nullable="false" precision="50"/>
+            </basic>
+            <basic name="sophong">
+                <column name="sophong" precision="10"/>
+            </basic>
+            <basic name="totalprice">
+                <column name="totalprice"/>
+            </basic>
+            <basic name="statusbooking">
+                <column name="statusbooking" nullable="false"/>
+            </basic>
+            <basic name="datebooking">
+                <column name="datebooking" precision="-1"/>
+            </basic>
+            <basic name="representative">
+                <column name="representative"/>
+            </basic>
+            <basic name="phonecontact">
+                <column name="phonecontact"/>
+            </basic>
+            <basic name="emailcontact">
+                <column name="emailcontact"/>
+            </basic>
+            <basic name="review">
+                <column name="review" nullable="false" precision="10"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="com.example.demo.model.Feedback">
+        <table name="feedback" schema="java-final" catalog=""/>
+        <attributes>
+            <id name="idfeedback">
+                <column name="idfeedback" precision="255"/>
+            </id>
+            <basic name="idbooking">
+                <column name="idbooking"/>
+            </basic>
+            <basic name="iduser">
+                <column name="iduser"/>
+            </basic>
+            <basic name="location">
+                <column name="location"/>
+            </basic>
+            <basic name="idhotel">
+                <column name="idhotel"/>
+            </basic>
+            <basic name="idroom">
+                <column name="idroom"/>
+            </basic>
+            <basic name="star">
+                <column name="star" precision="10"/>
+            </basic>
+            <basic name="contentfeedback">
+                <column name="contentfeedback"/>
+            </basic>
+            <basic name="datefeedback">
+                <column name="datefeedback" nullable="false" precision="-1"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="com.example.demo.model.Feedback">
+        <table name="feedback" schema="java-final" catalog=""/>
+        <attributes>
+            <id name="idfeedback">
+                <column name="idfeedback" precision="255"/>
+            </id>
+            <basic name="idbooking">
+                <column name="idbooking"/>
+            </basic>
+            <basic name="iduser">
+                <column name="iduser"/>
+            </basic>
+            <basic name="location">
+                <column name="location"/>
+            </basic>
+            <basic name="idhotel">
+                <column name="idhotel"/>
+            </basic>
+            <basic name="idroom">
+                <column name="idroom"/>
+            </basic>
+            <basic name="star">
+                <column name="star" precision="10"/>
+            </basic>
+            <basic name="contentfeedback">
+                <column name="contentfeedback" nullable="false"/>
+            </basic>
+            <basic name="datefeedback">
+                <column name="datefeedback" precision="-1"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="com.example.demo.model.Feedback">
+        <table name="feedback" schema="java-final" catalog=""/>
+        <attributes>
+            <id name="idfeedback">
+                <column name="idfeedback" precision="255"/>
+            </id>
+            <basic name="idbooking">
+                <column name="idbooking"/>
+            </basic>
+            <basic name="iduser">
+                <column name="iduser"/>
+            </basic>
+            <basic name="location">
+                <column name="location"/>
+            </basic>
+            <basic name="idhotel">
+                <column name="idhotel"/>
+            </basic>
+            <basic name="idroom">
+                <column name="idroom"/>
+            </basic>
+            <basic name="star">
+                <column name="star" precision="10"/>
+            </basic>
+            <basic name="contentfeedback">
+                <column name="contentfeedback" nullable="false"/>
+            </basic>
+            <basic name="datefeedback">
+                <column name="datefeedback" nullable="false" precision="-1"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="com.example.demo.model.Feedback">
+        <table name="feedback" schema="java-final" catalog=""/>
+        <attributes>
+            <id name="idfeedback">
+                <column name="idfeedback" precision="255"/>
+            </id>
+            <basic name="idbooking">
+                <column name="idbooking"/>
+            </basic>
+            <basic name="iduser">
+                <column name="iduser"/>
+            </basic>
+            <basic name="location">
+                <column name="location"/>
+            </basic>
+            <basic name="idhotel">
+                <column name="idhotel"/>
+            </basic>
+            <basic name="idroom">
+                <column name="idroom"/>
+            </basic>
+            <basic name="star">
+                <column name="star" precision="10"/>
+            </basic>
+            <basic name="contentfeedback">
+                <column name="contentfeedback" nullable="false"/>
+            </basic>
+            <basic name="datefeedback">
+                <column name="datefeedback" precision="-1"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

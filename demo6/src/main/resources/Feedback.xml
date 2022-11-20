@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="com.example.demo.model.Feedback">
+        <table name="feedback" schema="java-final" catalog=""/>
+        <attributes>
+            <id name="idfeedback">
+                <column name="idfeedback" precision="255"/>
+            </id>
+            <basic name="idbooking">
+                <column name="idbooking"/>
+            </basic>
+            <basic name="iduser">
+                <column name="iduser"/>
+            </basic>
+            <basic name="location">
+                <column name="location"/>
+            </basic>
+            <basic name="idhotel">
+                <column name="idhotel"/>
+            </basic>
+            <basic name="idroom">
+                <column name="idroom"/>
+            </basic>
+            <basic name="star">
+                <column name="star" precision="10"/>
+            </basic>
+            <basic name="contentfeedback">
+                <column name="contentfeedback" nullable="false"/>
+            </basic>
+            <basic name="datefeedback">
+                <column name="datefeedback" precision="-1"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

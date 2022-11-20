@@ -1,0 +1,40 @@
+<div class="" xmlns:th="http://www.thymeleaf.org">
+    <header class="header" style="border-bottom: 1px solid #eee;">
+        <div class="grid">
+            <a class="logo" href="/">
+                <img src="https://marketingmagazine.com.my/wp-content/uploads/2022/03/07-Klook-Logo_RGB.png" alt="">
+            </a>
+            <nav class="navbar" id="navbar" style="margin-bottom:0px">
+                <a href="" class="navbar__item">Khách sạn</a>
+                <a href="" class="navbar__item">Tour</a>
+                <a href="" class="navbar__item">Vé máy bay</a>
+                <a href="" class="navbar__item">Cẩm nang du lịch</a>
+            </nav>
+            <div class="header__search__user__cash">
+                <!-- <div class="mobile-menu header-item-info" id="mobile-menu">
+                    <i class="fa fa-bars menu-icon header-icon"></i>
+                </div> -->
+<!--                <div class="header_user" th:text="${inforlogin}">-->
+<!--                    <div class="header_user_ava">-->
+<!--                        <img src="https://d1xyolhen8fnqh.cloudfront.net/media/ecs/global/icons/default160-2.png" alt="" class="header_user_ava-img">-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div class="navbar__item">
+                    <a th:if="${session.inforlogin==null}" href="/log" class="header_user_ava" style="background-color:white;color:black;padding: 6px;border-radius:4px">
+                        Đăng nhập
+                    </a>
+                    <div th:if="${session.inforlogin!=null}" class="header_user_ava">
+                        <img src="https://d1xyolhen8fnqh.cloudfront.net/media/ecs/global/icons/default160-2.png" alt="" class="header_user_ava-img">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+<script>
+    document.querySelector(".header_user_ava").onclick = function()
+    {
+        window.location.href="/user/profile";
+    }
+</script>
