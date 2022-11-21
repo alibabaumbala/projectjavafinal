@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface FeedBackRepository extends JpaRepository<Feedback,String>
 {
-    @Query("select f from Feedback f where f.idhotel = ?1")
+    @Query("select f from Feedback f where f.idhotel = ?1 order by f.datefeedback desc ")
     public List<Feedback> listFeedbackByIdHotel(String id);
 
     @Query("select f from Feedback f where f.idhotel=?1 and f.star = ?2")

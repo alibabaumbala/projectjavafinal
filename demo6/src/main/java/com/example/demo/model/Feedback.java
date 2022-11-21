@@ -28,7 +28,7 @@ public class Feedback {
     @Column(name = "star", nullable = false)
     private int star;
     @Basic
-    @Column(name = "contentfeedback", nullable = true, length = 255)
+    @Column(name = "contentfeedback", nullable = true, length = 1000)
     private String contentfeedback;
     @Basic
     @Column(name = "datefeedback", nullable = true)

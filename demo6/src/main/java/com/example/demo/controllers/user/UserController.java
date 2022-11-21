@@ -119,12 +119,15 @@ public class UserController {
         user.setPassword(password);
 
         model.addAttribute("user",user);
-        if(userService.checkAccount(email,password)==true)
+        if(userService.getUserByEmail(email)==null)
+            return "redirect:/log";
+        else if(userService.checkAccount(email,password)==true)
         {
             session.setAttribute("inforlogin",userService.getUserByEmail(email).getIduser());
             return "home";
         }
-        return "log-in-out";
+        else
+            return "forward:/log";
     }
 
     //LIST HOTEL
@@ -175,28 +178,32 @@ public class UserController {
     public String PayPage(Model model,@PathVariable(value="location") String location,
     @PathVariable(value="idhotel") String idhotel, @PathVariable(value="idroom") String idroom,
     @PathVariable(value="checkin") String checkin, @PathVariable(value="checkout") String checkout) throws JSONException, ParseException {
-        RestAPI restAPI = new RestAPI();
-        model.addAttribute("location",location);
-        model.addAttribute("idhotel",idhotel);
-        model.addAttribute("idroom",idroom);
-        model.addAttribute("checkin",checkin);
-        model.addAttribute("checkout",checkout);
+        if(session.getAttribute("inforLogin")!="")
+        {
+            RestAPI restAPI = new RestAPI();
+            model.addAttribute("location",location);
+            model.addAttribute("idhotel",idhotel);
+            model.addAttribute("idroom",idroom);
+            model.addAttribute("checkin",checkin);
+            model.addAttribute("checkout",checkout);
 
-        long day = dff(checkin.replaceAll("-","/"),checkout.replaceAll("-","/"));
-        model.addAttribute("dff",day);
+            long day = dff(checkin.replaceAll("-","/"),checkout.replaceAll("-","/"));
+            model.addAttribute("dff",day);
 
-        String iduser = (String) session.getAttribute("inforlogin");
-        model.addAttribute("user",userService.getUserByID(iduser));
-        model.addAttribute("nameroom",restAPI.findInfoRoom(0,location,idhotel,idroom,"nameroom"));
-        model.addAttribute("priceroom",Integer.parseInt(restAPI.findInfoRoom(0,location,idhotel,idroom,"priceroom"))*day);
-        model.addAttribute("imgroom",restAPI.findInfoRoom(0,location,idhotel,idroom,"imgroom"));
-        model.addAttribute("adult",restAPI.findInfoRoom(0,location,idhotel,idroom,"adult"));
-        model.addAttribute("child",restAPI.findInfoRoom(0,location,idhotel,idroom,"child"));
+            String iduser = (String) session.getAttribute("inforlogin");
+            model.addAttribute("user",userService.getUserByID(iduser));
+            model.addAttribute("nameroom",restAPI.findInfoRoom(0,location,idhotel,idroom,"nameroom"));
+            model.addAttribute("priceroom",Integer.parseInt(restAPI.findInfoRoom(0,location,idhotel,idroom,"priceroom"))*day);
+            model.addAttribute("imgroom",restAPI.findInfoRoom(0,location,idhotel,idroom,"imgroom"));
+            model.addAttribute("adult",restAPI.findInfoRoom(0,location,idhotel,idroom,"adult"));
+            model.addAttribute("child",restAPI.findInfoRoom(0,location,idhotel,idroom,"child"));
 
-        //SEND VOUCHER
-        model.addAttribute("listvoucher",voucherService.listVoucher());
-
-        return "pay";
+            //SEND VOUCHER
+            model.addAttribute("listvoucher",voucherService.listVoucher());
+            return "pay";
+        }
+        else
+            return "redirect:/log";
     }
 
     //XEM LICH SU BOOKING

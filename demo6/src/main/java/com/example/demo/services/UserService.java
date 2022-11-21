@@ -93,6 +93,8 @@ public class UserService
         {
             return true;
         }
+        else if(getUserByEmail(email)==null)
+            return false;
         return false;
     }
 

@@ -33,7 +33,9 @@
     }
     [title=selected]
     {
-      background-color: #a5cffd !important;
+      color: #ff5b00 !important;
+      border-color: #ff5b00 !important;
+      background-color: #fff0e5 !important;
     }
     .fb-main-main{
       margin-bottom: 24px;
@@ -138,7 +140,7 @@
             <p style="margin-bottom:0;font-size: 24px;font-weight: 600;">Đánh giá </p>
           </div>
           <div class="fb_main btn_vote">
-            <button class="filterstar" value="0" title="selected">Tất cả</button>
+            <button class="filterstar" value="0" title="selected" id="allfeedback">Tất cả</button>
             <button class="filterstar" value="5">5 <i class="fa fa-star"  style="color: #ff9c00;font-size: 14px;"></i></button>
             <button class="filterstar" value="4">4 <i class="fa fa-star"  style="color: #ff9c00;font-size: 14px;"></i></button>
             <button class="filterstar" value="3">3 <i class="fa fa-star"  style="color: #ff9c00;font-size: 14px;"></i></button>
@@ -341,6 +343,9 @@
       divfeedback.innerHTML = htmlfeedback.join('')
     }
   })
+  $(document).ready(function(){
+    $("#allfeedback").click();
+  });
 
 
 </script>
