@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="com.example.demo.model.Employee">
+        <table name="employee" schema="java-final" catalog=""/>
+        <attributes>
+            <id name="idemp">
+                <column name="idemp"/>
+            </id>
+            <basic name="tenemp">
+                <column name="tenemp"/>
+            </basic>
+            <basic name="sdtemp">
+                <column name="sdtemp"/>
+            </basic>
+            <basic name="emailemp">
+                <column name="emailemp"/>
+            </basic>
+            <basic name="genderemp">
+                <column name="genderemp"/>
+            </basic>
+            <basic name="positionemp">
+                <column name="positionemp"/>
+            </basic>
+            <basic name="passemp">
+                <column name="passemp"/>
+            </basic>
+            <basic name="createemp">
+                <column name="createemp" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="avatar">
+                <column name="avatar" nullable="false" length="1000"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="com.example.demo.model.Bookinghotel">
+        <table name="bookinghotel" schema="java-final" catalog=""/>
+        <attributes>
+            <id name="idbooking">
+                <column name="idbooking"/>
+            </id>
+            <basic name="iduser">
+                <column name="iduser"/>
+            </basic>
+            <basic name="location">
+                <column name="location"/>
+            </basic>
+            <basic name="idhotel">
+                <column name="idhotel"/>
+            </basic>
+            <basic name="idroom">
+                <column name="idroom"/>
+            </basic>
+            <basic name="checkin">
+                <column name="checkin"/>
+            </basic>
+            <basic name="checkout">
+                <column name="checkout"/>
+            </basic>
+            <basic name="adult">
+                <column name="adult" nullable="false" precision="50"/>
+            </basic>
+            <basic name="child">
+                <column name="child" nullable="false" precision="50"/>
+            </basic>
+            <basic name="sophong">
+                <column name="sophong" precision="10"/>
+            </basic>
+            <basic name="totalprice">
+                <column name="totalprice"/>
+            </basic>
+            <basic name="statusbooking">
+                <column name="statusbooking" nullable="false"/>
+            </basic>
+            <basic name="datebooking">
+                <column name="datebooking" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="representative">
+                <column name="representative"/>
+            </basic>
+            <basic name="phonecontact">
+                <column name="phonecontact"/>
+            </basic>
+            <basic name="emailcontact">
+                <column name="emailcontact"/>
+            </basic>
+            <basic name="review">
+                <column name="review" nullable="false" precision="10"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

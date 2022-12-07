@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="/cssql/styleql.css">
+
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--SWAL-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <style>
+        .menu-item-employee{
+            background-color: var(--orange) !important;
+            color: white !important;
+        }
+        .menu-item-employee a i, .menu-item-employee a{
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+<div class="containerdiv">
+    <div  th:replace="~{admin/menu-admin.html}"></div>
+    <div class="content">
+        <div class="title_bar">
+            <p class="left_title" th:text="${@employeeRepository.findAll().size()+' Empoloyees'}">100 Employees</p>
+            <div class="search-bar">
+                <form action="#" method="POST" class="search-form">
+                    <input type="text" name="search" placeholder="Search" id="search_field">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+            <button class="right_btn" data-toggle="modal" data-target="#exampleModal">+ Thêm nhân viên mới</button>
+        </div>
+        <div class="emp_lst_container">
+            <div class="emp_card" th:each="nv:${dsnv}" th:id="row_+${nv.idemp}" id="listnv">
+                <div class="emp_card_header">
+                    <div class="emp_id"><b th:text="${nv.idemp}">ID:</b></div>
+                    <div class="emp_status active">Active</div>
+                </div>
+                <div class="emp_card_middle">
+                    <img class="emp_img" th:src="${nv.avatar}" alt="">
+                    <div style="font-weight: bold;margin-top: 10px" class="emp_name" th:class="row-tenemp-+${nv.idemp}" th:attr="mnv=${nv.idemp}" th:id="namenv_+${nv.idemp}" th:text="${nv.tenemp}">Nguyen Truong Thinh</div>
+                    <div class="emp_job" th:class="row-positionemp-+${nv.idemp}" th:text="${nv.positionemp}">Receptionist</div>
+                </div>
+                <div class="emp_card_footer">
+                    <div class="emp_basic_info">
+                        <div class="emp_info_col">
+                            <p class="info_title">Giới tính</p>
+                            <p class="info_content" th:class="row-genderemp-+${nv.idemp}" th:text="${nv.genderemp}">Receptionist</p>
+                        </div>
+                        <div class="emp_info_col">
+                            <p class="info_title">Ngày vào làm</p>
+                            <p class="info_content" th:text="${nv.createemp}">10/10/2021</p>
+                        </div>
+                    </div>
+                    <div class="emp_contact_info">
+                        <div class="emp_mail">
+                            <i class="fa-solid fa-envelope"></i>
+                            <th:block th:class="row-emailemp-+${nv.idemp}" th:text="${nv.emailemp}"></th:block>
+                        </div>
+                        <div class="emp_phone">
+                            <i class="fa-solid fa-phone"></i>
+                            <th:block th:text="${nv.sdtemp}" th:class="row-sdtemp-+${nv.idemp}"></th:block>
+                        </div>
+                    </div>
+                </div>
+                <div class="emp_function">
+                    <button class="emp_btn">View</button>
+                    <button class="emp_btn" data-toggle="modal" data-target="#editModal" th:attr="onclick=|handleEdit('${nv.idemp}')|">Modify</button>
+                    <button class="emp_btn" th:attr="onclick=|handleDelete('${nv.idemp}')|">Remove</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--MODAL THÊM NHÂN VIÊN-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm nhân viên mới</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="needs-validation" method="post" th:method="post" novalidate enctype="multipart/form-data" th:action="@{http://localhost:8080/admin/quanly/quanly-nhanvien/add}" th:object="${employee}">
+                    <div class="form-group">
+                        <label for="tennv" class="col-form-label">Họ tên nhân viên</label>
+                        <input th:field="*{tenemp}" placeholder="Nhập họ và tên nhân viên" required type="text" class="form-control is-invalid" id="tennv" name="tenemp" pattern="[a-z\sA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]{1,255}" >
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genderemp" id="inlineRadio1" value="Male" checked>
+                        <label class="form-check-label" for="inlineRadio1">Nam</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genderemp" id="inlineRadio2" value="Female">
+                        <label class="form-check-label" for="inlineRadio2">Nữ</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="sdtnv" class="col-form-label">Số điện thoại</label>
+                        <input th:field="*{sdtemp}" placeholder="Nhập ố điện thoại" required type="tel" id="sdtnv" name="sdtemp" class="form-control is-invalid" pattern="[0]{1}[0-9]{3}[0-9]{3}[0-9]{3}">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="emailnv" class="col-form-label">Email</label>
+                        <input th:for="*{emailemp}" placeholder="Nhập địa chỉ email" type="email" id="emailnv" name="emailemp" class="form-control is-invalid" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="vitri">Chức vụ</label>
+                        <select class="form-control" id="vitri" name="vitri" th:field="*{positionemp}">
+                            <option value="Lễ tân">Lễ tân</option>
+                            <option value="Quản lý">Quản lý</option>
+                            <option value="Kế toán">Kế toán</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="login-input-item">
+                            <input type="file" class="form-control-file" style="padding:0" id="file" name="file" th:field="*{file}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="passnv" class="col-form-label">Mật khẩu</label>
+                        <input th:field="*{passemp}" placeholder="Nập mật khẩu" type="password" id="passnv" name="passnemp" class="form-control is-invalid" pattern=".{6,}" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                        <button type="submit" class="btn btn-primary" id="themnv" disabled >Thêm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--MODAL SỬA NHÂN VIÊN-->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Sửa thông tin nhân viên</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="needs-validation modal-body" novalidate>
+                    <div class="form-group">
+                        <label for="tennvedit" class="col-form-label">Họ tên nhân viên</label>
+                        <input placeholder="Nhập họ và tên nhân viên" required type="text" class="form-control is-invalid" id="tennvedit" name="tennv" pattern="[a-z\sA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]{1,255}" >
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genderempedit" id="genderedit1" value="Male" checked>
+                        <label class="form-check-label">Nam</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genderempedit" id="genderedit2" value="Female">
+                        <label class="form-check-label">Nữ</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="sdtnvedit" class="col-form-label">Số điện thoại</label>
+                        <input placeholder="Nhập số điện thoại" required type="tel" id="sdtnvedit" name="sdtnv" class="form-control is-invalid" pattern="[0]{1}[0-9]{3}[0-9]{3}[0-9]{3}">
+                    </div>
+                    <div class="form-group">
+                        <label for="emailnvedit" class="col-form-label">Email</label>
+                        <input placeholder="Nhập địa chỉ email" type="email" id="emailnvedit" name="emailnv" class="form-control is-invalid" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="vitriedit">Chức vụ</label>
+                        <select class="form-control" id="vitriedit" name="vitri">
+                            <option value="Lễ tân">Lễ tân</option>
+                            <option value="Quản lý">Quản lý</option>
+                            <option value="Kế toán">Kế toán</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="huyedit">Hủy</button>
+                <button class="btn btn-primary" id="confirmedit" onclick="confirmEdit()">Sửa</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js'></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+<script>
+    //VALID BOOTSTRAP
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('change', function(event) {
+
+                    if (form.checkValidity() === false)
+                    {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                    if(form.checkValidity()===true)
+                    {
+                        $("#themnv").prop('disabled', false)
+                    }
+                }, false);
+            });
+        }, false)
+    })();
+
+    $(document).ready(function()
+    {
+        document.querySelectorAll('#ngayvaolam').forEach(e=>{
+            e.innerText = e.innerText.substring(0,e.innerText.indexOf(' '))
+        })
+    })
+
+    // var radioButtonGroupGender = document.getElementsByName("genderemp");
+    // $('#themnv').click(function ()
+    // {
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "http://localhost:8080/admin/quanly/quanly-nhanvien/add",
+    //         data: {
+    //             tenemp:$('#tennv').val(),
+    //             sdtemp:$('#sdtnv').val(),
+    //             emailemp:$('#emailnv').val(),
+    //             genderemp:Array.from(radioButtonGroupGender).find((radio) => radio.checked).value,
+    //             positionemp:$('#vitri').val(),
+    //             passemp:$('#passnv').val(),
+    //             file:document.getElementById('file')
+    //         },
+    //         success: function (data)
+    //         {
+    //             swal({
+    //                 position: 'top-end',
+    //                 icon: 'success',
+    //                 title: 'Thêm nhân viên thành công',
+    //                 showConfirmButton: false,
+    //                 timer: 1500
+    //             }).then(()=>{
+    //                 location.reload()
+    //             })
+    //         },
+    //         error: function (e) {
+    //             console.log("err")
+    //         }
+    //     });
+    // })
+
+
+    function handleDelete(uid)
+    {
+        console.log(uid)
+        let name = $('#namenv_'+uid).text()
+        let text = "Xóa "+name +"?"
+        swal({
+            title: "Xác nhận xóa!",
+            text: text,
+            icon: "warning",
+            buttons: true,
+            dangerMode: false,
+        }).then((value) => {
+            if (value) {
+                $.ajax({
+                    type: "Delete",
+                    url: "http://localhost:8080/admin/quanly/employee/delete/"+uid,
+                    data: {idemp: uid },
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept':'application/json'
+                    },
+                    success: function (response)
+                    {
+                        swal({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Xóa thành công',
+                            showConfirmButton: false,
+                            timer: 1000
+                        }).then(()=>{
+                            $('#row_'+uid).remove()
+                        })
+                    }
+                });
+            }
+        });
+    }
+
+    function handleEdit(uid)
+    {
+        console.log(uid)
+        $.ajax({
+            type: "GET",
+            dataType:'json',
+            url: "http://localhost:8080/admin/quanly/employee/edit/"+uid,
+            data: {idemp: uid },
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept':'application/json'
+            },
+            success: function (response)
+            {
+
+                $('#tennvedit').val(response.tenemp)
+                $('#emailnvedit').val(response.emailemp)
+                $('#sdtnvedit').val(response.sdtemp)
+                $('#vitriedit').val(response.positionemp)
+                if(response.genderemp=='Male')
+                    $('#genderedit1').prop("checked",true)
+                if(response.genderemp=='Female')
+                    $('#genderedit2').prop("checked",true)
+                $('#confirmedit').attr('valueidedit',uid);
+            }
+        });
+    }
+
+    var radioButtonGroupGender = document.getElementsByName("genderempedit");
+    function confirmEdit()
+    {
+        let uid = $('#confirmedit').attr('valueidedit')
+
+        let data = {
+            idemp:uid,
+            tenemp:$('#tennvedit').val(),
+            emailemp:$('#emailnvedit').val(),
+            sdtemp:$('#sdtnvedit').val(),
+            positionemp:$('#vitriedit').val(),
+            genderemp:Array.from(radioButtonGroupGender).find((radio) => radio.checked).value
+
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/admin/quanly/employee/edit/success",
+            data:data,
+            success: function (response)
+            {
+                console.log(response)
+                swal({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Cập nhật thành công!',
+                    showConfirmButton: false,
+                    timer: 1000
+                }).then(()=>{
+                    $('.row-tenemp-'+uid).text(response.tenemp)
+                    $('.row-sdtemp-'+uid).text(response.sdtemp)
+                    $('.row-emailemp-'+uid).text(response.emailemp)
+                    $('.row-positionemp-'+uid).text(response.positionemp)
+                    $('.row-genderemp-'+uid).text(response.genderemp)
+                    $('#huyedit').click()
+                })
+            },
+            error: function (e) {
+                console.log("Lỗi")
+            }
+        });
+    }
+
+</script>
+<script src="/jsql/jscenter.js"></script>
+</html>

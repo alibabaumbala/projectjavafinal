@@ -25,6 +25,13 @@
 
   <!-- RESPONSIVE -->
   <link rel="stylesheet" href="../assets/css/responsive.css">
+
+  <!-- FILTER -->
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
+
+  <!-- PAGINATION -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
   <!-- FONT HELGA -->
   <style>
     @font-face {
@@ -177,29 +184,29 @@
             <div class="INNER_box-hotro-search">
               <p style="font-weight:bold;font-size:16px;margin-bottom:0">Hạng sao</p>
               <div label="1sao" class="filter-hotel-by-star">
-                <input type="checkbox">
+                <input type="checkbox" class="checkboxstar" name="checkboxstar"  value="1" id="1">
                 <span class="fa fa-star"></span>
               </div>
               <div label="2sao" class="filter-hotel-by-star">
-                <input type="checkbox">
+                <input type="checkbox" class="checkboxstar" name="checkboxstar"  value="2" id="2">
                 <span class="fa fa-star"></span>
                 <span class="fa fa-star"></span>
               </div>
               <div label="3sao" class="filter-hotel-by-star">
-                <input type="checkbox">
+                <input type="checkbox" class="checkboxstar" name="checkboxstar"  value="3" id="3">
                 <span class="fa fa-star"></span>
                 <span class="fa fa-star"></span>
                 <span class="fa fa-star"></span>
               </div>
               <div label="4sao" class="filter-hotel-by-star">
-                <input type="checkbox">
+                <input type="checkbox" class="checkboxstar" name="checkboxstar"  value="4" id="4">
                 <span class="fa fa-star"></span>
                 <span class="fa fa-star"></span>
                 <span class="fa fa-star"></span>
                 <span class="fa fa-star"></span>
               </div>
               <div label="5sao" class="filter-hotel-by-star">
-                <input type="checkbox">
+                <input type="checkbox" class="checkboxstar" name="checkboxstar"  value="5" id="5">
                 <span class="fa fa-star"></span>
                 <span class="fa fa-star"></span>
                 <span class="fa fa-star"></span>
@@ -234,9 +241,7 @@
       <div class="col-md-12 col-lg-8" style="padding-top: 4px"> <!--lht-->
         <div class="list-hotel" th:value="${namePlace}">
         </div>
-        <div class="pagination">
-          <ul> <!--pages or li are comes from javascript --> </ul>
-        </div>
+        <div id="pagination-container"></div>
       </div>
 
     </div>
@@ -244,6 +249,7 @@
 
 </div>
 <script src="/js/js.js"></script>
-<script src="/js/paginate.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js'></script>
 </body>
 </html>

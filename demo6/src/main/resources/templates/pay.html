@@ -64,7 +64,7 @@
                 <img th:src="${imgroom}" alt="">
               </div>
               <div class="thongtinhotel-content">
-                <p style="font-weight: 700;font-size: 18px;">Khánh Sạn Vinpearl Phú Quốc</p>
+                <p style="font-weight: 700;font-size: 18px;" th:text="${namehotel}"></p>
                 <p style="font-size:16px" th:text="${nameroom}"></p>
               </div>
             </div>
@@ -113,13 +113,13 @@
               <form style="width:100%;font-size: 18px;">
                 <div class="form-group inputvoucher">
                   <label for="">Nhập mã ưu đãi</label>
-                  <input style="height: 40px;font-size:18px" type="text" class="form-control txtvoucher" placeholder="Mã ưu đãi của bạn">
+                  <input style="height: 40px;font-size:18px" type="text" class="form-control txtvoucher"  placeholder="Mã ưu đãi của bạn">
                   <button type="button" class="btnvoucher">Xác nhận</button>
                 </div>
               </form>
             </div>
             <!-- VOUCHER -->
-            <div style="padding: 14px 0px;display: none" id="voucherform">
+            <div style="padding: 14px 0px;display: none" id="voucherform" name="idvoucher">
               <div class="containervoucher">
                 <div class="card">
                   <div class="mainvoucher">
@@ -174,7 +174,7 @@
           <!-- Người -->
           <div class="bill-people">
             <div class="bill-people-item">
-              <input type="number" class="form-control" style="font-size: 16px" th:value="${adult}" th:min="${adult}" disabled>
+              <input type="number" class="form-control" style="font-size: 16px" th:value="${adult}" th:min="${adult}" th:field="*{adult}" disabled>
               <div>Người lớn</div>
             </div>
             <div class="bill-people-item">
@@ -247,7 +247,7 @@
     {
       if(listvoucher[i].idvoucher == id)
       {
-        return [true,listvoucher[i].discount]
+        return [true,listvoucher[i].discount] //trả về 1 mảng [true,giá trị sale]
       }
     }
     return false;
@@ -262,6 +262,7 @@
     if(checkID(inputVoucher.value)[0]==true)
     {
       document.getElementById('voucherform').style.display="block"
+      document.getElementById('voucherform').setAttribute("ma_idvoucherused",inputVoucher.value)
       document.querySelector('.valuediscount').innerText = checkID(inputVoucher.value)[1]+ " Coupon";
       document.getElementById('copyvalue').setAttribute("value",inputVoucher.value)
       let dis = checkID(inputVoucher.value)[1].replace('%','')/100;
@@ -283,8 +284,8 @@
     {
       let data = {
         iduser:iduser,
-        idhotel:idhotel,
         location:place,
+        idhotel:idhotel,
         idroom:idroom,
         checkin:checkin,
         checkout:checkout,
@@ -295,26 +296,29 @@
         representative:$('#ndd').val(),
         phonecontact:$('#sdd').val(),
         emailcontact:$('#mdd').val(),
+        idvoucher:'123'
       }
       $.ajax({
         type: "POST",
-        url: "http://localhost:8080/api/api/booking",
+        url: "http://localhost:8080/api/api/booking/add",
         data: JSON.stringify(data),
         headers: {
           'Content-Type': 'application/json',
           'Accept':'application/json'
         },
-        success: function (data) {
+        success: function (respone) {
           swal({
             position: 'top-end',
             icon: 'success',
             title: 'Đặt phòng thành công',
             showConfirmButton: false,
             timer: 3000
+          }).then(()=>{
+            console.log(respone)
           })
         },
         error: function (e) {
-
+          console.log("Lỗi")
         }
       });
     })

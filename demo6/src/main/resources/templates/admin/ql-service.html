@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Management</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+  <link rel="stylesheet" href="/cssql/styleql.css">
+
+  <!--BOOTSTRAP-->
+<!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">-->
+<!--  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>-->
+<!--  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>-->
+<!--  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>-->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!--SWAL-->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+  <style>
+    .menu-item-service{
+      background-color: var(--orange) !important;
+      color: white !important;
+    }
+    .menu-item-service a i, .menu-item-service a{
+      color: white !important;
+    }
+  </style>
+</head>
+<body>
+<div class="containerdiv">
+  <div  th:replace="~{admin/menu-admin.html}"></div>
+
+  <div class="content">
+    <div class="title_bar">
+      <p class="left_title">100 Vouchers</p>
+      <div class="search-bar">
+        <form action="#" method="POST" class="search-form">
+          <input type="text" name="search" id="search_field_service" placeholder="Search">
+          <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+      </div>
+      <!-- <button class="right_btn">+ Add New Employee</button> -->
+    </div>
+    <div class="voucher_container">
+      <div class="voucher_card" th:each="vc:${dsvoucher}">
+        <div class="voucher_icon">
+          <i class="fa-solid fa-hotel"></i>
+        </div>
+        <div class="voucher_content">
+          <p class="voucher_name" th:text="${vc.discount}+' Discount'">50% Discount</p>
+          <p class="voucher_code" th:text="${vc.idvoucher}">12345678</p>
+          <div style="display: flex;flex-direction: row">
+            Số lượng: <div style="font-weight: 700" th:text="${vc.soluong}"></div>
+          </div>
+
+          <div class="voucher_function">
+            <button class="voucher_btn"><i class="fa-solid fa-ellipsis"></i></button>
+            <button class="voucher_btn"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button class="voucher_btn"><i class="fa-solid fa-trash"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script>
+  function searchService() {
+    $('#search_field_service').on('keyup', function() {
+      console.log("ok")
+      let searchString = $(this).val();
+      $(".voucher_card").each(function(index, value) {
+        currentName = $(value).text()
+        if( currentName.toUpperCase().indexOf(searchString.toUpperCase()) > -1) {
+          $(value).show();
+        } else {
+          $(value).hide();
+        }
+      });
+    });
+  };
+  searchService();
+</script>
+</html>

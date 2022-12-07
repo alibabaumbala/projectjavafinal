@@ -11,6 +11,9 @@ public class Voucher {
     @Basic
     @Column(name = "discount", nullable = false, length = 255)
     private String discount;
+    @Basic
+    @Column(name = "soluong", nullable = false)
+    private int soluong;
 
     public String getIdvoucher() {
         return idvoucher;
@@ -26,5 +29,13 @@ public class Voucher {
 
     public void setDiscount(String discount) {
         this.discount = discount;
+    }
+
+    public int getSoluong() {
+        return soluong;
+    }
+
+    public void setSoluong(int soluong) {
+        this.soluong = soluong;
     }
 }

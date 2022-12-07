@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
+@Table(name = "bookinghotel")
 public class Bookinghotel {
     @Basic
     @Column(name = "iduser", nullable = false, length = 255)
@@ -43,7 +44,7 @@ public class Bookinghotel {
     @Column(name = "statusbooking", nullable = true, length = 255)
     private String statusbooking;
     @Basic
-    @Column(name = "datebooking", nullable = false)
+    @Column(name = "datebooking", nullable = true)
     private Timestamp datebooking;
     @Basic
     @Column(name = "representative", nullable = false, length = 255)

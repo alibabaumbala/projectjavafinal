@@ -22,16 +22,16 @@
                 <column name="password"/>
             </basic>
             <basic name="avatar">
-                <column name="avatar" nullable="false"/>
+                <column name="avatar" nullable="false" length="1000"/>
             </basic>
             <basic name="role">
                 <column name="role" nullable="false"/>
             </basic>
             <basic name="gender">
-                <column name="gender" nullable="false" length="10"/>
+                <column name="gender" length="10"/>
             </basic>
             <basic name="phone">
-                <column name="phone" nullable="false" length="10"/>
+                <column name="phone" length="10"/>
             </basic>
             <basic name="point">
                 <column name="point" nullable="false" precision="255"/>

@@ -66,7 +66,7 @@
         <div class="slide-profile-main tichluy_diem">
           <div class="tichluy col-6">
             <P class="tichluy_diem_main">Giá trị tích lũy
-              <b>0 đ</b><br>
+              <b th:text="${sumMoney}+' vnđ'"></b><br>
               <a href="">Lịch sử</a>
             </p>
           </div>
@@ -166,11 +166,11 @@
                     </div>
                     <div class="lht-price">
                       <div id="status_room" value-status-room="${ele.status}">
-                        <div class="lht-price-detail" id="huy" th:text="${cxn.getTotalprice()}">Tổng tiền VND</div>
+                        <div class="lht-price-detail" id="huy" th:text="${cxn.getTotalprice()}+' VND'"></div>
                         <div class="type_room">
                           <div>
-                            <p>Mã đặt phòng</p>
-                            <p th:text="${cxn.getIdbooking()}" style="font-weight: bold">abcxyz</p>
+                            <p>Thời gian đặt</p>
+                            <p th:text="${cxn.datebooking}" style="font-weight: bold">abcxyz</p>
                           </div>
                         </div>
                       </div>
@@ -218,7 +218,7 @@
                     </div>
                     <div class="lht-price">
                       <div id="status_room" value-status-room="${ele.status}">
-                        <div class="lht-price-detail" id="huy" th:text="${dxn.getTotalprice()}">Tổng tiền VND</div>
+                        <div class="lht-price-detail" id="huy" th:text="${dxn.getTotalprice()}+' VND'">Tổng tiền VND</div>
                         <div class="type_room">
                           <div>
                             <p>Mã đặt phòng</p>
@@ -273,7 +273,7 @@
                     </div>
                     <div class="lht-price">
                       <div id="status_room" value-status-room="${ele.status}">
-                        <div class="lht-price-detail" id="huy" th:text="${tc.getTotalprice()}">Tổng tiền VND</div>
+                        <div class="lht-price-detail" id="huy" th:text="${tc.getTotalprice()}+' VND'">Tổng tiền VND</div>
                         <div class="type_room">
                           <div>
                             <p>Mã đặt phòng</p>
@@ -325,7 +325,7 @@
                     </div>
                     <div class="lht-price">
                       <div id="status_room" value-status-room="${ele.status}">
-                        <div class="lht-price-detail" id="huy" th:text="${huy.getTotalprice()}">Tổng tiền VND</div>
+                        <div class="lht-price-detail" id="huy" th:text="${huy.getTotalprice()}+' VND'"></div>
                         <div class="type_room">
                           <div>
                             <p>Mã đặt phòng</p>
@@ -472,20 +472,15 @@
 
   let rating = document.querySelectorAll(".rating input")
 
-  let startemp = 5
-  function rsstar()
-  {
-    rating.forEach(ele=>{
-      ele.onclick = function(e){
-        startemp = ele.value
-      }
-    })
-    return startemp;
-  }
-
   $('#sendfeedback').click(function ()
   {
-    data["star"] = rsstar()
+    let startemp = 5
+    rating.forEach(ele=>{
+      ele.onclick = function(e){
+         startemp = ele.value
+      }
+    })
+    data["star"] = startemp
     data["contentfeedback"] = $('#message-text').val()
       $.ajax({
         type: "POST",
@@ -502,15 +497,15 @@
             title: 'Cảm ơn quý khách đã đánh giá khách sạn của chúng tôi!',
             showConfirmButton: false,
             timer: 2000
-          })
+          }) &&
           $('#exampleModal').modal('hide')
         },
         error: function (e) {
-
         }
       });
   })
 </script>
+<script src="/js/jscenter.js"></script>
 </body>
 
 </html>

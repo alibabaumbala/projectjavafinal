@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 
@@ -24,7 +26,7 @@ public class Users {
     @Column(name = "password", nullable = false, length = 255)
     private String password;
     @Basic
-    @Column(name = "avatar", nullable = true, length = 255)
+    @Column(name = "avatar", nullable = true, length = 1000)
     private String avatar;
     @Basic
     @Column(name = "role", nullable = true, length = 255)
@@ -33,7 +35,7 @@ public class Users {
     @Column(name = "gender", nullable = true, length = 10)
     private String gender;
     @Basic
-    @Column(name = "phone", nullable = true, length = 10)
+    @Column(name = "phone", nullable = false, length = 10)
     private String phone;
     @Basic
     @Column(name = "point", nullable = true)
@@ -129,4 +131,14 @@ public class Users {
     public void setCreactAccount(Timestamp creactAccount) {
         this.creactAccount = creactAccount;
     }
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
+
+    @Transient
+    private MultipartFile file;
 }

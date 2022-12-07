@@ -54,13 +54,16 @@ public class UserService
     public int addUser(Users u)
     {
         try {
-            PreparedStatement pr = conn.prepareStatement("insert into users(iduser,ho,ten,email,password) values (?,?,?,?,?)");
+            PreparedStatement pr = conn.prepareStatement("insert into users(iduser,ho,ten,email,phone,password,avatar,gender) values (?,?,?,?,?,?,?,?)");
             String id = randomID();
             pr.setNString(1,id);
             pr.setNString(2,u.getHo());
             pr.setNString(3,u.getTen());
             pr.setNString(4,u.getEmail());
-            pr.setNString(5,u.getPassword());
+            pr.setNString(5,u.getPhone());
+            pr.setNString(6,u.getPassword());
+            pr.setNString(7,u.getAvatar());
+            pr.setNString(8,u.getGender());
             return pr.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -93,9 +96,8 @@ public class UserService
         {
             return true;
         }
-        else if(getUserByEmail(email)==null)
+        else
             return false;
-        return false;
     }
 
     public Users getUserByID(String id)

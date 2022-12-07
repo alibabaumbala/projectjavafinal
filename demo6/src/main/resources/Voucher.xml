@@ -11,6 +11,9 @@
             <basic name="discount">
                 <column name="discount"/>
             </basic>
+            <basic name="soluong">
+                <column name="soluong" precision="255"/>
+            </basic>
         </attributes>
     </entity>
 </entity-mappings>

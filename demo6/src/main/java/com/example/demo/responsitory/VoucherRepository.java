@@ -11,4 +11,6 @@ public interface VoucherRepository extends JpaRepository<Voucher,String>
     @Query("select s.discount from Voucher s where s.idvoucher=?1")
     String getDiscountByIdv(String idvoucher);
 
+//    @Query("select s from Voucher s where s.")
+
 }

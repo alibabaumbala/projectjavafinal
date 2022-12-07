@@ -1,0 +1,25 @@
+html {
+    scroll-behavior: smooth;
+}
+
+#form-register {
+    background-color: white;
+    border: 1px solid black;
+    padding: 15px;
+    border-radius: 8px;
+    color: black;
+}
+
+.register {
+    background-color: #a41d21;
+    color: white;
+}
+
+hr {
+    background-color: white;
+}
+
+.form-row button {
+    height: 50%;
+    margin-top: 10px;
+}

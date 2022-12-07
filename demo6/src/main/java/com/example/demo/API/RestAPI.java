@@ -28,14 +28,16 @@ public class RestAPI
     @Autowired
     VoucherService voucherService;
 
+
     API api = new API();
 
+    String uriAPI = "http://localhost:3001/api/listhotel";
    public String restAPIString(int index,String location, String idHotel,String key) throws JSONException
    { //không tìm được list-room
 
        int indexHotel = findIndexKey(0,location,"id",idHotel);
        LinkedHashMap<String, ArrayList> listhashmap = new LinkedHashMap<>();
-       listhashmap = (LinkedHashMap<String, ArrayList>) api.webclient().get(index); //lấy ở trường nào?
+       listhashmap = (LinkedHashMap<String, ArrayList>) api.webclient(uriAPI).get(index); //lấy ở trường nào?
 
        JSONObject object = new JSONObject(listhashmap);
        JSONArray jArray = object.getJSONArray(location); //tỉnh thành muốn lấy
@@ -48,7 +50,7 @@ public class RestAPI
     {
         ArrayList<String> listIndexHotel = new ArrayList<>();
         LinkedHashMap<String, ArrayList> listhashmap = new LinkedHashMap<>();
-        listhashmap = (LinkedHashMap<String, ArrayList>) api.webclient().get(index); //ấy ở trường nào
+        listhashmap = (LinkedHashMap<String, ArrayList>) api.webclient(uriAPI).get(index); //ấy ở trường nào
         JSONObject object = new JSONObject(listhashmap);
 
 

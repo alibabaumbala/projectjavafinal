@@ -14,13 +14,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-@Service
+
 @Configurable
-public class API {
-    @Bean
-    public List<Object> webclient()
+@Service
+public class API{
+//    @Bean
+    public List<Object> webclient(String uri)
     {
-        String uri = "http://localhost:3000/listhotel";
         RestTemplate restTemplate = new RestTemplate();
         Object[] result = restTemplate.getForObject(uri,Object[].class);
         return Arrays.asList(result);

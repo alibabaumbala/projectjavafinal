@@ -1,13 +1,19 @@
 package com.example.demo.controllers.api;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.example.demo.Request.BookingRequest;
+import com.example.demo.cloudinary.CloudinaryConfig;
 import com.example.demo.model.Bookinghotel;
+import com.example.demo.model.Employee;
 import com.example.demo.model.Feedback;
 import com.example.demo.model.Users;
 import com.example.demo.responsitory.BookingRepository;
+import com.example.demo.responsitory.EmployeeRepository;
 import com.example.demo.responsitory.FeedBackRepository;
 import com.example.demo.responsitory.UserRepository;
 import com.example.demo.services.BookingService;
+import com.example.demo.services.EmployeeService;
 import com.example.demo.services.FeedBackService;
 import com.example.demo.services.UserService;
 import org.apache.coyote.Request;
@@ -18,6 +24,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -41,6 +48,17 @@ public class APIController {
     @Autowired
     FeedBackService feedBackService;
 
+    @Autowired
+    EmployeeRepository employeeRepository;
+
+    @Autowired
+    EmployeeService employeeService;
+
+    @Autowired
+    CloudinaryConfig cloudinaryConfig;
+
+    @Autowired
+    Cloudinary cloudinary;
 
     @GetMapping("/data/api/security/userlist")
     public List<String> getListUserAPI()
@@ -77,54 +95,14 @@ public class APIController {
         return saltStr;
     }
 
-//    @PostMapping(value = {"data/api/bookinglist"})
-//    public Bookinghotel newBooking(@RequestBody BookingRequest bookinghotel)
-//    {
-//        String uuid = UUID.randomUUID().toString();
-//        String uid = randomIdBooking();
-//
-//        String iduser = bookinghotel.iduser();
-//        String idhotel = bookinghotel.idhotel();
-//        String idroom = bookinghotel.idroom();
-//        String location = bookinghotel.location();
-//        String checkin = bookinghotel.checkin();
-//        String checkout = bookinghotel.checkout();
-//        int adult = bookinghotel.adult();
-//        int child = bookinghotel.child();
-//        String totalprice = bookinghotel.totalprice();
-//        String representative = bookinghotel.representative();
-//        String phonecontact = bookinghotel.phonecontact();
-//        String emailcontact = bookinghotel.emailcontact();
-//
-//        Bookinghotel u  = new Bookinghotel();
-//        u.setIdbooking(uid);
-//        u.setIduser(iduser);
-//        u.setIdhotel(idhotel);
-//        u.setLocation(location);
-//        u.setIdroom(idroom);
-//        u.setCheckin(checkin);
-//        u.setCheckout(checkout);
-//        u.setAdult(adult);
-//        u.setChild(child);
-//        u.setTotalprice(totalprice);
-//        u.setRepresentative(representative);
-//        u.setPhonecontact(phonecontact);
-//        u.setEmailcontact(emailcontact);
-//
-//        bookingService.addBooking(u);
-//        books.put(uuid,u);
-//
-//        return u;
-//    }
-
     @GetMapping(value = {"api/api/booking"})
     public ResponseEntity<Iterable<Bookinghotel>> findAllBooking()
     {
         return new ResponseEntity<>(bookingRepository.findAll(), HttpStatus.OK);
     }
 
-    @PostMapping(value = {"api/api/booking"})
-    public ResponseEntity add(@RequestBody Bookinghotel bookinghotel)
+    @PostMapping(value = {"api/api/booking/add"})
+    public ResponseEntity add(@RequestBody Bookinghotel bookinghotel,@RequestParam Map<String,String> requestParam)
     {
         bookingService.addBooking(bookinghotel);
         return new ResponseEntity<>(HttpStatus.OK);
@@ -141,6 +119,51 @@ public class APIController {
     {
         feedBackService.saveFeedback(feedback);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    //LẤY DANH SÁCH FEEDBACK
+    @GetMapping("api/listfeedback")
+    public ResponseEntity listFeedbackAll(@RequestParam Map<String,String> requestParam)
+    {
+        String idhotel = requestParam.get("idhotel");
+        int star = Integer.parseInt(requestParam.get("star"));
+
+        if(star==0)
+        {
+            return new ResponseEntity(feedBackRepository.listFeedbackByIdHotel(idhotel),HttpStatus.OK);
+        }
+        else
+            return new ResponseEntity(feedBackRepository.listFeedbackByStar(idhotel,star),HttpStatus.OK);
+    }
+
+    //XÓA NHÂN VIÊN
+    @DeleteMapping("admin/quanly/employee/delete/{idemp}")
+    public ResponseEntity Delete(@PathVariable String idemp)
+    {
+        employeeRepository.deleteEmployeeByID(idemp);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    //SỬA THÔNG TIN NHÂN VIÊN
+    @GetMapping( "admin/quanly/employee/edit/{idemp}")
+    public Employee getInfoEmp(@PathVariable String idemp)
+    {
+        return employeeRepository.getEmployeeByID(idemp);
+    }
+
+    //UPDATE THÔNG TIN NHÂN VIÊN
+    @RequestMapping(value="admin/quanly/employee/edit/success",method = RequestMethod.POST)
+    public Employee editInfoEmp(@RequestParam Map<String,String> requestParam)
+    {
+        String idemp = requestParam.get("idemp");
+        String tenemp = requestParam.get("tenemp");
+        String email = requestParam.get("emailemp");
+        String position = requestParam.get("positionemp");
+        String sdtemp = requestParam.get("sdtemp");
+        String genderemp = requestParam.get("genderemp");
+
+        employeeRepository.updateEmployee(tenemp,email,sdtemp,position,genderemp,idemp);
+        return employeeRepository.getEmployeeByID(idemp);
     }
 
 }

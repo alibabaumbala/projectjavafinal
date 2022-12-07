@@ -12,7 +12,7 @@
     line-height: 0;
 	display: inline-block;
 	margin: 5px;
-	border-radius: 50%;	
+	border-radius: 100%;
 	transition: linear 0.25s;
     /* height: 128px;
     width: 128px; */
@@ -23,6 +23,7 @@
 	border-radius: 50%;	
     height: 128px;
     width: 128px;
+    object-fit: cover;
 }
 .name_id p{
     text-align: center;

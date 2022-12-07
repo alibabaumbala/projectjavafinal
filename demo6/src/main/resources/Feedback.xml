@@ -27,7 +27,7 @@
                 <column name="star" precision="10"/>
             </basic>
             <basic name="contentfeedback">
-                <column name="contentfeedback" nullable="false"/>
+                <column name="contentfeedback" nullable="false" length="1000"/>
             </basic>
             <basic name="datefeedback">
                 <column name="datefeedback" precision="-1"/>

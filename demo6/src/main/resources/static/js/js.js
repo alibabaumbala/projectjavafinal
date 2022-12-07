@@ -38,13 +38,15 @@ $('a[data-slide]').click(function(e) {
 
 window.onload = function()
 {
-    var hotelAPI = "http://localhost:3000/listhotel"
+    var hotelAPI = "http://localhost:3001/api/listhotel"
 
+    //CLICK VÔ HÌNH ĐIỂM ĐẾN Ở TRNAG CHỦ
     let apiPlaceHotel = "";
     let itemPlace = document.querySelectorAll(".img-place")
     itemPlace.forEach(item=>{
         item.onclick = function(e)
         {
+            // console.log(item)
             let index = e.target.className.indexOf(' ')
             apiPlaceHotel=e.target.className.substring(0,index)
             window.location.href="/list-hotel/"+apiPlaceHotel;
@@ -76,7 +78,7 @@ window.onload = function()
             if (ele.name_hotel.toUpperCase().includes(keywordsearchbynamehotel.toUpperCase())==true)
             {
                 return `
-                        <div class="lht-item" namePlace="${ele.id}">
+                        <div class="lht-item ${ele.star}" namePlace="${ele.id}">
                             <div class="combo-title">
                                 <i class="fas fa-clock"></i>
                                 <p>${ele.intro}</p>
@@ -143,6 +145,7 @@ window.onload = function()
         })
         listHotel.innerHTML=html.join('');
 
+        //CLICK VÔ TỪNG KHÁCH SẠN MUỐN XEM
         let itemHotel = document.querySelectorAll('.lht-item')
         itemHotel.forEach(ele=>{
             ele.onclick = function(e)
@@ -151,7 +154,6 @@ window.onload = function()
                 window.location.href="/list-hotel/"+item+"/"+idHotel
             }
         })
-
         //SET PRICE
         var price = document.querySelectorAll(".lht-price-detail")
         for(let i = 0;i<price.length;i++)
@@ -160,6 +162,7 @@ window.onload = function()
             var price1 = Number(money.substring(0,money.indexOf(' ')))
             document.querySelectorAll(".lht-price-detail")[i].innerHTML = new Intl.NumberFormat({ style: 'currency', currency: 'JPY' }).format(price1)+" VND"
         }
+
 
         //CHARACTER
         let listCharacter = document.querySelectorAll('.lht-character')
@@ -213,6 +216,70 @@ window.onload = function()
         var htmlKNDL = "hotels[3].kndl_"+item
         console.log(htmlKNDL)
         kndl.innerHTML=eval(htmlKNDL);
+
+        // FILTER
+        var allCheckboxes = document.querySelectorAll('input[type=checkbox]');
+        var allhotel = Array.from(document.querySelectorAll('.lht-item'));
+        var checked = {};
+        getChecked('checkboxstar');
+        getChecked('checkboxkv');
+
+
+        Array.prototype.forEach.call(allCheckboxes, function (el) {
+            el.addEventListener('change', toggleCheckbox);
+        });
+
+        function getChecked(name) {
+            checked[name] = Array.from(document.querySelectorAll('input[name=' + name + ']:checked')).map(function (el) {
+                return el.value;
+            });
+        }
+
+
+        function setVisibility()
+        {
+            let x=0
+            allhotel.map(function (el) {
+                var checkboxstar = checked.checkboxstar.length ? _.intersection(Array.from(el.classList), checked.checkboxstar).length : true;
+                var checkboxkv = checked.checkboxkv.length ? _.intersection(Array.from(el.classList), checked.checkboxkv).length : true;
+                // var position = checked.position.length ? _.intersection(Array.from(el.classList), checked.position).length : true;
+                // var nbaTeam = checked.nbaTeam.length ? _.intersection(Array.from(el.classList), checked.nbaTeam).length : true;
+                // var conference = checked.conference.length ? _.intersection(Array.from(el.classList), checked.conference).length : true;
+                if (checkboxstar && checkboxkv) {
+                    el.style.display = 'block';
+                    x++
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+            return x;
+        }
+
+
+
+        function toggleCheckbox(e) {
+            getChecked(e.target.name);
+            setVisibility();
+        }
+
+        // PHÂN TRANG
+        var items = $(".list-hotel .lht-item");
+        let numItems = items.length
+        var perPage = 8;
+
+        items.slice(perPage).hide();
+        console.log($('#pagination-container'));
+        $('#pagination-container').pagination({
+            items: numItems,
+            itemsOnPage: perPage,
+            prevText: "&laquo;",
+            nextText: "&raquo;",
+            onPageClick: function (pageNumber) {
+                var showFrom = perPage * (pageNumber - 1);
+                var showTo = showFrom + perPage;
+                items.hide().slice(showFrom, showTo).show();
+            }
+        });
     }
 
 
@@ -272,7 +339,7 @@ window.onload = function()
                       <p>/đêm</p>
                   </div>
                   <div style="clear: both;display: flex;justify-content: space-between;font-size: 20px !important;">
-                      <button type="button" style="background-color: white;color: black;font-size: 20px;border-bottom: 1px solid blue;padding: 0px" data-toggle="modal" data-target="#myModal">Xem phòng</button>
+                      <button type="button" style="background-color: white;color: black;font-size: 20px;border-bottom: 1px solid blue;padding: 0px" data-toggle="modal" data-target="#myModal" data-whatever="${ele.nameroom}">Xem phòng</button>
                       <a  class="btn-search-click btn-search-click-listhotel chonphong" value = ${ele.idroom} style="width:fit-content;padding: 6px;font-size: 20px">Chọn phòng</a>
                   </div>
               </div>
@@ -315,6 +382,18 @@ window.onload = function()
                     `
         introHotel.innerHTML = htmlIntro
         document.querySelector('.introaftermap').innerText = "Trải nghiệm phải thử ở " + document.querySelector('.lht-name').innerText;
+
+
+        //XỬ LÝ MODAL XEM PHÒNG
+        $('#myModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text(recipient)
+            // modal.find('.modal-body input').val(recipient)
+        })
     }
 
 }

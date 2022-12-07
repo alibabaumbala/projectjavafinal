@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="/css/index.css">
   <link rel="stylesheet" href="/css/listhotel.css">
   <link rel="stylesheet" href="/css/detail.css">
+  <link rel="stylesheet" href="/css/paginate.css">
+
 
   <!-- icon -->
   <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
@@ -23,8 +25,11 @@
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
+  <!-- PAGINATION -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
   <!-- RESPONSIVE -->
-  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="/css/responsive.css">
   <!-- FONT HELGA -->
   <style>
     @font-face {
@@ -82,6 +87,9 @@
             <div>
               <img src="https://cdn1.ivivu.com/iVivu/2019/03/22/10/khach-san-vinoasis-phu-quoc-14-800x450.jpg" alt="">
             </div>
+            <div>
+              <img src="https://res.cloudinary.com/dnqk5fjla/image/upload/v1668002213/cld-sample-4.jpg" alt="">
+            </div>
           </div>
           <div class="slider slider-nav" style="margin-top: 10px">
             <div>
@@ -101,6 +109,9 @@
             </div>
             <div>
               <img class="img-click" src="https://cdn1.ivivu.com/iVivu/2019/03/22/10/khach-san-vinoasis-phu-quoc-14-800x450.jpg" alt="">
+            </div>
+            <div>
+              <img src="https://res.cloudinary.com/dnqk5fjla/image/upload/v1668002213/cld-sample-4.jpg" alt="">
             </div>
           </div>
         </div>
@@ -151,7 +162,7 @@
           <div class="fb_main fb_main_content">
 
           </div>
-
+          <div id="pagination-container"></div>
         </div>
       </div>
     </div>
@@ -199,7 +210,7 @@
               </div>
             </div>
             <div class="col-md-6">
-              <h3 style="font-size: 2.75rem;font-weight:bold">Phòng tiêu chuẩn 2 giường đơn</h3>
+              <h3 style="font-size: 2.75rem;font-weight:bold" class="modal-title" id="exampleModalLabel">Phòng tiêu chuẩn 2 giường đơn</h3>
               <p style="font-size: 16px;color: rgba(0,0,0,.65);text-align:justify">Phòng Tiêu chuẩn 2 Giường đơn với diện tích 25.2 - 28.5m2 được thiết kế hiện đại, tích hợp đầy đủ tiện nghi cho kỳ lưu trú của bạn. Phòng có hai giường ngủ riêng biệt, ấm áp, là lựa chọn lý tưởng dành cho các nhóm bạn, gia đình nhỏ hay du khách đi công tác.</p>
             </div>
           </div>
@@ -264,20 +275,35 @@
   var listfeedback = /*[[${@feedBackService.listFeedBackByIDHotel(idhotel)}]]*/ "listfeedback";
   var hashmap = /*[[${@feedBackService.iduser_name(idhotel)}]]*/ "hashmap";
   var hashmapimg = /*[[${@feedBackService.iduser_img(idhotel)}]]*/ "hashmapimg";
+  var idhotel = /*[[${idhotel}]]*/ "idhotel";
   /*]]>*/
+
+  let LISTFB = ()=>{
+
+  }
 
 
   let divfeedback = document.querySelector('.fb_main_content')
   let filterstar = document.querySelectorAll('.filterstar')
   filterstar.forEach(ele=>{
-    ele.onclick = function(e)
-    {
+    ele.onclick = function(e) {
       $('[title=selected]').removeAttr("title");
+      //tô màu ô sao được chọn
       $(this).attr("title", "selected");
-      let htmlfeedback = listfeedback.map(item=>{
-        if(item.star==ele.value)
-        {
-          return`
+      $.ajax({
+        type: "GET",
+        url: 'http://localhost:8080/api/listfeedback',
+        data: {
+          idhotel:idhotel,
+          star:ele.value
+        },
+        success: function(res) {
+          console.log(res)
+
+          // $(this).attr("title", "selected");
+
+          let htmlfeedback =  res.map(item=>{
+            return`
             <div class="fb-main-main">
                 <div class="fb_img_name fb_item">
               <div class="fb_img">
@@ -289,68 +315,59 @@
             <div class="fb_vote fb_item">
               <div>
                 ${
-                  item.star==5?'<i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i>'
-                          :item.star==4?'<i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i>'
-                                  :item.star==3?'<i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i>'
-                                          :item.star==2?'<i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i>'
-                                                  :item.star==1?'<i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i>'
-                                                          :''
-          }
+                    item.star==5?'<i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i>'
+                            :item.star==4?'<i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i>'
+                                    :item.star==3?'<i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i>'
+                                            :item.star==2?'<i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i>'
+                                                    :item.star==1?'<i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i>'
+                                                            :''
+            }
               </div>
               <div style="margin-left: 4px">
                 <p style="margin: 0px;font-size: 14px;">${item.star==5?'Thật tuyệt vời':item.star==4?'Tốt'
-                  :item.star==3?'Khá tốt':item.star==2?'Tệ':'Rất tệ'}</p>
+                    :item.star==3?'Khá tốt':item.star==2?'Tệ':'Rất tệ'}</p>
               </div>
             </div>
             <div class="fb_item" style="font-size: 12px;color: rgba(0,0,0,.54);">${item.datefeedback}</div>
-            <div style="font-size: 16px">${item.contentfeedback}</div>
-            </div>
-          `
+            <div style="font-size: 16px;text-align: justify !important">${item.contentfeedback}</div>
+            </div>`
+          })
+
+          divfeedback.innerHTML = htmlfeedback.join('')
+          var items = $(".fb_main_content .fb-main-main");
+          let numItems = items.length
+          var perPage =4;
+          items.slice(perPage).hide();
+          console.log($('#pagination-container'));
+          $('#pagination-container').pagination({
+            items: numItems,
+            itemsOnPage: perPage,
+            prevText: "&laquo;",
+            nextText: "&raquo;",
+            onPageClick: function (pageNumber) {
+              var showFrom = perPage * (pageNumber - 1);
+              var showTo = showFrom + perPage;
+              items.hide().slice(showFrom, showTo).show();
+            }
+          });
+        },
+        error: function(err) {
+          console.log('The following error occured: ' + err);
         }
-        if(ele.value==0)
-        {
-          return`
-            <div class="fb-main-main">
-                <div class="fb_img_name fb_item">
-              <div class="fb_img">
-                <img style="clip-path: circle()" src="${Object.hasOwn(hashmapimg,item.iduser)==true?hashmapimg[item.iduser]:''}" alt="">
-              </div>
-              <div class="fb_name" value="${item.iduser}">${Object.hasOwn(hashmap,item.iduser)==true?hashmap[item.iduser]:''}</div>
-            </div>
-            <!--RATE-->
-            <div class="fb_vote fb_item">
-              <div>
-                ${
-                  item.star==5?'<i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i>'
-                          :item.star==4?'<i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i>'
-                                  :item.star==3?'<i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i>'
-                                          :item.star==2?'<i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i><i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i>'
-                                                  :item.star==1?'<i class="fa fa-star" style="color: #ff9c00;font-size: 16px;"></i>'
-                                                          :''
-          }
-              </div>
-              <div style="margin-left: 4px">
-                <p style="margin: 0px;font-size: 14px;">${item.star==5?'Thật tuyệt vời':item.star==4?'Tốt'
-                  :item.star==3?'Khá tốt':item.star==2?'Tệ':'Rất tệ'}</p>
-              </div>
-            </div>
-            <div class="fb_item" style="font-size: 12px;color: rgba(0,0,0,.54);">${item.datefeedback}</div>
-            <div style="font-size: 16px">${item.contentfeedback}</div>
-            </div>
-          `
-        }
+
       })
-      divfeedback.innerHTML = htmlfeedback.join('')
+
+
     }
   })
   $(document).ready(function(){
     $("#allfeedback").click();
   });
 
-
 </script>
 
 </body>
 <script src="/js/js.js"></script>
-
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js'></script>
 </html>

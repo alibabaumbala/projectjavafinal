@@ -42,7 +42,7 @@
       <div class="slide-profile">
         <div class="slide-profile-main">
           <div class="ava-box">
-            <img class="ava-box-img" style="clip-path: circle()" th:src="${user.avatar}" alt="">
+            <img class="ava-box-img" style="clip-path: circle();object-fit: cover" th:src="${user.avatar}" alt="">
           </div>
           <div class="name_id">
             <p class="name-profile" style="text-transform: uppercase" th:text="${user.getHo()} + ' ' + ${user.getTen()}"></p>
@@ -52,7 +52,7 @@
         <div class="slide-profile-main tichluy_diem">
           <div class="tichluy col-6">
             <P class="tichluy_diem_main">Giá trị tích lũy
-              <b>0 đ</b><br>
+              <b th:text="${sumMoney}+' vnđ'"></b><br>
               <a href="">Lịch sử</a>
             </p>
           </div>
@@ -130,45 +130,65 @@
         <!-- THÔNG TIN CÁ NHÂN -->
         <div class="form-group thongtinthe mt-5">
           <label for="" style="font-weight:bold">Thông tin liên hệ</label>
-          <form th:object="${user}">
+          <form th:object="${user}" method="post" th:action="@{/user/profile}">
             <div>
               <div class="row">
                 <div class="col-12 col-md-6">
                   <div class="form-group">
                     <label for="">Họ</label>
-                    <input type="text" class="form-control thongtincanhanh-input" id="" aria-describedby="" placeholder="" th:value="${user.ho}" th:field="*{ho}">
+                    <input type="text" class="form-control thongtincanhanh-input" id="ho" name="ho" aria-describedby="" placeholder="" th:field="*{ho}" pattern="[a-z\sA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]{1,255}" required>
                   </div>
                 </div>
                 <div class="col-12 col-md-6">
                   <div class="form-group">
                     <label for="">Tên đệm và tên</label>
-                    <input type="text" class="form-control thongtincanhanh-input" id="" aria-describedby="" placeholder="" th:value="${user.ten}">
+                    <input type="text" class="form-control thongtincanhanh-input" id="ten" name="ten" aria-describedby="" placeholder="" th:field="*{ten}" required pattern="[a-z\sA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]{1,255}">
                   </div>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="">Giới tính</label>
-                <div>
-                  <input type="radio" name="gender" id="" value="male">Nam
-                  <input type="radio" name="gender" id="" value="female" style="margin-left: 10px">Nữ
+              <div class="col-12 col-md-6">
+                <div class="form-group">
+                  <label for="">Giới tính</label>
+                  <div>
+                    <input type="radio" name="gender" id="" value="Male" th:field="*{gender}">Nam
+                    <input type="radio" name="gender" id="" value="Female" th:field="*{gender}">Nữ
+                  </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-12 col-md-6">
                   <div class="form-group">
                     <label for="">Email</label>
-                    <input type="Email" class="form-control thongtincanhanh-input" id="" aria-describedby="" placeholder="" th:value="${user.email}" disabled>
+                    <input type="Email" class="form-control thongtincanhanh-input" id="" aria-describedby="" placeholder="" name="email" th:value="${user.email}" th:field="*{email}" disabled>
                   </div>
                 </div>
                 <div class="col-12 col-md-6">
                   <div class="form-group">
                     <label for="">Điện thoại</label>
-                    <input type="text" class="form-control thongtincanhanh-input" id="" aria-describedby="" placeholder="" th:value="${user.phone}">
+                    <input type="text" class="form-control thongtincanhanh-input" id="" aria-describedby="" placeholder="" name="phone" th:field="*{phone}" pattern="[0]{1}[0-9]{3}[0-9]{3}[0-9]{3}">
                   </div>
                 </div>
               </div>
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label for="">Mật khẩu hện tại <b style="color: #a50000" id="dmk">Đổi mật khẩu</b></label>
+                    <input type="password" class="form-control thongtincanhanh-input" id="password" name="password" aria-describedby="" placeholder="" disabled th:field="*{password}" pattern=".{6,}">
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label for="">Xác nhận mật khẩu</label>
+                    <input type="password" class="form-control thongtincanhanh-input" id="confirm_password" name="repassword" aria-describedby=""  placeholder="" disabled pattern=".{6,}">
+                  </div>
+                </div>
+              </div>
+              <b id="message" style="font-size: 16px"></b>
               <div class="btn-search" style="width: fit-content;margin:0 auto;margin-top: 10px;">
-                <button type="submit" class="btn-search-click btn-search-click-listhotel" style="padding: 20px 40px">Lưu</button>
+                <b style="color: green" th:text="${updatetxt}"></b>
+                <div class="btn-search" style="width: fit-content;margin:0 auto;margin-top: 10px;">
+                  <button id="luu" type="submit" class="btn-search-click" style="padding: 20px 20px;background-color: #a50000" >Lưu</button>
+                </div>
               </div>
             </div>
           </form>
@@ -244,6 +264,26 @@
   </div>
 </footer>
 <script src="/js/js.js"></script>
+<script>
+  $("#dmk").click(function ()
+  {
+    $("#dmk").css("color","green");
+    $("#password").prop('disabled', false);
+    $("#confirm_password").focus()
+    $("#confirm_password").prop('disabled', false);
+    $("#luu").prop('disabled', true)
+    $("#luu").css("background-color","grey");
+  })
 
+  $('#password, #confirm_password').on('keyup', function () {
+    if ($('#password').val() == $('#confirm_password').val())
+    {
+      $("#luu").prop('disabled', false);
+      $("#luu").css("background-color","#a50000");
+      $('#message').html('Hợp lệ').css('color', 'green');
+    } else
+      $('#message').html('Không hợp lệ').css('color', 'red');
+  });
+</script>
 </body>
 </html>

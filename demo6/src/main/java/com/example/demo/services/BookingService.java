@@ -23,7 +23,7 @@ public class BookingService {
 
     public String randomIdBooking()
     {
-        String SALTCHARS = "0123456789012304785412478213985479341230";
+        String SALTCHARS = "0123456789012304785412478213987589658245212369528453205479341230";
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
         while (salt.length() < 8) { // length of the random string.
@@ -36,7 +36,7 @@ public class BookingService {
     public int addBooking(Bookinghotel u)
     {
         try {
-            PreparedStatement pr = conn.prepareStatement("insert into bookinghotel(iduser,idbooking,location,idhotel,idroom,checkin,checkout,adult,child,sophong,totalprice,representative,phonecontact,emailcontact) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement pr = conn.prepareStatement("insert into bookinghotel(iduser,idbooking,location,idhotel,idroom,checkin,checkout,adult,child,sophong,totalprice,statusbooking,representative,phonecontact,emailcontact,review) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             String id = randomIdBooking();
             pr.setNString(1,u.getIduser());
             pr.setNString(2,id);
@@ -49,9 +49,11 @@ public class BookingService {
             pr.setInt(9,u.getChild());
             pr.setInt(10,u.getSophong());
             pr.setString(11,u.getTotalprice());
-            pr.setString(12,u.getRepresentative());
-            pr.setString(13,u.getPhonecontact());
-            pr.setString(14,u.getEmailcontact());
+            pr.setNString(12,"Chờ xác nhận");
+            pr.setString(13,u.getRepresentative());
+            pr.setString(14,u.getPhonecontact());
+            pr.setString(15,u.getEmailcontact());
+            pr.setInt(16,0);
 
             return pr.executeUpdate();
         } catch (SQLException e) {
