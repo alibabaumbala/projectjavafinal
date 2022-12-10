@@ -7,6 +7,7 @@ import com.example.demo.cloudinary.CloudinaryConfig;
 import com.example.demo.model.Employee;
 import com.example.demo.model.Users;
 import com.example.demo.responsitory.EmployeeRepository;
+import com.example.demo.responsitory.ServiceRepository;
 import com.example.demo.responsitory.VoucherRepository;
 import com.example.demo.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,9 @@ public class ManagerController {
     @Autowired
     VoucherRepository voucherRepository;
 
+    @Autowired
+    ServiceRepository serviceRepository;
+
 
     @GetMapping("")
     public String QuanlyHome(Model model)
@@ -49,6 +53,7 @@ public class ManagerController {
         if (session.getAttribute("roleEmp").equals("Quản lý")) {
             String id = (String) session.getAttribute("idEmp");
             model.addAttribute("employee", employeeRepository.getEmployeeByID(id));  //lấy ra thong tin quanly
+            model.addAttribute("service",serviceRepository.findAll());
             return "/admin/ql-home";
         } else
             return "redirect:/admin";
@@ -117,6 +122,7 @@ public class ManagerController {
             return "redirect:/admin";
     }
 
+    //QUẢN LÝ BOOKING
     @GetMapping("quanly-booking")
     public String QuanLyBooking(Model model)
     {
@@ -125,8 +131,10 @@ public class ManagerController {
             String id = (String) session.getAttribute("idEmp");
             model.addAttribute("employee", employeeRepository.getEmployeeByID(id));
             model.addAttribute("dsvoucher",voucherRepository.findAll());
-            return "/admin/ql-room";
+            return "/admin/ql-booking";
         } else
             return "redirect:/admin";
     }
+
+
 }

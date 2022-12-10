@@ -1,16 +1,17 @@
-
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Responsiive Admin Dashboard | CodingLab </title>
+    <link rel="stylesheet" href="/assets_admin/style.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staff Management</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="/cssql/styleql.css">
 
-    <!--BOOTSTRAP-->
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -22,73 +23,69 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-
-    <style>
-        .menu-item-employee{
-            background-color: var(--orange) !important;
-            color: white !important;
-        }
-        .menu-item-employee a i, .menu-item-employee a{
-            color: white !important;
-        }
-    </style>
 </head>
 <body>
-<div class="containerdiv">
-    <div  th:replace="~{admin/menu-admin.html}"></div>
-    <div class="content">
-        <div class="title_bar">
-            <p class="left_title" th:text="${@employeeRepository.findAll().size()+' Empoloyees'}">100 Employees</p>
-            <div class="search-bar">
-                <form action="#" method="POST" class="search-form">
-                    <input type="text" name="search" placeholder="Search" id="search_field">
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
-            </div>
-            <button class="right_btn" data-toggle="modal" data-target="#exampleModal">+ Thêm nhân viên mới</button>
+<div th:replace="~{/admin/sidebar.html}"></div>
+<section class="home-section">
+    <nav>
+        <div class="sidebar-button">
+            <i class='bx bx-menu sidebarBtn'></i>
+            <span class="dashboard">Dashboard</span>
         </div>
-        <div class="emp_lst_container">
-            <div class="emp_card" th:each="nv:${dsnv}" th:id="row_+${nv.idemp}" id="listnv">
-                <div class="emp_card_header">
-                    <div class="emp_id"><b th:text="${nv.idemp}">ID:</b></div>
-                    <div class="emp_status active">Active</div>
-                </div>
-                <div class="emp_card_middle">
-                    <img class="emp_img" th:src="${nv.avatar}" alt="">
-                    <div style="font-weight: bold;margin-top: 10px" class="emp_name" th:class="row-tenemp-+${nv.idemp}" th:attr="mnv=${nv.idemp}" th:id="namenv_+${nv.idemp}" th:text="${nv.tenemp}">Nguyen Truong Thinh</div>
-                    <div class="emp_job" th:class="row-positionemp-+${nv.idemp}" th:text="${nv.positionemp}">Receptionist</div>
-                </div>
-                <div class="emp_card_footer">
-                    <div class="emp_basic_info">
-                        <div class="emp_info_col">
-                            <p class="info_title">Giới tính</p>
-                            <p class="info_content" th:class="row-genderemp-+${nv.idemp}" th:text="${nv.genderemp}">Receptionist</p>
-                        </div>
-                        <div class="emp_info_col">
-                            <p class="info_title">Ngày vào làm</p>
-                            <p class="info_content" th:text="${nv.createemp}">10/10/2021</p>
-                        </div>
-                    </div>
-                    <div class="emp_contact_info">
-                        <div class="emp_mail">
-                            <i class="fa-solid fa-envelope"></i>
-                            <th:block th:class="row-emailemp-+${nv.idemp}" th:text="${nv.emailemp}"></th:block>
-                        </div>
-                        <div class="emp_phone">
-                            <i class="fa-solid fa-phone"></i>
-                            <th:block th:text="${nv.sdtemp}" th:class="row-sdtemp-+${nv.idemp}"></th:block>
-                        </div>
-                    </div>
-                </div>
-                <div class="emp_function">
-                    <button class="emp_btn">View</button>
-                    <button class="emp_btn" data-toggle="modal" data-target="#editModal" th:attr="onclick=|handleEdit('${nv.idemp}')|">Modify</button>
-                    <button class="emp_btn" th:attr="onclick=|handleDelete('${nv.idemp}')|">Remove</button>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <i class='bx bx-search' ></i>
+        </div>
+        <div class="profile-details">
+            <img th:src="${employee.avatar}" alt="">
+            <span class="admin_name" th:text="${employee.tenemp}">Prem Shahi</span>
+            <i class='bx bx-chevron-down' ></i>
+        </div>
+    </nav>
+
+    <div class="home-content">
+        <div class="sales-boxes">
+            <div class="recent-sales box" style="width: 100% !important;">
+                <div class="title">DANH SÁCH KHÁCH HÀNG</div>
+                <button class="btn btn-primary mb-1" data-toggle="modal" data-target="#exampleModal">Thêm nhân viên</button>
+                <div class="sales-details">
+                    <table class="table table-striped" id="fid_table">
+                        <thead>
+                        <tr class="t_head">
+                            <th scope="col">Mã NV</th>
+                            <th scope="col">Họ tên</th>
+                            <th scope="col">Avatar</th>
+                            <th scope="col">Giới tính</th>
+                            <th scope="col">Số điện thoại</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Chức vụ</th>
+                            <th scope="col">Ngày vào làm</th>
+                            <th scope="col">Tác vụ</th>
+                        </tr>
+                        </thead>
+                        <tbody >
+                        <tr class="tritem" th:each="nv:${dsnv}" th:id="row_+${nv.idemp}" id="listnv">
+                            <td style="font-weight: bold" th:text="${nv.idemp}">@mdo</td>
+                            <td th:class="row-tenemp-+${nv.idemp}" th:text="${nv.tenemp}" th:attr="mnv=${nv.idemp}" th:id="namenv_+${nv.idemp}"></td>
+                            <td><img style="width: 80px;height: 80%;border-radius: 4px" th:src="${nv.avatar}"></td>
+                            <td th:class="row-genderemp-+${nv.idemp}" th:text="${nv.genderemp}">Otto</td>
+                            <td th:class="row-sdtemp-+${nv.idemp}" th:text="${nv.sdtemp}">@mdo</td>
+                            <td th:class="row-emailemp-+${nv.idemp}" th:text="${nv.emailemp}">@mdo</td>
+                            <td th:class="row-positionemp-+${nv.idemp}" th:text="${nv.positionemp}">@mdo</td>
+                            <td th:class="row-createemp-+${nv.idemp}" th:text="${nv.createemp}" id="ngayvaolam">@mdo</td>
+                            <td>
+                                <i class="uil-comment-edit" style="font-size: 20px" data-toggle="modal" data-target="#editModal" th:attr="onclick=|handleEdit('${nv.idemp}')|"></i>
+                                <i id=deletenv"" class="uil-trash-alt" style="font-size: 20px;color: red" th:attr="onclick=|handleDelete('${nv.idemp}')|" ></i>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
+
         </div>
     </div>
-</div>
+</section>
 
 <!--MODAL THÊM NHÂN VIÊN-->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -200,14 +197,7 @@
     </div>
 </div>
 
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js'></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
 <script>
-    //VALID BOOTSTRAP
     (function() {
         'use strict';
         window.addEventListener('load', function() {
@@ -237,40 +227,57 @@
             e.innerText = e.innerText.substring(0,e.innerText.indexOf(' '))
         })
     })
+    document.getElementById('item-nhanvien').classList.add("active")
+    document.getElementById('item-home').classList.remove("active")
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function() {
+        sidebar.classList.toggle("active");
+        if(sidebar.classList.contains("active")){
+            sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+        }else
+            sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+    }
 
-    // var radioButtonGroupGender = document.getElementsByName("genderemp");
-    // $('#themnv').click(function ()
-    // {
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "http://localhost:8080/admin/quanly/quanly-nhanvien/add",
-    //         data: {
-    //             tenemp:$('#tennv').val(),
-    //             sdtemp:$('#sdtnv').val(),
-    //             emailemp:$('#emailnv').val(),
-    //             genderemp:Array.from(radioButtonGroupGender).find((radio) => radio.checked).value,
-    //             positionemp:$('#vitri').val(),
-    //             passemp:$('#passnv').val(),
-    //             file:document.getElementById('file')
-    //         },
-    //         success: function (data)
-    //         {
-    //             swal({
-    //                 position: 'top-end',
-    //                 icon: 'success',
-    //                 title: 'Thêm nhân viên thành công',
-    //                 showConfirmButton: false,
-    //                 timer: 1500
-    //             }).then(()=>{
-    //                 location.reload()
-    //             })
-    //         },
-    //         error: function (e) {
-    //             console.log("err")
-    //         }
-    //     });
-    // })
 
+
+    function handleDelete(uid)
+    {
+        console.log(uid)
+        let name = $('#namenv_'+uid).text()
+        let text = "Xóa "+name +"?"
+        swal({
+            title: "Xác nhận xóa!",
+            text: text,
+            icon: "warning",
+            buttons: true,
+            dangerMode: false,
+        }).then((value) => {
+            if (value) {
+                $.ajax({
+                    type: "Delete",
+                    url: "http://localhost:8080/admin/quanly/employee/delete/"+uid,
+                    data: {idemp: uid },
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept':'application/json'
+                    },
+                    success: function (response)
+                    {
+                        swal({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Xóa thành công',
+                            showConfirmButton: false,
+                            timer: 1000
+                        }).then(()=>{
+                            $('#row_'+uid).remove()
+                        })
+                    }
+                });
+            }
+        });
+    }
 
     function handleDelete(uid)
     {
@@ -324,7 +331,6 @@
             },
             success: function (response)
             {
-
                 $('#tennvedit').val(response.tenemp)
                 $('#emailnvedit').val(response.emailemp)
                 $('#sdtnvedit').val(response.sdtemp)
@@ -382,5 +388,82 @@
     }
 
 </script>
-<script src="/jsql/jscenter.js"></script>
+<!-- apexcharts js -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script>
+
+    var options = {
+        series: [{
+            name: 'ĐẶT PHÒNG',
+            type: 'column',
+            data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30]
+        }, {
+            name: 'DỊCH VỤ',
+            type: 'area',
+            data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43]
+        }, {
+            name: 'KHÁC',
+            type: 'line',
+            data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39]
+        }],
+        chart: {
+            height: 350,
+            type: 'line',
+            stacked: false,
+        },
+        stroke: {
+            width: [0, 2, 5],
+            curve: 'smooth'
+        },
+        plotOptions: {
+            bar: {
+                columnWidth: '50%'
+            }
+        },
+
+        fill: {
+            opacity: [0.85, 0.25, 1],
+            gradient: {
+                inverseColors: false,
+                shade: 'light',
+                type: "vertical",
+                opacityFrom: 0.85,
+                opacityTo: 0.55,
+                stops: [0, 100, 100, 100]
+            }
+        },
+        labels: ['01/01/2022', '02/01/2022', '03/01/2022', '04/01/2022', '05/01/2022', '06/01/2022', '07/01/2022',
+            '08/01/2022', '09/01/2022', '10/01/2022', '11/01/2022'
+        ],
+        markers: {
+            size: 0
+        },
+        xaxis: {
+            type: 'datetime'
+        },
+        yaxis: {
+            title: {
+                text: 'Triệu(VND)',
+            },
+            min: 0
+        },
+        tooltip: {
+            shared: true,
+            intersect: false,
+            y: {
+                formatter: function (y) {
+                    if (typeof y !== "undefined") {
+                        return y.toFixed(0) + " triệu";
+                    }
+                    return y;
+
+                }
+            }
+        }
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+</script>
+</body>
 </html>

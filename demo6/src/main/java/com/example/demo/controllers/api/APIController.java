@@ -2,6 +2,7 @@ package com.example.demo.controllers.api;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.example.demo.API.RestAPI;
 import com.example.demo.Request.BookingRequest;
 import com.example.demo.cloudinary.CloudinaryConfig;
 import com.example.demo.model.Bookinghotel;
@@ -17,6 +18,7 @@ import com.example.demo.services.EmployeeService;
 import com.example.demo.services.FeedBackService;
 import com.example.demo.services.UserService;
 import org.apache.coyote.Request;
+import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +27,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.security.Key;
 import java.sql.Timestamp;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -59,6 +62,9 @@ public class APIController {
 
     @Autowired
     Cloudinary cloudinary;
+
+    @Autowired
+    RestAPI restAPI;
 
     @GetMapping("/data/api/security/userlist")
     public List<String> getListUserAPI()
@@ -166,4 +172,47 @@ public class APIController {
         return employeeRepository.getEmployeeByID(idemp);
     }
 
+    //LÂY DANH BOOKING THEO STATUS
+    @GetMapping(value = {"api/api/bookinglistbystatus"})
+    public ResponseEntity getBookingByStatus(@RequestParam Map<String,String> requestParam) throws JSONException {
+        List<Bookinghotel> bookinghotelList = bookingRepository.getBookingHotelByStatus(requestParam.get("statusbooking"));
+        for(int i = 0;i<bookinghotelList.size();i++)
+        {
+            String namehotel = restAPI.restAPIString(0,bookinghotelList.get(i).getLocation(),bookinghotelList.get(i).getIdhotel(),"name_hotel");
+            String imghotel = restAPI.restAPIString(0,bookinghotelList.get(i).getLocation(),bookinghotelList.get(i).getIdhotel(),"img_hotel");
+            String nameroom = restAPI.findInfoRoom(0,bookinghotelList.get(i).getLocation(),bookinghotelList.get(i).getIdhotel(),bookinghotelList.get(i).getIdroom(),"nameroom");
+            bookinghotelList.get(i).setIdhotel(bookinghotelList.get(i).getIdhotel()+" * "+namehotel+" * "+imghotel);
+            bookinghotelList.get(i).setIdroom(bookinghotelList.get(i).getIdroom()+" * "+nameroom);
+        }
+
+        return new ResponseEntity(bookinghotelList,HttpStatus.OK);
+    }
+
+    //XÁC NHẬN BOOKING, HỦY, TRẢ PHÒNG, NHẬN PHÒNG
+    @RequestMapping(value="api/api/bookinglistbystatus/update",method = RequestMethod.POST)
+    public Bookinghotel updateBooking(@RequestParam Map<String,String> requestParam)
+    {
+        String idbooking = requestParam.get("idbooking");;
+        String statusbooking = requestParam.get("statusbooking");
+
+        bookingRepository.setBooking(idbooking,statusbooking);
+
+        return bookingRepository.getBookinghotelByID(idbooking);
+    }
+
+    //LẤY THÔNG TIN KHÁCH HÀNG BOOKING
+    @RequestMapping(value="api/api/bookinglistbystatus/getinfo",method = RequestMethod.GET)
+    public Bookinghotel getInfoCustomerBooking(@RequestParam Map<String,String> requestParam)
+    {
+        Bookinghotel bk = bookingRepository.getBookinghotelByID(requestParam.get("idbooking"));
+        List<Bookinghotel> listBookingSuccess = bookingRepository.listHotelByStatus("Thành công",bk.getIduser());
+        //id * hoten * email * sdt * ava * soluongthanhcong
+        bk.setIduser(bk.getIduser()+" * "+userRepository.findUsersByID(bk.getIduser()).getHo()+' '+userRepository.findUsersByID(bk.getIduser()).getTen()+
+                " * "+userRepository.findUsersByID(bk.getIduser()).getEmail()+
+                " * "+userRepository.findUsersByID(bk.getIduser()).getPhone()+
+                " * "+userRepository.findUsersByID(bk.getIduser()).getAvatar()+
+                " * "+listBookingSuccess.size());
+
+        return bk;
+    }
 }

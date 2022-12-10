@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title> Trang chủ </title>
+  <link rel="stylesheet" href="/assets_admin/style.css">
+  <!-- Boxicons CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+<div th:replace="~{/admin/sidebar.html}"></div>
+<section class="home-section">
+  <nav>
+    <div class="sidebar-button">
+      <i class='bx bx-menu sidebarBtn'></i>
+      <span class="dashboard">Dashboard</span>
+    </div>
+    <div class="search-box">
+      <input type="text" placeholder="Search...">
+      <i class='bx bx-search' ></i>
+    </div>
+    <div class="profile-details">
+      <img th:src="${employee.avatar}" alt="">
+      <span class="admin_name" th:text="${employee.tenemp}">Prem Shahi</span>
+      <i class='bx bx-chevron-down' ></i>
+    </div>
+  </nav>
+
+  <div class="home-content">
+    <div class="overview-boxes">
+      <div class="box">
+        <div class="right-side">
+          <div class="box-topic">Đặt phòng</div>
+          <div class="number">40,876</div>
+          <div class="indicator">
+            <i class='bx bx-up-arrow-alt'></i>
+            <span class="text">Up from yesterday</span>
+          </div>
+        </div>
+        <i class='bx bx-cart-alt cart'></i>
+      </div>
+      <div class="box">
+        <div class="right-side">
+          <div class="box-topic">Doanh thu</div>
+          <div class="number">38,876</div>
+          <div class="indicator">
+            <i class='bx bx-up-arrow-alt'></i>
+            <span class="text">Up from yesterday</span>
+          </div>
+        </div>
+        <i class='bx bxs-cart-add cart two' ></i>
+      </div>
+      <div class="box">
+        <div class="right-side">
+          <div class="box-topic">Khách hàng mới</div>
+          <div class="number">$12,876</div>
+          <div class="indicator">
+            <i class='bx bx-up-arrow-alt'></i>
+            <span class="text">Up from yesterday</span>
+          </div>
+        </div>
+        <i class='bx bx-cart cart three' ></i>
+      </div>
+      <div class="box">
+        <div class="right-side">
+          <div class="box-topic">Hài lòng</div>
+          <div class="number">11,086</div>
+          <div class="indicator">
+            <i class='bx bx-down-arrow-alt down'></i>
+            <span class="text">Down From Today</span>
+          </div>
+        </div>
+        <i class='bx bxs-cart-download cart four' ></i>
+      </div>
+    </div>
+
+    <div class="sales-boxes">
+      <div class="recent-sales box">
+        <div class="title">THỐNG KÊ DOANH THU</div>
+        <div class="sales-details">
+          <div id="chart" style="width:100%"></div>
+        </div>
+        <div class="button">
+          <a href="#">See All</a>
+        </div>
+      </div>
+      <div class="top-sales box">
+        <div class="title">Dịch vụ bán chạy</div>
+        <ul class="top-sales-details">
+          <li th:each="service: ${service}">
+            <a href="#">
+              <img th:src="${service.imgService}" alt="">
+              <span class="product" th:text="${service.nameService}">Vuitton Sunglasses</span>
+            </a>
+            <span class="price lht-price-detail" style="font-weight: 700" th:text="${service.price}+' VND'">$1107</span>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="sales-boxes" style="margin-top: 20px">
+      <div class="recent-sales box">
+        <div class="sales-details">
+          <div id="chart3"></div>
+<!--          <div id="chart3"></div>-->
+        </div>
+
+      </div>
+      <div class="top-sales box">
+        <div class="title">Thư yêu cầu</div>
+        <ul class="top-sales-details">
+          <li>
+
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<script>
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".sidebarBtn");
+  sidebarBtn.onclick = function() {
+    sidebar.classList.toggle("active");
+    if(sidebar.classList.contains("active")){
+      sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+    }else
+      sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+  }
+</script>
+<!-- apexcharts js -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script>
+
+  var options = {
+    series: [{
+      name: 'ĐẶT PHÒNG',
+      type: 'column',
+      data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30]
+    }, {
+      name: 'DỊCH VỤ',
+      type: 'area',
+      data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43]
+    }, {
+      name: 'KHÁC',
+      type: 'line',
+      data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39]
+    }],
+    chart: {
+      height: 350,
+      type: 'line',
+      stacked: false,
+    },
+    stroke: {
+      width: [0, 2, 5],
+      curve: 'smooth'
+    },
+    plotOptions: {
+      bar: {
+        columnWidth: '50%'
+      }
+    },
+
+    fill: {
+      opacity: [0.85, 0.25, 1],
+      gradient: {
+        inverseColors: false,
+        shade: 'light',
+        type: "vertical",
+        opacityFrom: 0.85,
+        opacityTo: 0.55,
+        stops: [0, 100, 100, 100]
+      }
+    },
+    labels: ['01/01/2022', '02/01/2022', '03/01/2022', '04/01/2022', '05/01/2022', '06/01/2022', '07/01/2022',
+      '08/01/2022', '09/01/2022', '10/01/2022', '11/01/2022'
+    ],
+    markers: {
+      size: 0
+    },
+    xaxis: {
+      type: 'datetime'
+    },
+    yaxis: {
+      title: {
+        text: 'Triệu(VND)',
+      },
+      min: 0
+    },
+    tooltip: {
+      shared: true,
+      intersect: false,
+      y: {
+        formatter: function (y) {
+          if (typeof y !== "undefined") {
+            return y.toFixed(0) + " triệu";
+          }
+          return y;
+
+        }
+      }
+    }
+  };
+
+  var chart = new ApexCharts(document.querySelector("#chart"), options);
+  chart.render();
+
+  var options2 = {
+    series: [44, 55, 13, 43, 22],
+    chart: {
+      width: 380,
+      type: 'pie',
+    },
+    labels: ['VinOasis Phú Quốc', 'Vinpearl Discovery', 'Maria Quy Nhơn', 'Terracotta Đà Lạt', 'Sheraton Phú Quốc'],
+    responsive: [{
+      breakpoint: 480,
+      options: {
+        chart: {
+          width: 200
+        },
+        legend: {
+          position: 'bottom'
+        }
+      }
+    }]
+  };
+
+  var chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
+  chart2.render();
+
+  var options3 = {
+    series: [{
+      data: [21, 22, 10, 28, 16, 21, 13, 30]
+    }],
+    chart: {
+      height: 350,
+      type: 'bar',
+      events: {
+        click: function(chart, w, e) {
+          // console.log(chart, w, e)
+        }
+      }
+    },
+    colors: colors,
+    plotOptions: {
+      bar: {
+        columnWidth: '45%',
+        distributed: true,
+      }
+    },
+    dataLabels: {
+      enabled: false
+    },
+    legend: {
+      show: false
+    },
+    xaxis: {
+      categories: [
+        ['John', 'Doe'],
+        ['Joe', 'Smith'],
+        ['Jake', 'Williams'],
+        'Amber',
+        ['Peter', 'Brown'],
+        ['Mary', 'Evans'],
+        ['David', 'Wilson'],
+        ['Lily', 'Roberts'],
+      ],
+      labels: {
+        style: {
+          colors: colors,
+          fontSize: '12px'
+        }
+      }
+    }
+  };
+
+  var chart3 = new ApexCharts(document.querySelector("#chart3"), options3);
+  chart3.render();
+</script>
+<script src="/js/jscenter.js"></script>
+</body>
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Booking </title>
+    <link rel="stylesheet" href="/assets_admin/style.css">
+    <link rel="stylesheet" href="/assets_admin/index.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <!--    AWESOME-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--SWAL-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        .mbsc-ios.mbsc-page {
+            background: white !important;
+            color: #000;
+        }
+
+        .nav-tabs .nav-item.show .nav-link,
+        .nav-tabs .nav-link.active {
+            color: #495057;
+            background-color: #fff;
+            border: 2px solid;
+            border-color: orangered orangered #fff !important;
+        }
+        *{
+            box-sizing: border-box;
+        }
+        #idbooking-user:hover{
+            cursor: pointer;
+            color: red;
+        }
+        [title=selected]
+        {
+            color: #ff5b00 !important;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div th:replace="~{/admin/sidebar.html}"></div>
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard">Dashboard</span>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search..." id="search_field">
+                <i class='bx bx-search'></i>
+            </div>
+            <div class="profile-details">
+                <img th:src="${employee.avatar}" alt="">
+                <span class="admin_name" th:text="${employee.tenemp}">Prem Shahi</span>
+                <i class='bx bx-chevron-down'></i>
+            </div>
+        </nav>
+
+        <div class="home-content">
+            <div class="sales-boxes">
+                <div class="recent-sales box" style="width: 100% !important;">
+                    <div class="title">DANH SÁCH ĐẶT PHÒNG</div>
+                    <div>
+                        <div th:replace="~{/admin/calendar.html}"></div>
+                    </div>
+                    <div class="sales-details">
+                        <div style="width: 100%">
+                            <ul class="nav nav-tabs" role="tablist" style="display: flex;justify-content: center">
+                                <li class="nav-item">
+                                    <a class="nav-link nav-link-cxn active" data-toggle="tab" href="#tabs-1" role="tab"
+                                        value="Chờ xác nhận">Chờ xác nhận</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
+                                        value="Đã xác nhận">Đã duyệt</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
+                                        value="Thành công">Đã nhận phòng</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tabs-4" role="tab"
+                                        value="Đã trả phòng">Đã trả phòng</a>
+                                </li>
+                            </ul><!-- Tab panes -->
+
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                    <div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-lg-8">
+                                                <div class="tabpanel-content">
+                                                    <div style="padding: 8px;display: inline-flex;align-items: center">
+                                                        <b>Số lượng</b>
+                                                        <div id="soluong"
+                                                            style="border-radius: 50%;background-color: #eee;font-size: 18px;width: 2.2rem;height:2.2rem;display: flex;justify-content: center;align-items: center"
+                                                            class="rounded-circle ml-3"></div>
+                                                    </div>
+                                                    <div class="list-hotel-by-status">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-lg-4">
+                                                <div class="tabpanel-content">
+                                                    <div
+                                                        style="border-bottom: 0.0625rem solid rgba(231,234,243,.7);padding: 8px">
+                                                        <b>Thông tin khách hàng</b>
+                                                    </div>
+                                                    <div style="padding: 8px">
+                                                        <div id="thongtinlienhe">
+                                                            <div style="display: flex;align-items: center;justify-content: space-between">
+                                                                <div style="display: flex;align-items: center">
+                                                                    <img id=avaaccount style="width: 50px;height: 50px;object-fit: cover"
+                                                                         class="rounded-circle"
+                                                                         src="https://kenh14cdn.com/thumb_w/660/203336854389633024/2021/7/27/photo-1-1627385343987657351288.jpg" />
+                                                                    <div style="margin-left: 4px" id="tenaccount">Taylor Swift</div>
+                                                                </div>
+                                                                <div style="float: right">></div>
+                                                            </div>
+                                                            <div class="ht-item" style="align-items: center">
+                                                                <div style="display:inline-flex;align-items: center">
+                                                                    <div style="color: #00c9db;background: rgba(0,201,219,.1);border-radius: 50%;width: 2.625rem;height: 2.625rem;display: flex;justify-content: center;align-items: center">
+                                                                        <i class="far fa-thumbs-up"></i>
+                                                                    </div>
+                                                                    <b style="margin-left: 4px" id="soluongthanhcong">10</b>
+                                                                </div>
+                                                            </div>
+                                                            <div class="ht-item">
+                                                                <div>
+                                                                    <b>Thông tin liên hệ</b>
+                                                                </div>
+                                                                <div>
+                                                                    <i class="fas fa-envelope-open mt-3"></i><i style="font-style: normal" id="emailaccount"> @gmail</i>
+                                                                    <br>
+                                                                    <i class="fas fa-phone mt-3"></i> <i style="font-style: normal" id="sdtaccount"> 000</i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="ht-item">
+                                                                <div>
+                                                                    <b>Thông tin đặt phòng</b>
+                                                                </div>
+                                                                <div>
+                                                                    <i class="fas fa-user mt-3 mr-2" ></i><i style="font-style: normal" id="nguoidaidien"> Huy</i>
+                                                                    <br>
+                                                                    <i class="fas fa-envelope-open mt-3 mr-2"></i><i style="font-style: normal" id="emaildaidien"> Huy</i>
+                                                                    <br>
+                                                                    <i class="fas fa-phone mt-3 mr-2"></i><i style="font-style: normal" id="sdtdaidien"> Huy</i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <script th:inline="javascript">
+        document.querySelector('#idbooking-user')
+        $(document).ready(function () {
+            document.querySelector('.nav-link-cxn').click()
+        })
+
+        document.getElementById('item-nhanvien').classList.add("active")
+        document.getElementById('item-home').classList.remove("active")
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".sidebarBtn");
+        sidebarBtn.onclick = function () {
+            sidebar.classList.toggle("active");
+            if (sidebar.classList.contains("active")) {
+                sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+            } else
+                sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+        }
+
+        let navlink = document.querySelectorAll('.nav-link')
+        navlink.forEach(ele => {
+            ele.onclick = function (e) {
+                let data = {
+                    statusbooking: 'Chờ xác nhận'
+                }
+                let status = ele.getAttribute('value')
+                if (status == 'Chờ xác nhận')
+                    data = {
+                        statusbooking: 'Chờ xác nhận'
+                    }
+                if (status == 'Đã xác nhận')
+                    data = {
+                        statusbooking: 'Đã xác nhân'
+                    }
+                if (status == 'Thành công')
+                    data = {
+                        statusbooking: 'Thành công'
+                    }
+                if (status == 'Đã trả phòng')
+                    data = {
+                        statusbooking: 'Đã trả phòng'
+                    }
+                $.ajax({
+                    type: "GET",
+                    url: 'http://localhost:8080/api/api/bookinglistbystatus',
+                    data: data,
+                    success: function (res) {
+                        console.log(res)
+                        $('#soluong').text(res.length)
+                        let htmlbooking = res.map(item => {
+                            return `
+                                <div class="ht-item ht-item-main ht-item-${item.idbooking}">
+                                    <div class="ht-item-content">
+                                        <div class="row">
+                                            <div class="col-md-1 col-4">
+                                                <div><b id="idbooking-user" value="${item.idbooking}">${item.idbooking}</b></div>
+                                            </div>
+                                            <div class="ht-item-img col-md-2 col-8">
+                                                <div style="width: 100%;">
+                                                    <img src="${item.idhotel.split('*')[2]}" />
+                                                </div>
+                                            </div>
+                                            <div class="ht-item-desc col-md-9 col-12" style="width: 100%">
+                                                <div class="row" style="padding-right: 6px">
+                                                    <div class="ht-item-desc-content col-5">
+                                                        <div>
+                                                            <a href="/list-hotel/${item.location}/${item.idhotel.split('*')[0]}" value="${item.idhotel.split('*')[0]}">${item.idhotel.split('*')[1]}</a>
+                                                            <p value="${item.idroom.split('*')[0]}">${item.idroom.split('*')[1]}</p>
+                                                            <p> ${item.adult} Người lớn - ${item.child} Trẻ em</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ht-item-desc-content col-3" style="display: flex;flex-direction: column">
+                                                        <div>
+                                                            <i>Số phòng: </i><b> ${item.sophong}</b>
+                                                            <p id="datecheckin"> <i>In: </i> ${item.checkin}</p>
+                                                            <p> <i>Out: </i>${item.checkout}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div>
+                                                            <b class="lht-price-detail">${item.totalprice} VND</b>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-1">
+                                                        <div>
+                                                        ${
+                                                            item.statusbooking=='Chờ xác nhận'?
+                                                                `<button class="btn btn-primary" onclick="clickduyet(${item.idbooking})">Duyệt</button> <button style="width: 100%" class="btn btn-danger" onclick="clickhuy(${item.idbooking})">Hủy</button>`:
+                                                            item.statusbooking=='Đã xác nhận'?
+                                                                    `<button class="btn btn-warning" onclick="clicknhanphong(${item.idbooking})">Nhận phòng</button>`:
+                                                            item.statusbooking=='Thành công'?
+                                                                    `<button class="btn btn-success" onclick="clicktraphong(${item.idbooking})">Trả phòng</button>`:
+                                                            `<button class="btn btn-info" disabled>Hoàn tất</button>`
+                                                        }
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        `
+                        })
+                        document.querySelector('.list-hotel-by-status').innerHTML = htmlbooking.join('')
+                        //THÔNG TIN LIÊN HÊ
+                        let htitem = document.querySelectorAll('#idbooking-user')
+                        htitem.forEach(ele=>{
+                            ele.onclick = function(e)
+                            {
+                                ele.setAttribute("title","selected")
+                                $('[title=selected]').removeAttr("title");
+                                //tô màu ô sao được chọn
+                                $(this).attr("title", "selected");
+
+                                $.ajax({
+                                    type:"GET",
+                                    url: 'http://localhost:8080/api/api/bookinglistbystatus/getinfo',
+                                    data:{
+                                        idbooking:ele.getAttribute('value')
+                                    },
+                                    success:function (res)
+                                    {
+                                        console.log(res)
+                                        $('#nguoidaidien').text(res.representative)
+                                        $('#emaildaidien').text(res.emailcontact)
+                                        $('#sdtdaidien').text(res.phonecontact)
+                                        $('#tenaccount').text(res.iduser.split('*')[1])
+                                        $('#emailaccount').text(res.iduser.split('*')[2])
+                                        $('#sdtaccount').text(res.iduser.split('*')[3])
+                                        $('#avaaccount').attr("src",res.iduser.split('*')[4])
+                                        $('#soluongthanhcong').text(res.iduser.split('*')[5])
+                                    }
+                                    ,error:function(err){
+
+                                    }
+                                })
+                            }
+                        })
+
+                        //click mặc định
+                        document.querySelector('#idbooking-user').click()
+
+                        //SET PRICE
+                        var price = document.querySelectorAll(".lht-price-detail")
+                        for(let i = 0;i<price.length;i++)
+                        {
+                            let money = price[i].innerText
+                            var price1 = Number(money.substring(0,money.indexOf(' ')))
+                            document.querySelectorAll(".lht-price-detail")[i].innerHTML = new Intl.NumberFormat({ style: 'currency', currency: 'JPY' }).format(price1)+" VND"
+                        }
+
+                    },
+                    error: function (err) {
+
+                        console.log('Lỗi');
+                    }
+
+                })
+            }
+        })
+
+
+
+        function clickduyet(uid)
+        {
+            console.log(uid)
+            if(uid.toString().length==7)
+                uid = '0'+uid
+
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/api/api/bookinglistbystatus/update",
+                data:{
+                    idbooking: uid,
+                    statusbooking:"Đã xác nhận"
+                },
+                success: function (response)
+                {
+                    console.log(response)
+                    swal({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Đã duyệt!',
+                        showConfirmButton: false,
+                        timer: 1000
+                    }).then(()=>{
+                        $('.ht-item-'+uid).remove()
+                        $('#soluong').text($('#soluong').text()-1)
+                    })
+                },
+                error: function (e) {
+                    console.log("Lỗi")
+                }
+            });
+        }
+
+        function clickhuy(uid)
+        {
+            console.log(uid)
+            if(uid.toString().length==7)
+                uid = '0'+uid
+
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/api/api/bookinglistbystatus/update",
+                data:{
+                    idbooking: uid,
+                    statusbooking:"Hủy"
+                },
+                success: function (response)
+                {
+                    console.log(response)
+                    swal({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'Đã Hủy!',
+                        showConfirmButton: false,
+                        timer: 1000
+                    }).then(()=>{
+                        $('.ht-item-'+uid).remove()
+                        $('#soluong').text($('#soluong').text()-1)
+                    })
+                },
+                error: function (e) {
+                    console.log("Lỗi")
+                }
+            });
+        }
+
+        function clicktraphong(uid)
+        {
+            console.log(uid)
+            if(uid.toString().length==7)
+                uid = '0'+uid
+
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/api/api/bookinglistbystatus/update",
+                data:{
+                    idbooking: uid,
+                    statusbooking:"Đã trả phòng"
+                },
+                success: function (response)
+                {
+                    console.log(response)
+                    swal({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Khách hàng đã trả phòng!',
+                        showConfirmButton: false,
+                        timer: 1000
+                    }).then(()=>{
+                        $('.ht-item-'+uid).remove()
+                        $('#soluong').text($('#soluong').text()-1)
+                    })
+                },
+                error: function (e) {
+                    console.log("Lỗi")
+                }
+            });
+        }
+
+        function clicknhanphong(uid)
+        {
+            console.log(uid)
+            if(uid.toString().length==7)
+                uid = '0'+uid
+
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/api/api/bookinglistbystatus/update",
+                data:{
+                    idbooking: uid,
+                    statusbooking:"Thành công"
+                },
+                success: function (response)
+                {
+                    console.log(response)
+                    swal({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Khách hàng đã nhận phòng!',
+                        showConfirmButton: false,
+                        timer: 1000
+                    }).then(()=>{
+                        $('.ht-item-'+uid).remove()
+                        $('#soluong').text($('#soluong').text()-1)
+                    })
+                },
+                error: function (e) {
+                    console.log("Lỗi")
+                }
+            });
+        }
+
+
+
+    </script>
+    <!-- apexcharts js -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        //SEARCH
+        function searchBar() {
+            $('#search_field').on('keyup', function() {
+                console.log("ok")
+                let searchString = $(this).val();
+                $(".ht-item-main").each(function(index, value) {
+                    currentName = $(value).text()
+                    if( currentName.toUpperCase().indexOf(searchString.toUpperCase()) > -1) {
+                        $(value).show();
+                    } else {
+                        $(value).hide();
+                    }
+                });
+            });
+        };
+        searchBar();
+
+        function searchByDateCheckin()
+        {
+            $('#demo-one-input').change(function () {
+                let searchString = $('#demo-one-input').val().replaceAll('/','-');
+                $(".ht-item-main").each(function(index, value) {
+                    currentName = $(value).text()
+                    if( currentName.toUpperCase().indexOf(searchString.toUpperCase()) > -1) {
+                        $(value).show();
+                    } else {
+                        $(value).hide();
+                    }
+                });
+            })
+        }
+        searchByDateCheckin()
+    </script>
+</body>
+
+</html>

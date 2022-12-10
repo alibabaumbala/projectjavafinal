@@ -16,4 +16,41 @@
             </basic>
         </attributes>
     </entity>
+    <entity class="com.example.demo.model.Service">
+        <table name="service" schema="java-final" catalog=""/>
+        <attributes>
+            <id name="stt">
+                <column name="stt" precision="11"/>
+            </id>
+            <basic name="nameService">
+                <column name="name_service" nullable="false"/>
+            </basic>
+            <basic name="price">
+                <column name="price"/>
+            </basic>
+            <basic name="amount">
+                <column name="amount" precision="255"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="com.example.demo.model.Service">
+        <table name="service" schema="java-final" catalog=""/>
+        <attributes>
+            <id name="stt">
+                <column name="stt" precision="11"/>
+            </id>
+            <basic name="nameService">
+                <column name="name_service" nullable="false"/>
+            </basic>
+            <basic name="price">
+                <column name="price"/>
+            </basic>
+            <basic name="amount">
+                <column name="amount" precision="255"/>
+            </basic>
+            <basic name="imgService">
+                <column name="img_service" length="1000"/>
+            </basic>
+        </attributes>
+    </entity>
 </entity-mappings>
