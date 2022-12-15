@@ -2,43 +2,4 @@
 <entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
                  version="3.0">
 
-    <entity class="com.example.demo.model.Users">
-        <table name="users" schema="java-final" catalog=""/>
-        <id-class class="com.example.demo.model.UsersPK"/>
-        <attributes>
-            <id name="iduser">
-                <column name="iduser"/>
-            </id>
-            <id name="email">
-                <column name="email"/>
-            </id>
-            <basic name="ho">
-                <column name="ho"/>
-            </basic>
-            <basic name="ten">
-                <column name="ten"/>
-            </basic>
-            <basic name="password">
-                <column name="password"/>
-            </basic>
-            <basic name="avatar">
-                <column name="avatar" nullable="false" length="1000"/>
-            </basic>
-            <basic name="role">
-                <column name="role" nullable="false"/>
-            </basic>
-            <basic name="gender">
-                <column name="gender" length="10"/>
-            </basic>
-            <basic name="phone">
-                <column name="phone" length="10"/>
-            </basic>
-            <basic name="point">
-                <column name="point" nullable="false" precision="255"/>
-            </basic>
-            <basic name="creactAccount">
-                <column name="creact_account" nullable="false" precision="-1"/>
-            </basic>
-        </attributes>
-    </entity>
 </entity-mappings>

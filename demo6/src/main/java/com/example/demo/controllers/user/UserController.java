@@ -6,10 +6,10 @@ import com.example.demo.API.RestAPI;
 import com.example.demo.cloudinary.CloudinaryConfig;
 import com.example.demo.model.Bookinghotel;
 
+import com.example.demo.model.Messagebycustomer;
+import com.example.demo.model.Repmessage;
 import com.example.demo.model.Users;
-import com.example.demo.responsitory.BookingRepository;
-import com.example.demo.responsitory.FeedBackRepository;
-import com.example.demo.responsitory.UserRepository;
+import com.example.demo.responsitory.*;
 import com.example.demo.services.*;
 import com.example.demo.valid.RegisterFormValidator;
 import org.json.JSONException;
@@ -65,6 +65,11 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    RepmessageRepository repmessageRepository;
+    @Autowired
+    private MessageRepository messageRepository;
+
 
     @InitBinder
     public void initBinder(WebDataBinder webDataBinder){
@@ -83,6 +88,39 @@ public class UserController {
 
     //inforlogin = đăng nhập thành công ->iduser
 
+
+    @GetMapping(value = {"/",""})
+    public String HomePage(Model model)
+    {
+        if(session.getAttribute("inforlogin")!=null)
+        {
+            String iduser = (String) session.getAttribute("inforlogin");
+            model.addAttribute("listnoti",listNoti());
+            model.addAttribute("logintrue",true);
+            model.addAttribute("user",userService.getUserByID(iduser));
+            return "home";
+        }
+        else
+            return "home";
+    }
+
+
+    public List listNoti()
+    {
+        String iduser = (String) session.getAttribute("inforlogin");
+        //Danh sách thông báo phản hồi
+        List<Integer> sttMessageSend = messageRepository.getSTTMessageByIDUser(iduser);
+        if(sttMessageSend.size()>0)
+        {
+            List<Repmessage> listRep = new ArrayList<>();
+            for(int i=0;i<sttMessageSend.size();i++)
+            {
+                listRep.add(repmessageRepository.getMessReplied(sttMessageSend.get(i)));
+            }
+            return listRep;
+        }
+        return new ArrayList();
+    }
 
     @GetMapping(value = {"/log"})
     public String showLog(Model model)
@@ -152,7 +190,11 @@ public class UserController {
 
         else if(userService.checkAccount(email,password)==true)
         {
+            model.addAttribute("user",userService.getUserByEmail(email));
             session.setAttribute("inforlogin",userService.getUserByEmail(email).getIduser());
+            model.addAttribute("logintrue",true);
+            model.addAttribute("listnoti",listNoti());
+
             return "home";
         }
         else
@@ -165,6 +207,7 @@ public class UserController {
     {
         model.addAttribute("KWSearchByNameHotel",KWSearchByNameHotel);
         model.addAttribute("namePlace",id);
+        model.addAttribute("listnoti",listNoti());
         return "list-hotel";
     }
 
@@ -176,6 +219,7 @@ public class UserController {
         model.addAttribute("idhotel",idhotel);
         model.addAttribute("location",location);
         model.addAttribute("listfeedback",feedBackService.listFeedBackByIDHotel(idhotel));
+        model.addAttribute("listnoti",listNoti());
         return "detail";
     }
 
@@ -183,13 +227,14 @@ public class UserController {
     @GetMapping("/user/profile")
     public String ProfilePage(Model model)
     {
-        if(session.getAttribute("inforlogin")!="")
+        System.out.println(session.getAttribute("inforlogin"));
+        if(session.getAttribute("inforlogin")!=null)
         {
             String iduser = (String) session.getAttribute("inforlogin");
             System.out.println(iduser);
             model.addAttribute("user",userService.getUserByID(iduser));
 
-            List<Bookinghotel> arrMoney = bookingService.listHotelByStatus("Thành công",iduser);
+            List<Bookinghotel> arrMoney = bookingService.listHotelByStatus("Đã trả phòng",iduser);
             int sumMoney = 0;
             DecimalFormat twoPlaces = new DecimalFormat("");
             for(Bookinghotel b:arrMoney)
@@ -197,6 +242,9 @@ public class UserController {
                 sumMoney += Integer.parseInt(b.getTotalprice());
             }
             model.addAttribute("sumMoney",twoPlaces.format(sumMoney));
+
+            model.addAttribute("listnoti",listNoti());
+
             return "profile";
         }
         else
@@ -207,7 +255,7 @@ public class UserController {
     @PostMapping("/user/profile")
     public String UpdateProfile (@RequestParam Map<String,String> requestParam,Model model, @Valid Users users,  BindingResult result)
     {
-        if(session.getAttribute("inforlogin")!="")
+        if(session.getAttribute("inforlogin")!=null)
         {
             String ho = requestParam.get("ho");
             String ten = requestParam.get("ten");
@@ -277,14 +325,14 @@ public class UserController {
     @GetMapping("/user/profile/history")
     public String HistoryBookingPage(Model model)
     {
-        if(session.getAttribute("inforlogin")!="")
+        if(session.getAttribute("inforlogin")!=null)
         {
             String iduser = (String) session.getAttribute("inforlogin");
             model.addAttribute("user",userService.getUserByID(iduser));
             model.addAttribute("choxacnhan",bookingService.listHotelByStatus("Chờ xác nhận",iduser));
             model.addAttribute("daxacnhan",bookingService.listHotelByStatus("Đã xác nhận",iduser));
             model.addAttribute("thanhcong",bookingService.listHotelByStatus("Thành công",iduser));
-            model.addAttribute("huy",bookingService.listHotelByStatus("Hủy",iduser));
+            model.addAttribute("datraphong",bookingService.listHotelByStatus("Đã trả phòng",iduser));
 //            model.addAttribute("resqpi",new RestAPI());
             List<Bookinghotel> arrMoney = bookingService.listHotelByStatus("Thành công",iduser);
             int sumMoney = 0;
@@ -294,11 +342,34 @@ public class UserController {
                 sumMoney += Integer.parseInt(b.getTotalprice());
             }
             model.addAttribute("sumMoney",twoPlaces.format(sumMoney));
+            model.addAttribute("listnoti",listNoti());
+
             return "history";
         }
         else
             return "redirect:/";
     }
+
+
+    //XEM CÂU HỎI
+    @GetMapping("/user/yourquestion")
+    public String YourQuestionPage(Model model)
+    {
+        System.out.println(session.getAttribute("inforlogin"));
+        if(session.getAttribute("inforlogin")!=null)
+        {
+            String iduser = (String) session.getAttribute("inforlogin");
+            model.addAttribute("user",userService.getUserByID(iduser));
+            model.addAttribute("listnoti",listNoti());
+
+            model.addAttribute("listyourquestion",messageRepository.listMessageByIDUser(iduser));
+
+            return "yourquestion";
+        }
+        else
+            return "redirect:/";
+    }
+
     //LOGOUT
     @GetMapping("/logout")
     public String LogOut()

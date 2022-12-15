@@ -1,14 +1,13 @@
 
-$(document).ready(function(){
-    $('.uudai-list-info').slick({
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 2,
-        arrows:true,
-        draggable:false,
-        prevArrow:"<button type='button' class='slick-prev slick-arrow'><i class='fa-sharp fa-solid fa-arrow-right'></i></button>",
-        nextArrow:"<button type='button' class='slick-next slick-arrow'><i class='fa fa-angle-right' aria-hidden='true'></i></button>"
-    });
+// var $jq = jQuery.noConflict();
+$('.uudai-list-info').slick({
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 2,
+    arrows:true,
+    draggable:false,
+    prevArrow:"<button type='button' class='slick-prev slick-arrow'><i class='fa-sharp fa-solid fa-arrow-right'></i></button>",
+    nextArrow:"<button type='button' class='slick-next slick-arrow'><i class='fa fa-angle-right' aria-hidden='true'></i></button>"
 });
 
 // SLIDE ITEM IMAGE DETAIL

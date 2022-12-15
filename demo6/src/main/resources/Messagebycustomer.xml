@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="com.example.demo.model.Messagebycustomer">
+        <table name="messagebycustomer" schema="java-final" catalog=""/>
+        <attributes>
+            <id name="stt">
+                <column name="stt" precision="255"/>
+            </id>
+            <basic name="iduser">
+                <column name="iduser"/>
+            </basic>
+            <basic name="message">
+                <column name="message" length="1000"/>
+            </basic>
+            <basic name="rep">
+                <column name="rep" nullable="false" precision="255"/>
+            </basic>
+            <basic name="datesend">
+                <column name="datesend" nullable="false" precision="-1"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

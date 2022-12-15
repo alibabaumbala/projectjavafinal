@@ -29,11 +29,6 @@ public class HomeController
     //roleEmp = chưc vụ phân quyền
 
 
-    @GetMapping("/")
-    public String HomePage()
-    {
-        return "home";
-    }
 
     @GetMapping(value = {"/admin","admin","admin/"})
     public String LoginAdmin(Model model)

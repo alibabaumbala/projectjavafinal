@@ -8,6 +8,7 @@ import com.example.demo.model.Users;
 import com.example.demo.responsitory.BookingRepository;
 import com.example.demo.responsitory.UserRepository;
 import com.example.demo.services.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,6 +19,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.IOException;
 import java.util.*;
 
 @SpringBootTest
@@ -45,13 +47,12 @@ class Demo6ApplicationTests {
 
 
     @Test
-    void contextLoads() throws JSONException
-    {
+    void contextLoads() throws JSONException, IOException {
         RestAPI restAPI = new RestAPI();
 //        System.out.println(restAPI.findIndexKey(0,"phuquoc","id","pq-hotel-2"));
 //        String info = restAPI.restAPIString(0,"phuquoc","pq-hotel-1","list_room");
 //        System.out.println(info);
-//        System.out.println(restAPI.findInfoRoom(0,"phuquoc","pq-hotel-1","pq-hotel-1-room-1","nameroom"));
+//        System.out.println(restAPI.findInfoRoom(0,"phuquoc","pq-hotel-1","pq-hotel-1-room-1","adult"));
 
 //        String roomList = restAPI.restAPIString(0,"phuquoc","pq-hotel-1","list_room");
 //        JSONArray array = new JSONArray(roomList);
@@ -99,15 +100,18 @@ class Demo6ApplicationTests {
 //        userRepository.updateKHNotPass("Huy","Huy","Male","123456789","LyrbUXfi");
 //        System.out.println(userRepository.findAllByEmail("vanhuy161u9@gmail.com"));
 
-        Users i = new Users();
-        i.setHo("Nguyễn");
-        i.setTen("Nguyễn");
-        i.setPhone("0145217869");
-        i.setEmail("nguyennguyen@gmail.com");
-        i.setGender("Male");
-        i.setPassword("123456");
-        userService.addUser(i);
+//        Users i = new Users();
+//        i.setHo("Nguyễn");
+//        i.setTen("Nguyễn");
+//        i.setPhone("0145217869");
+//        i.setEmail("nguyennguyen@gmail.com");
+//        i.setGender("Male");
+//        i.setPassword("123456");
+//        userService.addUser(i);
+//        System.out.println(bookingService.listHotelByStatus("Đã trả phòng","LyrbUXfi").size());
 
+//        System.out.println(restAPI.restAPIStringHotelDetail(0));
+//        System.out.println(api.webclient().get(0).getClass().getSimpleName());
     }
 
 

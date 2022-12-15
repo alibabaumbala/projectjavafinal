@@ -1,33 +1,23 @@
 package com.example.demo.controllers.api;
 
 import com.cloudinary.Cloudinary;
-import com.cloudinary.utils.ObjectUtils;
+import com.example.demo.API.API;
 import com.example.demo.API.RestAPI;
-import com.example.demo.Request.BookingRequest;
 import com.example.demo.cloudinary.CloudinaryConfig;
-import com.example.demo.model.Bookinghotel;
-import com.example.demo.model.Employee;
-import com.example.demo.model.Feedback;
-import com.example.demo.model.Users;
-import com.example.demo.responsitory.BookingRepository;
-import com.example.demo.responsitory.EmployeeRepository;
-import com.example.demo.responsitory.FeedBackRepository;
-import com.example.demo.responsitory.UserRepository;
-import com.example.demo.services.BookingService;
-import com.example.demo.services.EmployeeService;
-import com.example.demo.services.FeedBackService;
-import com.example.demo.services.UserService;
-import org.apache.coyote.Request;
+import com.example.demo.model.*;
+import com.example.demo.responsitory.*;
+import com.example.demo.services.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.security.Key;
 import java.sql.Timestamp;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -65,6 +55,25 @@ public class APIController {
 
     @Autowired
     RestAPI restAPI;
+
+    @Autowired
+    RepmessageRepository repmessageRepository;
+    @Autowired
+    private MessageRepository messageRepository;
+    @Autowired
+    private ServiceRepository serviceRepository;
+    @Autowired
+    private BuyServiceRepository buyServiceRepository;
+
+    @Autowired TotalBillRepository totalBillRepository;
+    @Autowired
+    private VoucherRepository voucherRepository;
+
+    @Autowired
+    VoucherService voucherService;
+
+    @Autowired
+    API api;
 
     @GetMapping("/data/api/security/userlist")
     public List<String> getListUserAPI()
@@ -120,7 +129,7 @@ public class APIController {
         return new ResponseEntity<>(feedBackRepository.findAll(), HttpStatus.OK);
     }
 
-    @PostMapping(value = {"api/api/feedback"})
+    @PostMapping(value = {"api/api/feedback/send"})
     public ResponseEntity addFeedback(@RequestBody Feedback feedback)
     {
         feedBackService.saveFeedback(feedback);
@@ -197,6 +206,22 @@ public class APIController {
 
         bookingRepository.setBooking(idbooking,statusbooking);
 
+        int point = Integer.parseInt(bookingRepository.getBookinghotelByID(idbooking).getTotalprice())/1000000;
+        if(statusbooking.equals("Đã trả phòng")==true)
+        {
+            userRepository.updatePointAfterCheckout(point,bookingRepository.getBookinghotelByID(idbooking).getIduser());
+            String iduser = requestParam.get("iduser");
+            String totalpricebill = requestParam.get("totalpricebill");
+            String status = requestParam.get("status");
+
+            Totalbill totalbill = new Totalbill();
+            totalbill.setIduser(iduser);
+            totalbill.setIdbooking(idbooking);
+            totalbill.setTotalpricebill(totalpricebill);
+            totalbill.setStatus(status);
+            totalBillRepository.save(totalbill);
+        }
+
         return bookingRepository.getBookinghotelByID(idbooking);
     }
 
@@ -215,4 +240,123 @@ public class APIController {
 
         return bk;
     }
+
+    //LẤY THÔNG TIN KHÁCH HÀNG
+    @GetMapping( "api/api/edit/user")
+    public Users getInfoKH(@RequestParam Map<String,String> requestParam)
+    {
+        return userRepository.findUsersByID(requestParam.get("iduser"));
+    }
+
+    //CẬP NHẬT KHÁCH HÀNG
+    @RequestMapping(value="api/api/edit/user/success",method = RequestMethod.POST)
+    public Users editInfoKH(@RequestParam Map<String,String> requestParam)
+    {
+        String ho = requestParam.get("ho");
+        String ten = requestParam.get("ten");
+        String phone = requestParam.get("phone");
+        String email = requestParam.get("email");
+        String gender = requestParam.get("gender");
+        String level = requestParam.get("level");
+        String iduser = requestParam.get("iduser");
+        userRepository.updateUserByAdmin(ho,ten,phone,email,gender,level,iduser);
+        return userRepository.findUsersByID(iduser);
+    }
+
+    //XÓA KHÁCH HÀNG
+    @RequestMapping(value = "api/api/user/delete",method = RequestMethod.POST)
+    public String DeleteKH(@RequestParam Map<String,String> requestParam)
+    {
+        userRepository.updateStatusAfterDelete("Vô hiệu",requestParam.get("iduser"));
+        return "ok";
+    }
+
+    //TRẢ LỜI CÂU HỎI
+    @RequestMapping(value = "api/api/question/reply",method = RequestMethod.POST)
+    public ResponseEntity RepMessage(@RequestBody Repmessage rep)
+    {
+        rep.setUserread(0);
+        rep.setDaterep(new Timestamp(System.currentTimeMillis()));
+        repmessageRepository.save(rep);
+        messageRepository.updateRepAfterAdminRep(rep.getSttmessagesend());
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    //XÓA CÂU HỎI
+    @RequestMapping(value = "api/api/question/delete",method = RequestMethod.POST)
+    public String DeleteQuestion(@RequestParam Map<String,String> requestParam)
+    {
+        messageRepository.deleteQuestion(Integer.parseInt(requestParam.get("stt")));
+        return "ok";
+    }
+
+    //GỬI CÂU HỎI
+    @RequestMapping(value = "api/api/question/send",method = RequestMethod.POST)
+    public ResponseEntity SendMessage(@RequestBody Messagebycustomer ms)
+    {
+        ms.setRep(0);
+        ms.setDatesend(new Timestamp(System.currentTimeMillis()));
+        messageRepository.save(ms);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    //XÓA DỊCH VỤ
+    @RequestMapping(value = "api/api/service/delete",method = RequestMethod.POST)
+    public String DeleteDichVu(@RequestParam Map<String,String> requestParam)
+    {
+        serviceRepository.deletDVBySTT(Integer.parseInt(requestParam.get("stt")));
+        return "ok";
+    }
+
+    //BUY SERVICE
+    @RequestMapping(value = "api/api/buyservice",method = RequestMethod.POST)
+    public ResponseEntity Buy_Product_Service(@RequestBody Buyservice buyservice)
+    {
+        buyServiceRepository.save(buyservice);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    //XÓA DỊCH VỤ ĐÃ MUA
+    @RequestMapping(value = "api/api/buyservice/delete",method = RequestMethod.POST)
+    public String DeleteDichVuBought(@RequestParam Map<String,String> requestParam)
+    {
+        buyServiceRepository.deleteServiceBought(Integer.parseInt(requestParam.get("stt")));
+        return "ok";
+    }
+
+    //XÓA VOUCHER
+    @RequestMapping(value = "api/api/voucher/delete",method = RequestMethod.POST)
+    public String DeleteVoucher(@RequestParam Map<String,String> requestParam)
+    {
+        voucherRepository.deleteVoucherByID(requestParam.get("idvoucher"));
+        return "ok";
+    }
+    //CẬP NHẬT VOUCHER
+    @RequestMapping(value="api/api/edit/voucher/success",method = RequestMethod.POST)
+    public Voucher editVoucher(@RequestParam Map<String,String> requestParam)
+    {
+        String idvoucher = requestParam.get("idvoucher");
+        String discount = requestParam.get("discount");
+        int soluong = Integer.parseInt(requestParam.get("soluong"));
+        voucherRepository.updateVoucher(discount,soluong,idvoucher);
+        return voucherRepository.getVoucherByID(idvoucher);
+    }
+
+    //THÊM VOUCHER
+    @RequestMapping(value="api/api/voucher/add",method = RequestMethod.POST)
+    public ResponseEntity addVoucher(@RequestBody Voucher voucher)
+    {
+//        voucherRepository.save(voucher);
+        voucherService.addNewVoucher(voucher);
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    //TRẢ KẾT QUẢ HOTEL ĐỂ EDIT
+    @RequestMapping(value = "api/hotel/edit/{location}/{index}",method = RequestMethod.GET)
+    public ResponseEntity getHotelItem(@PathVariable String location,@PathVariable int index) throws JSONException, IOException {
+
+        return new ResponseEntity(api.webclient2(location).get(index),HttpStatus.OK);
+    }
+
+
 }

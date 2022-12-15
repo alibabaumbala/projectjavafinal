@@ -136,12 +136,12 @@
                                                                          src="https://kenh14cdn.com/thumb_w/660/203336854389633024/2021/7/27/photo-1-1627385343987657351288.jpg" />
                                                                     <div style="margin-left: 4px" id="tenaccount">Taylor Swift</div>
                                                                 </div>
-                                                                <div style="float: right">></div>
+                                                                <a style="float: right" id="seehistorybookinguser">></a>
                                                             </div>
                                                             <div class="ht-item" style="align-items: center">
                                                                 <div style="display:inline-flex;align-items: center">
                                                                     <div style="color: #00c9db;background: rgba(0,201,219,.1);border-radius: 50%;width: 2.625rem;height: 2.625rem;display: flex;justify-content: center;align-items: center">
-                                                                        <i class="far fa-thumbs-up"></i>
+                                                                        <i class="uil-history"></i>
                                                                     </div>
                                                                     <b style="margin-left: 4px" id="soluongthanhcong">10</b>
                                                                 </div>
@@ -151,9 +151,9 @@
                                                                     <b>Thông tin liên hệ</b>
                                                                 </div>
                                                                 <div>
-                                                                    <i class="fas fa-envelope-open mt-3"></i><i style="font-style: normal" id="emailaccount"> @gmail</i>
+                                                                    <i class="uil-envelope mt-3"></i><i style="font-style: normal" id="emailaccount"> @gmail</i>
                                                                     <br>
-                                                                    <i class="fas fa-phone mt-3"></i> <i style="font-style: normal" id="sdtaccount"> 000</i>
+                                                                    <i class="uil-phone-alt mt-3"></i> <i style="font-style: normal" id="sdtaccount"> 000</i>
                                                                 </div>
                                                             </div>
                                                             <div class="ht-item">
@@ -161,11 +161,11 @@
                                                                     <b>Thông tin đặt phòng</b>
                                                                 </div>
                                                                 <div>
-                                                                    <i class="fas fa-user mt-3 mr-2" ></i><i style="font-style: normal" id="nguoidaidien"> Huy</i>
+                                                                    <i class="uil-user mt-3 mr-2" ></i><i style="font-style: normal" id="nguoidaidien"> Huy</i>
                                                                     <br>
-                                                                    <i class="fas fa-envelope-open mt-3 mr-2"></i><i style="font-style: normal" id="emaildaidien"> Huy</i>
+                                                                    <i class="uil-envelope mt-3 mr-2"></i><i style="font-style: normal" id="emaildaidien"> Huy</i>
                                                                     <br>
-                                                                    <i class="fas fa-phone mt-3 mr-2"></i><i style="font-style: normal" id="sdtdaidien"> Huy</i>
+                                                                    <i class="uil-phone-alt mt-3 mr-2"></i><i style="font-style: normal" id="sdtdaidien"> Huy</i>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -256,6 +256,7 @@
                                                             <a href="/list-hotel/${item.location}/${item.idhotel.split('*')[0]}" value="${item.idhotel.split('*')[0]}">${item.idhotel.split('*')[1]}</a>
                                                             <p value="${item.idroom.split('*')[0]}">${item.idroom.split('*')[1]}</p>
                                                             <p> ${item.adult} Người lớn - ${item.child} Trẻ em</p>
+                                                            <p style="color: #f65e5e">${item.datebooking}</p>
                                                         </div>
                                                     </div>
                                                     <div class="ht-item-desc-content col-3" style="display: flex;flex-direction: column">
@@ -278,8 +279,8 @@
                                                             item.statusbooking=='Đã xác nhận'?
                                                                     `<button class="btn btn-warning" onclick="clicknhanphong(${item.idbooking})">Nhận phòng</button>`:
                                                             item.statusbooking=='Thành công'?
-                                                                    `<button class="btn btn-success" onclick="clicktraphong(${item.idbooking})">Trả phòng</button>`:
-                                                            `<button class="btn btn-info" disabled>Hoàn tất</button>`
+                                                                    `<a class="btn btn-success" style="color: black" href="/admin/quanly/quanly-bill-khachhang/${item.iduser}/${item.idbooking}" >Xem Bill</a>`:
+                                                            `<a class="btn btn-info" href="/admin/quanly/quanly-bill-khachhang/${item.iduser}/${item.idbooking}" style="color: white;text-decoration: none" >Hoàn tất</a>`
                                                         }
 
                                                         </div>
@@ -292,6 +293,7 @@
                         `
                         })
                         document.querySelector('.list-hotel-by-status').innerHTML = htmlbooking.join('')
+
                         //THÔNG TIN LIÊN HÊ
                         let htitem = document.querySelectorAll('#idbooking-user')
                         htitem.forEach(ele=>{
@@ -319,6 +321,7 @@
                                         $('#sdtaccount').text(res.iduser.split('*')[3])
                                         $('#avaaccount').attr("src",res.iduser.split('*')[4])
                                         $('#soluongthanhcong').text(res.iduser.split('*')[5])
+                                        $('#seehistorybookinguser').attr("iduser",res.iduser.split('*')[0])
                                     }
                                     ,error:function(err){
 
@@ -347,6 +350,12 @@
 
                 })
             }
+        })
+
+        $('#seehistorybookinguser').click(function (){
+            let iduser = $(this).attr('iduser')
+
+            window.location.href='/admin/quanly/khachhang/historybooking/'+iduser;
         })
 
 
@@ -417,38 +426,6 @@
             });
         }
 
-        function clicktraphong(uid)
-        {
-            console.log(uid)
-            if(uid.toString().length==7)
-                uid = '0'+uid
-
-            $.ajax({
-                type: "POST",
-                url: "http://localhost:8080/api/api/bookinglistbystatus/update",
-                data:{
-                    idbooking: uid,
-                    statusbooking:"Đã trả phòng"
-                },
-                success: function (response)
-                {
-                    console.log(response)
-                    swal({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: 'Khách hàng đã trả phòng!',
-                        showConfirmButton: false,
-                        timer: 1000
-                    }).then(()=>{
-                        $('.ht-item-'+uid).remove()
-                        $('#soluong').text($('#soluong').text()-1)
-                    })
-                },
-                error: function (e) {
-                    console.log("Lỗi")
-                }
-            });
-        }
 
         function clicknhanphong(uid)
         {

@@ -12,6 +12,9 @@ public interface EmployeeRepository extends JpaRepository<Employee,String> {
     @Query("select s from Employee s where s.idemp =?1 and s.passemp =?2")
     Employee getEmployeeByIDAndPass(String id,String pass);
 
+    @Query("select s from Employee s order by s.createemp DESC")
+    List<Employee> getAllEmpDESCCreate();
+
     @Query("select s from Employee s where s.idemp =?1")
     Employee getEmployeeByID(String id);
 

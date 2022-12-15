@@ -18,12 +18,23 @@ import java.util.Objects;
 @Configurable
 @Service
 public class API{
-//    @Bean
-    public List<Object> webclient(String uri)
+    @Bean
+    public List<Object> webclient()
     {
+        String uri = "http://localhost:3001/api/listhotel";
         RestTemplate restTemplate = new RestTemplate();
         Object[] result = restTemplate.getForObject(uri,Object[].class);
         return Arrays.asList(result);
     }
+
+
+    public List<Object> webclient2(String location)
+    {
+        String uri = "http://localhost:3001/api/"+location;
+        RestTemplate restTemplate = new RestTemplate();
+        Object[] result = restTemplate.getForObject(uri,Object[].class);
+        return Arrays.asList(result);
+    }
+
 
 }

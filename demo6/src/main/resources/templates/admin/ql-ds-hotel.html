@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Khách sạn</title>
+    <link rel="stylesheet" href="/assets_admin/style.css">
+    <link rel="stylesheet" href="/assets_admin/message.css">
+    <link rel="stylesheet" href="/css/paginate.css">
+    <link rel="stylesheet" href="/assets_admin/index.css">
+    <link rel="stylesheet" href="/css/listhotel.css">
+
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--SWAL-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        .table td {
+            text-align: center;
+        }
+        .table th {
+            text-align: center;
+        }
+        .table-nv{
+            justify-content: center !important;
+        }
+        .uil-star{
+            color: #f79350;
+        }
+    </style>
+
+</head>
+<body>
+<div th:replace="~{/admin/sidebar.html}"></div>
+<section class="home-section">
+    <nav>
+        <div class="sidebar-button">
+            <i class='bx bx-menu sidebarBtn'></i>
+            <span class="dashboard">Dashboard</span>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Search..." id="search_field">
+            <i class='bx bx-search' ></i>
+        </div>
+        <div class="profile-details">
+            <img th:src="${employee.avatar}" alt="">
+            <span class="admin_name" th:text="${employee.tenemp}">Prem Shahi</span>
+            <i class='bx bx-chevron-down' ></i>
+        </div>
+    </nav>
+
+    <div class="home-content">
+        <div class="sales-boxes">
+            <div class="recent-sales box" style="width: 100%;">
+                <div class="title">Danh sách dịch vụ
+                    <button class="btn btn-primary ml-3" data-toggle="modal" data-target="#addService">Thêm dịch vụ</button>
+                </div>
+                <div style="margin-top: 20px">
+                    <div class="list-hotel">
+                        <!--RENDER DỮ LIỆU TẠI ĐÂY-->
+                    </div>
+                    <div id="pagination-container"></div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!--MODAL SỬA THÔNG TIN KHÁCH SẠN-->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Sửa thông tin Khách sạn</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="needs-validation" novalidate>
+                    <div class="form-group" style="display: flex;justify-content: center">
+                        <img id="avaedit" style="width: 100%;object-fit: cover"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Mã Khách sạn</label>
+                        <input required type="text" class="form-control is-invalid" id="idhoteledit" name="idhoteledit" disabled >
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Tên Khách sạn</label>
+                        <input required type="text" class="form-control is-invalid" id="name-edit" name="name-edit" pattern="[a-z\sA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]{1,255}" >
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Giới thiệu khuyến mãi</label>
+                        <input required type="text" class="form-control is-invalid" id="intro-edit" name="intro-edit" pattern="[a-z\sA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]{1,255}" >
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="huyedit">Hủy</button>
+                <button class="btn btn-primary" id="confirmedit" onclick="confirmEdit()">Sửa</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"/>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js'></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<!--&lt;!&ndash; jQuery library &ndash;&gt;-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+
+<!--&lt;!&ndash; Latest compiled JavaScript &ndash;&gt;-->
+<!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+<script>
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function() {
+        sidebar.classList.toggle("active");
+        if(sidebar.classList.contains("active")){
+            sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+        }else
+            sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+    }
+</script>
+<!-- apexcharts js -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script th:inline="javascript">
+
+    /*<![CDATA[*/
+    let namelocation = /*[[${location}]]*/ "namelocation";
+    let listhotel = /*[[${listhotel}]]*/ "listhotel";
+    /*]]>*/
+
+    let html = listhotel.map((ele,index)=>{
+        return `
+                        <div class="lht-item ${ele.star}" namePlace="${ele.id}" indexhotel = "${index}" >
+                            <div class="combo-title">
+                                <i class="fas fa-clock"></i>
+                                <p>${ele.intro}</p>
+                            </div>
+                            <div class="lht-main" valueNamePlace="huy" >
+                                <div class="lht-img">
+                                    <div class="lht-img-img" style="background-image:url('${ele.img_hotel}')"></div>
+                                    <div class="voucher">
+                                      <div>
+                                        <p class="voucher-label">${ele.voucher}</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="lht-content">
+                                    <p class="lht-name">${ele.name_hotel}</p>
+                                    <div class="lht-content_rate">
+                                        <div class="lht-content_rate_star">
+                                            ${
+            ele.star==5?'<span class="uil-star checked"></span><span class="uil-star checked"></span><span class="uil-star checked"></span><span class="uil-star checked"></span><span class="uil-star checked"></span>'
+                :ele.star==4?'<span class="uil-star checked"></span><span class="uil-star checked"></span><span class="uil-star checked"></span><span class="uil-star checked"></span>'
+                    :ele.star==3?'<span class="uil-star checked"></span><span class="uil-star checked"></span><span class="uil-star checked"></span>'
+                        :ele.star==2?'<span class="uil-star checked"></span><span class="uil-star checked"></span>'
+                            :ele.star==1?'<span class="uil-star checked"></span>'
+                                :''
+        }
+                                        </div>
+
+                                        <div class="lht-content_rate_mark">
+                                            <p style="margin-right: 5px">${ele.point}</p>
+                                            <p style="color: #9fc43a;font-size: 14px;margin-right: 5px;">Tuyệt vời</p>
+                                            <p style="font-size: 14px">| ${ele.count_cmt} đánh giá</p>
+                                        </div>
+                                    </div>
+                                    <div class="lht-direct">
+                                        <a href="">
+                                            <span class="uil-location-point"></span>
+                                            ${ele.address} - <b style="color: #0b3af4">Xem bản đồ</b style="color: #40a6f2">
+                                        </a>
+                                    </div>
+                                    <div class="lht-character" value-character="${ele.character}">
+                                    </div>
+                                    <div class="bonus-charact">
+                                        <div>
+                                            <span class="uil-star checked" style="color: white;"></span>
+                                        </div>
+                                        <div>${ele.bonus_character}</div>
+                                    </div>
+                                </div>
+                                <div class="lht-price">
+                                    <div id="status_room" value-status-room="${ele.status}">
+                                        <div class="lht-price-detail" id="huy">${ele.price} VND</div>
+                                        <div class="type_room">
+                                            <div>
+                                                <p style="font-weight:bold">${ele.type_room}</p>
+                                                <p>${ele.type_room_bonus}</p>
+                                            </div>
+                                            <button class="btn btn-primary mt-2" data-toggle="modal" data-target="#editModal" onclick="edithotel('${ele.id}*${index}')">Chỉnh sửa</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>`
+    })
+    document.querySelector('.list-hotel').innerHTML=html.join('');
+
+
+    //STATUS_ROOM
+    let status_room = document.querySelectorAll('#status_room')
+    status_room.forEach(ele=>{
+        if(ele.getAttribute('value-status-room')=="Hết phòng")
+        {
+            ele.querySelector('.type_room').style.display="none"
+            ele.querySelector('.lht-price-detail').innerHTML = '<div class="lht-price-detail" id="huy"><span class="fa fa-clock-o"></span>HẾT PHÒNG</div>'
+        }
+    })
+
+    //CHARACTER
+    let listCharacter = document.querySelectorAll('.lht-character')
+    listCharacter.forEach(item=>{
+        let arrCharacter = item.getAttribute('value-character').split(',');
+        let itemCharacter = ''
+        for(let i = 0;i<arrCharacter.length;i++)
+        {
+            let htmlCharacter = arrCharacter[i]
+            itemCharacter += `<div class="lht-character_item"><span class="uil-check"></span>${htmlCharacter}</div>`
+
+        }
+        item.innerHTML = itemCharacter
+    })
+
+    function getCourse(API)
+    {
+
+        fetch(API)
+            .then(function(response){
+                return response.json();
+            })
+
+    }
+
+    function edithotel(text)
+    {
+        //idhotel*index
+        let arr = text.split('*')
+        $.ajax({
+            type: "GET",
+            dataType:'json',
+            url: "http://localhost:8080/api/hotel/edit/"+namelocation+"/"+arr[1],
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept':'application/json'
+            },
+            success: function (res)
+            {
+                $('#confirmedit').attr('valueidedit',res.id)
+                $('#avaedit').attr("src",res.img_hotel)
+                $('#name-edit').val(res.name_hotel)
+            }
+        });
+    }
+
+
+    function updateCourseAPI(id, data , callback)
+    {
+        var options = {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify(data)
+        };
+        fetch('http://localhost:3001/api/'+namelocation+'/'+ id, options)
+            .then((respose) =>
+            {
+                respose.json();
+            })
+            .then(callback);
+    }
+
+    function confirmEdit()
+    {
+        let id = $('#confirmedit').attr('valueidedit')
+        console.log(id)
+        var formData = {
+            name_hotel:$('#name-edit').val()
+        };
+        updateCourseAPI(id,formData)
+    }
+
+    // PHÂN TRANG
+    var items = $(".dvdvitem .dvdvitem-content");
+    let numItems = items.length
+    var perPage =9;
+    items.slice(perPage).hide();
+    console.log($('#pagination-container'));
+    $('#pagination-container').pagination({
+        items: numItems,
+        itemsOnPage: perPage,
+        prevText: "&laquo;",
+        nextText: "&raquo;",
+        onPageClick: function (pageNumber) {
+            var showFrom = perPage * (pageNumber - 1);
+            var showTo = showFrom + perPage;
+            items.hide().slice(showFrom, showTo).show();
+        }
+    });
+
+    //SEARCH
+    function searchBar() {
+        $('#search_field').on('keyup', function() {
+            console.log("ok")
+            let searchString = $(this).val();
+            $(".dvdvitem-content").each(function(index, value) {
+                currentName = $(value).text()
+                if( currentName.toUpperCase().indexOf(searchString.toUpperCase()) > -1) {
+                    $(value).show();
+                } else {
+                    $(value).hide();
+                }
+            });
+        });
+    };
+    searchBar();
+
+
+</script>
+<script src="/js/jscenter.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="com.example.demo.model.Totalbill">
+        <table name="totalbill" schema="java-final" catalog=""/>
+        <attributes>
+            <id name="stt">
+                <column name="stt" precision="255"/>
+            </id>
+            <basic name="iduser">
+                <column name="iduser"/>
+            </basic>
+            <basic name="idbooking">
+                <column name="idbooking"/>
+            </basic>
+            <basic name="totalpricebill">
+                <column name="totalpricebill"/>
+            </basic>
+            <basic name="status">
+                <column name="status"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

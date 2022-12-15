@@ -19,11 +19,40 @@
 <!--                        <img src="https://d1xyolhen8fnqh.cloudfront.net/media/ecs/global/icons/default160-2.png" alt="" class="header_user_ava-img">-->
 <!--                    </div>-->
 <!--                </div>-->
-                <div class="navbar__item">
-                    <a th:if="${session.inforlogin==null}" href="/log" class="header_user_ava" style="background-color:white;color:black;padding: 6px;border-radius:4px">
+                <div class="navbar__item" style="display: flex;align-items: center">
+
+                    <div class="fa fa-bell" id="bell" th:if="${session.inforlogin!=null}">
+                        <div th:switch="${listnoti.size()}">
+                            <div th:case="*">
+                                <div id="num-bell" th:text="${listnoti.size()}">3</div>
+                                <div class="notifi-div">
+                                    <div class="notifi-div-main">
+                                        <div style="padding: 8px">
+                                            <div class="chatheader-logo noti-item" th:each=" noti:${listnoti}">
+                                                <div>
+                                                    <img style="width: 36px;border-radius: 50%;border: 1px solid #eee" src="/image/logochat.png" />
+                                                </div>
+                                                <div style="margin-left: 6px;z-index: 10">
+                                                    <div style="font-size: 16px;color: #131313">Phản hồi từ Klook</div>
+                                                    <div th:if="${session.inforlogin}!=null and ${listnoti.size()}>0 " class="noti-content" th:text="${noti.repcontent}">Nội dung phản hồi</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="xemtatca">
+                                            <a>Xem tất cả</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a th:if="${session.inforlogin==null}" href="/log" class="header_user_ava" style="background-color:white;color:black;padding: 6px;border-radius:4px;font-size: 18px">
                         Đăng nhập
                     </a>
                     <div th:if="${session.inforlogin!=null}" class="header_user_ava">
+<!--                        style="border: none !important;object-fit: cover" th:src="${user.avatar}"-->
                         <img src="https://d1xyolhen8fnqh.cloudfront.net/media/ecs/global/icons/default160-2.png" alt="" class="header_user_ava-img">
                     </div>
 

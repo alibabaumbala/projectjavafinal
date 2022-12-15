@@ -38,4 +38,16 @@ public class Voucher {
     public void setSoluong(int soluong) {
         this.soluong = soluong;
     }
+
+    @Basic
+    @Column(name = "sudung", nullable = true,length = 255)
+    private int sudung;
+
+    public int getSudung() {
+        return sudung;
+    }
+
+    public void setSudung(int sudung) {
+        this.sudung = sudung;
+    }
 }

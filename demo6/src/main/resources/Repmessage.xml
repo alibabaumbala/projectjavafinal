@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="com.example.demo.model.Repmessage">
+        <table name="repmessage" schema="java-final" catalog=""/>
+        <attributes>
+            <id name="stt">
+                <column name="stt" precision="255"/>
+            </id>
+            <basic name="sttmessagesend">
+                <column name="sttmessagesend" precision="255"/>
+            </basic>
+            <basic name="repcontent">
+                <column name="repcontent" nullable="false" length="1000"/>
+            </basic>
+            <basic name="daterep">
+                <column name="daterep" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="userread">
+                <column name="userread" nullable="false" precision="255"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

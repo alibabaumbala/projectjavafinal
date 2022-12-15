@@ -79,7 +79,7 @@
         <div class="slide-profile-main tichluy_diem">
           <div style="padding:0px 15px" class="choose-item-profile">
             <!--thông tin tài khoản -->
-            <div >
+            <div>
               <a href="/user/profile" class="choose-item-profile-a">
                 <i class="fa fa-user"></i>Thông tin tài khoản
               </a>
@@ -90,8 +90,13 @@
               </a>
             </div>
             <div>
-              <a href="" class="choose-item-profile-a">
+              <a href="" class="choose-item-profile-a" >
                 <i class="fa fa-money"></i>Ưu đãi của tôi
+              </a>
+            </div>
+            <div>
+              <a href="/user/yourquestion" class="choose-item-profile-a">
+                <i class="fa fa-question"></i>Câu hỏi của bạn
               </a>
             </div>
             <div>
@@ -121,10 +126,10 @@
                  style="font-size: 16px; ">Đã xác nhận</a>
               <a class="nav-item nav-link" id="nav-hoanthanh-tab" data-toggle="tab"
                  href="#nav-hoanthanh" role="tab" aria-controls="nav-hoanthanh" aria-selected="false"
-                 style="font-size: 16px; ">Thành công</a>
-              <a class="nav-item nav-link" id="nav-huy-tab" data-toggle="tab" href="#nav-huy"
-                 role="tab" aria-controls="nav-huy" aria-selected="false"
-                 style="font-size: 16px; ">Hủy phòng</a>
+                 style="font-size: 16px; ">Đã nhận phòng</a>
+              <a class="nav-item nav-link" id="nav-huy-tab" data-toggle="tab"
+                 href="#nav-huy" role="tab" aria-controls="nav-huy" aria-selected="false"
+                 style="font-size: 16px; ">Đã trả phòng</a>
             </div>
           </nav>
           <div class="tab-content" id="nav-tabContent">
@@ -266,9 +271,6 @@
                       <!--TRẠNG THÁI -->
                       <div style="margin-top: 6px">
                         <button class="btn btn-success" style="padding: 6px !important" disabled>Thành công</button>
-                        <button id="btnfeedback" type="submit" th:if="${tc.getReview()==0}" class="btn" style="background-color: #ff5722 !important;padding: 6px !important;color:white;margin-left: 4px;" data-toggle="modal" data-target="#exampleModal"
-                                th:attr="fblocation=${tc.location},fbidhotel=${tc.idhotel},fbidroom=${tc.idroom},fbidbooking=${tc.idbooking}">Đánh giá</button>
-                        <button th:if="${tc.getReview()==1}" class="btn" style="background-color: #ff5722 !important;padding: 6px !important;color:white;margin-left: 4px;" data-toggle="modal" data-target="#exampleModal" disabled>Đã đánh giá</button>
                       </div>
                     </div>
                     <div class="lht-price">
@@ -287,24 +289,24 @@
                 </div>
               </div>
             </div>
-            <!--HỦY-->
+            <!--ĐÃ TRẢ PHÒNG-->
             <div class="tab-pane fade" id="nav-huy" role="tabpanel" aria-labelledby="nav-huy-tab">
-              <div class="list-hotel" th:each="huy:${huy}" style="opacity: 0.6">
+              <div class="list-hotel" th:each="dtp:${datraphong}">
                 <div class="lht-item" namePlace="${ele.id}">
                   <div class="lht-main">
                     <div class="lht-img">
-                      <div class="lht-img-img" th:style="|background:url(@{${@restAPI.restAPIString(0,huy.location,huy.idhotel,'img_hotel')}})|"></div>
+                      <div class="lht-img-img" th:style="|background:url(@{${@restAPI.restAPIString(0,dtp.location,dtp.idhotel,'img_hotel')}})|"></div>
                     </div>
                     <div class="lht-content">
-                      <p class="lht-name" th:text="${@restAPI.restAPIString(0,huy.getLocation(),huy.getIdhotel(),'name_hotel')}">Tên khách sạn</p>
+                      <p class="lht-name" th:text="${@restAPI.restAPIString(0,dtp.getLocation(),dtp.getIdhotel(),'name_hotel')}">Tên khách sạn</p>
                       <div class="lht-content_rate" style="padding: 4px 0px">
                         <div class="lht-content_rate_mark">
-                          <p style="margin-right: 5px" th:text="${@restAPI.findInfoRoom(0,huy.location,huy.idhotel,huy.idroom,'nameroom')}">Tên phòng</p>
+                          <p style="margin-right: 5px" th:text="${@restAPI.findInfoRoom(0,dtp.location,dtp.idhotel,dtp.idroom,'nameroom')}">Tên phòng</p>
                         </div>
                       </div>
                       <div class="lht-direct" style="padding: 4px 0px">
                         <a href="">
-                          <span class="fa fa-map-marker" th:text="${@restAPI.restAPIString(0,huy.getLocation(),huy.getIdhotel(),'address')}"></span>
+                          <span class="fa fa-map-marker" th:text="${@restAPI.restAPIString(0,dtp.getLocation(),dtp.idhotel,'address')}"></span>
                           <b style="color: #0b3af4">Xem bản đồ</b>
                         </a>
                       </div>
@@ -312,24 +314,32 @@
                         <div>
                           <span class="fa fa-star checked" style="color: white;"></span>
                         </div>
-                        <div th:text="${huy.getCheckin()}+' *** '+${huy.getCheckout()}">Ngày nhận và trả phòng</div>
+                        <div th:text="${dtp.getCheckin()}+' *** '+${dtp.getCheckout()}">Ngày nhận và trả phòng</div>
                       </div>
                       <div style="margin-top: 6px;font-weight:bold;font-size:16px"
-                           th:text="${huy.getRepresentative()}+' - '+${huy.getPhonecontact()}+' - '+${huy.emailcontact}">Tên người
-                        đặt - SDT - email</div>
+                           th:text="${dtp.getRepresentative()}+' - '+${dtp.getPhonecontact()}+' - '+${dtp.emailcontact}">Tên người
+                        đặt - SDT - email
+                      </div>
 
                       <!--TRẠNG THÁI -->
-                      <div style="margin-top: 6px">
-                        <button class="btn btn-danger" style="padding: 6px !important" disabled>Hủy</button>
+                      <div style="display: flex">
+                        <div style="margin-top: 6px">
+                          <button class="btn btn-success" style="padding: 6px !important" disabled>Đã trả phòng</button>
+                        </div>
+                        <div style="margin-top: 6px">
+                          <button id="btnfeedback" type="submit" th:if="${dtp.review==0}" class="btn" style="background-color: #ff5722 !important;padding: 6px !important;color:white;margin-left: 4px;" data-toggle="modal" data-target="#exampleModal"
+                                  th:attr="fblocation=${dtp.location},fbidhotel=${dtp.idhotel},fbidroom=${dtp.idroom},fbidbooking=${dtp.idbooking}">Đánh giá</button>
+                          <button th:if="${dtp.review==1}" class="btn" style="background-color: #ff5722 !important;padding: 6px !important;color:white;margin-left: 4px;" data-toggle="modal" data-target="#exampleModal" disabled>Đã đánh giá</button>
+                        </div>
                       </div>
                     </div>
                     <div class="lht-price">
                       <div id="status_room" value-status-room="${ele.status}">
-                        <div class="lht-price-detail" id="huy" th:text="${huy.getTotalprice()}+' VND'"></div>
+                        <div class="lht-price-detail" id="huy" th:text="${dtp.getTotalprice()}+' VND'">Tổng tiền VND</div>
                         <div class="type_room">
                           <div>
                             <p>Mã đặt phòng</p>
-                            <p th:text="${huy.getIdbooking()}" style="font-weight: bold">abcxyz</p>
+                            <p th:text="${dtp.getIdbooking()}" style="font-weight: bold">abcxyz</p>
                           </div>
                         </div>
                       </div>
@@ -436,7 +446,7 @@
             <textarea class="form-control" id="message-text" rows="15" style="font-size: 16px"></textarea>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" style="padding: 6px !important;">Hủy</button>
+            <button type="button" class="btn btn-secondary" id="btnhuyfb" data-dismiss="modal" style="padding: 6px !important;">Hủy</button>
             <button type="submit" id="sendfeedback" class="btn btn-primary" style="padding: 6px !important;">Gửi đánh giá</button>
           </div>
         </div>
@@ -471,38 +481,45 @@
   });
 
   let rating = document.querySelectorAll(".rating input")
+  var x_s = 5
+  rating.forEach(function(ele)
+  {
+    ele.onclick = function()
+    {
+      x_s = ele.value
+    }
+  })
+
 
   $('#sendfeedback').click(function ()
   {
-    let startemp = 5
-    rating.forEach(ele=>{
-      ele.onclick = function(e){
-         startemp = ele.value
-      }
-    })
-    data["star"] = startemp
+    data["star"] = x_s
     data["contentfeedback"] = $('#message-text').val()
-      $.ajax({
-        type: "POST",
-        url: "http://localhost:8080/api/api/feedback",
-        data: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept':'application/json'
-        },
-        success: function (data) {
-          swal({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Cảm ơn quý khách đã đánh giá khách sạn của chúng tôi!',
-            showConfirmButton: false,
-            timer: 2000
-          }) &&
-          $('#exampleModal').modal('hide')
-        },
-        error: function (e) {
-        }
-      });
+    $.ajax({
+      type: "POST",
+      url: "http://localhost:8080/api/api/feedback/send",
+      data: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept':'application/json'
+      },
+      success: function (data) {
+        swal({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Cảm ơn quý khách đã đánh giá khách sạn của chúng tôi!',
+          showConfirmButton: false,
+          timer: 2000
+        }).then(()=>{
+          $('#btnhuyfb').click()
+          $('#btnfeedback').prop('disabled',true)
+          $('#btnfeedback').text("Đã đánh giá")
+        })
+
+      },
+      error: function (e) {
+      }
+    });
   })
 </script>
 <script src="/js/jscenter.js"></script>

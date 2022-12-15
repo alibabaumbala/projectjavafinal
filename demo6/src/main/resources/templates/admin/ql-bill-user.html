@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> HÓA ĐƠN </title>
+    <link rel="stylesheet" href="/assets_admin/style.css">
+    <link rel="stylesheet" href="/assets_admin/message.css">
+    <link rel="stylesheet" href="/assets_admin/index.css">
+    <link rel="stylesheet" href="/css/progress.css">
+
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--SWAL-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        #bell{
+            position: relative;
+        }
+        #num-bell{
+            background-color: red;
+            width: 19px;
+            height: 19px;
+            border-radius: 50%;
+            position: absolute;
+            top: -1px;
+            left: 10px;
+            /* bottom: 0; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            /* font-weight: 700; */
+            font-size: 14px;
+        }
+        .soluong{
+            display: flex;
+            align-items: baseline;
+        }
+        .soluong div button{
+            padding: 12px;
+            background-color: #ddd;
+            border: 1px solid #ddd;
+        }
+        .soluong div b{
+            padding: 12px;
+            background-color: white;
+            border: 1px solid #ddd;
+        }
+        .uil-plus:hover{
+            cursor: pointer;
+        }
+        .bill-div div{
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{/admin/sidebar.html}"></div>
+<section class="home-section">
+    <nav>
+        <div class="sidebar-button">
+            <i class='bx bx-menu sidebarBtn'></i>
+            <span class="dashboard">Dashboard</span>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <i class='bx bx-search' ></i>
+        </div>
+        <div class="profile-details">
+            <img th:src="${employee.avatar}" alt="">
+            <span class="admin_name" th:text="${employee.tenemp}">Prem Shahi</span>
+            <i class='bx bx-chevron-down' ></i>
+        </div>
+    </nav>
+
+    <div class="home-content">
+        <div class="sales-boxes">
+            <div class="recent-sales box" style="height: 520px;overflow: auto">
+                <div class="title">DỊCH VỤ CUNG CẤP</div>
+                <div class="row dvdvitem" style="overflow:auto;height: 100%">
+                    <div class="col-sm-6 col-md-3 dvdvitem-content" th:each="dv:${service}" th:id="dv-row-+${dv.stt}" th:if="${@totalBillRepository.checkFinishByIdBooking(ttdp.idbooking)==null}">
+                        <div class="dv-item" style="height: 200px;overflow: hidden">
+                            <div class="dv-item-img" style="height: 100px !important;">
+                                <img th:src="${dv.imgService}">
+                            </div>
+                            <div class="dv-item-price-div">
+                                <div>
+                                    <i th:id="prsv-row-+${dv.stt}" th:if="${@buyServiceRepository.checkBought(ttdp.iduser,ttdp.idbooking,dv.stt)==null}" class="uil-plus" style="font-size: 25px;color: red" th:attr="onclick=|handleaddpr('${dv.stt+','+ttdp.iduser+','+ttdp.idbooking+','+dv.imgService+','+dv.nameService+','+dv.price}')|" ></i>
+                                </div>
+                                <div style="display: flex;align-items: center">
+                                    <div class="dv-item-price lht-price-detail ml-2" style="color: #021ee9;font-weight: bold;" th:text="${dv.price}+ ' VND'"></div>
+                                </div>
+                            </div>
+                            <div class="dv-item-content">
+                                <div class="dv-item-name" style="font-size: 16px;font-weight: 400" th:id="dv-row-name-+${dv.stt}" th:text="${dv.nameService}"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 dvdvitem-content" th:each="pr:${product}" th:id="pr-row-+${pr.sttproduct}" th:if="${@totalBillRepository.checkFinishByIdBooking(ttdp.idbooking)==null}">
+                        <div class="dv-item" style="height: 200px;overflow: hidden">
+                            <div class="dv-item-img" style="height: 100px !important;">
+                                <img th:src="${pr.imgproduct}">
+                            </div>
+                            <div class="dv-item-price-div">
+                                <div>
+                                    <i th:id="prsv-row-+${pr.sttproduct}" th:if="${@buyServiceRepository.checkBought(ttdp.iduser,ttdp.idbooking,pr.sttproduct)==null}" class="uil-plus" style="font-size: 25px;color: red" th:attr="onclick=|handleaddpr('${pr.sttproduct+','+ttdp.iduser+','+ttdp.idbooking+','+pr.imgproduct+','+pr.nameproduct+','+pr.priceduct}')|" ></i>
+                                </div>
+                                <div style="display: flex;align-items: center">
+                                    <div class="pr-item-price lht-price-detail ml-2" style="color: #021ee9;font-weight: bold;" th:text="${pr.priceduct}+ ' VND'"></div>
+                                </div>
+                            </div>
+                            <div class="dv-item-content">
+                                <div class="pr-item-name" style="font-size: 16px;font-weight: 400;text-align: center" th:id="pr-row-name-+${pr.sttproduct}" th:text="${pr.nameproduct}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="top-sales box">
+                <div class="title">Thông tin khách hàng</div>
+                <div style="padding: 8px">
+                    <div id="thongtinlienhe">
+                        <div style="display: flex;align-items: center;justify-content: space-between">
+                            <div style="display: flex;align-items: center">
+                                <img id=avaaccount style="width: 50px;height: 50px;object-fit: cover"
+                                     th:src="${ttkh.avatar}"
+                                     class="rounded-circle"
+                                     src="https://kenh14cdn.com/thumb_w/660/203336854389633024/2021/7/27/photo-1-1627385343987657351288.jpg" />
+                                <div style="margin-left: 4px" id="tenaccount" th:text="${ttkh.ho+' '+ttkh.ten}">Taylor Swift</div>
+                            </div>
+                        </div>
+                        <div class="ht-item">
+                            <div>
+                                <b>Thông tin liên hệ</b>
+                            </div>
+                            <div>
+                                <i class="uil-envelope mt-3"></i><i style="font-style: normal" id="emailaccount" th:text="${' '+ttkh.email}"> @gmail</i>
+                                <br>
+                                <i class="uil-phone-alt mt-3"></i> <i style="font-style: normal" id="sdtaccount" th:text="${ttkh.phone}"> 000</i>
+                            </div>
+                        </div>
+                        <div class="ht-item">
+                            <div>
+                                <b>Thông tin đặt phòng</b>
+                            </div>
+                            <div>
+                                <i class="uil-user mt-3 mr-2" ></i><i style="font-style: normal" id="nguoidaidien" th:text="${ttdp.representative}"> Huy</i>
+                                <br>
+                                <i class="uil-envelope mt-3 mr-2"></i><i style="font-style: normal" id="emaildaidien" th:text="${ttdp.emailcontact}"> Huy</i>
+                                <br>
+                                <i class="uil-phone-alt mt-3 mr-2"></i><i style="font-style: normal" id="sdtdaidien" th:text="${ttdp.phonecontact}"> Huy</i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+<!--THÔNG TIN BILL-->
+        <div class="sales-boxes" style="margin-top: 20px">
+            <div class="recent-sales box" style="width: 100%">
+                <div class="title">HÓA ĐƠN THANH TOÁN</div>
+                <div class="activity-data ">
+                    <div style="padding: 8px">
+                        <div class="thongtinhotel">
+                            <div class="thongtinhotel-img" style="width: fit-content;">
+                                <img style="width: 200px;" th:src="${@restAPI.restAPIString(0,ttdp.location,ttdp.idhotel,'img_hotel')}" alt="">
+                            </div>
+                            <div class="thongtinhotel-content">
+                                <p style="font-weight: 700;font-size: 18px;" th:text="${@restAPI.restAPIString(0,ttdp.location,ttdp.idhotel,'name_hotel')}"></p>
+                                <p style="font-size:16px" th:text="${@restAPI.findInfoRoom(0,ttdp.location,ttdp.idhotel,ttdp.idroom,'nameroom')}"></p>
+                                <p class="lht-price-detail" style="font-size:16px;color: #ee2c4a;font-weight: 700" th:text="${@restAPI.findInfoRoom(0,ttdp.location,ttdp.idhotel,ttdp.idroom,'priceroom')+' VND'}"></p>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; font-size: 18px;padding: 10px 0px">Dịch vụ kèm theo</div>
+                            <div>
+                                <div class="row" style="color:#bbb;font-size: 16px;margin-bottom: 15px">
+                                    <div class="col-6">Dịch vụ</div>
+                                    <div class="col-2">Đơn giá</div>
+                                    <div class="col-2">Số lượng</div>
+                                    <div class="col-2">Thành tiền</div>
+                                </div>
+                                <div class="row" th:each="buy:${buyservice}" style="margin-bottom: 15px" th:id="bought-service-+${buy.stt}">
+                                    <div class="col-3">
+                                        <div style="width: 100%;">
+                                            <img style="width: 100px;height: 100px;object-fit: cover" th:src="${buy.img}">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div th:text="${buy.name}"></div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="lht-price-detail" th:value="${buy.dongia}" th:id="'dongia-row-'+${buy.sttService}" th:text="${buy.dongia}+' VND'"></div>
+                                    </div>
+                                    <div class="col-2 soluong">
+                                        <div>
+                                            <button th:id="down-+${buy.sttService}" th:attr="onclick=|handledown('${buy.sttService}')|">-</button>
+                                        </div>
+                                        <div>
+                                            <b th:value="${buy.soluong}" th:id="soluong-row-+${buy.sttService}" th:text="${buy.soluong}"></b>
+                                        </div>
+                                        <div>
+                                            <button th:id="up-+${buy.sttService}" th:attr="onclick=|handleup('${buy.sttService}')|">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="lht-price-detail tongtiensvpr" th:value="${buy.thanhtien}" th:id="thanhtien-row-+${buy.sttService}" th:text="${buy.thanhtien}+' VND'">đ100.000</div>
+                                        <i th:if="${@totalBillRepository.checkFinishByIdBooking(ttdp.idbooking)==null}" id=deletesvpr"" class="uil-trash-alt" style="font-size: 20px;color: red" th:attr="onclick=|deletesvpr('${buy.stt}')|" ></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; font-size: 18px;padding: 10px 0px">Giá phòng khách sạn</div>
+                            <div>
+                                <div class="row" style="color:#bbb;font-size: 16px;margin-bottom: 15px">
+                                    <div class="col-3">Phòng</div>
+                                    <div class="col-1">Số lượng phòng</div>
+                                    <div class="col-2">Số lượng khách</div>
+                                    <div class="col-2">Check in</div>
+                                    <div class="col-2">Check out</div>
+                                    <div class="col-2">Thành tiền</div>
+                                </div>
+                                <div class="row" style="margin-bottom: 15px">
+                                    <div class="col-3" style="display:flex">
+                                        <img style="width: 120px;height: 120px;object-fit: cover" th:src="${@restAPI.findInfoRoom(0,ttdp.location,ttdp.idhotel,ttdp.idroom,'imgroom')}">
+                                        <b class="ml-3" th:text="${@restAPI.findInfoRoom(0,ttdp.location,ttdp.idhotel,ttdp.idroom,'nameroom')}"></b>
+                                    </div>
+                                    <div class="col-1">
+                                        <div th:text="${ttdp.sophong}"></div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div th:text="${'NL: '+ttdp.adult+' + TE: '+ttdp.child}"></div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div th:text="${ttdp.checkin}"></div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div th:text="${ttdp.checkout}"></div>
+                                    </div>
+
+                                    <div class="col-2">
+                                        <div class="lht-price-detail" th:text="${ttdp.totalprice}+' VND'">đ100.000</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--TỔNG BILL-->
+                            <div>
+                                <div class="bill-div" style="font-size: 14px;color: rgba(0,0,0,.54);display: flex;flex-direction: column;justify-content: flex-end;background: #fffefb;box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%); border-top: 1px solid #f1f0ed;">
+                                    <div>
+                                        <div class="col-8"></div>
+                                        <div class="col-4">
+                                            <p style="width: 60%">Tổng tiền dịch vụ</p>
+                                            <p id="tongtiendichvu">100000 VND</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="col-8"></div>
+                                        <div class="col-4">
+                                            <p style="width: 60%">Tổng tiền phòng</p>
+                                            <p th:value="${ttdp.totalprice}" th:id="tongtienphong" class="lht-price-detail" th:text="${ttdp.totalprice}+' VND'">100000 VND</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="col-8"></div>
+                                        <div class="col-4" style="align-items: center">
+                                            <p style="width: 40%">Tổng thanh toán</p>
+                                            <p id="tongthanhtoan" style="font-size: 28px;color: #ee4d2d;">200000 VND</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8"></div>
+                                        <div class="col-4" th:if="${@totalBillRepository.checkFinishByIdBooking(ttdp.idbooking)==null}">
+                                            <div
+                                                    th:attr="onclick=|thanhtoanvatraphong('${ttdp.iduser+','+ttdp.idbooking}')|"
+                                                    class="btn btn-success" style="background: #ee4d2d;color: #fff;" >THANH TOÁN & TRẢ PHÒNG</div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--MODAL REP MESSAGE-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Trả lời phản hồi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Câu hỏi:</label>
+                        <div type="text" class="form-control" id="recipient-name" style="height: fit-content"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Trả lời:</label>
+                        <textarea class="form-control" id="message-text" rows="10" required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnhuymodal">Hủy</button>
+                <button type="button" class="btn btn-primary" id="guiphanhoi">Gửi phản hồi</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"/>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js'></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<script>
+
+
+</script>
+<script>
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function() {
+        sidebar.classList.toggle("active");
+        if(sidebar.classList.contains("active")){
+            sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+        }else
+            sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+    }
+</script>
+<!-- apexcharts js -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script>
+    let sumbill = ()=>
+    {
+        let sum = 0
+        $('.tongtiensvpr').each(function (key,value){
+            sum = sum +Number($(this).attr('value'))
+        })
+        return sum;
+
+    }
+
+    $('#tongtiendichvu').text(setPrice(sumbill()+' VND'))
+    $('#tongtiendichvu').attr('value',sumbill())
+    function setPrice(price)
+    {
+        let result = "";
+        var price1 = Number(price.substring(0,price.indexOf(' ')))
+        result= new Intl.NumberFormat({ style: 'currency', currency: 'JPY' }).format(price1)+" VND"
+        return result;
+    }
+
+    $('#tongthanhtoan').text(setPrice(Number($('#tongtiendichvu').attr('value'))+Number($('#tongtienphong').attr('value'))+' VND'))
+
+    function handleup(sttservice)
+    {
+        let thanhtien = $('#thanhtien-row-'+sttservice)
+        let num = $('#soluong-row-'+sttservice)
+        let dongia = $('#dongia-row-'+sttservice).attr('value')
+
+        num.text(Number(num.text())+1)
+        num.attr('value',num.text())
+        $('#thanhtien-row-'+sttservice).text(setPrice(dongia*num.attr('value')+' VND'))
+        thanhtien.attr('value',dongia*num.attr('value'))
+
+        $('#tongtiendichvu').text(setPrice(Number($('#tongtiendichvu').attr('value'))+Number(dongia)+' VND'))
+        $('#tongtiendichvu').attr('value',$('#tongtiendichvu').text().split(' ')[0].replaceAll('.',''))
+        $('#tongthanhtoan').text(setPrice(Number($('#tongtiendichvu').attr('value'))+Number($('#tongtienphong').attr('value'))+' VND'))
+
+    }
+
+    function handledown(sttservice)
+    {
+        let thanhtien = $('#thanhtien-row-'+sttservice)
+        let num = $('#soluong-row-'+sttservice)
+        let dongia = $('#dongia-row-'+sttservice).attr('value')
+        if(Number(num.attr('value'))==1)
+            $('#down-'+sttservice).preventDefault()
+        else {
+            num.text(Number(num.text())-1)
+            num.attr('value',num.text())
+            thanhtien.attr('value',dongia*num.attr('value'))
+            $('#thanhtien-row-'+sttservice).text(setPrice(dongia*num.attr('value')+' VND'))
+
+            $('#tongtiendichvu').text(setPrice(Number($('#tongtiendichvu').attr('value'))-Number(dongia)+' VND'))
+            $('#tongtiendichvu').attr('value',$('#tongtiendichvu').text().split(' ')[0].replaceAll('.',''))
+            $('#tongthanhtoan').text(setPrice(Number($('#tongtiendichvu').attr('value'))+Number($('#tongtienphong').attr('value'))+' VND'))
+        }
+    }
+
+    //XÓA DỊCH VỤ
+    function deletesvpr(stt)
+    {
+        console.log(stt)
+        $.ajax({
+            type: "Post",
+            url: "http://localhost:8080/api/api/buyservice/delete",
+            data: {
+                stt: stt
+            },
+            success: function (response)
+            {
+                swal({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Xóa thành công',
+                    showConfirmButton: false,
+                    timer: 1000
+                }).then(()=>{
+                    $('#bought-service-'+stt).remove()
+                    location.reload();
+                })
+            },
+            error:function ()
+            {
+                console.log("lỗi")
+            }
+        });
+    }
+
+    function handleaddpr(text)
+    {
+        console.log(text)
+        //stt,iduser,idbooking,img,name,price
+        let arrdata = text.split(',')
+        console.log(arrdata)
+        let data = {
+            iduser:arrdata[1],
+            idbooking:arrdata[2],
+            sttService:arrdata[0],
+            dongia:arrdata[5],
+            soluong:1,
+            thanhtien:arrdata[5],
+            name:arrdata[4],
+            img:arrdata[3]
+        }
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/api/api/buyservice",
+            data: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept':'application/json'
+            },
+            success: function (response)
+            {
+                console.log("ok")
+                swal({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Đã chọn',
+                    showConfirmButton: false,
+                    timer: 1000
+                }).then(()=>{
+                    $('#prsv-row-'+arrdata[0]).css('display','none')
+                    location.reload();
+                })
+            },
+            error: function (e) {
+                console.log("Lỗi")
+            }
+        });
+    }
+
+    function thanhtoanvatraphong(text)
+    {
+        //iduser,idbooking
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/api/api/bookinglistbystatus/update",
+            data:{
+                idbooking: text.split(',')[1],
+                statusbooking:"Đã trả phòng",
+                iduser:text.split(',')[0],
+                totalpricebill:$('#tongthanhtoan').text().split(' ')[0].replaceAll('.',''),
+                status:'Đã thanh toán'
+            },
+            success: function (response)
+            {
+                console.log(response)
+                swal({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Khách hàng đã trả phòng!',
+                    showConfirmButton: false,
+                    timer: 1000
+                }).then(()=>{
+                    $('#soluong').text($('#soluong').text()-1)
+                })
+            },
+            error: function (e) {
+                console.log("Lỗi")
+            }
+        });
+    }
+
+</script>
+<script src="/js/jscenter.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> KHÁCH HÀNG </title>
+    <link rel="stylesheet" href="/assets_admin/style.css">
+    <link rel="stylesheet" href="/assets_admin/message.css">
+    <link rel="stylesheet" href="/css/paginate.css">
+
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--SWAL-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        .table td {
+            text-align: center;
+        }
+        .table th {
+            text-align: center;
+        }
+        .table-nv{
+            justify-content: center !important;
+        }
+    </style>
+
+</head>
+<body>
+<div th:replace="~{/admin/sidebar.html}"></div>
+<section class="home-section">
+    <nav>
+        <div class="sidebar-button">
+            <i class='bx bx-menu sidebarBtn'></i>
+            <span class="dashboard">Dashboard</span>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+            <i class='bx bx-search' ></i>
+        </div>
+        <div class="profile-details">
+            <img th:src="${employee.avatar}" alt="">
+            <span class="admin_name" th:text="${employee.tenemp}">Prem Shahi</span>
+            <i class='bx bx-chevron-down' ></i>
+        </div>
+    </nav>
+
+    <div class="home-content">
+        <div class="sales-boxes">
+            <div class="recent-sales box">
+                <div class="title">Khách hàng V.I.P</div>
+                <div class="sales-details">
+                    <div id="chart" style="width:100%"></div>
+                </div>
+            </div>
+            <div class="top-sales box">
+                <div class="title">Tần suất giao dịch</div>
+                <ul class="top-sales-details">
+
+                </ul>
+            </div>
+        </div>
+        <div class="sales-boxes" style="margin-top: 20px">
+            <div class="recent-sales box" style="width: 100%">
+                <div class="title">Danh sách khách hàng</div>
+                <div class="sales-details table-nv">
+                    <div class="activity-data ">
+                        <table class="table table-striped justify-content-center" id="fid_table">
+                            <thead>
+                            <tr class="t_head">
+                                <th scope="col">Mã KH</th>
+                                <th scope="col">Họ tên</th>
+                                <th scope="col">Ảnh đại diện</th>
+                                <th scope="col">Số điện thoại</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Giới tính</th>
+                                <th scope="col">Hạng</th>
+                                <th scope="col">Điểm</th>
+                                <th scope="col">Trạng thái</th>
+                                <th scope="col">Tác vụ</th>
+                            </tr>
+                            </thead>
+                            <tbody >
+                            <tr class="tritem" th:each="nv:${dskh}" th:id="row_+${nv.iduser}" id="listnv">
+                                <td style="font-weight: bold">
+                                    <a th:text="${nv.iduser}"></a>
+                                </td>
+                                <td th:class="row-tenemp-+${nv.iduser}" th:attr="mnv=${nv.iduser}" th:id="namenv_+${nv.iduser}" th:text="${nv.ho+' '+nv.ten}">
+                                </td>
+                                <td>
+                                    <img style="width: 60px;height: 60px;border-radius: 50%;object-fit: cover" th:src="${nv.avatar}"/>
+                                </td>
+                                <td th:class="row-sdtemp-+${nv.iduser}" th:text="${nv.phone}">@mdo</td>
+                                <td th:class="row-emailemp-+${nv.iduser}" th:text="${nv.email}">@mdo</td>
+                                <td th:class="row-genderemp-+${nv.iduser}" th:text="${nv.gender}">Otto</td>
+                                <td th:class="row-positionemp-+${nv.iduser}" th:text="${nv.level}">@mdo</td>
+                                <td th:class="row-point-+${nv.iduser}" th:text="${nv.point}">@mdo</td>
+                                <td th:class="row-status-+${nv.iduser}">
+                                    <input type="checkbox" checked id="checkedstatus" style="color: #1aa385">
+                                    <div th:text="${nv.status}" style="color: #1aa385"></div>
+                                </td>
+                                <td>
+                                    <i class="uil-comment-edit" style="font-size: 20px" data-toggle="modal" data-target="#editModal" th:attr="onclick=|handleEdit('${nv.iduser}')|"></i>
+                                    <i id=deletenv"" class="uil-trash-alt" style="font-size: 20px;color: red" th:attr="onclick=|handleDelete('${nv.iduser}')|" ></i>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div id="pagination-container"></div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!--MODAL SỬA KHÁCH HÀNG-->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Sửa thông tin Khách hàng</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="needs-validation" novalidate>
+                    <div class="form-group" style="display: flex;justify-content: center">
+                        <img id="avaedit" style="width: 150px;height: 150px;border-radius: 50%;object-fit: cover"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="honvedit" class="col-form-label">Họ khách hàng</label>
+                        <input required type="text" class="form-control is-invalid" id="honvedit" name="tennv" pattern="[a-z\sA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]{1,255}" >
+                    </div>
+                    <div class="form-group">
+                        <label for="tennvedit" class="col-form-label">Tên khách hàng</label>
+                        <input required type="text" class="form-control is-invalid" id="tennvedit" name="tennv" pattern="[a-z\sA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]{1,255}" >
+                    </div>
+                    <div class="form-group">
+                        <label for="sdtnvedit" class="col-form-label">Số điện thoại</label>
+                        <input required type="tel" id="sdtnvedit" name="sdtnv" class="form-control is-invalid" pattern="[0]{1}[0-9]{3}[0-9]{3}[0-9]{3}">
+                    </div>
+                    <div class="form-group">
+                        <label for="emailnvedit" class="col-form-label">Email</label>
+                        <input type="email" id="emailnvedit" name="emailnv" class="form-control is-invalid" required>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genderempedit" id="genderedit1" value="Male" checked>
+                        <label class="form-check-label" for="inlineRadio1">Nam</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genderempedit" id="genderedit2" value="Female">
+                        <label class="form-check-label" for="inlineRadio2">Nữ</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="leveledit">Hạng thẻ</label>
+                        <select class="form-control" id="leveledit" name="leveledit">
+                            <option value="Khách hàng thường">Khách hàng thường</option>
+                            <option value="Khách VIP">Khách VIP</option>
+                        </select>
+<!--                        <div class="form-group">-->
+<!--                            <label for="leveledit">Tình trạng</label>-->
+<!--                            <select class="form-control" id="tinhtrang" name="tinhtrang">-->
+<!--                                <option value="Chờ duyệt">Chờ duyệt</option>-->
+<!--                                <option value="Hoạt động">Hoạt động</option>-->
+<!--                            </select>-->
+                        </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="huyedit">Hủy</button>
+                <button class="btn btn-primary" id="confirmedit" onclick="confirmEdit()">Sửa</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"/>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js'></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<script>
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function() {
+        sidebar.classList.toggle("active");
+        if(sidebar.classList.contains("active")){
+            sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+        }else
+            sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+    }
+</script>
+<!-- apexcharts js -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script>
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('change', function(event) {
+
+                    if (form.checkValidity() === false)
+                    {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                    if(form.checkValidity()===true)
+                    {
+                        $("#themnv").prop('disabled', false)
+                    }
+                }, false);
+            });
+        }, false)
+    })();
+
+    //XÓA KHÁCH HÀNG
+    function handleDelete(uid)
+    {
+        console.log(uid)
+        let name = $('#namenv_'+uid).text()
+        let text = "Xóa "+name +"?"
+        swal({
+            title: "Xác nhận xóa!",
+            text: text,
+            icon: "warning",
+            buttons: true,
+            dangerMode: false,
+        }).then((value) => {
+            if (value) {
+                $.ajax({
+                    type: "Post",
+                    url: "http://localhost:8080/api/api/user/delete",
+                    data: {
+                        iduser: uid
+                    },
+                    success: function (response)
+                    {
+                        swal({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Xóa thành công',
+                            showConfirmButton: false,
+                            timer: 1000
+                        }).then(()=>{
+                            $('#row_'+uid).remove()
+                            console.log(response)
+                        })
+                    },
+                    error:function ()
+                    {
+                        console.log("rỗi")
+                    }
+                });
+            }
+        });
+    }
+
+    //CẬP NHẬT THÔNG TIN KHÁCH HÀNG
+    function handleEdit(uid)
+    {
+        console.log(uid)
+        $.ajax({
+            type: "GET",
+            dataType:'json',
+            url: "http://localhost:8080/api/api/edit/user",
+            data: {iduser: uid },
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept':'application/json'
+            },
+            success: function (response)
+            {
+                console.log(response)
+                $('#avaedit').attr("src",response.avatar)
+                $('#sdtnvedit').val(response.phone)
+                $('#honvedit').val(response.ho)
+                $('#tennvedit').val(response.ten)
+                $('#emailnvedit').val(response.email)
+
+                if(response.gender=='Male')
+                    $('#genderedit1').prop("checked",true)
+                if(response.gender=='Female')
+                    $('#genderedit2').prop("checked",true)
+
+                $('#confirmedit').attr('valueidedit',uid);
+
+                if(response.level=='Khách VIP')
+                    document.getElementById("leveledit").selectedIndex = 1
+                if(response.level=='Khách hàng thường')
+                    document.getElementById("leveledit").selectedIndex = 0
+                // if(response.status=='Chờ duyệt')
+                //     document.getElementById("tinhtrang").selectedIndex = 0
+                // if(response.status=='Hoạt động')
+                //     document.getElementById("tinhtrang").selectedIndex = 1
+
+            }
+        });
+    }
+
+    var radioButtonGroupGender = document.getElementsByName("genderempedit");
+    function confirmEdit()
+    {
+        let uid = $('#confirmedit').attr('valueidedit')
+
+        console.log(uid)
+        let data = {
+            iduser:uid,
+            ten:$('#tennvedit').val(),
+            ho:$('#honvedit').val(),
+            email:$('#emailnvedit').val(),
+            level:$('#leveledit').val(),
+            phone:$('#sdtnvedit').val(),
+            gender:Array.from(radioButtonGroupGender).find((radio) => radio.checked).value,
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/api/api/edit/user/success",
+            data:data,
+            success: function (response)
+            {
+                // console.log(response)
+                swal({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Cập nhật thành công!',
+                    showConfirmButton: false,
+                    timer: 1000
+                }).then(()=>{
+                    console.log(response)
+                    $('.row-tenemp-'+uid).text(response.ho+' '+response.ten)
+                    $('.row-sdtemp-'+uid).text(response.phone)
+                    $('.row-emailemp-'+uid).text(response.email)
+                    $('.row-genderemp-'+uid).text(response.gender)
+                    $('.row-positionemp-'+uid).text(response.level)
+                    $('#huyedit').click()
+                })
+            },
+            error: function (e) {
+                console.log("Lỗi")
+            }
+        });
+    }
+
+    let checkedstatus =  document.querySelectorAll("#checkedstatus")
+    checkedstatus.forEach(ele=>{
+        ele.onclick = function (event)
+        {
+            event.preventDefault()
+        }
+    })
+
+    // PHÂN TRANG
+    var items = $('.tritem');
+    console.log(items);
+    numItems = $('table.table tr:last').index()+1;
+    var perPage = 5;
+
+    items.slice(perPage).hide();
+    console.log($('#pagination-container'));
+    $('#pagination-container').pagination({
+        items: numItems,
+        itemsOnPage: perPage,
+        prevText: "&laquo;",
+        nextText: "&raquo;",
+        onPageClick: function (pageNumber) {
+            var showFrom = perPage * (pageNumber - 1);
+            var showTo = showFrom + perPage;
+            items.hide().slice(showFrom, showTo).show();
+        }
+    });
+
+</script>
+<script src="/js/jscenter.js"></script>
+</body>
+</html>

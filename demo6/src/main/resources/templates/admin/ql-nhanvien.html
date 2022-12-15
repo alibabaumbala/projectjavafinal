@@ -3,8 +3,10 @@
 <html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title> Responsiive Admin Dashboard | CodingLab </title>
+    <title> Quản lý nhân viên </title>
     <link rel="stylesheet" href="/assets_admin/style.css">
+    <link rel="stylesheet" href="/css/paginate.css">
+
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,7 +48,7 @@
     <div class="home-content">
         <div class="sales-boxes">
             <div class="recent-sales box" style="width: 100% !important;">
-                <div class="title">DANH SÁCH KHÁCH HÀNG</div>
+                <div class="title" style="border-bottom: none">DANH SÁCH NHÂN VIÊN</div>
                 <button class="btn btn-primary mb-1" data-toggle="modal" data-target="#exampleModal">Thêm nhân viên</button>
                 <div class="sales-details">
                     <table class="table table-striped" id="fid_table">
@@ -67,7 +69,7 @@
                         <tr class="tritem" th:each="nv:${dsnv}" th:id="row_+${nv.idemp}" id="listnv">
                             <td style="font-weight: bold" th:text="${nv.idemp}">@mdo</td>
                             <td th:class="row-tenemp-+${nv.idemp}" th:text="${nv.tenemp}" th:attr="mnv=${nv.idemp}" th:id="namenv_+${nv.idemp}"></td>
-                            <td><img style="width: 80px;height: 80%;border-radius: 4px" th:src="${nv.avatar}"></td>
+                            <td><img style="width: 100px;height: 100px;object-fit:cover;border-radius: 4px" th:src="${nv.avatar}"></td>
                             <td th:class="row-genderemp-+${nv.idemp}" th:text="${nv.genderemp}">Otto</td>
                             <td th:class="row-sdtemp-+${nv.idemp}" th:text="${nv.sdtemp}">@mdo</td>
                             <td th:class="row-emailemp-+${nv.idemp}" th:text="${nv.emailemp}">@mdo</td>
@@ -81,6 +83,7 @@
                         </tbody>
                     </table>
                 </div>
+                <div id="pagination-container"></div>
             </div>
 
         </div>
@@ -135,7 +138,7 @@
                     </div>
                     <div class="form-group">
                         <label for="passnv" class="col-form-label">Mật khẩu</label>
-                        <input th:field="*{passemp}" placeholder="Nập mật khẩu" type="password" id="passnv" name="passnemp" class="form-control is-invalid" pattern=".{6,}" required>
+                        <input th:field="*{passemp}" placeholder="Nhập mật khẩu" type="password" id="passnv" name="passnemp" class="form-control is-invalid" pattern=".{6,}" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
@@ -197,6 +200,7 @@
     </div>
 </div>
 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js'></script>
 <script>
     (function() {
         'use strict';
@@ -386,84 +390,29 @@
             }
         });
     }
+    // PHÂN TRANG
+    var items = $('.tritem');
+    console.log(items);
+    numItems = $('table.table tr:last').index()+1;
+    var perPage = 5;
+
+    items.slice(perPage).hide();
+    console.log($('#pagination-container'));
+    $('#pagination-container').pagination({
+        items: numItems,
+        itemsOnPage: perPage,
+        prevText: "&laquo;",
+        nextText: "&raquo;",
+        onPageClick: function (pageNumber) {
+            var showFrom = perPage * (pageNumber - 1);
+            var showTo = showFrom + perPage;
+            items.hide().slice(showFrom, showTo).show();
+        }
+    });
 
 </script>
 <!-- apexcharts js -->
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<script>
 
-    var options = {
-        series: [{
-            name: 'ĐẶT PHÒNG',
-            type: 'column',
-            data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30]
-        }, {
-            name: 'DỊCH VỤ',
-            type: 'area',
-            data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43]
-        }, {
-            name: 'KHÁC',
-            type: 'line',
-            data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39]
-        }],
-        chart: {
-            height: 350,
-            type: 'line',
-            stacked: false,
-        },
-        stroke: {
-            width: [0, 2, 5],
-            curve: 'smooth'
-        },
-        plotOptions: {
-            bar: {
-                columnWidth: '50%'
-            }
-        },
-
-        fill: {
-            opacity: [0.85, 0.25, 1],
-            gradient: {
-                inverseColors: false,
-                shade: 'light',
-                type: "vertical",
-                opacityFrom: 0.85,
-                opacityTo: 0.55,
-                stops: [0, 100, 100, 100]
-            }
-        },
-        labels: ['01/01/2022', '02/01/2022', '03/01/2022', '04/01/2022', '05/01/2022', '06/01/2022', '07/01/2022',
-            '08/01/2022', '09/01/2022', '10/01/2022', '11/01/2022'
-        ],
-        markers: {
-            size: 0
-        },
-        xaxis: {
-            type: 'datetime'
-        },
-        yaxis: {
-            title: {
-                text: 'Triệu(VND)',
-            },
-            min: 0
-        },
-        tooltip: {
-            shared: true,
-            intersect: false,
-            y: {
-                formatter: function (y) {
-                    if (typeof y !== "undefined") {
-                        return y.toFixed(0) + " triệu";
-                    }
-                    return y;
-
-                }
-            }
-        }
-    };
-
-    var chart = new ApexCharts(document.querySelector("#chart"), options);
-    chart.render();
-</script>
 </body>
 </html>

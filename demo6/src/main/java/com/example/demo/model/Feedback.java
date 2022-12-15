@@ -31,7 +31,7 @@ public class Feedback {
     @Column(name = "contentfeedback", nullable = true, length = 1000)
     private String contentfeedback;
     @Basic
-    @Column(name = "datefeedback", nullable = false)
+    @Column(name = "datefeedback", nullable = true)
     private Timestamp datefeedback;
 
     public int getIdfeedback() {

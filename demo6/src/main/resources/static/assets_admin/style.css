@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: inherit;
+  font-family: "DM Sans", sans-serif !important;;
 }
 .sidebar{
   position: fixed;
@@ -277,7 +277,9 @@ nav .profile-details i{
 .sales-boxes .box .title{
   font-size: 24px;
   font-weight: 500;
-  /* margin-bottom: 10px; */
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  display: flex;
 }
 .sales-boxes .sales-details li.topic{
   font-size: 20px;

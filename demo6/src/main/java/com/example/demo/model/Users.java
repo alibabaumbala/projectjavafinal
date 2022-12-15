@@ -44,6 +44,30 @@ public class Users {
     @Column(name = "creact_account", nullable = true)
     private Timestamp creactAccount;
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Basic
+    @Column(name = "status", nullable = true, length = 255)
+    private String status;
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    @Basic
+    @Column(name = "level", nullable = true, length = 255)
+    private String level;
+
     public String getIduser() {
         return iduser;
     }

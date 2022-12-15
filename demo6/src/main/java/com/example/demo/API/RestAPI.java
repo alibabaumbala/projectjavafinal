@@ -1,18 +1,17 @@
 package com.example.demo.API;
 
 
+import com.example.demo.responsitory.RepmessageRepository;
 import com.example.demo.responsitory.UserRepository;
 import com.example.demo.services.UserService;
 import com.example.demo.services.VoucherService;
-import lombok.SneakyThrows;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.*;
 
 @Service
@@ -30,14 +29,16 @@ public class RestAPI
 
 
     API api = new API();
+    @Autowired
+    private RepmessageRepository repmessageRepository;
 
-    String uriAPI = "http://localhost:3001/api/listhotel";
+    //    String uriAPI = "http://localhost:3001/api/listhotel";
    public String restAPIString(int index,String location, String idHotel,String key) throws JSONException
    { //không tìm được list-room
 
        int indexHotel = findIndexKey(0,location,"id",idHotel);
        LinkedHashMap<String, ArrayList> listhashmap = new LinkedHashMap<>();
-       listhashmap = (LinkedHashMap<String, ArrayList>) api.webclient(uriAPI).get(index); //lấy ở trường nào?
+       listhashmap = (LinkedHashMap<String, ArrayList>) api.webclient().get(index); //lấy ở trường nào?
 
        JSONObject object = new JSONObject(listhashmap);
        JSONArray jArray = object.getJSONArray(location); //tỉnh thành muốn lấy
@@ -46,11 +47,26 @@ public class RestAPI
        return extract; //kết quả trả về
    }
 
+
+    public JSONObject restAPIStringHotelDetail(int index) throws JSONException, IOException
+    {
+
+        LinkedHashMap<String, ArrayList> listhashmap = new LinkedHashMap<>();
+        listhashmap = (LinkedHashMap<String, ArrayList>) api.webclient().get(index); //lấy ở trường nào?
+        List<Object> listValues = new ArrayList<Object>(listhashmap.values());
+
+        int indexHotel = findIndexKey(0,"phuquoc","id","pq-hotel-1");
+        JSONObject object = new JSONObject(listhashmap);
+        JSONArray jArray = object.getJSONArray("phuquoc"); //tỉnh thành muốn lấy
+        JSONObject jObj = new JSONObject(String.valueOf((JSONObject) jArray.get(indexHotel))); //vị trí của khách sạn muốn lấy
+        return jObj;
+    }
+
     public int findIndexKey(int index,String local,String key, String keyNeedFindIndex) throws JSONException
     {
         ArrayList<String> listIndexHotel = new ArrayList<>();
         LinkedHashMap<String, ArrayList> listhashmap = new LinkedHashMap<>();
-        listhashmap = (LinkedHashMap<String, ArrayList>) api.webclient(uriAPI).get(index); //ấy ở trường nào
+        listhashmap = (LinkedHashMap<String, ArrayList>) api.webclient().get(index); //ấy ở trường nào
         JSONObject object = new JSONObject(listhashmap);
 
 

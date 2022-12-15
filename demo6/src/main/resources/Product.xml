@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="com.example.demo.model.Product">
+        <table name="product" schema="java-final" catalog=""/>
+        <attributes>
+            <id name="sttproduct">
+                <column name="sttproduct"/>
+            </id>
+            <basic name="nameproduct">
+                <column name="nameproduct"/>
+            </basic>
+            <basic name="priceduct">
+                <column name="priceduct"/>
+            </basic>
+            <basic name="imgproduct">
+                <column name="imgproduct" length="1000"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="com.example.demo.model.Buyservice">
+        <table name="buyservice" schema="java-final" catalog=""/>
+        <attributes>
+            <id name="stt">
+                <column name="stt" precision="255"/>
+            </id>
+            <basic name="iduser">
+                <column name="iduser"/>
+            </basic>
+            <basic name="idbooking">
+                <column name="idbooking"/>
+            </basic>
+            <basic name="sttService">
+                <column name="stt_service"/>
+            </basic>
+            <basic name="dongia">
+                <column name="dongia"/>
+            </basic>
+            <basic name="soluong">
+                <column name="soluong" precision="255"/>
+            </basic>
+            <basic name="thanhtien">
+                <column name="thanhtien"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="com.example.demo.model.Buyservice">
+        <table name="buyservice" schema="java-final" catalog=""/>
+        <attributes>
+            <id name="stt">
+                <column name="stt" precision="255"/>
+            </id>
+            <basic name="iduser">
+                <column name="iduser"/>
+            </basic>
+            <basic name="idbooking">
+                <column name="idbooking"/>
+            </basic>
+            <basic name="sttService">
+                <column name="stt_service"/>
+            </basic>
+            <basic name="dongia">
+                <column name="dongia"/>
+            </basic>
+            <basic name="soluong">
+                <column name="soluong" precision="255"/>
+            </basic>
+            <basic name="thanhtien">
+                <column name="thanhtien"/>
+            </basic>
+            <basic name="name">
+                <column name="name"/>
+            </basic>
+            <basic name="img">
+                <column name="img"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="com.example.demo.model.Totalbill">
+        <table name="totalbill" schema="java-final" catalog=""/>
+        <attributes>
+            <id name="stt">
+                <column name="stt" precision="255"/>
+            </id>
+            <basic name="iduser">
+                <column name="iduser"/>
+            </basic>
+            <basic name="idbooking">
+                <column name="idbooking"/>
+            </basic>
+            <basic name="totalpricebill">
+                <column name="totalpricebill"/>
+            </basic>
+            <basic name="status">
+                <column name="status"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

@@ -92,7 +92,9 @@ public class UserService
 
     public boolean checkAccount(String email, String password)
     {
-        if(getUserByEmail(email).getPassword().equals(password))
+        if(getUserByEmail(email)==null)
+            return false;
+        else if(getUserByEmail(email).getPassword().equals(password))
         {
             return true;
         }

@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 
 @Entity
@@ -59,5 +61,40 @@ public class Service {
 
     public void setImgService(String imgService) {
         this.imgService = imgService;
+    }
+
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
+
+    @Transient
+    private MultipartFile file;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Basic
+    @Column(name = "description", nullable = true, length = 255)
+    private String description;
+
+    @Basic
+    @Column(name = "status", nullable = true, length = 255)
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

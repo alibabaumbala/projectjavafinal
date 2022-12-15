@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/index.css">
-
+    <title>Trang chủ</title>
     
     <!-- icon -->
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -22,6 +23,8 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
+    <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
+
     <!-- FONT HELGA -->
     <style>
         @font-face {
@@ -31,6 +34,50 @@
         .img-place:hover{
             cursor: pointer !important;
         }
+        .main-message{
+            margin: 10px;
+            overflow: hidden;
+            overflow-y: scroll;
+            height: 91%;
+            display: flex;
+            flex-direction: column;
+            padding-right: 4px;
+        }
+        .mess-send{
+            font-size: 16px;
+            background-color: #E8952F;
+            color: white;
+            padding: 6px;
+            width: fit-content;
+             max-width: 60%;
+            float: right;
+            border-radius: 6px;
+            /* position: relative; */
+            /* left: 283px; */
+            display: flex;
+            text-align: right;
+            /* margin-right: 100%; */
+            clear: both;
+            align-self: flex-end;
+            text-align: inherit;
+        }
+
+        .mess-to{
+            font-size: 16px;
+            background-color: white;
+            padding: 6px;
+            width: 60%;
+            float: left;
+            border-radius: 6px;
+            border: 1px solid #eee;
+            margin-top: 4px;
+        }
+
+        .close-mess:hover{
+            color: red;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
@@ -225,6 +272,151 @@
         </div>
     </div>
 
+
+    <div th:if="${session.inforlogin!=null}">
+        <div class="chatboxdiv" >
+            <img class="chatboxdiv-img" src="/image/chatbox.svg"/>
+        </div>
+        <div class="chat-content-div">
+            <div class="chat-content-div-main">
+                <div class="chatheader">
+                    <div class="chatheader-logo">
+                        <div>
+                            <img style="width: 36px;border-radius: 50%" src="/image/logochat.png" />
+                        </div>
+                        <div style="font-size: 16px;font-weight: 700;color: white;margin-left: 6px">VINPEARL</div>
+                    </div>
+                    <div style="color: white;font-size: 20px" onclick="closemess()" class="close-mess">x</div>
+                </div>
+                <div class="main-message-div">
+                    <div class="main-message">
+<!--                        <p class="mess-send">Tôi</p>-->
+<!--                        <p class="mess-send">Tôi</p>-->
+<!--                        <p class="mess-to">Nhân viên chúng tôi sẽ phản hồi cho quý khách trong thời gian sớm nhất!</p>-->
+                    </div>
+                    <div class="emojiListdiv">
+                        <ul id="emojiList" class="emoji-list">
+                        </ul>
+                    </div>
+                </div>
+                <div class="chat-form-div">
+                    <div class="chat-form-div-footer">
+                        <div>
+                            <input id="inputquestion" style="width: 80%;line-height: 35px;font-size: 16px; background-color: #F0F0F0;color: #4b4b4b" placeholder="Nhập tin nhắn" type="text"/>
+                        </div>
+                        <div style="width: 20%;" class="chaticon">
+                            <i class="fa fa-smile-o" style="font-size: 22px" aria-hidden="true"></i>
+                            <i class="fa fa-paper-plane ml-2" id="iconsend" th:attr="onclick=|clicktosend('${user.iduser}')|" style="font-size: 22px"></i>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <script src="/js/js.js"></script>
 </body>
+<script>
+
+    $('.chatboxdiv').click(function (){
+
+        if(document.querySelector('.chat-content-div-main').style.display=='none')
+            $('.chat-content-div-main').css('display','block')
+        else if(document.querySelector('.chat-content-div-main').style.display!='none')
+            $('.chat-content-div-main').css('display','none')
+
+    })
+
+    let emojiList = document.getElementById('emojiList')
+    fetch('https://emoji-api.com/emojis?access_key=ed1f72e4e3197cb77b57114001402d3ccae7b78a')
+    .then(res=>res.json())
+    .then(data=>loadEmo(data.slice(0,90)))
+
+    function loadEmo(data)
+    {
+        // console.log(data)
+        data.forEach(emo=>{
+            let li = document.createElement('li')
+            li.setAttribute('emoji-name',emo.slug)
+            li.classList.add("item-emo")
+            li.textContent = emo.character;
+            emojiList.appendChild(li)
+
+        })
+
+        let inputquestion = document.getElementById('inputquestion')
+        let item_emo = document.querySelectorAll('.item-emo')
+        item_emo.forEach(ele=>{
+            ele.onclick = function()
+            {
+                console.log(ele.innerText)
+                inputquestion.value = inputquestion.value + ele.innerText
+                document.querySelector('.emojiListdiv').style.display ='none'
+            }
+        })
+    }
+
+    document.querySelector('.fa-smile-o').onclick = function ()
+    {
+        let emojiListdiv = document.querySelector('.emojiListdiv')
+        if(emojiListdiv.style.display =='none')
+            emojiListdiv.style.display='block'
+        else
+            emojiListdiv.style.display ='none'
+    }
+
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+
+    function closemess()
+    {
+        $('.chat-content-div-main').css('display','none')
+    }
+
+    function clicktosend(uid)
+    {
+        console.log(uid)
+        let data = {
+            iduser:uid,
+            message:$('#inputquestion').val()
+        }
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/api/api/question/send",
+            data: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept':'application/json'
+            },
+            success: function (data)
+            {
+                console.log("send ok")
+                let send = document.createElement("p");
+                send.classList.add('mess-send')
+                let textsend = document.createTextNode($('#inputquestion').val());
+                send.appendChild(textsend);
+                document.querySelector('.main-message').appendChild(send)
+                $('#inputquestion').val('')
+
+                setTimeout(function (){
+                    let to = document.createElement("p");
+                    to.classList.add('mess-to')
+                    let textto = document.createTextNode('Nhân viên chúng tôi sẽ phản hồi cho quý khách trong thời gian sớm nhất!');
+                    to.appendChild(textto);
+                    document.querySelector('.main-message').appendChild(to)
+                },1500)
+
+            },
+            error: function (e) {
+                console.log("lỗi")
+            }
+        });
+    }
+</script>
 </html>
