@@ -113,7 +113,7 @@
               <form style="width:100%;font-size: 18px;">
                 <div class="form-group inputvoucher">
                   <label for="">Nhập mã ưu đãi</label>
-                  <input style="height: 40px;font-size:18px" type="text" class="form-control txtvoucher"  placeholder="Mã ưu đãi của bạn">
+                  <input style="height: 40px;font-size:18px" type="text" class="form-control txtvoucher"  id="inputvoucher" placeholder="Mã ưu đãi của bạn">
                   <button type="button" class="btnvoucher">Xác nhận</button>
                 </div>
               </form>
@@ -282,6 +282,7 @@
   $(document).ready(function () {
     $('#bookingok').click(function ()
     {
+
       let data = {
         iduser:iduser,
         location:place,
@@ -295,8 +296,7 @@
         totalprice:document.querySelector('.total').innerText.substring(0,document.querySelector('.total').innerText.indexOf(' ')).replaceAll('.',''),
         representative:$('#ndd').val(),
         phonecontact:$('#sdd').val(),
-        emailcontact:$('#mdd').val(),
-        idvoucher:'123'
+        emailcontact:$('#mdd').val()
       }
       $.ajax({
         type: "POST",
@@ -312,9 +312,10 @@
             icon: 'success',
             title: 'Đặt phòng thành công',
             showConfirmButton: false,
-            timer: 3000
+            timer: 1500
           }).then(()=>{
             console.log(respone)
+            window.location.href="/user/profile/history"
           })
         },
         error: function (e) {

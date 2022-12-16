@@ -10,10 +10,12 @@ import com.example.demo.model.Messagebycustomer;
 import com.example.demo.model.Repmessage;
 import com.example.demo.model.Users;
 import com.example.demo.responsitory.*;
+
 import com.example.demo.services.*;
 import com.example.demo.valid.RegisterFormValidator;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -71,6 +73,9 @@ public class UserController {
     private MessageRepository messageRepository;
 
     @Autowired GiftRepository giftRepository;
+
+
+
 
 
     @InitBinder
@@ -208,6 +213,8 @@ public class UserController {
             return "log-in-out";
     }
 
+
+
     //LIST HOTEL
     @GetMapping("/list-hotel/{namePlace}")
     public String ListHotelPage(Model model,@PathVariable(value="namePlace") String id,@RequestParam(value = "keywordsearchbynamehotel",required = false,defaultValue = "") String KWSearchByNameHotel)
@@ -324,6 +331,7 @@ public class UserController {
 
             //SEND VOUCHER
             model.addAttribute("listvoucher",voucherService.listVoucher());
+
             return "pay";
         }
         else
@@ -380,8 +388,6 @@ public class UserController {
             }
             model.addAttribute("sumMoney",twoPlaces.format(sumMoney));
             model.addAttribute("listyourquestion",messageRepository.listMessageByIDUser(iduser));
-
-
 
             return "yourquestion";
         }

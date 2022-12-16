@@ -334,7 +334,7 @@ window.onload = function()
                   </div>
                   <div style="float: right;font-size:20px;transform: translateY(-20%)">
                       <p>Chỉ từ</p>
-                      <p class="lht-price-detail" style="color: #f39f2d; font-weight: 700;">${ele.priceroom}</p>
+                      <p class="lht-price-detail" style="color: #f39f2d; font-weight: 700;">${ele.priceroom} VND</p>
                       <p>/đêm</p>
                   </div>
                   <div style="clear: both;display: flex;justify-content: space-between;font-size: 20px !important;">
@@ -350,6 +350,13 @@ window.onload = function()
         listroomblock.innerHTML=htmlListRoomChoose.join('')
 
 
+        var price = document.querySelectorAll(".lht-price-detail")
+        for(let i = 0;i<price.length;i++)
+        {
+            let money = price[i].innerText
+            var price1 = Number(money.substring(0,money.indexOf(' ')))
+            document.querySelectorAll(".lht-price-detail")[i].innerHTML = new Intl.NumberFormat({ style: 'currency', currency: 'JPY' }).format(price1)+" VND"
+        }
 
     //    INTRO DETAIL
         let introHotel = document.querySelector('.lht-content')

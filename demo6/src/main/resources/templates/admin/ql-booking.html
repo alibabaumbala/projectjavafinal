@@ -7,6 +7,7 @@
     <title> Booking </title>
     <link rel="stylesheet" href="/assets_admin/style.css">
     <link rel="stylesheet" href="/assets_admin/index.css">
+
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -218,15 +219,13 @@
             display: 'inline'             // Specify display mode like: display: 'bottom' or omit setting to use default
         });
     </script>
-
     <script th:inline="javascript">
         document.querySelector('#idbooking-user')
         $(document).ready(function () {
             document.querySelector('.nav-link-cxn').click()
         })
 
-        document.getElementById('item-nhanvien').classList.add("active")
-        document.getElementById('item-home').classList.remove("active")
+        document.getElementById('item-datphong').classList.add("active")
         let sidebar = document.querySelector(".sidebar");
         let sidebarBtn = document.querySelector(".sidebarBtn");
         sidebarBtn.onclick = function () {

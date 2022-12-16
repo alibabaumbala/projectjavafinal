@@ -194,4 +194,6 @@ public class Bookinghotel {
     public void setReview(Integer review) {
         this.review = review;
     }
+
+
 }

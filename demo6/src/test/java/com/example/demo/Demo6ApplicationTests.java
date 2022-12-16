@@ -7,6 +7,7 @@ import com.example.demo.model.Bookinghotel;
 import com.example.demo.model.Users;
 import com.example.demo.responsitory.BookingRepository;
 import com.example.demo.responsitory.UserRepository;
+//import com.example.demo.sendemail.ConfigEmail;
 import com.example.demo.services.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.json.JSONArray;
@@ -112,6 +113,8 @@ class Demo6ApplicationTests {
 
 //        System.out.println(restAPI.restAPIStringHotelDetail(0));
 //        System.out.println(api.webclient().get(0).getClass().getSimpleName());
+
+//        configEmail.emailConfig("vanhuy1619@gmail.com","Hello");
     }
 
 

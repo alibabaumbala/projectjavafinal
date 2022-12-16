@@ -6,6 +6,7 @@ import com.example.demo.API.RestAPI;
 import com.example.demo.cloudinary.CloudinaryConfig;
 import com.example.demo.model.*;
 import com.example.demo.responsitory.*;
+
 import com.example.demo.services.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.json.JSONArray;
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -71,6 +73,8 @@ public class APIController {
 
     @Autowired
     VoucherService voucherService;
+
+
 
     @Autowired
     API api;
@@ -223,6 +227,7 @@ public class APIController {
             totalbill.setStatus(status);
             totalBillRepository.save(totalbill);
         }
+
 
         return bookingRepository.getBookinghotelByID(idbooking);
     }
@@ -382,4 +387,6 @@ public class APIController {
         giftRepository.save(gift);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+
 }

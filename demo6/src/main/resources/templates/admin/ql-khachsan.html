@@ -238,28 +238,30 @@
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
 <script>
-  (function() {
-    'use strict';
-    window.addEventListener('load', function() {
-      var forms = document.getElementsByClassName('needs-validation');
-      // Loop over them and prevent submission
-      var validation = Array.prototype.filter.call(forms, function(form) {
-        form.addEventListener('change', function(event) {
+  document.getElementById('item-khachsan').classList.add("active")
 
-          if (form.checkValidity() === false)
-          {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add('was-validated');
-          if(form.checkValidity()===true)
-          {
-            $("#themnv").prop('disabled', false)
-          }
-        }, false);
-      });
-    }, false)
-  })();
+  // (function() {
+  //   'use strict';
+  //   window.addEventListener('load', function() {
+  //     var forms = document.getElementsByClassName('needs-validation');
+  //     // Loop over them and prevent submission
+  //     var validation = Array.prototype.filter.call(forms, function(form) {
+  //       form.addEventListener('change', function(event) {
+  //
+  //         if (form.checkValidity() === false)
+  //         {
+  //           event.preventDefault();
+  //           event.stopPropagation();
+  //         }
+  //         form.classList.add('was-validated');
+  //         if(form.checkValidity()===true)
+  //         {
+  //           $("#themnv").prop('disabled', false)
+  //         }
+  //       }, false);
+  //     });
+  //   }, false)
+  // })();
 
   document.querySelectorAll('.dvdvitem-content').forEach(ele=>{
     ele.onclick = function ()

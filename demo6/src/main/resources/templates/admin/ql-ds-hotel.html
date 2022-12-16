@@ -148,6 +148,7 @@
                                    <label class="col-form-label">Ưu đãi kèm theo</label>
                                    <textarea required type="text" cols="4" class="form-control is-invalid" id="voucher" name="voucher" placeholder="3N2Đ | VMB+Buffet sáng+Credit | 3tr599/khách"></textarea>
                                </div>
+
                            </div>
                        </div>
                    </div>
@@ -173,6 +174,9 @@
 <!--&lt;!&ndash; Latest compiled JavaScript &ndash;&gt;-->
 <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 <script>
+
+    document.getElementById('item-khachsan').classList.add("active")
+
     let sidebar = document.querySelector(".sidebar");
     let sidebarBtn = document.querySelector(".sidebarBtn");
     sidebarBtn.onclick = function() {
@@ -251,6 +255,7 @@
                                                 <p style="font-weight:bold">${ele.type_room}</p>
                                                 <p>${ele.type_room_bonus}</p>
                                             </div>
+                                            <p id="sss" style="font-style: 18px;color:red">${ele.status}</p>
                                             <button class="btn btn-primary mt-2"  data-toggle="modal" data-target="#editModal" onclick="edithotel('${ele.id}*${index}')">Chỉnh sửa</button>
                                         </div>
                                     </div>
@@ -263,14 +268,14 @@
 
 
     //STATUS_ROOM
-    let status_room = document.querySelectorAll('#status_room')
-    status_room.forEach(ele=>{
-        if(ele.getAttribute('value-status-room')=="Hết phòng")
-        {
-            ele.querySelector('.type_room').style.display="none"
-            ele.querySelector('.lht-price-detail').innerHTML = '<div class="lht-price-detail" id="huy"><span class="fa fa-clock-o"></span>HẾT PHÒNG</div>'
-        }
-    })
+    // let status_room = document.querySelectorAll('#status_room')
+    // status_room.forEach(ele=>{
+    //     if(ele.getAttribute('value-status-room')=="Hết phòng")
+    //     {
+    //         ele.querySelector('.type_room').style.display="none"
+    //         ele.querySelector('.lht-price-detail').innerHTML = '<div class="lht-price-detail" id="huy"><span class="fa fa-clock-o"></span>HẾT PHÒNG</div>'
+    //     }
+    // })
 
     //CHARACTER
     let listCharacter = document.querySelectorAll('.lht-character')
@@ -349,9 +354,17 @@
         let id = $('#confirmedit').attr('valueidedit')
         console.log(id)
         var formData = {
-            name_hotel:$('#name-edit').val()
+            name_hotel:$('#name-edit').val(),
+            address:$('#addressedit').val(),
+            intro:$('#intro-edit').text(),
+            bonus_character:$('#dacdiemedit').val(),
+            type_room:$('#loaiphongedit').val(),
+            type_room_bonus:$('#type_room_bonus').val(),
+            voucher:$('#voucher').text(),
+            status:$('#tinhtrang').val()
         };
         updateCourseAPI(id,formData)
+        location.reload();
     }
 
     // PHÂN TRANG

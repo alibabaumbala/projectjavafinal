@@ -26,4 +26,8 @@ public interface VoucherRepository extends JpaRepository<Voucher,String>
     @Query("select s from Voucher s where s.idvoucher=?1")
     Voucher getVoucherByID(String idvoucher);
 
+    @Modifying
+    @Transactional
+    @Query("update Voucher s set s.sudung=s.sudung+1 where s.idvoucher=?1")
+    void updateAmount(String idvoucher);
 }

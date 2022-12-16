@@ -148,7 +148,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"/>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js'></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <script>
   let sidebar = document.querySelector(".sidebar");
   let sidebarBtn = document.querySelector(".sidebarBtn");
@@ -163,6 +162,7 @@
 <!-- apexcharts js -->
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
+
   (function() {
     'use strict';
     window.addEventListener('load', function() {
@@ -185,6 +185,8 @@
       });
     }, false)
   })();
+
+  document.getElementById('item-dichvu').classList.add("active")
 
   //XÓA DỊCH VỤ
   function handleDelete(uid)
