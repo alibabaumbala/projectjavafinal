@@ -48,7 +48,7 @@
             <span class="dashboard">Dashboard</span>
         </div>
         <div class="search-box">
-            <input type="text" placeholder="Search...">
+            <input type="text" placeholder="Search..." id="search_field">
             <i class='bx bx-search' ></i>
         </div>
         <div class="profile-details">
@@ -211,8 +211,6 @@
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
 
-    document.getElementById('item-khachhang').classList.add("active")
-
     (function() {
         'use strict';
         window.addEventListener('load', function() {
@@ -235,6 +233,8 @@
             });
         }, false)
     })();
+
+    document.getElementById('item-khachhang').classList.add("active")
 
     //XÓA KHÁCH HÀNG
     function handleDelete(uid)
@@ -391,6 +391,24 @@
             var showTo = showFrom + perPage;
             items.hide().slice(showFrom, showTo).show();
         }
+    });
+
+    //SEARCH
+    $('#search_field').on('keyup', function() {
+        var value = $(this).val();
+        var patt = new RegExp(value, "i");
+
+        $('#fid_table').find('tr').each(function() {
+            var $table = $(this);
+
+            if (!($table.find('td').text().search(patt) >= 0)) {
+                $table.not('.t_head').hide();
+            }
+            if (($table.find('td').text().search(patt) >= 0)) {
+                $(this).show();
+            }
+
+        });
     });
 
 </script>

@@ -7,6 +7,7 @@
     <title> Booking </title>
     <link rel="stylesheet" href="/assets_admin/style.css">
     <link rel="stylesheet" href="/assets_admin/index.css">
+    <link rel="stylesheet" href="/css/paginate.css">
 
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -131,6 +132,7 @@
                                                     <div class="list-hotel-by-status">
 
                                                     </div>
+                                                    <div id="pagination-container"></div>
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-lg-4">
@@ -191,7 +193,10 @@
 
                             </div>
                         </div>
+
+
                     </div>
+
                 </div>
 
             </div>
@@ -199,6 +204,8 @@
     </section>
 
 
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <script>
 
         mobiscroll.setOptions({
@@ -219,6 +226,8 @@
             display: 'inline'             // Specify display mode like: display: 'bottom' or omit setting to use default
         });
     </script>
+
+
     <script th:inline="javascript">
         document.querySelector('#idbooking-user')
         $(document).ready(function () {
@@ -323,6 +332,25 @@
                         `
                         })
                         document.querySelector('.list-hotel-by-status').innerHTML = htmlbooking.join('')
+
+                        // PHÂN TRANG
+                        var items = $(".list-hotel-by-status .ht-item");
+                        let numItems = items.length
+                        var perPage = 8;
+
+                        items.slice(perPage).hide();
+                        console.log($('#pagination-container'));
+                        $('#pagination-container').pagination({
+                            items: numItems,
+                            itemsOnPage: perPage,
+                            prevText: "&laquo;",
+                            nextText: "&raquo;",
+                            onPageClick: function (pageNumber) {
+                                var showFrom = perPage * (pageNumber - 1);
+                                var showTo = showFrom + perPage;
+                                items.hide().slice(showFrom, showTo).show();
+                            }
+                        });
 
                         //THÔNG TIN LIÊN HÊ
                         let htitem = document.querySelectorAll('#idbooking-user')
@@ -528,6 +556,8 @@
             })
         }
         searchByDateCheckin()
+
+
     </script>
 </body>
 
