@@ -148,6 +148,10 @@
                                    <label class="col-form-label">Ưu đãi kèm theo</label>
                                    <textarea required type="text" cols="4" class="form-control is-invalid" id="voucher" name="voucher" placeholder="3N2Đ | VMB+Buffet sáng+Credit | 3tr599/khách"></textarea>
                                </div>
+                               <div class="form-group">
+                                   <label class="col-form-label">Giá từ</label>
+                                   <input required type="text" class="form-control is-invalid" id="price" name="price"></input>
+                               </div>
 
                            </div>
                        </div>
@@ -175,6 +179,28 @@
 <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 <script>
 
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('change', function(event) {
+
+                    if (form.checkValidity() === false)
+                    {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                    // if(form.checkValidity()===true)
+                    // {
+                    //     $("#themnv").prop('disabled', false)
+                    // }
+                }, false);
+            });
+        }, false)
+    })();
     document.getElementById('item-khachsan').classList.add("active")
 
     let sidebar = document.querySelector(".sidebar");
@@ -326,6 +352,7 @@
                 $('#loaiphongedit').val(res.type_room)
                 $('#type_room_bonus').val(res.type_room_bonus)
                 $('#voucher').text(res.voucher)
+                $('#price').val(res.price)
             }
         });
     }
@@ -361,7 +388,8 @@
             type_room:$('#loaiphongedit').val(),
             type_room_bonus:$('#type_room_bonus').val(),
             voucher:$('#voucher').text(),
-            status:$('#tinhtrang').val()
+            status:$('#tinhtrang').val(),
+            price:$('#price').val()
         };
         updateCourseAPI(id,formData)
         location.reload();

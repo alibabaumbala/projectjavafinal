@@ -122,11 +122,22 @@ public class APIController {
         return new ResponseEntity<>(bookingRepository.findAll(), HttpStatus.OK);
     }
 
+    //ĐẶT PHÒNG
     @PostMapping(value = {"api/api/booking/add"})
     public ResponseEntity add(@RequestBody Bookinghotel bookinghotel,@RequestParam Map<String,String> requestParam)
     {
         bookingService.addBooking(bookinghotel);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    //CẬP NHẬT SỐ LƯỢNG VOUCHER SAU KHI DÙNG
+    @RequestMapping(value="api/api/voucher/amount/update",method = RequestMethod.POST)
+    public String updateAmountVoucherAfterUsed(@RequestParam Map<String,String> requestParam)
+    {
+        String idvoucher = requestParam.get("idvoucher");
+
+        voucherRepository.updateAmountSD(idvoucher);
+        return "Đã cập nhật";
     }
 
     @GetMapping(value = {"api/api/feedback"})
@@ -227,7 +238,6 @@ public class APIController {
             totalbill.setStatus(status);
             totalBillRepository.save(totalbill);
         }
-
 
         return bookingRepository.getBookinghotelByID(idbooking);
     }
@@ -374,17 +384,27 @@ public class APIController {
             return new ResponseEntity(userRepository.findAllByEmail(request.get("email")),HttpStatus.OK);
     }
 
-    //TRẢ VỀ GIFT CỦA KHÁCH HÀNG
+    //TRẢ VỀ GIFT CỦA KHÁCH HÀNG QUA IDUSER VÀ IDVOUCHER
     @RequestMapping(value = "api/api/user/gift/search",method = RequestMethod.GET)
     public ResponseEntity findGiftIdUser(@RequestParam Map<String,String> request)
     {
-        return new ResponseEntity(giftRepository.getListGiftByIDNotUsed(request.get("foriduser")),HttpStatus.OK);
+        return new ResponseEntity(giftRepository.getVC_id_value(request.get("foriduser")),HttpStatus.OK);
     }
 
+    //THÊM VOUCHER CHO KHÁCH HÀNG
     @RequestMapping(value = "api/api/user/gift/add",method = RequestMethod.POST)
     public ResponseEntity Add_Gift_For_User(@RequestBody Giftforuser gift)
     {
         giftRepository.save(gift);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    //VOUCHER CỦA KHÁCH HÀNG ĐÃ DÙNG
+    @RequestMapping(value = "api/api/user/gift/dasudung",method = RequestMethod.POST)
+    public ResponseEntity Add_Gift_For_User(@RequestParam Map<String,String> request)
+    {
+        String idgift = request.get("idgift");
+        giftRepository.updateDASD(idgift);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
