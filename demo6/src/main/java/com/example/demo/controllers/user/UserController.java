@@ -70,6 +70,8 @@ public class UserController {
     @Autowired
     private MessageRepository messageRepository;
 
+    @Autowired GiftRepository giftRepository;
+
 
     @InitBinder
     public void initBinder(WebDataBinder webDataBinder){
@@ -89,6 +91,11 @@ public class UserController {
     //inforlogin = đăng nhập thành công ->iduser
 
 
+    @GetMapping("testdate")
+    public String testdate()
+    {
+        return "testdate";
+    }
     @GetMapping(value = {"/",""})
     public String HomePage(Model model)
     {
@@ -292,8 +299,10 @@ public class UserController {
     public String PayPage(Model model,@PathVariable(value="location") String location,
     @PathVariable(value="idhotel") String idhotel, @PathVariable(value="idroom") String idroom,
     @PathVariable(value="checkin") String checkin, @PathVariable(value="checkout") String checkout) throws JSONException, ParseException {
-        if(session.getAttribute("inforlogin")!="")
+        if(session.getAttribute("inforlogin")!=null)
         {
+            model.addAttribute("listnoti",listNoti());
+
             RestAPI restAPI = new RestAPI();
             model.addAttribute("location",location);
             model.addAttribute("idhotel",idhotel);
@@ -334,7 +343,7 @@ public class UserController {
             model.addAttribute("thanhcong",bookingService.listHotelByStatus("Thành công",iduser));
             model.addAttribute("datraphong",bookingService.listHotelByStatus("Đã trả phòng",iduser));
 //            model.addAttribute("resqpi",new RestAPI());
-            List<Bookinghotel> arrMoney = bookingService.listHotelByStatus("Thành công",iduser);
+            List<Bookinghotel> arrMoney = bookingService.listHotelByStatus("Đã trả phòng",iduser);
             int sumMoney = 0;
             DecimalFormat twoPlaces = new DecimalFormat("");
             for(Bookinghotel b:arrMoney)
@@ -342,6 +351,7 @@ public class UserController {
                 sumMoney += Integer.parseInt(b.getTotalprice());
             }
             model.addAttribute("sumMoney",twoPlaces.format(sumMoney));
+
             model.addAttribute("listnoti",listNoti());
 
             return "history";
@@ -352,7 +362,7 @@ public class UserController {
 
 
     //XEM CÂU HỎI
-    @GetMapping("/user/yourquestion")
+    @GetMapping("/user/profile/yourquestion")
     public String YourQuestionPage(Model model)
     {
         System.out.println(session.getAttribute("inforlogin"));
@@ -361,10 +371,47 @@ public class UserController {
             String iduser = (String) session.getAttribute("inforlogin");
             model.addAttribute("user",userService.getUserByID(iduser));
             model.addAttribute("listnoti",listNoti());
-
+            List<Bookinghotel> arrMoney = bookingService.listHotelByStatus("Đã trả phòng",iduser);
+            int sumMoney = 0;
+            DecimalFormat twoPlaces = new DecimalFormat("");
+            for(Bookinghotel b:arrMoney)
+            {
+                sumMoney += Integer.parseInt(b.getTotalprice());
+            }
+            model.addAttribute("sumMoney",twoPlaces.format(sumMoney));
             model.addAttribute("listyourquestion",messageRepository.listMessageByIDUser(iduser));
 
+
+
             return "yourquestion";
+        }
+        else
+            return "redirect:/";
+    }
+
+    //TRANG QUÀ TẶNG
+    @GetMapping("/user/profile/yourgift")
+    public String YourGiftPage(Model model)
+    {
+        System.out.println(session.getAttribute("inforlogin"));
+        if(session.getAttribute("inforlogin")!=null)
+        {
+            String iduser = (String) session.getAttribute("inforlogin");
+            model.addAttribute("user",userService.getUserByID(iduser));
+            model.addAttribute("listnoti",listNoti());
+            model.addAttribute("listgift",giftRepository.getListGiftByIDNotUsed(iduser));
+
+            List<Bookinghotel> arrMoney = bookingService.listHotelByStatus("Đã trả phòng",iduser);
+            int sumMoney = 0;
+            DecimalFormat twoPlaces = new DecimalFormat("");
+            for(Bookinghotel b:arrMoney)
+            {
+                sumMoney += Integer.parseInt(b.getTotalprice());
+            }
+            model.addAttribute("sumMoney",twoPlaces.format(sumMoney));
+
+
+            return "yourgift";
         }
         else
             return "redirect:/";

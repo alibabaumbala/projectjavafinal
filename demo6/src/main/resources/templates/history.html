@@ -72,7 +72,7 @@
           </div>
           <div class="diemkhadung col-6">
             <P class="tichluy_diem_main">Điểm khả dụng
-              <b>0 điểm</b>
+              <b th:text="${user.point} +' điểm'"></b>
             </p>
           </div>
         </div>
@@ -90,12 +90,12 @@
               </a>
             </div>
             <div>
-              <a href="" class="choose-item-profile-a" >
+              <a href="/user/profile/yourgift" class="choose-item-profile-a" >
                 <i class="fa fa-money"></i>Ưu đãi của tôi
               </a>
             </div>
             <div>
-              <a href="/user/yourquestion" class="choose-item-profile-a">
+              <a href="/user/profile/yourquestion" class="choose-item-profile-a">
                 <i class="fa fa-question"></i>Câu hỏi của bạn
               </a>
             </div>

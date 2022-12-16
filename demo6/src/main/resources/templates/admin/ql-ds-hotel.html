@@ -68,7 +68,7 @@
         <div class="sales-boxes">
             <div class="recent-sales box" style="width: 100%;">
                 <div class="title">Danh sách dịch vụ
-                    <button class="btn btn-primary ml-3" data-toggle="modal" data-target="#addService">Thêm dịch vụ</button>
+                    <button class="btn btn-primary ml-3" style="padding: 0px 4px !important;" data-toggle="modal" data-target="#addService">Thêm khách sạn</button>
                 </div>
                 <div style="margin-top: 20px">
                     <div class="list-hotel">
@@ -85,8 +85,8 @@
 </section>
 
 <!--MODAL SỬA THÔNG TIN KHÁCH SẠN-->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="modal fade " id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="editModalLabel">Sửa thông tin Khách sạn</h5>
@@ -96,26 +96,66 @@
             </div>
             <div class="modal-body">
                 <form class="needs-validation" novalidate>
-                    <div class="form-group" style="display: flex;justify-content: center">
-                        <img id="avaedit" style="width: 100%;object-fit: cover"/>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label">Mã Khách sạn</label>
-                        <input required type="text" class="form-control is-invalid" id="idhoteledit" name="idhoteledit" disabled >
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label">Tên Khách sạn</label>
-                        <input required type="text" class="form-control is-invalid" id="name-edit" name="name-edit" pattern="[a-z\sA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]{1,255}" >
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label">Giới thiệu khuyến mãi</label>
-                        <input required type="text" class="form-control is-invalid" id="intro-edit" name="intro-edit" pattern="[a-z\sA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]{1,255}" >
-                    </div>
+                   <div class="row">
+                       <div class="col-12 col-md-6">
+                           <div>
+                               <div class="form-group" style="display: flex;justify-content: center">
+                                   <img id="avaedit" style="width: 100%; height:250px;object-fit: cover"/>
+                               </div>
+                               <div class="form-group">
+                                   <label class="col-form-label">Mã Khách sạn</label>
+                                   <input required type="text" class="form-control is-invalid" id="idhoteledit" name="idhoteledit" disabled >
+                               </div>
+                               <div class="form-group">
+                                   <label class="col-form-label">Tên Khách sạn</label>
+                                   <input required type="text" class="form-control is-invalid" id="name-edit" name="name-edit" >
+                               </div>
+                               <div class="form-group">
+                                   <label class="col-form-label">Giới thiệu khuyến mãi</label>
+                                   <textarea style="width: 100%" rows="10" required type="text" class="form-control is-invalid" id="intro-edit" name="intro-edit"></textarea>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-12 col-md-6">
+                           <div>
+                               <div class="form-group" style="margin-bottom: 10px !important;">
+                                   <iframe class="frameMap" style="width: 100%;height: 250px;object-fit: cover;" id="imgaddressedit"></iframe>
+                               </div>
+                               <div class="form-group">
+                                   <label class="col-form-label">Địa chỉ</label>
+                                   <input required type="text" class="form-control is-invalid" id="addressedit" name="addressedit" >
+                               </div>
+                               <div class="form-group">
+                                   <label class="col-form-label">Đặc điểm</label>
+                                   <input required type="text" class="form-control is-invalid" id="dacdiemedit" name="dacdiemedit">
+                               </div>
+                               <div class="form-group">
+                                   <label class="col-form-label">Loại phòng</label>
+                                   <input required type="text" class="form-control is-invalid" id="loaiphongedit" name="loaiphongedit">
+                               </div>
+                               <div class="form-group">
+                                   <label class="col-form-label">Dịch vụ kèm theo</label>
+                                   <input required type="text" class="form-control is-invalid" id="type_room_bonus" name="type_room_bonus">
+                               </div>
+                               <div class="form-group">
+                                   <label class="col-form-label">Tình trạng</label>
+                                   <select class="form-control" id="tinhtrang">
+                                       <option value="Còn phòng">Còn phòng</option>
+                                       <option value="Hết phòng">Hết phòng</option>
+                                   </select>
+                               </div>
+                               <div class="form-group">
+                                   <label class="col-form-label">Ưu đãi kèm theo</label>
+                                   <textarea required type="text" cols="4" class="form-control is-invalid" id="voucher" name="voucher" placeholder="3N2Đ | VMB+Buffet sáng+Credit | 3tr599/khách"></textarea>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="huyedit">Hủy</button>
-                <button class="btn btn-primary" id="confirmedit" onclick="confirmEdit()">Sửa</button>
+                <button type="button" class="btn btn-secondary" style="font-size: 16px !important;padding: 4px !important;" data-dismiss="modal" id="huyedit">Hủy</button>
+                <button class="btn btn-primary" style="font-size: 16px !important;padding: 4px 8px !important;" id="confirmedit" onclick="confirmEdit()">Sửa</button>
             </div>
         </div>
     </div>
@@ -211,7 +251,7 @@
                                                 <p style="font-weight:bold">${ele.type_room}</p>
                                                 <p>${ele.type_room_bonus}</p>
                                             </div>
-                                            <button class="btn btn-primary mt-2" data-toggle="modal" data-target="#editModal" onclick="edithotel('${ele.id}*${index}')">Chỉnh sửa</button>
+                                            <button class="btn btn-primary mt-2"  data-toggle="modal" data-target="#editModal" onclick="edithotel('${ele.id}*${index}')">Chỉnh sửa</button>
                                         </div>
                                     </div>
                                 </div>
@@ -273,6 +313,14 @@
                 $('#confirmedit').attr('valueidedit',res.id)
                 $('#avaedit').attr("src",res.img_hotel)
                 $('#name-edit').val(res.name_hotel)
+                $('#idhoteledit').val(res.id)
+                $('#addressedit').val(res.address)
+                $('#imgaddressedit').attr('src',res.direction)
+                $('#intro-edit').text(res.intro)
+                $('#dacdiemedit').val(res.bonus_character)
+                $('#loaiphongedit').val(res.type_room)
+                $('#type_room_bonus').val(res.type_room_bonus)
+                $('#voucher').text(res.voucher)
             }
         });
     }

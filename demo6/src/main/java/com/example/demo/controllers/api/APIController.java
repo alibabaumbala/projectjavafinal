@@ -74,6 +74,8 @@ public class APIController {
 
     @Autowired
     API api;
+    @Autowired
+    private GiftRepository giftRepository;
 
     @GetMapping("/data/api/security/userlist")
     public List<String> getListUserAPI()
@@ -331,6 +333,7 @@ public class APIController {
         voucherRepository.deleteVoucherByID(requestParam.get("idvoucher"));
         return "ok";
     }
+
     //CẬP NHẬT VOUCHER
     @RequestMapping(value="api/api/edit/voucher/success",method = RequestMethod.POST)
     public Voucher editVoucher(@RequestParam Map<String,String> requestParam)
@@ -359,4 +362,24 @@ public class APIController {
     }
 
 
+    //TÌM THÔNG TIN KHÁCH HÀNG QUA MÃ KH HOẶC SDT
+    @RequestMapping(value = "api/api/user/search",method = RequestMethod.GET)
+    public ResponseEntity findUserByPhone(@RequestParam Map<String,String> request)
+    {
+            return new ResponseEntity(userRepository.findAllByEmail(request.get("email")),HttpStatus.OK);
+    }
+
+    //TRẢ VỀ GIFT CỦA KHÁCH HÀNG
+    @RequestMapping(value = "api/api/user/gift/search",method = RequestMethod.GET)
+    public ResponseEntity findGiftIdUser(@RequestParam Map<String,String> request)
+    {
+        return new ResponseEntity(giftRepository.getListGiftByIDNotUsed(request.get("foriduser")),HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "api/api/user/gift/add",method = RequestMethod.POST)
+    public ResponseEntity Add_Gift_For_User(@RequestBody Giftforuser gift)
+    {
+        giftRepository.save(gift);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

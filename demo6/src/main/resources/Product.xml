@@ -97,4 +97,73 @@
             </basic>
         </attributes>
     </entity>
+    <entity class="com.example.demo.model.Giftforuser">
+        <table name="giftforuser" schema="java-final" catalog=""/>
+        <attributes>
+            <id name="stt">
+                <column name="stt" precision="255"/>
+            </id>
+            <basic name="idgift">
+                <column name="idgift" nullable="false" precision="11"/>
+            </basic>
+            <basic name="noidunggift">
+                <column name="noidunggift" nullable="false"/>
+            </basic>
+            <basic name="hansudung">
+                <column name="hansudung" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="foriduser">
+                <column name="foriduser" nullable="false"/>
+            </basic>
+            <basic name="sudung">
+                <column name="sudung" nullable="false" precision="11"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="com.example.demo.model.Giftforuser">
+        <table name="giftforuser" schema="java-final" catalog=""/>
+        <attributes>
+            <id name="stt">
+                <column name="stt" precision="255"/>
+            </id>
+            <basic name="idgift">
+                <column name="idgift" nullable="false"/>
+            </basic>
+            <basic name="noidunggift">
+                <column name="noidunggift" nullable="false"/>
+            </basic>
+            <basic name="hansudung">
+                <column name="hansudung" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="foriduser">
+                <column name="foriduser" nullable="false"/>
+            </basic>
+            <basic name="sudung">
+                <column name="sudung" nullable="false" precision="11"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="com.example.demo.model.Giftforuser">
+        <table name="giftforuser" schema="java-final" catalog=""/>
+        <attributes>
+            <id name="stt">
+                <column name="stt" precision="255"/>
+            </id>
+            <basic name="idgift">
+                <column name="idgift" nullable="false"/>
+            </basic>
+            <basic name="noidunggift">
+                <column name="noidunggift" nullable="false"/>
+            </basic>
+            <basic name="hansudung">
+                <column name="hansudung" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="foriduser">
+                <column name="foriduser" nullable="false"/>
+            </basic>
+            <basic name="sudung">
+                <column name="sudung" nullable="false" precision="11"/>
+            </basic>
+        </attributes>
+    </entity>
 </entity-mappings>

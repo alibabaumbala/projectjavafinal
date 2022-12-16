@@ -29,6 +29,9 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+    <link rel="stylesheet" href="/calendar/css/mobiscroll.javascript.min.css">
+    <script src="/calendar/js/mobiscroll.javascript.min.js"></script>
+
     <style>
         .mbsc-ios.mbsc-page {
             background: white !important;
@@ -81,7 +84,15 @@
                 <div class="recent-sales box" style="width: 100% !important;">
                     <div class="title">DANH SÁCH ĐẶT PHÒNG</div>
                     <div>
-                        <div th:replace="~{/admin/calendar.html}"></div>
+                        <div mbsc-page class="demo-usage-on-input-or-inline">
+                            <div style="height:100%">
+                                <label>
+                                    Calendar
+                                    <input id="demo-one-input" mbsc-input data-input-style="outline" data-label-style="stacked"
+                                           placeholder="Please select..." />
+                                </label>
+                            </div>
+                        </div>
                     </div>
                     <div class="sales-details">
                         <div style="width: 100%">
@@ -187,6 +198,26 @@
     </section>
 
 
+    <script>
+
+        mobiscroll.setOptions({
+            locale: mobiscroll.localeEn,  // Specify language like: locale: mobiscroll.localePl or omit setting to use default
+            theme: 'ios',                 // Specify theme like: theme: 'ios' or omit setting to use default
+            themeVariant: 'light'         // More info about themeVariant: https://docs.mobiscroll.com/5-20-0/javascript/calendar#opt-themeVariant
+        });
+
+        mobiscroll.datepicker('#demo-one-input', {
+            controls: ['calendar'],       // More info about controls: https://docs.mobiscroll.com/5-20-0/javascript/calendar#opt-controls
+            showRangeLabels: true,
+            display: 'anchored'           // Specify display mode like: display: 'bottom' or omit setting to use default
+        });
+
+        mobiscroll.datepicker('#demo-init-inline', {
+            controls: ['calendar'],       // More info about controls: https://docs.mobiscroll.com/5-20-0/javascript/calendar#opt-controls
+            showRangeLabels: true,
+            display: 'inline'             // Specify display mode like: display: 'bottom' or omit setting to use default
+        });
+    </script>
 
     <script th:inline="javascript">
         document.querySelector('#idbooking-user')

@@ -224,7 +224,7 @@
                                     </div>
                                     <div class="col-2">
                                         <div class="lht-price-detail tongtiensvpr" th:value="${buy.thanhtien}" th:id="thanhtien-row-+${buy.sttService}" th:text="${buy.thanhtien}+' VND'">đ100.000</div>
-                                        <i th:if="${@totalBillRepository.checkFinishByIdBooking(ttdp.idbooking)==null}" id=deletesvpr"" class="uil-trash-alt" style="font-size: 20px;color: red" th:attr="onclick=|deletesvpr('${buy.stt}')|" ></i>
+                                        <i th:if="${@totalBillRepository.checkFinishByIdBooking(ttdp.idbooking)==null}" id="deletesvpr" class="uil-trash-alt" style="font-size: 20px;color: red" th:attr="onclick=|deletesvpr('${buy.stt}')|" ></i>
                                     </div>
                                 </div>
                             </div>
@@ -292,6 +292,7 @@
                                         <div class="col-8"></div>
                                         <div class="col-4" th:if="${@totalBillRepository.checkFinishByIdBooking(ttdp.idbooking)==null}">
                                             <div
+                                                    id="thanhtoanvatraphong"
                                                     th:attr="onclick=|thanhtoanvatraphong('${ttdp.iduser+','+ttdp.idbooking}')|"
                                                     class="btn btn-success" style="background: #ee4d2d;color: #fff;" >THANH TOÁN & TRẢ PHÒNG</div>
                                         </div>
@@ -517,6 +518,14 @@
                     timer: 1000
                 }).then(()=>{
                     $('#soluong').text($('#soluong').text()-1)
+                    $('#thanhtoanvatraphong').css('display','none')
+                    $('.uil-plus').each(function (){
+                        $(this).css('display','none')
+                    })
+                    $('#deletesvpr').each(function (){
+                        $(this).css('display','none')
+                    })
+
                 })
             },
             error: function (e) {

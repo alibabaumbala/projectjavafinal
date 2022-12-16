@@ -9,6 +9,13 @@
   <link rel="stylesheet" href="/css/detail.css">
   <link rel="stylesheet" href="/css/paginate.css">
 
+  <script>
+    // Ignore this in your implementation
+    window.isMbscDemo = true;
+  </script>
+
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
 
   <!-- icon -->
   <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
@@ -31,6 +38,12 @@
   <!-- RESPONSIVE -->
   <link rel="stylesheet" href="/css/responsive.css">
   <!-- FONT HELGA -->
+
+  <link rel="stylesheet" href="/testdate/css/mobiscroll.jquery.min.css">
+  <script src="/testdate/js/mobiscroll.jquery.min.js"></script>
+
+  <!-- Mobiscroll JS and CSS Includes -->
+
   <style>
     @font-face {
       src: url(/font/SVN-Helga.otf);
@@ -44,6 +57,20 @@
     }
     .fb-main-main{
       margin-bottom: 24px;
+    }
+    .mbsc-page {
+      padding: 0px;
+    }
+    .mbsc-col-12{
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    .mbsc-textfield-wrapper-outline{
+      margin: 0px !important;
+    }
+    .mbsc-ios.mbsc-page {
+      background:none;
+      width: 100%;
     }
   </style>
 </head>
@@ -115,12 +142,6 @@
             </div>
           </div>
         </div>
-<!--        <div  th:insert="datelayout.html"></div>-->
-        <!-- VIDEO -->
-        <!-- <div style="height: 400px;">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/tgbNymZ7vqY" onclick="videoIntroHotel()"></iframe>
-        </div> -->
-
         <!-- DANH SÁCH CÁC PHÒNG -->
         <div>
           <div style="display:inline-flex;align-items:center">
@@ -131,12 +152,23 @@
           <div class="choose-date-people" style="margin-top: 20px;width:100%;border-radius: 4px;" data-toggle="modal" data-target="#choosedate">
             <div style="font-size: 16px;font-weight:600" class="choose-date-people-block">
               <div class="choose-date-people">
-                <head  th:insert="~{date.html}"></head>
+                <div mbsc-page class="demo-flight-booking">
+                  <div style="height:100%">
+                    <div class="mbsc-grid mbsc-no-padding">
+
+                      <div class="mbsc-row">
+                        <div class="mbsc-col-12">
+                          <label>
+                            Chọn ngày nhận và trả phòng
+                            <input id="demo-flight-booking-single" mbsc-input data-input-style="outline"
+                                   data-label-style="stacked" placeholder="Please select..." />
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-<!--              <div class="choose-date-people">-->
-<!--                <i class='fa fa-user'></i>-->
-<!--                <p>2 Người lớn, 1 Trẻ em - 1 phòng</p>-->
-<!--              </div>-->
             </div>
           </div>
           <div class="list-room-block" th:attr="locationhotel=${location},idhotel=${idhotel}">
@@ -270,6 +302,135 @@
   </div>
 </div>
 
+
+<script>
+$(document).ready(function (){
+
+  mobiscroll.setOptions({
+    locale: mobiscroll.localeEn,                           // Specify language like: locale: mobiscroll.localePl or omit setting to use default
+    theme: 'ios',                                          // Specify theme like: theme: 'ios' or omit setting to use default
+    themeVariant: 'light'                              // More info about themeVariant: https://docs.mobiscroll.com/5-20-0/range#opt-themeVariant
+  });
+
+  $(function () {
+
+    var now = new Date(),
+            min = now,
+            max = new Date(now.getFullYear(), now.getMonth() + 6, now.getDate());
+
+    // Mobiscroll Range initialization
+    $('#demo-flight-booking-single').mobiscroll().datepicker({
+      controls: ['calendar'],                            // More info about controls: https://docs.mobiscroll.com/5-20-0/range#opt-controls
+      select: 'range',                                   // More info about select: https://docs.mobiscroll.com/5-20-0/range#methods-select
+      display: 'anchored',                               // Specify display mode like: display: 'bottom' or omit setting to use default
+      min: min,                                          // More info about min: https://docs.mobiscroll.com/5-20-0/range#opt-min
+      max: max,                                          // More info about max: https://docs.mobiscroll.com/5-20-0/range#opt-max
+      pages: 2,
+      buttons: ['set', 'cancel']                         // More info about buttons: https://docs.mobiscroll.com/5-20-0/range#opt-buttons
+    });
+
+    // Mobiscroll Range initialization
+    $('#demo-flight-booking-outbound').mobiscroll().datepicker({
+      controls: ['calendar'],                            // More info about controls: https://docs.mobiscroll.com/5-20-0/range#opt-controls
+      select: 'range',                                   // More info about select: https://docs.mobiscroll.com/5-20-0/range#methods-select
+      display: 'anchored',                               // Specify display mode like: display: 'bottom' or omit setting to use default
+      startInput: '#demo-flight-booking-outbound',       // More info about startInput: https://docs.mobiscroll.com/5-20-0/range#opt-startInput
+      endInput: '#demo-flight-booking-return',           // More info about endInput: https://docs.mobiscroll.com/5-20-0/range#opt-endInput
+      min: min,                                          // More info about min: https://docs.mobiscroll.com/5-20-0/range#opt-min
+      max: max,                                          // More info about max: https://docs.mobiscroll.com/5-20-0/range#opt-max
+      pages: 2
+    });
+
+    // Mobiscroll Range initialization
+    $('#demo-flight-booking-inv-outbound').mobiscroll().datepicker({
+      controls: ['calendar'],                            // More info about controls: https://docs.mobiscroll.com/5-20-0/range#opt-controls
+      select: 'range',                                   // More info about select: https://docs.mobiscroll.com/5-20-0/range#methods-select
+      display: 'anchored',                               // Specify display mode like: display: 'bottom' or omit setting to use default
+      startInput: '#demo-flight-booking-inv-outbound',   // More info about startInput: https://docs.mobiscroll.com/5-20-0/range#opt-startInput
+      endInput: '#demo-flight-booking-inv-return',       // More info about endInput: https://docs.mobiscroll.com/5-20-0/range#opt-endInput
+      min: min,                                          // More info about min: https://docs.mobiscroll.com/5-20-0/range#opt-min
+      max: max,                                          // More info about max: https://docs.mobiscroll.com/5-20-0/range#opt-max
+      pages: 2,
+      invalid: [{                                        // More info about invalid: https://docs.mobiscroll.com/5-20-0/range#opt-invalid
+        recurring: {
+          repeat: 'weekly',
+          weekDays: 'TU,TH'                      // More info about weekDays: https://docs.mobiscroll.com/5-20-0/range#opt-weekDays
+        },
+      },
+        new Date(now.getFullYear(), now.getMonth(), 25)
+      ]
+    });
+
+    var booking = $('#demo-flight-booking-type-outbound').mobiscroll().datepicker({
+      controls: ['calendar'],                            // More info about controls: https://docs.mobiscroll.com/5-20-0/range#opt-controls
+      select: 'range',                                   // More info about select: https://docs.mobiscroll.com/5-20-0/range#methods-select
+      display: 'anchored',                               // Specify display mode like: display: 'bottom' or omit setting to use default
+      startInput: '#demo-flight-booking-type-outbound',  // More info about startInput: https://docs.mobiscroll.com/5-20-0/range#opt-startInput
+      endInput: '#demo-flight-booking-type-return',      // More info about endInput: https://docs.mobiscroll.com/5-20-0/range#opt-endInput
+      min: min,                                          // More info about min: https://docs.mobiscroll.com/5-20-0/range#opt-min
+      max: max,                                          // More info about max: https://docs.mobiscroll.com/5-20-0/range#opt-max
+      pages: 2
+    }).mobiscroll('getInst');
+
+    $('.demo-flight-type').on('change', function () {
+      var oneWay = this.value == 'oneway';
+      $('#demo-flight-booking-type-return').mobiscroll('getInst').setOptions({ disabled: oneWay });
+
+      if (oneWay) {
+        booking.setOptions({
+          select: 'date'                             // More info about select: https://docs.mobiscroll.com/5-20-0/range#methods-select
+        });
+      } else {
+        booking.setOptions({
+          select: 'range'                            // More info about select: https://docs.mobiscroll.com/5-20-0/range#methods-select
+        });
+      }
+    });
+
+    var singleBooking = $('#demo-flight-booking-custom').mobiscroll().datepicker({
+      controls: ['calendar'],                            // More info about controls: https://docs.mobiscroll.com/5-20-0/range#opt-controls
+      select: 'range',                                   // More info about select: https://docs.mobiscroll.com/5-20-0/range#methods-select
+      display: 'anchored',                               // Specify display mode like: display: 'bottom' or omit setting to use default
+      min: min,                                          // More info about min: https://docs.mobiscroll.com/5-20-0/range#opt-min
+      max: max,                                          // More info about max: https://docs.mobiscroll.com/5-20-0/range#opt-max
+      pages: 2,
+      buttons: [                                         // More info about buttons: https://docs.mobiscroll.com/5-20-0/range#opt-buttons
+        'cancel',
+        {
+          text: 'One way only',
+          disabled: true,                            // More info about disabled: https://docs.mobiscroll.com/5-20-0/range#opt-disabled
+          handler: function () {
+            var start = singleBooking.getTempVal()[0];
+
+            singleBooking.setVal([start, null]);
+            singleBooking.close();
+          }
+        },
+        'set'
+      ],
+      onTempChange: function (event, inst) {
+        inst.setOptions({
+          buttons: [                                         // More info about buttons: https://docs.mobiscroll.com/5-20-0/range#opt-buttons
+            'cancel',
+            {
+              text: 'One way only',
+              disabled: !inst.getTempVal()[0],   // More info about disabled: https://docs.mobiscroll.com/5-20-0/range#opt-disabled
+              handler: function () {
+                var start = singleBooking.getTempVal()[0];
+
+                singleBooking.setVal([start, null]);
+                singleBooking.close();
+              }
+            },
+            'set'
+          ]
+        });
+      }
+    }).mobiscroll('getInst');
+
+  });
+})
+</script>
 <script th:inline="javascript">
   /*<![CDATA[*/
   var listfeedback = /*[[${@feedBackService.listFeedBackByIDHotel(idhotel)}]]*/ "listfeedback";
@@ -368,6 +529,6 @@
 
 </body>
 <script src="/js/js.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<!--<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>-->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js'></script>
 </html>

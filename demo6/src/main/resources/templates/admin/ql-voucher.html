@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/assets_admin/style.css">
     <link rel="stylesheet" href="/assets_admin/message.css">
     <link rel="stylesheet" href="/css/paginate.css">
+    <link rel="stylesheet" href="/css/cardvoucher.css">
 
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -51,8 +52,8 @@
             <span class="dashboard">Dashboard</span>
         </div>
         <div class="search-box">
-            <input type="text" placeholder="Search...">
-            <i class='bx bx-search' ></i>
+            <input type="text" id="inputsearch" placeholder="Search...">
+            <i class='bx bx-search' onclick="search()"></i>
         </div>
         <div class="profile-details">
             <img th:src="${employee.avatar}" alt="">
@@ -111,28 +112,44 @@
                 </ul>
             </div>
         </div>
-        <div class="sales-boxes" style="margin-top: 20px">
+        <div class="sales-boxes" style="margin-top: 20px;min-height: 400px">
             <div class="recent-sales box" style="width: 100%">
                 <div class="title">Tặng Voucher cho Khách hàng</div>
-                <div class="sales-details table-nv">
-                    <div class="activity-data pt-3">
-                        <div class="row">
-                            <div class="col-4 col-md-4 mb-3" th:each="kh:${dskh}">
-                                <div style="border-radius:4px;padding: 4px 0px;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;display: flex;justify-content: center">
-                                    <div>
-                                        <img th:src="${kh.avatar}" style="width: 120px;height: 120px; border-radius: 50%">
-                                    </div>
-                                    <div class="pl-3" style="display: flex;flex-direction: column;align-self: center">
-                                        <b th:text="${kh.iduser}"></b>
-                                        <p style="margin-bottom: 2px" th:text="${kh.getHo()+' '+kh.getTen()}"></p>
-                                        <p style="margin-bottom: 2px" th:text="${kh.email}"></p>
-                                        <p style="margin-bottom: 2px" th:text="${kh.phone}"></p>
+                <div class="mt-3">
+                    <div class="row" style="height: fit-content;display: none" id="div-div-vc" >
+                        <div class="col-md-5" id="info_u">
+                            <div style="position: relative;display: flex">
+                                <img style="margin: 0 auto;width: 120px;height: 120px;border-radius: 4px; object-fit: cover" src="https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2022/11/8/1114032/Rose---LACMA-Gala-3A.jpeg">
+                            </div>
+                            <div style="width:95%;position: absolute;top: 70%;box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;">
+                                <div style="padding-top: 60px">
+                                    <div id="hoten" style="text-align: center;margin-left: -5px;font-weight: 700">Họ và tên</div>
+                                    <div style="display: flex;justify-content: space-between;padding: 4px 10px;text-align: center">
+                                        <div style="display: flex;justify-content: space-between;width: 100%;">
+                                            <div id="ma_u">Mã ID</div>
+                                            <div style="opacity: 0.6">||</div>
+                                            <div id="sdt_u">0125879547</div>
+                                            <div style="opacity: 0.6">||</div>
+                                            <div id="email_u">vanhuy1619@gmail.com</div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="col-md-7" id="div-vc">
+                            <div >
+                                <div>
+                                    <img id="icon-tang" data-toggle="modal" data-target="#addModalUser" src="https://cdn-icons-png.flaticon.com/512/9198/9198458.png" style="width: 40px;height: 40px;object-fit: cover">
+                                </div>
+                                <div id="list_voucher" style="display: flex;flex-wrap: wrap" class="mt-3">
 
+                                </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -175,6 +192,47 @@
     </div>
 </div>
 
+<!--MODAL THÊM VOUCHER CHO KHÁCH HÀNG-->
+<div class="modal fade" id="addModalUser" tabindex="-1" role="dialog" aria-labelledby="addModalUserLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tặng Voucher</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="needs-validation modal-body" novalidate>
+                    <div class="form-group">
+                        <label class="col-form-label">Mã khách hàng</label>
+                        <input required type="text" class="form-control is-invalid" id="add-id-u" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Mã Voucher</label>
+                        <input placeholder="Mã Voucher" required type="text" class="form-control is-invalid" id="add-ma-u">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Giá trị</label>
+                        <input placeholder="10% 20%" required type="text" class="form-control is-invalid" id="add-giatri-u">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Nội dung</label>
+                        <input required type="text" class="form-control is-invalid" id="add-noidung-u">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Thời hạn</label>
+                        <input type="date" required  class="form-control is-invalid" id="add-thoihan-u" min="1">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="huytang">Hủy</button>
+                <button class="btn btn-primary" id="themvc" onclick="tangvoucher()">Tặng</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"/>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
@@ -211,6 +269,7 @@
                     if(form.checkValidity()===true)
                     {
                         $("#themvc").prop('disabled', false)
+
                     }
                 }, false);
             });
@@ -388,6 +447,95 @@
             }
         }
     });
+
+    function search()
+    {
+        let valueinput = $('#inputsearch').val()+'@gmail.com'
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/api/api/user/search?email="+valueinput,
+            data:{
+                email:valueinput
+            },
+            success: function (response)
+            {
+                console.log(response)
+                $('#div-div-vc').css('display','flex')
+
+
+                $('#hoten').text(response.ho + ' '+response.ten)
+                $('#ma_u').text(response.iduser)
+                $('#email_u').text(response.email)
+                $('#sdt_u').text(response.phone)
+
+                //MODAL TẶNG
+                $('#add-id-u').val(response.iduser)
+
+                $.ajax({
+                    type: "GET",
+                    url: "http://localhost:8080/api/api/user/gift/search?foriduser="+response.iduser,
+                    data:{
+                        foriduser:response.iduser
+                    },
+                    success: function (response2)
+                    {
+                        $('#div-vc').css('display','block')
+                        let htmlvc =  response2.map(ele=>{
+                            return `
+                                <section class="cardd" style="width: 60% !important;">
+                                    <div class="card-leftt">${ele.idgift}<span></span></div>
+                                    <div class="card-rightt">
+                                      <p class="card-info">${ele.noidunggift}</p>
+                                      <strong class="card-time">HSD: ${ele.hansudung}</strong>
+                                      <strong class="card-time">Giá trị: ${ele.giatri}</strong>
+                                    </div>
+                                 </section>
+                            `
+                        })
+                        document.querySelector('#list_voucher').innerHTML=htmlvc.join('');
+                    },
+                    error: function (e) {
+                        console.log("Lỗi")
+                    }
+                });
+            },
+            error: function (e) {
+                console.log("Lỗi")
+                $('#div-div-vc').css('display','block')
+            }
+        });
+    }
+
+
+    function tangvoucher()
+    {
+        let data = {
+            idgift:$('#add-ma-u').val(),
+            noidunggift:$('#add-noidung-u').val(),
+            hansudung:$('#add-thoihan-u').val(),
+            foriduser:$('#add-id-u').val(),
+            sudung:0,
+            giatri:$('#add-giatri-u').val()
+
+        }
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/api/api/user/gift/add",
+            data: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept':'application/json'
+            },
+            success: function (response)
+            {
+                console.log("ok")
+            },
+            error: function (e) {
+                console.log("Lỗi")
+            }
+        });
+    }
+
 </script>
 </body>
 </html>
