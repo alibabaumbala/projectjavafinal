@@ -101,33 +101,41 @@
           "list_room": [
             {
               "idroom": "pq-hotel-2-room-1",
-              "nameroom": "Phòng gia đình 2 giường",
-              "imgroom": "https://booking-static.vinpearl.com/room_types/be5c1e189982470b8968ef37841168ee_VH1PQ_Standard%20Room1.jpg",
-              "adult": 2,
+              "nameroom": "Deluxe Garden View",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2018/07/02/14/deluxe-garden-view-140x80.jpg",
+              "adult": 3,
               "child": 1,
-              "priceroom": 1500000
+              "priceroom": 3500000
             },
             {
               "idroom": "pq-hotel-2-room-2",
-              "nameroom": "Phòng gia đình 2 giường",
-              "imgroom": "https://booking-static.vinpearl.com/room_types/be5c1e189982470b8968ef37841168ee_VH1PQ_Standard%20Room1.jpg",
+              "nameroom": "Deluxe Ocean View",
+              "imgroom": "https://booking-static.vinpearl.com/room_types/4dfb2291cacf48ac955dce71a47bee5c_VH1PQ_Suite%20Room6.jpg",
               "adult": 2,
               "child": 1,
-              "priceroom": 1500000
+              "priceroom": 3000000
             },
             {
               "idroom": "pq-hotel-2-room-3",
-              "nameroom": "Phòng gia đình 2 giường",
-              "imgroom": "https://booking-static.vinpearl.com/room_types/be5c1e189982470b8968ef37841168ee_VH1PQ_Standard%20Room1.jpg",
+              "nameroom": "Family Suite",
+              "imgroom": "https://res.klook.com/image/upload/c_crop,g_custom/w_800,h_533/v1634199210/activities/pzlzxepwaio1f22n8zqw.jpg",
               "adult": 2,
-              "child": 1,
-              "priceroom": 1500000
+              "child": 0,
+              "priceroom": 2500000
+            },
+            {
+              "idroom": "pq-hotel-2-room-4",
+              "nameroom": "Villa 2 Bedroom Ocean View",
+              "imgroom": "https://q-xx.bstatic.com/xdata/images/hotel/max500/345770285.jpg?k=196b934c9310652bbefdf40bca205223f3f2559b5a3d4041377165f6ea0a4541&o=&s=800x",
+              "adult": 4,
+              "child": 0,
+              "priceroom": 6000000
             }
           ]
         },
         {
           "id": "pq-hotel-3",
-          "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.1495036174256!2d103.85337381471439!3d10.329918192625412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31081fd375b3e319%3A0x8d5ea1381c41a15a!2zVmluT2FzaXMgUGjDuiBRdeG7kWM!5e0!3m2!1sen!2s!4v1668245242303!5m2!1sen!2s",
+          "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15699.975389166091!2d103.84256632545616!3d10.342376481870113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31081e675b9530e1%3A0x8c883cc47507e38f!2sVinpearl%20Discovery%20Wonderworld%20Ph%C3%BA%20Qu%E1%BB%91c!5e0!3m2!1svi!2s!4v1669791456691!5m2!1svi!2s",
           "intro": "Còn 84 ngày | Kỳ Nghỉ Trọn Gói 3N2Đ Vé máy bay + Villa riêng tư + Xe đưa đón sân bay + 06 Bữa Ăn từ 5.599.000 VND/Khách",
           "img_hotel": "https://cdn1.ivivu.com/iVivu/2021/05/14/15/9-pool-14-cr-374x280.jpg",
           "name_hotel": "Vinpearl Discovery Phú Quốc",
@@ -150,27 +158,43 @@
           "list_room": [
             {
               "idroom": "pq-hotel-3-room-1",
-              "nameroom": "Phòng bạn bè",
+              "nameroom": "Two Bedroom Pool Villa ",
               "imgroom": "https://booking-static.vinpearl.com/room_types/be5c1e189982470b8968ef37841168ee_VH1PQ_Standard%20Room1.jpg",
               "adult": 2,
-              "child": 1,
-              "priceroom": 1500000
+              "child": 0,
+              "priceroom": 6200000
             },
             {
               "idroom": "pq-hotel-3-room-2",
-              "nameroom": "Phòng gia đình 2 giường",
-              "imgroom": "https://booking-static.vinpearl.com/room_types/be5c1e189982470b8968ef37841168ee_VH1PQ_Standard%20Room1.jpg",
+              "nameroom": "Two Bedroom Pool Villa With Ocean View",
+              "imgroom": "https://booking-static.vinpearl.com/room_types/4dfb2291cacf48ac955dce71a47bee5c_VH1PQ_Suite%20Room6.jpg",
               "adult": 2,
               "child": 1,
-              "priceroom": 1500000
+              "priceroom": 6900000
             },
             {
               "idroom": "pq-hotel-3-room-3",
-              "nameroom": "Homestay siêu sân vườn",
-              "imgroom": "https://booking-static.vinpearl.com/room_types/be5c1e189982470b8968ef37841168ee_VH1PQ_Standard%20Room1.jpg",
+              "nameroom": "Three Bedroom Pool Villa",
+              "imgroom": "https://res.klook.com/image/upload/c_crop,g_custom/w_800,h_533/v1634199210/activities/pzlzxepwaio1f22n8zqw.jpg",
               "adult": 4,
-              "child": 4,
-              "priceroom": 8000000
+              "child": 0,
+              "priceroom": 8600000
+            },
+            {
+              "idroom": "pq-hotel-3-room-4",
+              "nameroom": "hree Bedroom Pool Villa With Ocean View",
+              "imgroom": "https://q-xx.bstatic.com/xdata/images/hotel/max500/345770285.jpg?k=196b934c9310652bbefdf40bca205223f3f2559b5a3d4041377165f6ea0a4541&o=&s=800x",
+              "adult": 4,
+              "child": 0,
+              "priceroom": 9700000
+            },
+            {
+              "idroom": "pq-hotel-3-room-5",
+              "nameroom": "Four Bedroom Pool Villa",
+              "imgroom": "https://pix8.agoda.net/hotelImages/7394456/88081917/1cf2919e3fc94cb7173baa32bda1e943.jpg",
+              "adult": 4,
+              "child": 0,
+              "priceroom": 11500000
             }
           ]
         },
@@ -194,11 +218,53 @@
           "type_room": "One King Residence",
           "type_room_bonus": "Gồm ăn sáng",
           "status": "Còn phòng",
-          "voucher": "3N2Đ+VMB+Đón tiễn | 5tr999/khách "
+          "voucher": "3N2Đ+VMB+Đón tiễn | 5tr999/khách ",
+          "list_room": [
+            {
+              "idroom": "pq-hotel-4-room-1",
+              "nameroom": "Phòng tiêu chuẩn 2 giường đơn",
+              "imgroom": "https://booking-static.vinpearl.com/room_types/be5c1e189982470b8968ef37841168ee_VH1PQ_Standard%20Room1.jpg",
+              "adult": 2,
+              "child": 0,
+              "priceroom": 2800000
+            },
+            {
+              "idroom": "pq-hotel-4-room-2",
+              "nameroom": "Phòng Studio Suite",
+              "imgroom": "https://booking-static.vinpearl.com/room_types/4dfb2291cacf48ac955dce71a47bee5c_VH1PQ_Suite%20Room6.jpg",
+              "adult": 2,
+              "child": 1,
+              "priceroom": 3000000
+            },
+            {
+              "idroom": "pq-hotel-4-room-3",
+              "nameroom": "Phòng Deluxe Hướng Vườn",
+              "imgroom": "https://res.klook.com/image/upload/c_crop,g_custom/w_800,h_533/v1634199210/activities/pzlzxepwaio1f22n8zqw.jpg",
+              "adult": 2,
+              "child": 0,
+              "priceroom": 2500000
+            },
+            {
+              "idroom": "pq-hotel-4-room-4",
+              "nameroom": "Suite with Ocean Front View",
+              "imgroom": "https://q-xx.bstatic.com/xdata/images/hotel/max500/345770285.jpg?k=196b934c9310652bbefdf40bca205223f3f2559b5a3d4041377165f6ea0a4541&o=&s=800x",
+              "adult": 2,
+              "child": 0,
+              "priceroom": 4000000
+            },
+            {
+              "idroom": "pq-hotel-4-room-5",
+              "nameroom": "Hai Giường Đơn Loại Sang Hướng biển bên hông",
+              "imgroom": "https://pix8.agoda.net/hotelImages/7394456/88081917/1cf2919e3fc94cb7173baa32bda1e943.jpg",
+              "adult": 3,
+              "child": 0,
+              "priceroom": 6000000
+            }
+          ]
         },
         {
           "id": "pq-hotel-5",
-          "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.1495036174256!2d103.85337381471439!3d10.329918192625412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31081fd375b3e319%3A0x8d5ea1381c41a15a!2zVmluT2FzaXMgUGjDuiBRdeG7kWM!5e0!3m2!1sen!2s!4v1668245242303!5m2!1sen!2s",
+          "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62798.2739461185!2d103.77731415820314!3d10.350510300000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31081e419e69a343%3A0xa96c7c77cdcb13d7!2sMeli%C3%A1%20Vinpearl%20Phu%20Quoc!5e0!3m2!1svi!2s!4v1669792209503!5m2!1svi!2s",
           "intro": "Còn 45 ngày | Vivu Khám Phá | 3N2Đ Vé máy bay + Villa riêng tư + 04 Bữa Ăn+ Vui chơi thả ga từ 5.999.000 VND/Khách",
           "img_hotel": "https://a0.muscache.com/im/pictures/miso/Hosting-600222648223494025/original/a7082085-fb8c-4a3b-8868-8ac3ccecb193.jpeg?im_w=960",
           "name_hotel": "Khu nghỉ dưỡng Meliã Vinpearl Phú Quốc",
@@ -219,7 +285,57 @@
           "type_room": "Two Bed Room Villa with Private Pool",
           "type_room_bonus": "Gồm ăn sáng",
           "status": "Còn phòng",
-          "voucher": "3N2Đ | VMB+04 Bữa Ăn+Tiệc trà nổi|9tr799/khách "
+          "voucher": "3N2Đ | VMB+04 Bữa Ăn+Tiệc trà nổi|9tr799/khách ",
+          "list_room": [
+            {
+              "idroom": "pq-hotel-5-room-1",
+              "nameroom": "Phòng tiêu chuẩn 2 giường đơn",
+              "imgroom": "https://booking-static.vinpearl.com/room_types/be5c1e189982470b8968ef37841168ee_VH1PQ_Standard%20Room1.jpg",
+              "adult": 2,
+              "child": 0,
+              "priceroom": 2800000
+            },
+            {
+              "idroom": "pq-hotel-5-room-2",
+              "nameroom": "Phòng Studio Suite",
+              "imgroom": "https://booking-static.vinpearl.com/room_types/4dfb2291cacf48ac955dce71a47bee5c_VH1PQ_Suite%20Room6.jpg",
+              "adult": 2,
+              "child": 1,
+              "priceroom": 3000000
+            },
+            {
+              "idroom": "pq-hotel-5-room-3",
+              "nameroom": "Phòng Deluxe Hướng Vườn",
+              "imgroom": "https://res.klook.com/image/upload/c_crop,g_custom/w_800,h_533/v1634199210/activities/pzlzxepwaio1f22n8zqw.jpg",
+              "adult": 2,
+              "child": 0,
+              "priceroom": 2500000
+            },
+            {
+              "idroom": "pq-hotel-5-room-4",
+              "nameroom": "Suite with Ocean Front View",
+              "imgroom": "https://q-xx.bstatic.com/xdata/images/hotel/max500/345770285.jpg?k=196b934c9310652bbefdf40bca205223f3f2559b5a3d4041377165f6ea0a4541&o=&s=800x",
+              "adult": 2,
+              "child": 0,
+              "priceroom": 4000000
+            },
+            {
+              "idroom": "pq-hotel-5-room-5",
+              "nameroom": "Hai Giường Đơn Loại Sang Hướng biển bên hông",
+              "imgroom": "https://pix8.agoda.net/hotelImages/7394456/88081917/1cf2919e3fc94cb7173baa32bda1e943.jpg",
+              "adult": 3,
+              "child": 0,
+              "priceroom": 6000000
+            },
+            {
+              "idroom": "pq-hotel-5-room-6",
+              "nameroom": "Phòng Deluxe gia đình",
+              "imgroom": "https://pix8.agoda.net/hotelImages/7394456/93231034/8d01d499b1eb3d4efff36bd02b4ce98b.jpg",
+              "adult": 4,
+              "child": 0,
+              "priceroom": 4300000
+            }
+          ]
         },
         {
           "id": "pq-hotel-6",
@@ -242,7 +358,8 @@
           "type_room": "Standard Room",
           "type_room_bonus": "Gồm ăn sáng",
           "status": "Còn phòng",
-          "voucher": "3N2Đ | VMB+Đón tiễn | 2tr999/khách"
+          "voucher": "3N2Đ | VMB+Đón tiễn | 2tr999/khách",
+          "list_room": []
         },
         {
           "id": "pq-hotel-7",
@@ -425,6 +542,565 @@
               "priceroom": 700000
             }
           ]
+        },
+        {
+          "id": "dl-hotel-2",
+          "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15613.763484919706!2d108.42934682570046!3d11.94394806457246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3171135333d87745%3A0xef770fc699bf659b!2sH%C3%B4tel%20Colline!5e0!3m2!1svi!2s!4v1670917584802!5m2!1svi!2s",
+          "intro": " Còn 49 ngày | Đà Lạt Sôi Động 3N2Đ | Vé máy bay khứ hồi + Bữa sáng + Phòng hướng phố từ 2.999.000 VND/Khách",
+          "img_hotel": "https://cdn1.ivivu.com/iVivu/2022/03/28/16/hotel-colline-da-lat-800x450.jpg",
+          "name_hotel": "Hôtel Colline Đà Lạt",
+          "star": 4,
+          "feedback_normal": "Rất tốt",
+          "count_cmt": 70,
+          "point": 9.5,
+          "address": "10 Phan Bội Châu, Phường 1, Đà Lạt, Việt Nam",
+          "character": [
+            "Hiện Đại"
+          ],
+          "bonus_character": "Khách sạn mới, Ngay chợ Đà Lạt, Căn hộ, Thiết kế hiện đại",
+          "price": 1419000,
+          "type_room": "Superior Double No View",
+          "type_room_bonus": "Gồm ăn sáng",
+          "status": "Còn phòng",
+          "voucher": "3N2Đ|VMB+Bữa sáng | 2.799 triệu/khách",
+          "list_room": [
+            {
+              "idroom": "dl-hotel-2-room-1",
+              "nameroom": "Phòng gia đình",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/11/22/17/superior-double-no-view-140x80.jpg",
+              "adult": 2,
+              "child": 2,
+              "priceroom": 1640000
+            },
+            {
+              "idroom": "dl-hotel-2-room-2",
+              "nameroom": "Phòng Deluxe gia đình",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/11/22/17/dlx-double-2-220x125.jpg",
+              "adult": 2,
+              "child": 1,
+              "priceroom": 2500000
+            },
+            {
+              "idroom": "dl-hotel-2-room-3",
+              "nameroom": "Phòng Deluxe Hướng Vườn",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/11/22/17/premier-deluxe-double-city-view-220x125.jpg",
+              "adult": 2,
+              "child": 2,
+              "priceroom": 3000000
+            },
+            {
+              "idroom": "dl-hotel-2-room-4",
+              "nameroom": "Phòng hướng thành phố",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/11/22/17/premier-deluxe-twin-city-view-1-220x125.jpg",
+              "adult": 2,
+              "child": 0,
+              "priceroom": 2000000
+            },
+            {
+              "idroom": "dl-hotel-2-room-5",
+              "nameroom": "Phòng 1 giường lớn",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/11/22/17/studio-double-city-view-220x125.jpg",
+              "adult": 3,
+              "child": 1,
+              "priceroom": 4000000
+            }
+          ]
+        },
+        {
+          "id": "dl-hotel-3",
+          "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.4232491514044!2d108.4572512147296!3d11.945170791535006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3171137b932ca13f%3A0x1d53655f9fd995c7!2sMercure%20Dalat%20Resort!5e0!3m2!1svi!2s!4v1670918393185!5m2!1svi!2s",
+          "intro": " Còn 77 ngày | Châu Âu Quyến Rũ 3N2Đ | Vé máy bay + Bữa sáng + Miễn phí 01 trẻ em từ 4.199.000 VND/Khách",
+          "img_hotel": "https://cdn1.ivivu.com/iVivu/2018/06/08/13/camia-resort--1-800x450.png",
+          "name_hotel": "Khu nghỉ dưỡng Mercure Đà Lạt",
+          "star": 4,
+          "feedback_normal": "Rất tốt",
+          "count_cmt": 80,
+          "point": 9.5,
+          "address": " 03 Nguyễn Du, Phường 9, Đà Lạt, Việt Nam",
+          "character": [
+            "Châu Âu, Thương hiệu quốc tế"
+          ],
+          "bonus_character": "BIệt thự nghỉ dưỡng, Thiến kế ấn tượng, Villa sân vườn",
+          "price": 4599000,
+          "type_room": "Deluxe King Room",
+          "type_room_bonus": "Gồm ăn sáng",
+          "status": "Hết phòng",
+          "voucher": "3N2Đ|VMB+Bữa sáng | 4.199 triệu/khách",
+          "list_room": [
+            {
+              "idroom": "dl-hotel-3-room-1",
+              "nameroom": "Phòng tiêu chuẩn 2 giường đơn",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/03/21/11/deluxe-room-140x80.jpg",
+              "adult": 4,
+              "child": 1,
+              "priceroom": 2800000
+            },
+            {
+              "idroom": "dl-hotel-3-room-2",
+              "nameroom": "Phòng Studio Suite",
+              "imgroom": "https://booking-static.vinpearl.com/room_types/4dfb2291cacf48ac955dce71a47bee5c_VH1PQ_Suite%20Room6.jpg",
+              "adult": 2,
+              "child": 1,
+              "priceroom": 3000000
+            },
+            {
+              "idroom": "dl-hotel-3-room-3",
+              "nameroom": "Phòng Deluxe Hướng Vườn",
+              "imgroom": "https://res.klook.com/image/upload/c_crop,g_custom/w_800,h_533/v1634199210/activities/pzlzxepwaio1f22n8zqw.jpg",
+              "adult": 2,
+              "child": 0,
+              "priceroom": 2500000
+            },
+            {
+              "idroom": "dl-hotel-3-room-4",
+              "nameroom": "Suite with Ocean Front View",
+              "imgroom": "https://q-xx.bstatic.com/xdata/images/hotel/max500/345770285.jpg?k=196b934c9310652bbefdf40bca205223f3f2559b5a3d4041377165f6ea0a4541&o=&s=800x",
+              "adult": 2,
+              "child": 0,
+              "priceroom": 4000000
+            },
+            {
+              "idroom": "dl-hotel-3-room-5",
+              "nameroom": "Hai Giường Đơn Loại Sang Hướng biển bên hông",
+              "imgroom": "https://pix8.agoda.net/hotelImages/7394456/88081917/1cf2919e3fc94cb7173baa32bda1e943.jpg",
+              "adult": 4,
+              "child": 2,
+              "priceroom": 6000000
+            }
+          ]
+        },
+        {
+          "id": "dl-hotel-4",
+          "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.9529264124553!2d108.44902081472985!3d11.977759191513279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317112bbd8ba663b%3A0xe1985c78f41a5900!2sLadalat%20Hotel!5e0!3m2!1svi!2s!4v1670919629296!5m2!1svi!2s",
+          "intro": " Còn 77 ngày | Lãng Mạn Phố Núi 3N2Đ | Vé máy bay khứ hồi + Bữa sáng từ 2.199.000 VND/Khách",
+          "img_hotel": "https://cdn1.ivivu.com/iVivu/2021/01/13/16/ladalat-hotel-4--800x450.jpg",
+          "name_hotel": "Khách Sạn LADALAT",
+          "star": 3,
+          "feedback_normal": "Rất tốt",
+          "count_cmt": 75,
+          "point": 9.3,
+          "address": "106 Mai Anh Đào, Phường 8, Tp. Đà Lạt, Việt Nam",
+          "character": [
+            "Hiện Đại"
+          ],
+          "bonus_character": "Khách sạn mới, Hồ bơi nước nóng, Phòng rộng & view thung lũng",
+          "price": 995000,
+          "type_room": "Standard Double - Tầng B2",
+          "type_room_bonus": "Gồm ăn sáng",
+          "status": "Hết phòng",
+          "voucher": "3N2Đ|VMB+Bữa sáng | 2.199 triệu/khách",
+          "list_room": [
+            {
+              "idroom": "dl-hotel-4-room-1",
+              "nameroom": "Phòng tiêu chuẩn 1 giường đơn",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/10/25/14/executive-220x125.jpg",
+              "adult": 2,
+              "child": 0,
+              "priceroom": 2200000
+            },
+            {
+              "idroom": "dl-hotel-4-room-2",
+              "nameroom": "Phòng Deluxe 1 giường đơn",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/03/21/11/family-220x125.jpg",
+              "adult": 2,
+              "child": 1,
+              "priceroom": 3000000
+            },
+            {
+              "idroom": "dl-hotel-4-room-3",
+              "nameroom": "Phòng Deluxe 2 giường",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/10/25/14/executive-twin-220x125.jpg",
+              "adult": 4,
+              "child": 2,
+              "priceroom": 4200000
+            },
+            {
+              "idroom": "dl-hotel-4-room-4",
+              "nameroom": "Phòng Deluxe King",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/03/21/11/deluxe-room-220x125.jpg",
+              "adult": 2,
+              "child": 0,
+              "priceroom": 5000000
+            }
+          ]
+        },
+        {
+          "id": "dl-hotel-5",
+          "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3904.1293828405414!2d108.41235751472905!3d11.896077991567788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31716b5e240fdce9%3A0x84da3e5245e8a947!2sDalat%20Wonder%20Resort!5e0!3m2!1svi!2s!4v1670919998002!5m2!1svi!2s",
+          "intro": " Còn 77 ngày | Lạc Bước Châu Âu 3N2Đ | Vé máy bay khứ hồi + Ăn sáng + Xe đưa đón trung tâm từ 2.599.000 VND/Khách",
+          "img_hotel": "https://cdn1.ivivu.com/iVivu/2022/08/10/18/dalat-wonder-resort-main-slide-2-cr-800x450.png",
+          "name_hotel": "Khu nghỉ dưỡng Đà Lạt Wonder",
+          "star": 4,
+          "feedback_normal": "Tuyệt vời",
+          "count_cmt": 170,
+          "point": 9.8,
+          "address": "Số 19, đường Hoa Hồng, KDL Hồ Tuyền Lâm, phường 4, Tp.Đà Lạt, Việt Nam",
+          "character": [
+            "Gần gũi với thiên nhiên, Chụp ảnh đẹp"
+          ],
+          "bonus_character": "Hồ bơi vô cực, Biệt thự nghỉ dưỡng",
+          "price": 1188000,
+          "type_room": "Bungalow",
+          "type_room_bonus": "Gồm ăn sáng",
+          "status": "Còn phòng",
+          "voucher": "3N2Đ|VMB+Đưa Đón | 2.599 triệu/khách",
+          "list_room": [
+            {
+              "idroom": "dl-hotel-5-room-1",
+              "nameroom": "Phòng tiêu chuẩn Garden View",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/08/10/19/dd-sup-220x125.png",
+              "adult": 2,
+              "child": 2,
+              "priceroom": 1200000
+            },
+            {
+              "idroom": "dl-hotel-5-room-2",
+              "nameroom": "Phòng cổ điển nội thất gỗ",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/07/06/16/bungalow4-cr-220x125.png",
+              "adult": 2,
+              "child": 1,
+              "priceroom": 2000000
+            },
+            {
+              "idroom": "dl-hotel-5-room-3",
+              "nameroom": "Phòng Deluxe Hướng Vườn",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/08/10/19/dd-dlx-220x125.png",
+              "adult": 2,
+              "child": 1,
+              "priceroom": 3000000
+            },
+            {
+              "idroom": "dl-hotel-5-room-4",
+              "nameroom": "Phòng Deluxe hướng hồ",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/08/19/15/dd-dlx-dbl-lake-view-cr-1-220x125.png",
+              "adult": 2,
+              "child": 2,
+              "priceroom": 4000000
+            },
+            {
+              "idroom": "dl-hotel-5-room-5",
+              "nameroom": "Phòng Deluxe 2 giường lớn hướng hồ",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/08/10/19/dd-dlx-lake-220x125.png",
+              "adult": 4,
+              "child": 2,
+              "priceroom": 6200000
+            }
+          ]
+        },
+        {
+          "id": "dl-hotel-6",
+          "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.439560841486!2d108.42141131472962!3d11.944038991535837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31716cd40cc0684b%3A0x6b9892057c05b737!2sAna%20Mandara%20Villas%20Dalat%20Resort%20%26%20Spa!5e0!3m2!1svi!2s!4v1670920259857!5m2!1svi!2s",
+          "intro": " Còn 77 ngày | Dấu Ấn Đông Phương 3N2Đ | Vé máy bay khứ hồi + Bữa sáng từ 3.599.000 VND/Khách",
+          "img_hotel": "https://cdn1.ivivu.com/iVivu/2022/10/25/11/206332939-172470121566854-348032195411275515-n-800x450.jpg",
+          "name_hotel": "Khu nghỉ dưỡng Ana Mandara Villas Dalat Resort and Spa",
+          "star": 5,
+          "feedback_normal": "Tuyệt vời",
+          "count_cmt": 90,
+          "point": 9.3,
+          "address": "Lê Lai, P.5, Tp. Đà Lạt, Việt Nam",
+          "character": [
+            "Gần gũi với thiên nhiên, Đông Dương"
+          ],
+          "bonus_character": "Biệt thự cổ, Kiến trúc Pháp, Dịch vụ spa đẳng cấp, Hồ bơi nước ấm, Villa 2-3 phòng ngủ",
+          "price": 1800000,
+          "type_room": "Villa Double",
+          "type_room_bonus": "Gồm ăn sáng",
+          "status": "Còn phòng",
+          "voucher": "3N2Đ|VMB+Bữa sáng | 3.599 triệu/khách",
+          "list_room": [
+            {
+              "idroom": "dl-hotel-6-room-1",
+              "nameroom": "Phòng gia đình tiêu chuẩn",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/10/25/13/villa-double-220x125.jpg",
+              "adult": 2,
+              "child": 1,
+              "priceroom": 2800000
+            },
+            {
+              "idroom": "dl-hotel-6-room-2",
+              "nameroom": "Phòng Studio đôi",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/10/25/13/villa-studio-twin-220x125.jpg",
+              "adult": 2,
+              "child": 2,
+              "priceroom": 3000000
+            },
+            {
+              "idroom": "dl-hotel-6-room-3",
+              "nameroom": "Phòng Deluxe gia đình",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/10/25/13/villa-studio-double-220x125.jpg",
+              "adult": 2,
+              "child": 2,
+              "priceroom": 3700000
+            },
+            {
+              "idroom": "dl-hotel-6-room-4",
+              "nameroom": "Phòng Studio Deluxe",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/10/25/13/villa-studio-twin-220x125.jpg",
+              "adult": 2,
+              "child": 2,
+              "priceroom": 4000000
+            },
+            {
+              "idroom": "dl-hotel-6-room-5",
+              "nameroom": "Phòng Bellevue",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/10/25/13/bellevue-suite-220x125.jpg",
+              "adult": 3,
+              "child": 2,
+              "priceroom": 6000000
+            }
+          ]
+        },
+        {
+          "id": "dl-hotel-7",
+          "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3904.3252634797996!2d108.44966981472892!3d11.882424291576825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3171149554dcf44f%3A0xe83e1508f92bd940!2sSwiss-Belresort%20Tuy%E1%BB%81n%20L%C3%A2m!5e0!3m2!1svi!2s!4v1670920561059!5m2!1svi!2s",
+          "intro": "",
+          "img_hotel": "https://cdn1.ivivu.com/iVivu/2022/07/27/11/swiss-belresort-tuyen-1-cr-1-800x450.png",
+          "name_hotel": "Swiss-Belresort Tuyền Lâm - Đà Lạt",
+          "star": 4,
+          "feedback_normal": "Tuyệt vời",
+          "count_cmt": 90,
+          "point": 9.5,
+          "address": "Phân khu chức năng 7.8, KDL Hồ Tuyền Lâm, P.3, Tp. Đà Lạt, Việt Nam",
+          "character": [
+            "Gần gũi với thiên nhiên, Châu Âu, Chụp ảnh đẹp"
+          ],
+          "bonus_character": "Sân Golf, View đồi núi, Shuttle Bus miễn phí, Hồ bơi ngoài trời",
+          "price": 1295000,
+          "type_room": "Deluxe Twin Mountain View",
+          "type_room_bonus": "Gồm ăn sáng",
+          "status": "Hết phòng",
+          "voucher": "3N2Đ|VMB+Bữa sáng | 2.599 triệu/khách",
+          "list_room": [
+            {
+              "idroom": "dl-hotel-7-room-1",
+              "nameroom": "Phòng Deluxe 1 giường đơn hướng cảnh Núi",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/12/07/11/deluxe-king-mountain-view-220x125.jpg",
+              "adult": 2,
+              "child": 0,
+              "priceroom": 2000000
+            },
+            {
+              "idroom": "dl-hotel-7-room-2",
+              "nameroom": "Phòng Deluxe 2 giường đơn hướng Núi",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/12/07/11/deluxe-twin-mountain-view-220x125.jpg",
+              "adult": 2,
+              "child": 1,
+              "priceroom": 2300000
+            },
+            {
+              "idroom": "dl-hotel-7-room-3",
+              "nameroom": "Phòng King Deluxe Hướng sân golf",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2019/01/03/10/deluxe-king-golf-view-220x125.jpg",
+              "adult": 4,
+              "child": 2,
+              "priceroom": 3500000
+            },
+            {
+              "idroom": "dl-hotel-7-room-4",
+              "nameroom": "Phòng 1 giường đơn hướng sân golf",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2019/01/03/11/deluxe-twin-golf-view-220x125.jpg",
+              "adult": 2,
+              "child": 0,
+              "priceroom": 3000000
+            },
+            {
+              "idroom": "dl-hotel-7-room-5",
+              "nameroom": "Phòng King Studio hướng núi",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2019/01/03/11/studio-king-mountain-view-2-220x125.jpg",
+              "adult": 4,
+              "child": 2,
+              "priceroom": 4500000
+            }
+          ]
+        },
+        {
+          "id": "dl-hotel-8",
+          "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.443257350493!2d108.43342961472943!3d11.9437824915359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3171132932d892a9%3A0x227eab9f429bb803!2sSandals%20Lily%20Hotel!5e0!3m2!1svi!2s!4v1670920917675!5m2!1svi!2s",
+          "intro": "",
+          "img_hotel": "https://cdn1.ivivu.com/iVivu/2022/07/28/10/img-3933-1-cr-800x450.png",
+          "name_hotel": "Khách sạn Sandals LiLy Đà Lạt",
+          "star": 4,
+          "feedback_normal": "Rất tốt",
+          "count_cmt": 120,
+          "point": 9.7,
+          "address": "12 Tăng Bạt Hổ, Phường 1, Đà Lạt, Việt Nam",
+          "character": [
+            "Hiện Đại, Châu Âu"
+          ],
+          "bonus_character": "Khách sạn mới, Ngay chợ Đà Lạt, Gần hồ Xuân Hương",
+          "price": 995000,
+          "type_room": "Deluxe Double",
+          "type_room_bonus": "Gồm ăn sáng",
+          "status": "Hết phòng",
+          "voucher": "3N2Đ|Xe phòng nằm+Bữa sáng | 1.699 triệu/khách",
+          "list_room": [
+            {
+              "idroom": "dl-hotel-8-room-1",
+              "nameroom": "Phòng Deluxe gia đình",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2021/12/08/11/sup-dbl-2-220x125.png",
+              "adult": 2,
+              "child": 2,
+              "priceroom": 1500000
+            },
+            {
+              "idroom": "dl-hotel-8-room-2",
+              "nameroom": "Phòng Suite 2 giường",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2021/12/08/10/deluxe-dung-220x125.png",
+              "adult": 2,
+              "child": 1,
+              "priceroom": 1700000
+            },
+            {
+              "idroom": "dl-hotel-8-room-3",
+              "nameroom": "Phòng Deluxe Hướng Vườn",
+              "imgroom": "",
+              "adult": 2,
+              "child": 0,
+              "priceroom": 2500000
+            },
+            {
+              "idroom": "dl-hotel-8-room-4",
+              "nameroom": "Phòng Suite gia đình",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2021/12/08/10/deluxe-twin-2-220x125.png",
+              "adult": 2,
+              "child": 2,
+              "priceroom": 4000000
+            },
+            {
+              "idroom": "dl-hotel-8-room-5",
+              "nameroom": "Phòng President",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/01/13/18/z3106391664712-64ead4dffbfba16da5b7d1c63cdfdd71-220x125.jpg",
+              "adult": 8,
+              "child": 4,
+              "priceroom": 10000000
+            }
+          ]
+        },
+        {
+          "id": "dl-hotel-9",
+          "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3904.231367085889!2d108.43284971472903!3d11.888971191572553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317115bbde358b53%3A0x7dc116580d3f6178!2sCereja%20Hotel%20%26%20Resort!5e0!3m2!1svi!2s!4v1670922119798!5m2!1svi!2s",
+          "intro": " Còn 18 ngày | Vũ Khúc Mộng Mơ 3N2Đ | Vé máy bay khứ hồi + Bữa sáng + Xe đưa đón trung tâm từ 2.199.000 VND/Khách",
+          "img_hotel": "https://cdn1.ivivu.com/iVivu/2020/03/03/20/2-1-800x450.jpg",
+          "name_hotel": "Cereja Hotel & Resort Đà Lạt",
+          "star": 5,
+          "feedback_normal": "Rất tốt",
+          "count_cmt": 108,
+          "point": 9.7,
+          "address": "Khu Phân khu chức năng VII.7, Khu du lịch Hồ Tuyền Lâm, Phường 3, Tp. Đà Lạt, Việt Nam",
+          "character": [
+            "Gần gũi với thiên nhiên, Chụp ảnh đẹp"
+          ],
+          "bonus_character": "Hướng hồ Tuyền Lâm",
+          "price": 1595000,
+          "type_room": "Superior Garden View",
+          "type_room_bonus": "Gồm ăn sáng",
+          "status": "Hết phòng",
+          "voucher": "3N2Đ|VMB+Bữa sáng | 2.199 triệu/khách",
+          "list_room": [
+            {
+              "idroom": "dl-hotel-9-room-1",
+              "nameroom": "Phòng tiêu chuẩn Hướng Vườn",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2020/03/03/22/sup-220x125.jpg",
+              "adult": 2,
+              "child": 0,
+              "priceroom": 1000000
+            },
+            {
+              "idroom": "dl-hotel-9-room-2",
+              "nameroom": "Phòng Studio Suite",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2020/03/03/22/deluxe-2-220x125.jpg",
+              "adult": 2,
+              "child": 1,
+              "priceroom": 3200000
+            },
+            {
+              "idroom": "dl-hotel-9-room-3",
+              "nameroom": "Phòng Deluxe Hướng Vườn",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2020/03/03/22/dlx-lake-view-220x125.jpg",
+              "adult": 2,
+              "child": 2,
+              "priceroom": 3500000
+            },
+            {
+              "idroom": "dl-hotel-9-room-4",
+              "nameroom": "Phòng Premium Deluxe hướng vườn",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/05/05/10/2-220x125.jpg",
+              "adult": 2,
+              "child": 1,
+              "priceroom": 4000000
+            },
+            {
+              "idroom": "dl-hotel-9-room-5",
+              "nameroom": "Phòng Premium Deluxe hướng hồ",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/05/05/10/1-220x125.jpg",
+              "adult": 4,
+              "child": 2,
+              "priceroom": 6000000
+            }
+          ]
+        },
+        {
+          "id": "dl-hotel-10",
+          "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.9461499329163!2d108.4591931147299!3d11.978228091513015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3171133594039253%3A0x949d1c1b2f9d2b11!2zUuG7q25nIEzDoSBLaW0gUmVzb3J0!5e0!3m2!1svi!2s!4v1670922400635!5m2!1svi!2s",
+          "intro": " Còn 16 ngày | Mùa Lễ Hội 3N2Đ | Limosine khứ hồi + Bữa sáng + 01 Bữa trưa/tối từ 1.599.000 VND/Khách",
+          "img_hotel": "https://cdn1.ivivu.com/iVivu/2022/03/08/18/overview-cr-800x450.png",
+          "name_hotel": "Khu nghỉ dưỡng Rừng Lá Kim Đà Lạt",
+          "star": 3,
+          "feedback_normal": "Rất tốt",
+          "count_cmt": 76,
+          "point": 9.4,
+          "address": "144B, Đường Vòng Lâm Viên, Phường 8, Tp. Đà Lạt, Việt Nam",
+          "character": [
+            "Gần gũi với thiên nhiên"
+          ],
+          "bonus_character": "Không gian yên tĩnh, Villa nguyên căn",
+          "price": 935000,
+          "type_room": "Superior Garden View",
+          "type_room_bonus": "Gồm ăn sáng",
+          "status": "Hết phòng",
+          "voucher": "N2Đ|Xe+Bữa sáng+01 Bữa trưa/tối | 1.599 triệu/khách",
+          "list_room": [
+            {
+              "idroom": "dl-hotel-10-room-1",
+              "nameroom": "Phòng tiêu chuẩn hướng vườn",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/03/08/18/sup-dbl-1-dd-220x125.png",
+              "adult": 2,
+              "child": 0,
+              "priceroom": 980000
+            },
+            {
+              "idroom": "dl-hotel-10-room-2",
+              "nameroom": "Phòng Deluxe Hướng Vườn",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/08/15/deluxe-double-4-cr-220x125.png",
+              "adult": 2,
+              "child": 1,
+              "priceroom": 3000000
+            },
+            {
+              "idroom": "dl-hotel-10-room-3",
+              "nameroom": "Phòng Grand Deluxe Hướng Vườn",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/03/08/18/grd-dlx-1-dd-220x125.png",
+              "adult": 2,
+              "child": 2,
+              "priceroom": 3500000
+            },
+            {
+              "idroom": "dl-hotel-10-room-4",
+              "nameroom": "Phòng gỗ cổ điển",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/11/16/14/bungalow-don-220x125.png",
+              "adult": 2,
+              "child": 0,
+              "priceroom": 4000000
+            },
+            {
+              "idroom": "dl-hotel-10-room-5",
+              "nameroom": "Phòng gỗ 2 giường đôi",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/08/11/14/z3548708754297-f4e644b78a470b658934653bace55248-cr-220x125.png",
+              "adult": 4,
+              "child": 0,
+              "priceroom": 6000000
+            }
+          ]
         }
       ],
       "quynhon": [
@@ -450,6 +1126,407 @@
           "type_room_bonus": "Gồm bửa sáng + Spa hoặc Ăn trưa/tối",
           "status": "Còn phòng",
           "voucher": "3N2Đ | VMB+Đón tiễn+4 Bữa ăn/Spa"
+        },
+        {
+          "id": "qn-hotel-2",
+          "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3873.197715907469!2d109.27732521475068!3d13.88712299025997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316f419c21ecf9f9%3A0xf7105eac4b998d9a!2sFLC%20Luxury%20Hotel%20Quy%20Nhon!5e0!3m2!1svi!2s!4v1670955030820!5m2!1svi!2s",
+          "intro": "Còn 76 ngày | Ưu Đãi Voucher 3N2Đ + Vé máy bay khứ hồi + Bữa sáng buffet từ 2.699.000 VND/Khách",
+          "img_hotel": "https://cdn1.ivivu.com/iVivu/2018/09/05/17/khach-san-flc-luxury-quy-nhon-1-800x450.jpg",
+          "name_hotel": "Khách sạn FLC Luxury Quy Nhơn",
+          "star": 5,
+          "feedback_normal": "Tuyệt vời",
+          "count_cmt": 776,
+          "point": 9.8,
+          "address": "Khu 4, Nhơn Lý - bãi biển Cát Tiến, xã Nhơn Lý, thành phố Quy Nhơn, tỉnh Bình Định, Việt Nam",
+          "character": [
+            "Hiện đại, Chụp ảnh đẹp"
+          ],
+          "bonus_character": "Bãi biển riêng, Dịch vụ biển, Tất cả phòng hướng biển, Bể bơi ốc đảo siêu lớn, Shuttle Bus đưa đón sân bay",
+          "price": 1335000,
+          "type_room": "Studio Suite",
+          "type_room_bonus": "Gồm ăn sáng",
+          "status": "Hết phòng",
+          "voucher": "3N2Đ | VMB+Buffet sáng | 2.699 triệu/khách",
+          "list_room": [
+            {
+              "idroom": "qn-hotel-2-room-1",
+              "nameroom": "Phòng Studio Suite",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2018/07/03/09/studio-suite--2-220x125.png",
+              "adult": 2,
+              "child": 0,
+              "priceroom": 1280000
+            },
+            {
+              "idroom": "qn-hotel-2-room-2",
+              "nameroom": "Phòng Studio Suite Deluxe",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2018/07/03/09/studio-suite-deluxe--220x125.png",
+              "adult": 2,
+              "child": 2,
+              "priceroom": 1600000
+            },
+            {
+              "idroom": "qn-hotel-2-room-3",
+              "nameroom": "Phòng Family Suite",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2018/07/04/15/family-suite--220x125.png",
+              "adult": 2,
+              "child": 2,
+              "priceroom": 2500000
+            },
+            {
+              "idroom": "qn-hotel-2-room-4",
+              "nameroom": "Phòng Family Suite Plus",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2018/07/04/15/family-suite--220x125.png",
+              "adult": 6,
+              "child": 3,
+              "priceroom": 4000000
+            },
+            {
+              "idroom": "qn-hotel-2-room-5",
+              "nameroom": "Phòng Family Suite Deluxe",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2016/11/03/14/family-suite-deluxe-220x125.png",
+              "adult": 8,
+              "child": 4,
+              "priceroom": 6000000
+            }
+          ]
+        },
+        {
+          "id": "qn-hotel-3",
+          "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.62578673719!2d109.23061891474826!3d13.68050409039363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316f6db19d7bd4c5%3A0x973445a204dc362c!2sAnantara%20Quy%20Nhon%20Villas!5e0!3m2!1svi!2s!4v1670958548819!5m2!1svi!2s",
+          "intro": " Còn 77 ngày | Chốn Ẩn Mình 3N2Đ + Vé máy bay + Đón/tiễn sân bay + Villa riêng tư + Bữa sáng + Miễn phí trẻ em từ 13.199.000 VND/Khách",
+          "img_hotel": "https://cdn1.ivivu.com/iVivu/2022/06/27/17/anantara-quy-nhon-villas-exterior-view-beach-aerial-view-pool-cr-800x450.png",
+          "name_hotel": "Khu nghỉ dưỡng Anantara Quy Nhơn Villas",
+          "star": 5,
+          "feedback_normal": "Tuyệt vời",
+          "count_cmt": 769,
+          "point": 9.8,
+          "address": "Cầu Bãi Dại, Ghềnh Ráng, Thành phố Quy Nhơn, Bình Định, Việt Nam",
+          "character": [
+            "Hiện đại, Thương hiệu quốc tế"
+          ],
+          "bonus_character": "Villa hồ bơi cao cấp, Bãi biển riêng, Dịch vụ quản gia riêng",
+          "price": 11350000,
+          "type_room": "Oceanfront Villa",
+          "type_room_bonus": "Gồm ăn sáng",
+          "status": "Còn phòng",
+          "voucher": "3N2Đ | VMB+Đón/tiễn | 12.999 triệu/khách",
+          "list_room": [
+            {
+              "idroom": "qn-hotel-3-room-1",
+              "nameroom": "Phòng Deluxe hướng đại dương",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/27/17/anantara-quy-nhon-villas-oceanfront-villa-bedroom-1-cr.png",
+              "adult": 3,
+              "child": 1,
+              "priceroom": 12800000
+            },
+            {
+              "idroom": "qn-hotel-3-room-2",
+              "nameroom": "Phòng Deluxe hướng đại dương plus",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/27/17/anantara-quy-nhon-villas-accommodaiton-ocean-view-pool-villa-exterior-cr-1-220x125.png",
+              "adult": 3,
+              "child": 1,
+              "priceroom": 15000000
+            },
+            {
+              "idroom": "qn-hotel-3-room-3",
+              "nameroom": "Phòng Grand Deluxe Ocean View",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/27/17/ava-1-220x125.png",
+              "adult": 3,
+              "child": 2,
+              "priceroom": 19500000
+            },
+            {
+              "idroom": "qn-hotel-3-room-4",
+              "nameroom": "Phòng Studio Suite Deluxe Beachfront",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/27/17/ava-2-220x125.png",
+              "adult": 3,
+              "child": 1,
+              "priceroom": 20000000
+            },
+            {
+              "idroom": "qn-hotel-3-room-5",
+              "nameroom": "Phòng Anantara Beachfront Pool Villa 2 giường ngủ",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/27/17/ava-4-220x125.png",
+              "adult": 3,
+              "child": 2,
+              "priceroom": 21500000
+            }
+          ]
+        },
+        {
+          "id": "qn-hotel-4",
+          "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3873.2126252830776!2d109.27888831475057!3d13.886230890260585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316f4192df8b4029%3A0x6d6e95c6ac005d0c!2sFLC%20Luxury%20Resort%20Quy%20Nhon!5e0!3m2!1svi!2s!4v1670959201303!5m2!1svi!2s",
+          "intro": " Còn 77 ngày | Ưu Đãi Voucher 3N2Đ + Vé máy bay + Ăn sáng buffet + Villa với bể bơi riêng từ 3.599.000 VND/Khách",
+          "img_hotel": "https://cdn1.ivivu.com/iVivu/2018/10/23/14/flc-luxury-resort-quy-nhon-1-800x450.jpg",
+          "name_hotel": "FLC Quy Nhơn Beach & Golf Resort",
+          "star": 5,
+          "feedback_normal": "Tuyệt vời",
+          "count_cmt": 156,
+          "point": 9.4,
+          "address": "Lô 4 Nhơn Lý, Cát Tiến, Tp. Quy Nhơn, Bình Định, Việt Nam",
+          "character": [
+            "Hiện Đại, Tiện lợi"
+          ],
+          "bonus_character": "Bãi biển riêng, Villa bể bơi riêng, Shuttle Bus đưa đón sân bay, FLC Safari",
+          "price": 4435000,
+          "type_room": "Villa 2 Bedroom Sea-View",
+          "type_room_bonus": "Gồm ăn sáng",
+          "status": "Còn phòng",
+          "voucher": "3N2Đ | VMB+Bữa sáng+Villa | 3.599 triệu/khách",
+          "list_room": [
+            {
+              "idroom": "qn-hotel-4-room-1",
+              "nameroom": "Phòng tiêu chuẩn 2 giường ngủ",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2018/02/27/14/golf-villa-02-bedrooms-220x125.png",
+              "adult": 4,
+              "child": 2,
+              "priceroom": 3800000
+            },
+            {
+              "idroom": "qn-hotel-4-room-2",
+              "nameroom": "Phòng Deluxe hướng biển",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2018/10/23/17/villa-02-bedrooms-sea-view-220x125.jpg",
+              "adult": 3,
+              "child": 2,
+              "priceroom": 5000000
+            },
+            {
+              "idroom": "qn-hotel-4-room-3",
+              "nameroom": "Phòng Grand Deluxe hướng biển 2 giường ngủ",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2018/10/23/17/villa-03-bedrooms-sea-view-220x125.jpg",
+              "adult": 4,
+              "child": 2,
+              "priceroom": 6500000
+            },
+            {
+              "idroom": "qn-hotel-4-room-4",
+              "nameroom": "Phòng Studio Suite",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2018/02/27/14/golf-villa-04-bedrooms-220x125.jpg",
+              "adult": 2,
+              "child": 1,
+              "priceroom": 4000000
+            }
+          ]
+        },
+        {
+          "id": "qn-hotel-5",
+          "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3872.0762811080644!2d109.23889421475148!3d13.954063590216833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316f412ea4bfc64b%3A0x91fd82de0538da25!2sCrown%20Retreat%20Resort%20Quy%20Nhon!5e0!3m2!1svi!2s!4v1670960319411!5m2!1svi!2s",
+          "intro": " Còn 49 ngày | Vùng Biển Xanh 3N2Đ + Vé máy bay khứ hồi + 4 Bữa ăn + Bungalow riêng từ 3.699.000 VND/Khách",
+          "img_hotel": "https://cdn1.ivivu.com/iVivu/2022/04/22/18/dji-0388-edit-edit-cr-800x450.png",
+          "name_hotel": "Khu nghỉ dưỡng Crown Retreat Quy Nhơn",
+          "star": 4,
+          "feedback_normal": "Rất tốt",
+          "count_cmt": 89,
+          "point": 9.4,
+          "address": "Thôn Trung Lương, Xã Cát Tiến, Huyện Phù Cát, Tỉnh Bình Định, Việt Nam",
+          "character": [
+            "Gần gũi với thiên nhiên"
+          ],
+          "bonus_character": "Bãi biển riêng, Hồ bơi ngoài trường, Bungalow",
+          "price": 1835000,
+          "type_room": "Bungalow Pine Hill",
+          "type_room_bonus": "Gồm ăn sáng",
+          "status": "Hết phòng",
+          "voucher": "3N2Đ | VMB+4 Bữa ăn | 3.699 triệu/khách",
+          "list_room": [
+            {
+              "idroom": "qn-hotel-5-room-1",
+              "nameroom": "Phòng Bungalow Pine Hill",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/08/15/z3466645673613-8177b910c98c531f1045ac0ab9c0d02d-cr.png",
+              "adult": 2,
+              "child": 1,
+              "priceroom": 1880000
+            },
+            {
+              "idroom": "qn-hotel-5-room-2",
+              "nameroom": "Phòng Bungalow Sea View",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/08/15/z3466645647373-5435b41ea054a2ca469c836377642a85-cr.png",
+              "adult": 2,
+              "child": 1,
+              "priceroom": 2100000
+            },
+            {
+              "idroom": "qn-hotel-5-room-3",
+              "nameroom": "Phòng Bungalow Beach Front",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/08/15/ava-2-220x125.png",
+              "adult": 3,
+              "child": 2,
+              "priceroom": 3500000
+            },
+            {
+              "idroom": "qn-hotel-5-room-4",
+              "nameroom": "Phòng Junior Beach",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/08/15/ava-3-220x125.png",
+              "adult": 3,
+              "child": 1,
+              "priceroom": 3800000
+            },
+            {
+              "idroom": "qn-hotel-5-room-5",
+              "nameroom": "Phòng gỗ 2 giường đôi",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/08/15/dsc02785-edit-cr.png",
+              "adult": 4,
+              "child": 2,
+              "priceroom": 4000000
+            }
+          ]
+        },
+        {
+          "id": "qn-hotel-6",
+          "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.4038362195383!2d109.21452871474908!3d13.754503390345768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316f6d6808d64af3%3A0xb800109053dbaf87!2sFLC%20City%20Hotel%20Beach%20Quy%20Nhon!5e0!3m2!1svi!2s!4v1670960787652!5m2!1svi!2s",
+          "intro": "Còn 77 ngày | Hơi Thở Biển | 3N2Đ Vé máy bay + Bữa sáng buffet + Giải trí đa chức năng từ 2.699.000 VND/Khách",
+          "img_hotel": "https://cdn1.ivivu.com/iVivu/2021/08/09/15/k8-800x450.jpg",
+          "name_hotel": "FLC City Hotel Beach Quy Nhơn",
+          "star": 5,
+          "feedback_normal": "Rất tốt",
+          "count_cmt": 145,
+          "point": 9.7,
+          "address": "11 An Dương Vương, Nguyễn Văn Cừ, Thành phố Qui Nhơn, Bình Định, Việt Nam",
+          "character": [
+            "Nghỉ dưỡng biển, Hiện đại"
+          ],
+          "bonus_character": "Tổ hợp căn hộ, Thương mại, Trung tâm",
+          "price": 1335000,
+          "type_room": "Deluxe City View",
+          "type_room_bonus": "Gồm ăn sáng",
+          "status": "Còn phòng",
+          "voucher": "3N2Đ | VMB+Bữa sáng | 2.699 triệu/khách",
+          "list_room": [
+            {
+              "idroom": "qn-hotel-6-room-1",
+              "nameroom": "Phòng Deluxe City View",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/01/18/19/deluxe-220x125.jpg",
+              "adult": 2,
+              "child": 1,
+              "priceroom": 1290000
+            },
+            {
+              "idroom": "qn-hotel-6-room-2",
+              "nameroom": "Phòng Deluxe Ocean View",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/01/18/19/deluxe-ocean-220x125.jpg",
+              "adult": 3,
+              "child": 1,
+              "priceroom": 1600000
+            },
+            {
+              "idroom": "qn-hotel-6-room-3",
+              "nameroom": "Phòng Grand Deluxe hướng Vườn",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/01/18/19/premier-220x125.jpg",
+              "adult": 2,
+              "child": 2,
+              "priceroom": 2500000
+            },
+            {
+              "idroom": "qn-hotel-6-room-4",
+              "nameroom": "Phòng Suite Ocean View",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/20/19/ava-220x125.png",
+              "adult": 3,
+              "child": 2,
+              "priceroom": 3000000
+            }
+          ]
+        },
+        {
+          "id": "qn-hotel-7",
+          "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.605184349427!2d109.23040431474828!3d13.681754990392811!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316f7289aa9f0751%3A0x55e1b44380dc205e!2sAvani%20Quy%20Nh%C6%A1n%20Resort%20%26%20Spa!5e0!3m2!1svi!2s!4v1670961326773!5m2!1svi!2s",
+          "intro": " Còn 77 ngày | Kỳ Nghỉ Mộng Mơ 3N2Đ + Vé máy bay + 3 Bữa ăn + Miễn phí trẻ em từ 5.099.000 VND/Khách",
+          "img_hotel": "https://cdn1.ivivu.com/iVivu/2019/03/26/17/avani-quy-nhon-resort--3-800x450.jpg",
+          "name_hotel": "AVANI Quy Nhơn Resort & Spa",
+          "star": 4,
+          "feedback_normal": "Rất tốt",
+          "count_cmt": 189,
+          "point": 9.5,
+          "address": "Bãi Dài, Ghềnh Ráng, Quy Nhơn, Bình Định, Việt Nam",
+          "character": [
+            "Hiện đại, Thương hiệu quốc tế, Chụp ảnh đẹp"
+          ],
+          "bonus_character": "Bãi biển riêng, Trang trí pastel",
+          "price": 3505000,
+          "type_room": "Deluxe Studio Room",
+          "type_room_bonus": "Gồm ăn sáng",
+          "status": "Hết phòng",
+          "voucher": "3N2Đ | VMB+3 Bữa ăn | 4.899 triệu/khách",
+          "list_room": [
+            {
+              "idroom": "qn-hotel-7-room-1",
+              "nameroom": "Phòng Deluxe Studio Room",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2018/01/31/15/deluxe-room-220x125.png",
+              "adult": 3,
+              "child": 2,
+              "priceroom": 2700000
+            },
+            {
+              "idroom": "qn-hotel-7-room-2",
+              "nameroom": "Phòng Deluxe Family",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2018/04/20/15/family-studio-room-220x125.png",
+              "adult": 2,
+              "child": 2,
+              "priceroom": 3000000
+            },
+            {
+              "idroom": "qn-hotel-7-room-3",
+              "nameroom": "Phòng Junior Ocean Suite",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2018/01/31/15/junior-suite-1-220x125.png",
+              "adult": 3,
+              "child": 1,
+              "priceroom": 3500000
+            }
+          ]
+        },
+        {
+          "id": "qn-hotel-8",
+          "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3873.20983935182!2d109.27296591475056!3d13.886397590260469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316f41a86fa929c9%3A0xc4eeedd57dd7772f!2sFLC%20Grand%20Hotel%20Quy%20Nhon!5e0!3m2!1svi!2s!4v1670962730735!5m2!1svi!2s",
+          "intro": " Còn 77 ngày | Voucher Cực Sốc 3N2Đ + Vé máy bay + Bữa sáng Buffet từ 2.799.000 VND/Khách",
+          "img_hotel": "https://cdn1.ivivu.com/iVivu/2022/01/20/17/dji-0103-800x450.jpg",
+          "name_hotel": "Khách sạn FLC Grand Quy Nhơn",
+          "star": 5,
+          "feedback_normal": "Tuyệt vời",
+          "count_cmt": 236,
+          "point": 9.7,
+          "address": "Khu 4, Nhơn Lý - bãi biển Cát Tiến, xã Nhơn Lý, thành phố Quy Nhơn, tỉnh Bình Định, Việt Nam",
+          "character": [
+            "Hiện đại, Chụp ảnh đẹp"
+          ],
+          "bonus_character": "Hồ bơi vô cực lớn nhất Việt Nam, Sân Gold 36 hố, FLC Safari Zoo, Shuttle Bus đưa đón sân bay",
+          "price": 1335000,
+          "type_room": "Deluxe Hill View",
+          "type_room_bonus": "Gồm ăn sáng",
+          "status": "Còn phòng",
+          "voucher": "3N2Đ | VMB+Bữa sáng | 2.799 triệu/khách",
+          "list_room": [
+            {
+              "idroom": "qn-hotel-8-room-1",
+              "nameroom": "Phòng Deluxe Hill View",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/01/20/17/delxue-220x125.jpg",
+              "adult": 3,
+              "child": 2,
+              "priceroom": 1280000
+            },
+            {
+              "idroom": "qn-hotel-8-room-2",
+              "nameroom": "Phòng Deluxe Ocean View",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/01/20/17/deluxe-ocean-220x125.jpg",
+              "adult": 3,
+              "child": 1,
+              "priceroom": 1600000
+            },
+            {
+              "idroom": "qn-hotel-8-room-3",
+              "nameroom": "Phòng Grand Suite Hill View",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/01/20/17/grand-suite-220x125.jpg",
+              "adult": 4,
+              "child": 2,
+              "priceroom": 2500000
+            },
+            {
+              "idroom": "qn-hotel-8-room-4",
+              "nameroom": "Phòng Grand Suite Ocean View",
+              "imgroom": "https://cdn1.ivivu.com/iVivu/2022/01/20/17/grand-suite-ocean-220x125.jpg",
+              "adult": 4,
+              "child": 2,
+              "priceroom": 4100000
+            }
+          ]
         }
       ]
     },
@@ -675,33 +1752,41 @@
       "list_room": [
         {
           "idroom": "pq-hotel-2-room-1",
-          "nameroom": "Phòng gia đình 2 giường",
-          "imgroom": "https://booking-static.vinpearl.com/room_types/be5c1e189982470b8968ef37841168ee_VH1PQ_Standard%20Room1.jpg",
-          "adult": 2,
+          "nameroom": "Deluxe Garden View",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2018/07/02/14/deluxe-garden-view-140x80.jpg",
+          "adult": 3,
           "child": 1,
-          "priceroom": 1500000
+          "priceroom": 3500000
         },
         {
           "idroom": "pq-hotel-2-room-2",
-          "nameroom": "Phòng gia đình 2 giường",
-          "imgroom": "https://booking-static.vinpearl.com/room_types/be5c1e189982470b8968ef37841168ee_VH1PQ_Standard%20Room1.jpg",
+          "nameroom": "Deluxe Ocean View",
+          "imgroom": "https://booking-static.vinpearl.com/room_types/4dfb2291cacf48ac955dce71a47bee5c_VH1PQ_Suite%20Room6.jpg",
           "adult": 2,
           "child": 1,
-          "priceroom": 1500000
+          "priceroom": 3000000
         },
         {
           "idroom": "pq-hotel-2-room-3",
-          "nameroom": "Phòng gia đình 2 giường",
-          "imgroom": "https://booking-static.vinpearl.com/room_types/be5c1e189982470b8968ef37841168ee_VH1PQ_Standard%20Room1.jpg",
+          "nameroom": "Family Suite",
+          "imgroom": "https://res.klook.com/image/upload/c_crop,g_custom/w_800,h_533/v1634199210/activities/pzlzxepwaio1f22n8zqw.jpg",
           "adult": 2,
-          "child": 1,
-          "priceroom": 1500000
+          "child": 0,
+          "priceroom": 2500000
+        },
+        {
+          "idroom": "pq-hotel-2-room-4",
+          "nameroom": "Villa 2 Bedroom Ocean View",
+          "imgroom": "https://q-xx.bstatic.com/xdata/images/hotel/max500/345770285.jpg?k=196b934c9310652bbefdf40bca205223f3f2559b5a3d4041377165f6ea0a4541&o=&s=800x",
+          "adult": 4,
+          "child": 0,
+          "priceroom": 6000000
         }
       ]
     },
     {
       "id": "pq-hotel-3",
-      "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.1495036174256!2d103.85337381471439!3d10.329918192625412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31081fd375b3e319%3A0x8d5ea1381c41a15a!2zVmluT2FzaXMgUGjDuiBRdeG7kWM!5e0!3m2!1sen!2s!4v1668245242303!5m2!1sen!2s",
+      "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15699.975389166091!2d103.84256632545616!3d10.342376481870113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31081e675b9530e1%3A0x8c883cc47507e38f!2sVinpearl%20Discovery%20Wonderworld%20Ph%C3%BA%20Qu%E1%BB%91c!5e0!3m2!1svi!2s!4v1669791456691!5m2!1svi!2s",
       "intro": "Còn 84 ngày | Kỳ Nghỉ Trọn Gói 3N2Đ Vé máy bay + Villa riêng tư + Xe đưa đón sân bay + 06 Bữa Ăn từ 5.599.000 VND/Khách",
       "img_hotel": "https://cdn1.ivivu.com/iVivu/2021/05/14/15/9-pool-14-cr-374x280.jpg",
       "name_hotel": "Vinpearl Discovery Phú Quốc",
@@ -724,27 +1809,43 @@
       "list_room": [
         {
           "idroom": "pq-hotel-3-room-1",
-          "nameroom": "Phòng bạn bè",
+          "nameroom": "Two Bedroom Pool Villa ",
           "imgroom": "https://booking-static.vinpearl.com/room_types/be5c1e189982470b8968ef37841168ee_VH1PQ_Standard%20Room1.jpg",
           "adult": 2,
-          "child": 1,
-          "priceroom": 1500000
+          "child": 0,
+          "priceroom": 6200000
         },
         {
           "idroom": "pq-hotel-3-room-2",
-          "nameroom": "Phòng gia đình 2 giường",
-          "imgroom": "https://booking-static.vinpearl.com/room_types/be5c1e189982470b8968ef37841168ee_VH1PQ_Standard%20Room1.jpg",
+          "nameroom": "Two Bedroom Pool Villa With Ocean View",
+          "imgroom": "https://booking-static.vinpearl.com/room_types/4dfb2291cacf48ac955dce71a47bee5c_VH1PQ_Suite%20Room6.jpg",
           "adult": 2,
           "child": 1,
-          "priceroom": 1500000
+          "priceroom": 6900000
         },
         {
           "idroom": "pq-hotel-3-room-3",
-          "nameroom": "Homestay siêu sân vườn",
-          "imgroom": "https://booking-static.vinpearl.com/room_types/be5c1e189982470b8968ef37841168ee_VH1PQ_Standard%20Room1.jpg",
+          "nameroom": "Three Bedroom Pool Villa",
+          "imgroom": "https://res.klook.com/image/upload/c_crop,g_custom/w_800,h_533/v1634199210/activities/pzlzxepwaio1f22n8zqw.jpg",
           "adult": 4,
-          "child": 4,
-          "priceroom": 8000000
+          "child": 0,
+          "priceroom": 8600000
+        },
+        {
+          "idroom": "pq-hotel-3-room-4",
+          "nameroom": "hree Bedroom Pool Villa With Ocean View",
+          "imgroom": "https://q-xx.bstatic.com/xdata/images/hotel/max500/345770285.jpg?k=196b934c9310652bbefdf40bca205223f3f2559b5a3d4041377165f6ea0a4541&o=&s=800x",
+          "adult": 4,
+          "child": 0,
+          "priceroom": 9700000
+        },
+        {
+          "idroom": "pq-hotel-3-room-5",
+          "nameroom": "Four Bedroom Pool Villa",
+          "imgroom": "https://pix8.agoda.net/hotelImages/7394456/88081917/1cf2919e3fc94cb7173baa32bda1e943.jpg",
+          "adult": 4,
+          "child": 0,
+          "priceroom": 11500000
         }
       ]
     },
@@ -768,11 +1869,53 @@
       "type_room": "One King Residence",
       "type_room_bonus": "Gồm ăn sáng",
       "status": "Còn phòng",
-      "voucher": "3N2Đ+VMB+Đón tiễn | 5tr999/khách "
+      "voucher": "3N2Đ+VMB+Đón tiễn | 5tr999/khách ",
+      "list_room": [
+        {
+          "idroom": "pq-hotel-4-room-1",
+          "nameroom": "Phòng tiêu chuẩn 2 giường đơn",
+          "imgroom": "https://booking-static.vinpearl.com/room_types/be5c1e189982470b8968ef37841168ee_VH1PQ_Standard%20Room1.jpg",
+          "adult": 2,
+          "child": 0,
+          "priceroom": 2800000
+        },
+        {
+          "idroom": "pq-hotel-4-room-2",
+          "nameroom": "Phòng Studio Suite",
+          "imgroom": "https://booking-static.vinpearl.com/room_types/4dfb2291cacf48ac955dce71a47bee5c_VH1PQ_Suite%20Room6.jpg",
+          "adult": 2,
+          "child": 1,
+          "priceroom": 3000000
+        },
+        {
+          "idroom": "pq-hotel-4-room-3",
+          "nameroom": "Phòng Deluxe Hướng Vườn",
+          "imgroom": "https://res.klook.com/image/upload/c_crop,g_custom/w_800,h_533/v1634199210/activities/pzlzxepwaio1f22n8zqw.jpg",
+          "adult": 2,
+          "child": 0,
+          "priceroom": 2500000
+        },
+        {
+          "idroom": "pq-hotel-4-room-4",
+          "nameroom": "Suite with Ocean Front View",
+          "imgroom": "https://q-xx.bstatic.com/xdata/images/hotel/max500/345770285.jpg?k=196b934c9310652bbefdf40bca205223f3f2559b5a3d4041377165f6ea0a4541&o=&s=800x",
+          "adult": 2,
+          "child": 0,
+          "priceroom": 4000000
+        },
+        {
+          "idroom": "pq-hotel-4-room-5",
+          "nameroom": "Hai Giường Đơn Loại Sang Hướng biển bên hông",
+          "imgroom": "https://pix8.agoda.net/hotelImages/7394456/88081917/1cf2919e3fc94cb7173baa32bda1e943.jpg",
+          "adult": 3,
+          "child": 0,
+          "priceroom": 6000000
+        }
+      ]
     },
     {
       "id": "pq-hotel-5",
-      "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.1495036174256!2d103.85337381471439!3d10.329918192625412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31081fd375b3e319%3A0x8d5ea1381c41a15a!2zVmluT2FzaXMgUGjDuiBRdeG7kWM!5e0!3m2!1sen!2s!4v1668245242303!5m2!1sen!2s",
+      "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62798.2739461185!2d103.77731415820314!3d10.350510300000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31081e419e69a343%3A0xa96c7c77cdcb13d7!2sMeli%C3%A1%20Vinpearl%20Phu%20Quoc!5e0!3m2!1svi!2s!4v1669792209503!5m2!1svi!2s",
       "intro": "Còn 45 ngày | Vivu Khám Phá | 3N2Đ Vé máy bay + Villa riêng tư + 04 Bữa Ăn+ Vui chơi thả ga từ 5.999.000 VND/Khách",
       "img_hotel": "https://a0.muscache.com/im/pictures/miso/Hosting-600222648223494025/original/a7082085-fb8c-4a3b-8868-8ac3ccecb193.jpeg?im_w=960",
       "name_hotel": "Khu nghỉ dưỡng Meliã Vinpearl Phú Quốc",
@@ -793,7 +1936,57 @@
       "type_room": "Two Bed Room Villa with Private Pool",
       "type_room_bonus": "Gồm ăn sáng",
       "status": "Còn phòng",
-      "voucher": "3N2Đ | VMB+04 Bữa Ăn+Tiệc trà nổi|9tr799/khách "
+      "voucher": "3N2Đ | VMB+04 Bữa Ăn+Tiệc trà nổi|9tr799/khách ",
+      "list_room": [
+        {
+          "idroom": "pq-hotel-5-room-1",
+          "nameroom": "Phòng tiêu chuẩn 2 giường đơn",
+          "imgroom": "https://booking-static.vinpearl.com/room_types/be5c1e189982470b8968ef37841168ee_VH1PQ_Standard%20Room1.jpg",
+          "adult": 2,
+          "child": 0,
+          "priceroom": 2800000
+        },
+        {
+          "idroom": "pq-hotel-5-room-2",
+          "nameroom": "Phòng Studio Suite",
+          "imgroom": "https://booking-static.vinpearl.com/room_types/4dfb2291cacf48ac955dce71a47bee5c_VH1PQ_Suite%20Room6.jpg",
+          "adult": 2,
+          "child": 1,
+          "priceroom": 3000000
+        },
+        {
+          "idroom": "pq-hotel-5-room-3",
+          "nameroom": "Phòng Deluxe Hướng Vườn",
+          "imgroom": "https://res.klook.com/image/upload/c_crop,g_custom/w_800,h_533/v1634199210/activities/pzlzxepwaio1f22n8zqw.jpg",
+          "adult": 2,
+          "child": 0,
+          "priceroom": 2500000
+        },
+        {
+          "idroom": "pq-hotel-5-room-4",
+          "nameroom": "Suite with Ocean Front View",
+          "imgroom": "https://q-xx.bstatic.com/xdata/images/hotel/max500/345770285.jpg?k=196b934c9310652bbefdf40bca205223f3f2559b5a3d4041377165f6ea0a4541&o=&s=800x",
+          "adult": 2,
+          "child": 0,
+          "priceroom": 4000000
+        },
+        {
+          "idroom": "pq-hotel-5-room-5",
+          "nameroom": "Hai Giường Đơn Loại Sang Hướng biển bên hông",
+          "imgroom": "https://pix8.agoda.net/hotelImages/7394456/88081917/1cf2919e3fc94cb7173baa32bda1e943.jpg",
+          "adult": 3,
+          "child": 0,
+          "priceroom": 6000000
+        },
+        {
+          "idroom": "pq-hotel-5-room-6",
+          "nameroom": "Phòng Deluxe gia đình",
+          "imgroom": "https://pix8.agoda.net/hotelImages/7394456/93231034/8d01d499b1eb3d4efff36bd02b4ce98b.jpg",
+          "adult": 4,
+          "child": 0,
+          "priceroom": 4300000
+        }
+      ]
     },
     {
       "id": "pq-hotel-6",
@@ -816,7 +2009,8 @@
       "type_room": "Standard Room",
       "type_room_bonus": "Gồm ăn sáng",
       "status": "Còn phòng",
-      "voucher": "3N2Đ | VMB+Đón tiễn | 2tr999/khách"
+      "voucher": "3N2Đ | VMB+Đón tiễn | 2tr999/khách",
+      "list_room": []
     },
     {
       "id": "pq-hotel-7",
@@ -999,6 +2193,565 @@
           "priceroom": 700000
         }
       ]
+    },
+    {
+      "id": "dl-hotel-2",
+      "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15613.763484919706!2d108.42934682570046!3d11.94394806457246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3171135333d87745%3A0xef770fc699bf659b!2sH%C3%B4tel%20Colline!5e0!3m2!1svi!2s!4v1670917584802!5m2!1svi!2s",
+      "intro": " Còn 49 ngày | Đà Lạt Sôi Động 3N2Đ | Vé máy bay khứ hồi + Bữa sáng + Phòng hướng phố từ 2.999.000 VND/Khách",
+      "img_hotel": "https://cdn1.ivivu.com/iVivu/2022/03/28/16/hotel-colline-da-lat-800x450.jpg",
+      "name_hotel": "Hôtel Colline Đà Lạt",
+      "star": 4,
+      "feedback_normal": "Rất tốt",
+      "count_cmt": 70,
+      "point": 9.5,
+      "address": "10 Phan Bội Châu, Phường 1, Đà Lạt, Việt Nam",
+      "character": [
+        "Hiện Đại"
+      ],
+      "bonus_character": "Khách sạn mới, Ngay chợ Đà Lạt, Căn hộ, Thiết kế hiện đại",
+      "price": 1419000,
+      "type_room": "Superior Double No View",
+      "type_room_bonus": "Gồm ăn sáng",
+      "status": "Còn phòng",
+      "voucher": "3N2Đ|VMB+Bữa sáng | 2.799 triệu/khách",
+      "list_room": [
+        {
+          "idroom": "dl-hotel-2-room-1",
+          "nameroom": "Phòng gia đình",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/11/22/17/superior-double-no-view-140x80.jpg",
+          "adult": 2,
+          "child": 2,
+          "priceroom": 1640000
+        },
+        {
+          "idroom": "dl-hotel-2-room-2",
+          "nameroom": "Phòng Deluxe gia đình",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/11/22/17/dlx-double-2-220x125.jpg",
+          "adult": 2,
+          "child": 1,
+          "priceroom": 2500000
+        },
+        {
+          "idroom": "dl-hotel-2-room-3",
+          "nameroom": "Phòng Deluxe Hướng Vườn",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/11/22/17/premier-deluxe-double-city-view-220x125.jpg",
+          "adult": 2,
+          "child": 2,
+          "priceroom": 3000000
+        },
+        {
+          "idroom": "dl-hotel-2-room-4",
+          "nameroom": "Phòng hướng thành phố",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/11/22/17/premier-deluxe-twin-city-view-1-220x125.jpg",
+          "adult": 2,
+          "child": 0,
+          "priceroom": 2000000
+        },
+        {
+          "idroom": "dl-hotel-2-room-5",
+          "nameroom": "Phòng 1 giường lớn",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/11/22/17/studio-double-city-view-220x125.jpg",
+          "adult": 3,
+          "child": 1,
+          "priceroom": 4000000
+        }
+      ]
+    },
+    {
+      "id": "dl-hotel-3",
+      "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.4232491514044!2d108.4572512147296!3d11.945170791535006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3171137b932ca13f%3A0x1d53655f9fd995c7!2sMercure%20Dalat%20Resort!5e0!3m2!1svi!2s!4v1670918393185!5m2!1svi!2s",
+      "intro": " Còn 77 ngày | Châu Âu Quyến Rũ 3N2Đ | Vé máy bay + Bữa sáng + Miễn phí 01 trẻ em từ 4.199.000 VND/Khách",
+      "img_hotel": "https://cdn1.ivivu.com/iVivu/2018/06/08/13/camia-resort--1-800x450.png",
+      "name_hotel": "Khu nghỉ dưỡng Mercure Đà Lạt",
+      "star": 4,
+      "feedback_normal": "Rất tốt",
+      "count_cmt": 80,
+      "point": 9.5,
+      "address": " 03 Nguyễn Du, Phường 9, Đà Lạt, Việt Nam",
+      "character": [
+        "Châu Âu, Thương hiệu quốc tế"
+      ],
+      "bonus_character": "BIệt thự nghỉ dưỡng, Thiến kế ấn tượng, Villa sân vườn",
+      "price": 4599000,
+      "type_room": "Deluxe King Room",
+      "type_room_bonus": "Gồm ăn sáng",
+      "status": "Hết phòng",
+      "voucher": "3N2Đ|VMB+Bữa sáng | 4.199 triệu/khách",
+      "list_room": [
+        {
+          "idroom": "dl-hotel-3-room-1",
+          "nameroom": "Phòng tiêu chuẩn 2 giường đơn",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/03/21/11/deluxe-room-140x80.jpg",
+          "adult": 4,
+          "child": 1,
+          "priceroom": 2800000
+        },
+        {
+          "idroom": "dl-hotel-3-room-2",
+          "nameroom": "Phòng Studio Suite",
+          "imgroom": "https://booking-static.vinpearl.com/room_types/4dfb2291cacf48ac955dce71a47bee5c_VH1PQ_Suite%20Room6.jpg",
+          "adult": 2,
+          "child": 1,
+          "priceroom": 3000000
+        },
+        {
+          "idroom": "dl-hotel-3-room-3",
+          "nameroom": "Phòng Deluxe Hướng Vườn",
+          "imgroom": "https://res.klook.com/image/upload/c_crop,g_custom/w_800,h_533/v1634199210/activities/pzlzxepwaio1f22n8zqw.jpg",
+          "adult": 2,
+          "child": 0,
+          "priceroom": 2500000
+        },
+        {
+          "idroom": "dl-hotel-3-room-4",
+          "nameroom": "Suite with Ocean Front View",
+          "imgroom": "https://q-xx.bstatic.com/xdata/images/hotel/max500/345770285.jpg?k=196b934c9310652bbefdf40bca205223f3f2559b5a3d4041377165f6ea0a4541&o=&s=800x",
+          "adult": 2,
+          "child": 0,
+          "priceroom": 4000000
+        },
+        {
+          "idroom": "dl-hotel-3-room-5",
+          "nameroom": "Hai Giường Đơn Loại Sang Hướng biển bên hông",
+          "imgroom": "https://pix8.agoda.net/hotelImages/7394456/88081917/1cf2919e3fc94cb7173baa32bda1e943.jpg",
+          "adult": 4,
+          "child": 2,
+          "priceroom": 6000000
+        }
+      ]
+    },
+    {
+      "id": "dl-hotel-4",
+      "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.9529264124553!2d108.44902081472985!3d11.977759191513279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317112bbd8ba663b%3A0xe1985c78f41a5900!2sLadalat%20Hotel!5e0!3m2!1svi!2s!4v1670919629296!5m2!1svi!2s",
+      "intro": " Còn 77 ngày | Lãng Mạn Phố Núi 3N2Đ | Vé máy bay khứ hồi + Bữa sáng từ 2.199.000 VND/Khách",
+      "img_hotel": "https://cdn1.ivivu.com/iVivu/2021/01/13/16/ladalat-hotel-4--800x450.jpg",
+      "name_hotel": "Khách Sạn LADALAT",
+      "star": 3,
+      "feedback_normal": "Rất tốt",
+      "count_cmt": 75,
+      "point": 9.3,
+      "address": "106 Mai Anh Đào, Phường 8, Tp. Đà Lạt, Việt Nam",
+      "character": [
+        "Hiện Đại"
+      ],
+      "bonus_character": "Khách sạn mới, Hồ bơi nước nóng, Phòng rộng & view thung lũng",
+      "price": 995000,
+      "type_room": "Standard Double - Tầng B2",
+      "type_room_bonus": "Gồm ăn sáng",
+      "status": "Hết phòng",
+      "voucher": "3N2Đ|VMB+Bữa sáng | 2.199 triệu/khách",
+      "list_room": [
+        {
+          "idroom": "dl-hotel-4-room-1",
+          "nameroom": "Phòng tiêu chuẩn 1 giường đơn",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/10/25/14/executive-220x125.jpg",
+          "adult": 2,
+          "child": 0,
+          "priceroom": 2200000
+        },
+        {
+          "idroom": "dl-hotel-4-room-2",
+          "nameroom": "Phòng Deluxe 1 giường đơn",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/03/21/11/family-220x125.jpg",
+          "adult": 2,
+          "child": 1,
+          "priceroom": 3000000
+        },
+        {
+          "idroom": "dl-hotel-4-room-3",
+          "nameroom": "Phòng Deluxe 2 giường",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/10/25/14/executive-twin-220x125.jpg",
+          "adult": 4,
+          "child": 2,
+          "priceroom": 4200000
+        },
+        {
+          "idroom": "dl-hotel-4-room-4",
+          "nameroom": "Phòng Deluxe King",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/03/21/11/deluxe-room-220x125.jpg",
+          "adult": 2,
+          "child": 0,
+          "priceroom": 5000000
+        }
+      ]
+    },
+    {
+      "id": "dl-hotel-5",
+      "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3904.1293828405414!2d108.41235751472905!3d11.896077991567788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31716b5e240fdce9%3A0x84da3e5245e8a947!2sDalat%20Wonder%20Resort!5e0!3m2!1svi!2s!4v1670919998002!5m2!1svi!2s",
+      "intro": " Còn 77 ngày | Lạc Bước Châu Âu 3N2Đ | Vé máy bay khứ hồi + Ăn sáng + Xe đưa đón trung tâm từ 2.599.000 VND/Khách",
+      "img_hotel": "https://cdn1.ivivu.com/iVivu/2022/08/10/18/dalat-wonder-resort-main-slide-2-cr-800x450.png",
+      "name_hotel": "Khu nghỉ dưỡng Đà Lạt Wonder",
+      "star": 4,
+      "feedback_normal": "Tuyệt vời",
+      "count_cmt": 170,
+      "point": 9.8,
+      "address": "Số 19, đường Hoa Hồng, KDL Hồ Tuyền Lâm, phường 4, Tp.Đà Lạt, Việt Nam",
+      "character": [
+        "Gần gũi với thiên nhiên, Chụp ảnh đẹp"
+      ],
+      "bonus_character": "Hồ bơi vô cực, Biệt thự nghỉ dưỡng",
+      "price": 1188000,
+      "type_room": "Bungalow",
+      "type_room_bonus": "Gồm ăn sáng",
+      "status": "Còn phòng",
+      "voucher": "3N2Đ|VMB+Đưa Đón | 2.599 triệu/khách",
+      "list_room": [
+        {
+          "idroom": "dl-hotel-5-room-1",
+          "nameroom": "Phòng tiêu chuẩn Garden View",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/08/10/19/dd-sup-220x125.png",
+          "adult": 2,
+          "child": 2,
+          "priceroom": 1200000
+        },
+        {
+          "idroom": "dl-hotel-5-room-2",
+          "nameroom": "Phòng cổ điển nội thất gỗ",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/07/06/16/bungalow4-cr-220x125.png",
+          "adult": 2,
+          "child": 1,
+          "priceroom": 2000000
+        },
+        {
+          "idroom": "dl-hotel-5-room-3",
+          "nameroom": "Phòng Deluxe Hướng Vườn",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/08/10/19/dd-dlx-220x125.png",
+          "adult": 2,
+          "child": 1,
+          "priceroom": 3000000
+        },
+        {
+          "idroom": "dl-hotel-5-room-4",
+          "nameroom": "Phòng Deluxe hướng hồ",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/08/19/15/dd-dlx-dbl-lake-view-cr-1-220x125.png",
+          "adult": 2,
+          "child": 2,
+          "priceroom": 4000000
+        },
+        {
+          "idroom": "dl-hotel-5-room-5",
+          "nameroom": "Phòng Deluxe 2 giường lớn hướng hồ",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/08/10/19/dd-dlx-lake-220x125.png",
+          "adult": 4,
+          "child": 2,
+          "priceroom": 6200000
+        }
+      ]
+    },
+    {
+      "id": "dl-hotel-6",
+      "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.439560841486!2d108.42141131472962!3d11.944038991535837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31716cd40cc0684b%3A0x6b9892057c05b737!2sAna%20Mandara%20Villas%20Dalat%20Resort%20%26%20Spa!5e0!3m2!1svi!2s!4v1670920259857!5m2!1svi!2s",
+      "intro": " Còn 77 ngày | Dấu Ấn Đông Phương 3N2Đ | Vé máy bay khứ hồi + Bữa sáng từ 3.599.000 VND/Khách",
+      "img_hotel": "https://cdn1.ivivu.com/iVivu/2022/10/25/11/206332939-172470121566854-348032195411275515-n-800x450.jpg",
+      "name_hotel": "Khu nghỉ dưỡng Ana Mandara Villas Dalat Resort and Spa",
+      "star": 5,
+      "feedback_normal": "Tuyệt vời",
+      "count_cmt": 90,
+      "point": 9.3,
+      "address": "Lê Lai, P.5, Tp. Đà Lạt, Việt Nam",
+      "character": [
+        "Gần gũi với thiên nhiên, Đông Dương"
+      ],
+      "bonus_character": "Biệt thự cổ, Kiến trúc Pháp, Dịch vụ spa đẳng cấp, Hồ bơi nước ấm, Villa 2-3 phòng ngủ",
+      "price": 1800000,
+      "type_room": "Villa Double",
+      "type_room_bonus": "Gồm ăn sáng",
+      "status": "Còn phòng",
+      "voucher": "3N2Đ|VMB+Bữa sáng | 3.599 triệu/khách",
+      "list_room": [
+        {
+          "idroom": "dl-hotel-6-room-1",
+          "nameroom": "Phòng gia đình tiêu chuẩn",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/10/25/13/villa-double-220x125.jpg",
+          "adult": 2,
+          "child": 1,
+          "priceroom": 2800000
+        },
+        {
+          "idroom": "dl-hotel-6-room-2",
+          "nameroom": "Phòng Studio đôi",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/10/25/13/villa-studio-twin-220x125.jpg",
+          "adult": 2,
+          "child": 2,
+          "priceroom": 3000000
+        },
+        {
+          "idroom": "dl-hotel-6-room-3",
+          "nameroom": "Phòng Deluxe gia đình",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/10/25/13/villa-studio-double-220x125.jpg",
+          "adult": 2,
+          "child": 2,
+          "priceroom": 3700000
+        },
+        {
+          "idroom": "dl-hotel-6-room-4",
+          "nameroom": "Phòng Studio Deluxe",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/10/25/13/villa-studio-twin-220x125.jpg",
+          "adult": 2,
+          "child": 2,
+          "priceroom": 4000000
+        },
+        {
+          "idroom": "dl-hotel-6-room-5",
+          "nameroom": "Phòng Bellevue",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/10/25/13/bellevue-suite-220x125.jpg",
+          "adult": 3,
+          "child": 2,
+          "priceroom": 6000000
+        }
+      ]
+    },
+    {
+      "id": "dl-hotel-7",
+      "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3904.3252634797996!2d108.44966981472892!3d11.882424291576825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3171149554dcf44f%3A0xe83e1508f92bd940!2sSwiss-Belresort%20Tuy%E1%BB%81n%20L%C3%A2m!5e0!3m2!1svi!2s!4v1670920561059!5m2!1svi!2s",
+      "intro": "",
+      "img_hotel": "https://cdn1.ivivu.com/iVivu/2022/07/27/11/swiss-belresort-tuyen-1-cr-1-800x450.png",
+      "name_hotel": "Swiss-Belresort Tuyền Lâm - Đà Lạt",
+      "star": 4,
+      "feedback_normal": "Tuyệt vời",
+      "count_cmt": 90,
+      "point": 9.5,
+      "address": "Phân khu chức năng 7.8, KDL Hồ Tuyền Lâm, P.3, Tp. Đà Lạt, Việt Nam",
+      "character": [
+        "Gần gũi với thiên nhiên, Châu Âu, Chụp ảnh đẹp"
+      ],
+      "bonus_character": "Sân Golf, View đồi núi, Shuttle Bus miễn phí, Hồ bơi ngoài trời",
+      "price": 1295000,
+      "type_room": "Deluxe Twin Mountain View",
+      "type_room_bonus": "Gồm ăn sáng",
+      "status": "Hết phòng",
+      "voucher": "3N2Đ|VMB+Bữa sáng | 2.599 triệu/khách",
+      "list_room": [
+        {
+          "idroom": "dl-hotel-7-room-1",
+          "nameroom": "Phòng Deluxe 1 giường đơn hướng cảnh Núi",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/12/07/11/deluxe-king-mountain-view-220x125.jpg",
+          "adult": 2,
+          "child": 0,
+          "priceroom": 2000000
+        },
+        {
+          "idroom": "dl-hotel-7-room-2",
+          "nameroom": "Phòng Deluxe 2 giường đơn hướng Núi",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/12/07/11/deluxe-twin-mountain-view-220x125.jpg",
+          "adult": 2,
+          "child": 1,
+          "priceroom": 2300000
+        },
+        {
+          "idroom": "dl-hotel-7-room-3",
+          "nameroom": "Phòng King Deluxe Hướng sân golf",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2019/01/03/10/deluxe-king-golf-view-220x125.jpg",
+          "adult": 4,
+          "child": 2,
+          "priceroom": 3500000
+        },
+        {
+          "idroom": "dl-hotel-7-room-4",
+          "nameroom": "Phòng 1 giường đơn hướng sân golf",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2019/01/03/11/deluxe-twin-golf-view-220x125.jpg",
+          "adult": 2,
+          "child": 0,
+          "priceroom": 3000000
+        },
+        {
+          "idroom": "dl-hotel-7-room-5",
+          "nameroom": "Phòng King Studio hướng núi",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2019/01/03/11/studio-king-mountain-view-2-220x125.jpg",
+          "adult": 4,
+          "child": 2,
+          "priceroom": 4500000
+        }
+      ]
+    },
+    {
+      "id": "dl-hotel-8",
+      "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.443257350493!2d108.43342961472943!3d11.9437824915359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3171132932d892a9%3A0x227eab9f429bb803!2sSandals%20Lily%20Hotel!5e0!3m2!1svi!2s!4v1670920917675!5m2!1svi!2s",
+      "intro": "",
+      "img_hotel": "https://cdn1.ivivu.com/iVivu/2022/07/28/10/img-3933-1-cr-800x450.png",
+      "name_hotel": "Khách sạn Sandals LiLy Đà Lạt",
+      "star": 4,
+      "feedback_normal": "Rất tốt",
+      "count_cmt": 120,
+      "point": 9.7,
+      "address": "12 Tăng Bạt Hổ, Phường 1, Đà Lạt, Việt Nam",
+      "character": [
+        "Hiện Đại, Châu Âu"
+      ],
+      "bonus_character": "Khách sạn mới, Ngay chợ Đà Lạt, Gần hồ Xuân Hương",
+      "price": 995000,
+      "type_room": "Deluxe Double",
+      "type_room_bonus": "Gồm ăn sáng",
+      "status": "Hết phòng",
+      "voucher": "3N2Đ|Xe phòng nằm+Bữa sáng | 1.699 triệu/khách",
+      "list_room": [
+        {
+          "idroom": "dl-hotel-8-room-1",
+          "nameroom": "Phòng Deluxe gia đình",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2021/12/08/11/sup-dbl-2-220x125.png",
+          "adult": 2,
+          "child": 2,
+          "priceroom": 1500000
+        },
+        {
+          "idroom": "dl-hotel-8-room-2",
+          "nameroom": "Phòng Suite 2 giường",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2021/12/08/10/deluxe-dung-220x125.png",
+          "adult": 2,
+          "child": 1,
+          "priceroom": 1700000
+        },
+        {
+          "idroom": "dl-hotel-8-room-3",
+          "nameroom": "Phòng Deluxe Hướng Vườn",
+          "imgroom": "",
+          "adult": 2,
+          "child": 0,
+          "priceroom": 2500000
+        },
+        {
+          "idroom": "dl-hotel-8-room-4",
+          "nameroom": "Phòng Suite gia đình",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2021/12/08/10/deluxe-twin-2-220x125.png",
+          "adult": 2,
+          "child": 2,
+          "priceroom": 4000000
+        },
+        {
+          "idroom": "dl-hotel-8-room-5",
+          "nameroom": "Phòng President",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/01/13/18/z3106391664712-64ead4dffbfba16da5b7d1c63cdfdd71-220x125.jpg",
+          "adult": 8,
+          "child": 4,
+          "priceroom": 10000000
+        }
+      ]
+    },
+    {
+      "id": "dl-hotel-9",
+      "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3904.231367085889!2d108.43284971472903!3d11.888971191572553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317115bbde358b53%3A0x7dc116580d3f6178!2sCereja%20Hotel%20%26%20Resort!5e0!3m2!1svi!2s!4v1670922119798!5m2!1svi!2s",
+      "intro": " Còn 18 ngày | Vũ Khúc Mộng Mơ 3N2Đ | Vé máy bay khứ hồi + Bữa sáng + Xe đưa đón trung tâm từ 2.199.000 VND/Khách",
+      "img_hotel": "https://cdn1.ivivu.com/iVivu/2020/03/03/20/2-1-800x450.jpg",
+      "name_hotel": "Cereja Hotel & Resort Đà Lạt",
+      "star": 5,
+      "feedback_normal": "Rất tốt",
+      "count_cmt": 108,
+      "point": 9.7,
+      "address": "Khu Phân khu chức năng VII.7, Khu du lịch Hồ Tuyền Lâm, Phường 3, Tp. Đà Lạt, Việt Nam",
+      "character": [
+        "Gần gũi với thiên nhiên, Chụp ảnh đẹp"
+      ],
+      "bonus_character": "Hướng hồ Tuyền Lâm",
+      "price": 1595000,
+      "type_room": "Superior Garden View",
+      "type_room_bonus": "Gồm ăn sáng",
+      "status": "Hết phòng",
+      "voucher": "3N2Đ|VMB+Bữa sáng | 2.199 triệu/khách",
+      "list_room": [
+        {
+          "idroom": "dl-hotel-9-room-1",
+          "nameroom": "Phòng tiêu chuẩn Hướng Vườn",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2020/03/03/22/sup-220x125.jpg",
+          "adult": 2,
+          "child": 0,
+          "priceroom": 1000000
+        },
+        {
+          "idroom": "dl-hotel-9-room-2",
+          "nameroom": "Phòng Studio Suite",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2020/03/03/22/deluxe-2-220x125.jpg",
+          "adult": 2,
+          "child": 1,
+          "priceroom": 3200000
+        },
+        {
+          "idroom": "dl-hotel-9-room-3",
+          "nameroom": "Phòng Deluxe Hướng Vườn",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2020/03/03/22/dlx-lake-view-220x125.jpg",
+          "adult": 2,
+          "child": 2,
+          "priceroom": 3500000
+        },
+        {
+          "idroom": "dl-hotel-9-room-4",
+          "nameroom": "Phòng Premium Deluxe hướng vườn",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/05/05/10/2-220x125.jpg",
+          "adult": 2,
+          "child": 1,
+          "priceroom": 4000000
+        },
+        {
+          "idroom": "dl-hotel-9-room-5",
+          "nameroom": "Phòng Premium Deluxe hướng hồ",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/05/05/10/1-220x125.jpg",
+          "adult": 4,
+          "child": 2,
+          "priceroom": 6000000
+        }
+      ]
+    },
+    {
+      "id": "dl-hotel-10",
+      "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.9461499329163!2d108.4591931147299!3d11.978228091513015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3171133594039253%3A0x949d1c1b2f9d2b11!2zUuG7q25nIEzDoSBLaW0gUmVzb3J0!5e0!3m2!1svi!2s!4v1670922400635!5m2!1svi!2s",
+      "intro": " Còn 16 ngày | Mùa Lễ Hội 3N2Đ | Limosine khứ hồi + Bữa sáng + 01 Bữa trưa/tối từ 1.599.000 VND/Khách",
+      "img_hotel": "https://cdn1.ivivu.com/iVivu/2022/03/08/18/overview-cr-800x450.png",
+      "name_hotel": "Khu nghỉ dưỡng Rừng Lá Kim Đà Lạt",
+      "star": 3,
+      "feedback_normal": "Rất tốt",
+      "count_cmt": 76,
+      "point": 9.4,
+      "address": "144B, Đường Vòng Lâm Viên, Phường 8, Tp. Đà Lạt, Việt Nam",
+      "character": [
+        "Gần gũi với thiên nhiên"
+      ],
+      "bonus_character": "Không gian yên tĩnh, Villa nguyên căn",
+      "price": 935000,
+      "type_room": "Superior Garden View",
+      "type_room_bonus": "Gồm ăn sáng",
+      "status": "Hết phòng",
+      "voucher": "N2Đ|Xe+Bữa sáng+01 Bữa trưa/tối | 1.599 triệu/khách",
+      "list_room": [
+        {
+          "idroom": "dl-hotel-10-room-1",
+          "nameroom": "Phòng tiêu chuẩn hướng vườn",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/03/08/18/sup-dbl-1-dd-220x125.png",
+          "adult": 2,
+          "child": 0,
+          "priceroom": 980000
+        },
+        {
+          "idroom": "dl-hotel-10-room-2",
+          "nameroom": "Phòng Deluxe Hướng Vườn",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/08/15/deluxe-double-4-cr-220x125.png",
+          "adult": 2,
+          "child": 1,
+          "priceroom": 3000000
+        },
+        {
+          "idroom": "dl-hotel-10-room-3",
+          "nameroom": "Phòng Grand Deluxe Hướng Vườn",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/03/08/18/grd-dlx-1-dd-220x125.png",
+          "adult": 2,
+          "child": 2,
+          "priceroom": 3500000
+        },
+        {
+          "idroom": "dl-hotel-10-room-4",
+          "nameroom": "Phòng gỗ cổ điển",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/11/16/14/bungalow-don-220x125.png",
+          "adult": 2,
+          "child": 0,
+          "priceroom": 4000000
+        },
+        {
+          "idroom": "dl-hotel-10-room-5",
+          "nameroom": "Phòng gỗ 2 giường đôi",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/08/11/14/z3548708754297-f4e644b78a470b658934653bace55248-cr-220x125.png",
+          "adult": 4,
+          "child": 0,
+          "priceroom": 6000000
+        }
+      ]
     }
   ],
   "quynhon": [
@@ -1024,6 +2777,407 @@
       "type_room_bonus": "Gồm bửa sáng + Spa hoặc Ăn trưa/tối",
       "status": "Còn phòng",
       "voucher": "3N2Đ | VMB+Đón tiễn+4 Bữa ăn/Spa"
+    },
+    {
+      "id": "qn-hotel-2",
+      "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3873.197715907469!2d109.27732521475068!3d13.88712299025997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316f419c21ecf9f9%3A0xf7105eac4b998d9a!2sFLC%20Luxury%20Hotel%20Quy%20Nhon!5e0!3m2!1svi!2s!4v1670955030820!5m2!1svi!2s",
+      "intro": "Còn 76 ngày | Ưu Đãi Voucher 3N2Đ + Vé máy bay khứ hồi + Bữa sáng buffet từ 2.699.000 VND/Khách",
+      "img_hotel": "https://cdn1.ivivu.com/iVivu/2018/09/05/17/khach-san-flc-luxury-quy-nhon-1-800x450.jpg",
+      "name_hotel": "Khách sạn FLC Luxury Quy Nhơn",
+      "star": 5,
+      "feedback_normal": "Tuyệt vời",
+      "count_cmt": 776,
+      "point": 9.8,
+      "address": "Khu 4, Nhơn Lý - bãi biển Cát Tiến, xã Nhơn Lý, thành phố Quy Nhơn, tỉnh Bình Định, Việt Nam",
+      "character": [
+        "Hiện đại, Chụp ảnh đẹp"
+      ],
+      "bonus_character": "Bãi biển riêng, Dịch vụ biển, Tất cả phòng hướng biển, Bể bơi ốc đảo siêu lớn, Shuttle Bus đưa đón sân bay",
+      "price": 1335000,
+      "type_room": "Studio Suite",
+      "type_room_bonus": "Gồm ăn sáng",
+      "status": "Hết phòng",
+      "voucher": "3N2Đ | VMB+Buffet sáng | 2.699 triệu/khách",
+      "list_room": [
+        {
+          "idroom": "qn-hotel-2-room-1",
+          "nameroom": "Phòng Studio Suite",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2018/07/03/09/studio-suite--2-220x125.png",
+          "adult": 2,
+          "child": 0,
+          "priceroom": 1280000
+        },
+        {
+          "idroom": "qn-hotel-2-room-2",
+          "nameroom": "Phòng Studio Suite Deluxe",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2018/07/03/09/studio-suite-deluxe--220x125.png",
+          "adult": 2,
+          "child": 2,
+          "priceroom": 1600000
+        },
+        {
+          "idroom": "qn-hotel-2-room-3",
+          "nameroom": "Phòng Family Suite",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2018/07/04/15/family-suite--220x125.png",
+          "adult": 2,
+          "child": 2,
+          "priceroom": 2500000
+        },
+        {
+          "idroom": "qn-hotel-2-room-4",
+          "nameroom": "Phòng Family Suite Plus",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2018/07/04/15/family-suite--220x125.png",
+          "adult": 6,
+          "child": 3,
+          "priceroom": 4000000
+        },
+        {
+          "idroom": "qn-hotel-2-room-5",
+          "nameroom": "Phòng Family Suite Deluxe",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2016/11/03/14/family-suite-deluxe-220x125.png",
+          "adult": 8,
+          "child": 4,
+          "priceroom": 6000000
+        }
+      ]
+    },
+    {
+      "id": "qn-hotel-3",
+      "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.62578673719!2d109.23061891474826!3d13.68050409039363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316f6db19d7bd4c5%3A0x973445a204dc362c!2sAnantara%20Quy%20Nhon%20Villas!5e0!3m2!1svi!2s!4v1670958548819!5m2!1svi!2s",
+      "intro": " Còn 77 ngày | Chốn Ẩn Mình 3N2Đ + Vé máy bay + Đón/tiễn sân bay + Villa riêng tư + Bữa sáng + Miễn phí trẻ em từ 13.199.000 VND/Khách",
+      "img_hotel": "https://cdn1.ivivu.com/iVivu/2022/06/27/17/anantara-quy-nhon-villas-exterior-view-beach-aerial-view-pool-cr-800x450.png",
+      "name_hotel": "Khu nghỉ dưỡng Anantara Quy Nhơn Villas",
+      "star": 5,
+      "feedback_normal": "Tuyệt vời",
+      "count_cmt": 769,
+      "point": 9.8,
+      "address": "Cầu Bãi Dại, Ghềnh Ráng, Thành phố Quy Nhơn, Bình Định, Việt Nam",
+      "character": [
+        "Hiện đại, Thương hiệu quốc tế"
+      ],
+      "bonus_character": "Villa hồ bơi cao cấp, Bãi biển riêng, Dịch vụ quản gia riêng",
+      "price": 11350000,
+      "type_room": "Oceanfront Villa",
+      "type_room_bonus": "Gồm ăn sáng",
+      "status": "Còn phòng",
+      "voucher": "3N2Đ | VMB+Đón/tiễn | 12.999 triệu/khách",
+      "list_room": [
+        {
+          "idroom": "qn-hotel-3-room-1",
+          "nameroom": "Phòng Deluxe hướng đại dương",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/27/17/anantara-quy-nhon-villas-oceanfront-villa-bedroom-1-cr.png",
+          "adult": 3,
+          "child": 1,
+          "priceroom": 12800000
+        },
+        {
+          "idroom": "qn-hotel-3-room-2",
+          "nameroom": "Phòng Deluxe hướng đại dương plus",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/27/17/anantara-quy-nhon-villas-accommodaiton-ocean-view-pool-villa-exterior-cr-1-220x125.png",
+          "adult": 3,
+          "child": 1,
+          "priceroom": 15000000
+        },
+        {
+          "idroom": "qn-hotel-3-room-3",
+          "nameroom": "Phòng Grand Deluxe Ocean View",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/27/17/ava-1-220x125.png",
+          "adult": 3,
+          "child": 2,
+          "priceroom": 19500000
+        },
+        {
+          "idroom": "qn-hotel-3-room-4",
+          "nameroom": "Phòng Studio Suite Deluxe Beachfront",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/27/17/ava-2-220x125.png",
+          "adult": 3,
+          "child": 1,
+          "priceroom": 20000000
+        },
+        {
+          "idroom": "qn-hotel-3-room-5",
+          "nameroom": "Phòng Anantara Beachfront Pool Villa 2 giường ngủ",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/27/17/ava-4-220x125.png",
+          "adult": 3,
+          "child": 2,
+          "priceroom": 21500000
+        }
+      ]
+    },
+    {
+      "id": "qn-hotel-4",
+      "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3873.2126252830776!2d109.27888831475057!3d13.886230890260585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316f4192df8b4029%3A0x6d6e95c6ac005d0c!2sFLC%20Luxury%20Resort%20Quy%20Nhon!5e0!3m2!1svi!2s!4v1670959201303!5m2!1svi!2s",
+      "intro": " Còn 77 ngày | Ưu Đãi Voucher 3N2Đ + Vé máy bay + Ăn sáng buffet + Villa với bể bơi riêng từ 3.599.000 VND/Khách",
+      "img_hotel": "https://cdn1.ivivu.com/iVivu/2018/10/23/14/flc-luxury-resort-quy-nhon-1-800x450.jpg",
+      "name_hotel": "FLC Quy Nhơn Beach & Golf Resort",
+      "star": 5,
+      "feedback_normal": "Tuyệt vời",
+      "count_cmt": 156,
+      "point": 9.4,
+      "address": "Lô 4 Nhơn Lý, Cát Tiến, Tp. Quy Nhơn, Bình Định, Việt Nam",
+      "character": [
+        "Hiện Đại, Tiện lợi"
+      ],
+      "bonus_character": "Bãi biển riêng, Villa bể bơi riêng, Shuttle Bus đưa đón sân bay, FLC Safari",
+      "price": 4435000,
+      "type_room": "Villa 2 Bedroom Sea-View",
+      "type_room_bonus": "Gồm ăn sáng",
+      "status": "Còn phòng",
+      "voucher": "3N2Đ | VMB+Bữa sáng+Villa | 3.599 triệu/khách",
+      "list_room": [
+        {
+          "idroom": "qn-hotel-4-room-1",
+          "nameroom": "Phòng tiêu chuẩn 2 giường ngủ",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2018/02/27/14/golf-villa-02-bedrooms-220x125.png",
+          "adult": 4,
+          "child": 2,
+          "priceroom": 3800000
+        },
+        {
+          "idroom": "qn-hotel-4-room-2",
+          "nameroom": "Phòng Deluxe hướng biển",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2018/10/23/17/villa-02-bedrooms-sea-view-220x125.jpg",
+          "adult": 3,
+          "child": 2,
+          "priceroom": 5000000
+        },
+        {
+          "idroom": "qn-hotel-4-room-3",
+          "nameroom": "Phòng Grand Deluxe hướng biển 2 giường ngủ",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2018/10/23/17/villa-03-bedrooms-sea-view-220x125.jpg",
+          "adult": 4,
+          "child": 2,
+          "priceroom": 6500000
+        },
+        {
+          "idroom": "qn-hotel-4-room-4",
+          "nameroom": "Phòng Studio Suite",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2018/02/27/14/golf-villa-04-bedrooms-220x125.jpg",
+          "adult": 2,
+          "child": 1,
+          "priceroom": 4000000
+        }
+      ]
+    },
+    {
+      "id": "qn-hotel-5",
+      "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3872.0762811080644!2d109.23889421475148!3d13.954063590216833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316f412ea4bfc64b%3A0x91fd82de0538da25!2sCrown%20Retreat%20Resort%20Quy%20Nhon!5e0!3m2!1svi!2s!4v1670960319411!5m2!1svi!2s",
+      "intro": " Còn 49 ngày | Vùng Biển Xanh 3N2Đ + Vé máy bay khứ hồi + 4 Bữa ăn + Bungalow riêng từ 3.699.000 VND/Khách",
+      "img_hotel": "https://cdn1.ivivu.com/iVivu/2022/04/22/18/dji-0388-edit-edit-cr-800x450.png",
+      "name_hotel": "Khu nghỉ dưỡng Crown Retreat Quy Nhơn",
+      "star": 4,
+      "feedback_normal": "Rất tốt",
+      "count_cmt": 89,
+      "point": 9.4,
+      "address": "Thôn Trung Lương, Xã Cát Tiến, Huyện Phù Cát, Tỉnh Bình Định, Việt Nam",
+      "character": [
+        "Gần gũi với thiên nhiên"
+      ],
+      "bonus_character": "Bãi biển riêng, Hồ bơi ngoài trường, Bungalow",
+      "price": 1835000,
+      "type_room": "Bungalow Pine Hill",
+      "type_room_bonus": "Gồm ăn sáng",
+      "status": "Hết phòng",
+      "voucher": "3N2Đ | VMB+4 Bữa ăn | 3.699 triệu/khách",
+      "list_room": [
+        {
+          "idroom": "qn-hotel-5-room-1",
+          "nameroom": "Phòng Bungalow Pine Hill",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/08/15/z3466645673613-8177b910c98c531f1045ac0ab9c0d02d-cr.png",
+          "adult": 2,
+          "child": 1,
+          "priceroom": 1880000
+        },
+        {
+          "idroom": "qn-hotel-5-room-2",
+          "nameroom": "Phòng Bungalow Sea View",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/08/15/z3466645647373-5435b41ea054a2ca469c836377642a85-cr.png",
+          "adult": 2,
+          "child": 1,
+          "priceroom": 2100000
+        },
+        {
+          "idroom": "qn-hotel-5-room-3",
+          "nameroom": "Phòng Bungalow Beach Front",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/08/15/ava-2-220x125.png",
+          "adult": 3,
+          "child": 2,
+          "priceroom": 3500000
+        },
+        {
+          "idroom": "qn-hotel-5-room-4",
+          "nameroom": "Phòng Junior Beach",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/08/15/ava-3-220x125.png",
+          "adult": 3,
+          "child": 1,
+          "priceroom": 3800000
+        },
+        {
+          "idroom": "qn-hotel-5-room-5",
+          "nameroom": "Phòng gỗ 2 giường đôi",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/08/15/dsc02785-edit-cr.png",
+          "adult": 4,
+          "child": 2,
+          "priceroom": 4000000
+        }
+      ]
+    },
+    {
+      "id": "qn-hotel-6",
+      "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.4038362195383!2d109.21452871474908!3d13.754503390345768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316f6d6808d64af3%3A0xb800109053dbaf87!2sFLC%20City%20Hotel%20Beach%20Quy%20Nhon!5e0!3m2!1svi!2s!4v1670960787652!5m2!1svi!2s",
+      "intro": "Còn 77 ngày | Hơi Thở Biển | 3N2Đ Vé máy bay + Bữa sáng buffet + Giải trí đa chức năng từ 2.699.000 VND/Khách",
+      "img_hotel": "https://cdn1.ivivu.com/iVivu/2021/08/09/15/k8-800x450.jpg",
+      "name_hotel": "FLC City Hotel Beach Quy Nhơn",
+      "star": 5,
+      "feedback_normal": "Rất tốt",
+      "count_cmt": 145,
+      "point": 9.7,
+      "address": "11 An Dương Vương, Nguyễn Văn Cừ, Thành phố Qui Nhơn, Bình Định, Việt Nam",
+      "character": [
+        "Nghỉ dưỡng biển, Hiện đại"
+      ],
+      "bonus_character": "Tổ hợp căn hộ, Thương mại, Trung tâm",
+      "price": 1335000,
+      "type_room": "Deluxe City View",
+      "type_room_bonus": "Gồm ăn sáng",
+      "status": "Còn phòng",
+      "voucher": "3N2Đ | VMB+Bữa sáng | 2.699 triệu/khách",
+      "list_room": [
+        {
+          "idroom": "qn-hotel-6-room-1",
+          "nameroom": "Phòng Deluxe City View",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/01/18/19/deluxe-220x125.jpg",
+          "adult": 2,
+          "child": 1,
+          "priceroom": 1290000
+        },
+        {
+          "idroom": "qn-hotel-6-room-2",
+          "nameroom": "Phòng Deluxe Ocean View",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/01/18/19/deluxe-ocean-220x125.jpg",
+          "adult": 3,
+          "child": 1,
+          "priceroom": 1600000
+        },
+        {
+          "idroom": "qn-hotel-6-room-3",
+          "nameroom": "Phòng Grand Deluxe hướng Vườn",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/01/18/19/premier-220x125.jpg",
+          "adult": 2,
+          "child": 2,
+          "priceroom": 2500000
+        },
+        {
+          "idroom": "qn-hotel-6-room-4",
+          "nameroom": "Phòng Suite Ocean View",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/06/20/19/ava-220x125.png",
+          "adult": 3,
+          "child": 2,
+          "priceroom": 3000000
+        }
+      ]
+    },
+    {
+      "id": "qn-hotel-7",
+      "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.605184349427!2d109.23040431474828!3d13.681754990392811!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316f7289aa9f0751%3A0x55e1b44380dc205e!2sAvani%20Quy%20Nh%C6%A1n%20Resort%20%26%20Spa!5e0!3m2!1svi!2s!4v1670961326773!5m2!1svi!2s",
+      "intro": " Còn 77 ngày | Kỳ Nghỉ Mộng Mơ 3N2Đ + Vé máy bay + 3 Bữa ăn + Miễn phí trẻ em từ 5.099.000 VND/Khách",
+      "img_hotel": "https://cdn1.ivivu.com/iVivu/2019/03/26/17/avani-quy-nhon-resort--3-800x450.jpg",
+      "name_hotel": "AVANI Quy Nhơn Resort & Spa",
+      "star": 4,
+      "feedback_normal": "Rất tốt",
+      "count_cmt": 189,
+      "point": 9.5,
+      "address": "Bãi Dài, Ghềnh Ráng, Quy Nhơn, Bình Định, Việt Nam",
+      "character": [
+        "Hiện đại, Thương hiệu quốc tế, Chụp ảnh đẹp"
+      ],
+      "bonus_character": "Bãi biển riêng, Trang trí pastel",
+      "price": 3505000,
+      "type_room": "Deluxe Studio Room",
+      "type_room_bonus": "Gồm ăn sáng",
+      "status": "Hết phòng",
+      "voucher": "3N2Đ | VMB+3 Bữa ăn | 4.899 triệu/khách",
+      "list_room": [
+        {
+          "idroom": "qn-hotel-7-room-1",
+          "nameroom": "Phòng Deluxe Studio Room",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2018/01/31/15/deluxe-room-220x125.png",
+          "adult": 3,
+          "child": 2,
+          "priceroom": 2700000
+        },
+        {
+          "idroom": "qn-hotel-7-room-2",
+          "nameroom": "Phòng Deluxe Family",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2018/04/20/15/family-studio-room-220x125.png",
+          "adult": 2,
+          "child": 2,
+          "priceroom": 3000000
+        },
+        {
+          "idroom": "qn-hotel-7-room-3",
+          "nameroom": "Phòng Junior Ocean Suite",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2018/01/31/15/junior-suite-1-220x125.png",
+          "adult": 3,
+          "child": 1,
+          "priceroom": 3500000
+        }
+      ]
+    },
+    {
+      "id": "qn-hotel-8",
+      "direction": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3873.20983935182!2d109.27296591475056!3d13.886397590260469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316f41a86fa929c9%3A0xc4eeedd57dd7772f!2sFLC%20Grand%20Hotel%20Quy%20Nhon!5e0!3m2!1svi!2s!4v1670962730735!5m2!1svi!2s",
+      "intro": " Còn 77 ngày | Voucher Cực Sốc 3N2Đ + Vé máy bay + Bữa sáng Buffet từ 2.799.000 VND/Khách",
+      "img_hotel": "https://cdn1.ivivu.com/iVivu/2022/01/20/17/dji-0103-800x450.jpg",
+      "name_hotel": "Khách sạn FLC Grand Quy Nhơn",
+      "star": 5,
+      "feedback_normal": "Tuyệt vời",
+      "count_cmt": 236,
+      "point": 9.7,
+      "address": "Khu 4, Nhơn Lý - bãi biển Cát Tiến, xã Nhơn Lý, thành phố Quy Nhơn, tỉnh Bình Định, Việt Nam",
+      "character": [
+        "Hiện đại, Chụp ảnh đẹp"
+      ],
+      "bonus_character": "Hồ bơi vô cực lớn nhất Việt Nam, Sân Gold 36 hố, FLC Safari Zoo, Shuttle Bus đưa đón sân bay",
+      "price": 1335000,
+      "type_room": "Deluxe Hill View",
+      "type_room_bonus": "Gồm ăn sáng",
+      "status": "Còn phòng",
+      "voucher": "3N2Đ | VMB+Bữa sáng | 2.799 triệu/khách",
+      "list_room": [
+        {
+          "idroom": "qn-hotel-8-room-1",
+          "nameroom": "Phòng Deluxe Hill View",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/01/20/17/delxue-220x125.jpg",
+          "adult": 3,
+          "child": 2,
+          "priceroom": 1280000
+        },
+        {
+          "idroom": "qn-hotel-8-room-2",
+          "nameroom": "Phòng Deluxe Ocean View",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/01/20/17/deluxe-ocean-220x125.jpg",
+          "adult": 3,
+          "child": 1,
+          "priceroom": 1600000
+        },
+        {
+          "idroom": "qn-hotel-8-room-3",
+          "nameroom": "Phòng Grand Suite Hill View",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/01/20/17/grand-suite-220x125.jpg",
+          "adult": 4,
+          "child": 2,
+          "priceroom": 2500000
+        },
+        {
+          "idroom": "qn-hotel-8-room-4",
+          "nameroom": "Phòng Grand Suite Ocean View",
+          "imgroom": "https://cdn1.ivivu.com/iVivu/2022/01/20/17/grand-suite-ocean-220x125.jpg",
+          "adult": 4,
+          "child": 2,
+          "priceroom": 4100000
+        }
+      ]
     }
   ],
   "kv_phuquoc": [
