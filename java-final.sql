@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 14, 2022 lúc 04:28 PM
+-- Thời gian đã tạo: Th12 17, 2022 lúc 10:12 AM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 7.4.28
 
@@ -54,23 +54,33 @@ CREATE TABLE `bookinghotel` (
 --
 
 INSERT INTO `bookinghotel` (`iduser`, `idbooking`, `location`, `idhotel`, `idroom`, `checkin`, `checkout`, `adult`, `child`, `sophong`, `totalprice`, `statusbooking`, `datebooking`, `representative`, `phonecontact`, `emailcontact`, `review`) VALUES
-('LyrbUXfi', '02331792', 'phuquoc', 'pq-hotel-2', 'pq-hotel-2-room-1', '11-23-2022', '11-25-2022', 2, 1, 1, '2700000', 'Đã xác nhận', '2022-11-21 04:21:53', 'Mỹ  Tâm', '0120120123', 'vanhuy1619@gmail.com', 0),
+('LyrbUXfi', '02331792', 'phuquoc', 'pq-hotel-2', 'pq-hotel-2-room-1', '11-23-2022', '11-25-2022', 2, 1, 1, '2700000', 'Đã trả phòng', '2022-11-21 04:21:53', 'Mỹ  Tâm', '0120120123', 'vanhuy1619@gmail.com', 0),
 ('AC7wvkbb', '03883343', 'phuquoc', 'pq-hotel-1', 'pq-hotel-1-room-5', '11-23-2022', '11-26-2022', 3, 0, 1, '18000000', 'Đã trả phòng', '2022-11-20 09:20:38', 'Nguyễn Văn Huy', '0123456789', 'mvmanh@gmail.com', 1),
 ('Vyg5mSbD', '08974524', 'phuquoc', 'pq-hotel-3', 'pq-hotel-3-room-2', '11-22-2022', '11-24-2022', 4, 4, 2, '31644000', 'Đã trả phòng', '2022-11-21 04:27:57', 'Hồ Quỳnh Hương', '0929046031', 'khoanguyen30lb@gmail.com', 0),
 ('LyrbUXfi', '09337502', 'phuquoc', 'pq-hotel-1', 'pq-hotel-1-room-1', '11-22-2022', '11-24-2022', 2, 0, 1, '5600000', 'Đã trả phòng', '2022-11-21 03:37:12', 'Mỹ  Tâm', '0169111021', 'vanhuy1619@gmail.com', 1),
+('jGkBN5C7', '12333191', 'phuquoc', 'pq-hotel-1', 'pq-hotel-1-room-2', '12-22-2022', '12-24-2022', 2, 1, 1, '5400000', 'Hủy', '2022-12-17 08:24:01', 'Phạm Văn Huy', '0547898789', 'kwonjiyong2702@gmail.com', 0),
+('AC7wvkbb', '12710344', 'dalat', 'dl-hotel-7', 'dl-hotel-7-room-1', '12-21-2022', '12-22-2022', 2, 0, 1, '1600000', 'Hủy', '2022-12-16 22:11:19', 'Nguyễn Bảo Anh', '0659787888', 'mvmanh@gmail.com', 0),
 ('Vyg5mSbD', '13143307', 'phuquoc', 'pq-hotel-3', 'pq-hotel-3-room-1', '11-23-2022', '11-26-2022', 8, 8, 1, '33000000', 'Đã trả phòng', '2022-11-21 04:25:36', 'Hồ Quỳnh Hương', '0929046031', 'khoanguyen30lb@gmail.com', 0),
-('AC7wvkbb', '25122588', 'phuquoc', 'pq-hotel-2', 'pq-hotel-2-room-2', '12-11-2022', '12-13-2022', 2, 1, 1, '3000000', 'Đã xác nhận', '2022-12-11 04:03:17', 'Nguyễn Bảo Anh', '0659787888', 'mvmanh@gmail.com', 0),
-('AC7wvkbb', '34096274', 'phuquoc', 'pq-hotel-1', 'pq-hotel-1-room-4', '11-22-2022', '11-23-2022', 2, 0, 1, '4000000', 'Đã trả phòng', '2022-11-20 18:29:48', 'Anh Khoa', '0123456789', 'akhoa@gmail.com', 1),
-('AC7wvkbb', '43404732', 'phuquoc', 'pq-hotel-1', 'pq-hotel-1-room-1', '12-14-2022', '12-12-2022', 2, 0, 1, '5600000', 'Chờ xác nhận', '2022-12-14 14:32:55', 'Nguyễn Bảo Anh', '0659787888', 'mvmanh@gmail.com', 0),
+('Vyg5mSbD', '13473243', 'quynhon', 'qn-hotel-4', 'qn-hotel-4-room-1', '12-21-2022', '12-24-2022', 4, 2, 1, '8550000', 'Chờ xác nhận', '2022-12-17 09:04:27', 'Hồ Quỳnh Hương', '0929046031', 'khoanguyen30lb@gmail.com', 0),
+('AC7wvkbb', '15598052', 'dalat', 'dl-hotel-7', 'dl-hotel-7-room-1', '12-21-2022', '12-22-2022', 2, 0, 1, '1800000', 'Đã trả phòng', '2022-12-16 22:12:26', 'Nguyễn Bảo Anh', '0659787888', 'mvmanh@gmail.com', 0),
+('jGkBN5C7', '17541051', 'phuquoc', 'pq-hotel-3', 'pq-hotel-3-room-1', '12-22-2022', '12-24-2022', 2, 0, 1, '9920000', 'Hủy', '2022-12-17 07:18:48', 'Phạm Văn Huy', '0547898789', 'kwonjiyong2702@gmail.com', 0),
+('AC7wvkbb', '22441748', 'phuquoc', 'pq-hotel-1', 'pq-hotel-1-room-1', '12-16-2022', '12-17-2022', 2, 0, 1, '2800000', 'Hủy', '2022-12-15 08:53:42', 'Nguyễn Bảo Anh', '0659787888', 'mvmanh@gmail.com', 0),
+('AC7wvkbb', '25122588', 'phuquoc', 'pq-hotel-2', 'pq-hotel-2-room-2', '12-11-2022', '12-13-2022', 2, 1, 1, '3000000', 'Thành công', '2022-12-11 04:03:17', 'Nguyễn Bảo Anh', '0659787888', 'mvmanh@gmail.com', 0),
+('jGkBN5C7', '32588263', 'phuquoc', 'pq-hotel-2', 'pq-hotel-2-room-1', '12-22-2022', '12-24-2022', 3, 1, 1, '6300000', 'Hủy', '2022-12-17 07:13:04', 'Nguyễn Văn Huy', '0547898788', 'kwonjiyong2702@gmail.com', 0),
+('AC7wvkbb', '34096274', 'phuquoc', 'pq-hotel-1', 'pq-hotel-1-room-4', '11-22-2022', '11-23-2022', 2, 0, 1, '4000000', 'Đã trả phòng', '2022-11-20 18:29:48', 'Anh Khoa', '0123456789', 'akhoa@gmail.com', 0),
+('jGkBN5C7', '41200765', 'quynhon', 'qn-hotel-2', 'qn-hotel-2-room-1', '12-23-2022', '12-24-2022', 2, 0, 1, '1024000', 'Đã trả phòng', '2022-12-17 08:28:40', 'Nguyễn Văn Huy', '0547898789', 'kwonjiyong2702@gmail.com', 1),
+('jGkBN5C7', '43927984', 'quynhon', 'qn-hotel-4', 'qn-hotel-4-room-2', '12-22-2022', '12-23-2022', 3, 2, 1, '4000000', 'Đã xác nhận', '2022-12-16 20:49:08', 'Nguyễn Văn Huy', '0547898788', 'kwonjiyong2702@gmail.com', 0),
 ('Vyg5mSbD', '47226249', 'phuquoc', 'pq-hotel-1', 'pq-hotel-1-room-1', '11-23-2022', '11-25-2022', 2, 0, 2, '11200000', 'Đã trả phòng', '2022-11-21 04:13:16', 'Hồ Quỳnh Hương', '0929046031', 'khoanguyen30lb@gmail.com', 1),
-('jGkBN5C7', '48422009', 'phuquoc', 'pq-hotel-1', 'pq-hotel-1-room-1', '11-26-2022', '11-28-2022', 2, 0, 1, '1200000', 'Thành công', '2022-11-19 18:34:36', 'Anh Khoa', '0123456789', 'mvam@gmail.com', 1),
 ('Vyg5mSbD', '49858221', 'phuquoc', 'pq-hotel-2', 'pq-hotel-2-room-1', '11-22-2022', '11-24-2022', 2, 1, 2, '6000000', 'Đã trả phòng', '2022-11-21 03:23:08', 'Hồ Quỳnh Hương', '0929046031', 'khoanguyen30lb@gmail.com', 1),
 ('AC7wvkbb', '51124468', 'phuquoc', 'pq-hotel-1', 'pq-hotel-1-room-6', '11-22-2022', '11-26-2022', 4, 0, 1, '12900000', 'Đã xác nhận', '2022-11-20 04:53:38', 'Nguyễn Văn Huy', '0123456789', 'mvmanh@gmail.com', 0),
 ('LyrbUXfi', '52729983', 'phuquoc', 'pq-hotel-3', 'pq-hotel-3-room-2', '11-29-2022', '11-30-2022', 4, 4, 1, '8790000', 'Đã trả phòng', '2022-11-26 12:01:51', 'Mỹ  Tâm', '0120120123', 'vanhuy1619@gmail.com', 0),
+('AC7wvkbb', '54462416', 'dalat', 'dl-hotel-6', 'dl-hotel-6-room-1', '12-21-2022', '12-22-2022', 2, 1, 2, '5600000', 'Thành công', '2022-12-16 17:52:54', 'Nguyễn Bảo Anh', '0659787888', 'baoanh@gmail.com', 0),
 ('AC7wvkbb', '58384150', 'dalat', 'dl-hotel-1', 'dl-hotel-1-room-2', '11-25-2022', '11-26-2022', 4, 0, 1, '700000', 'Đã trả phòng', '2022-11-24 10:06:17', 'Nguyễn Văn Huy', '0123456789', 'mvmanh@gmail.com', 1),
-('Vyg5mSbD', '70919402', 'phuquoc', 'pq-hotel-3', 'pq-hotel-3-room-1', '11-23-2022', '11-25-2022', 8, 8, 1, '22000000', 'Chờ xác nhận', '2022-11-21 04:12:10', 'Hồ Quỳnh Hương', '0929046031', 'khoanguyen30lb@gmail.com', 0),
 ('Vyg5mSbD', '74358981', 'phuquoc', 'pq-hotel-1', 'pq-hotel-1-room-3', '11-23-2022', '11-26-2022', 2, 0, 2, '15000000', 'Đã trả phòng', '2022-11-21 03:23:57', 'Hồ Quỳnh Hương', '0929046031', 'khoanguyen30lb@gmail.com', 1),
-('AC7wvkbb', '93866325', 'phuquoc', 'pq-hotel-1', 'pq-hotel-1-room-1', '12-12-2022', '12-14-2022', 2, 0, 1, '5600000', 'Chờ xác nhận', '2022-12-14 11:09:44', 'Nguyễn Bảo Anh', '0659787888', 'mvmanh@gmail.com', 0);
+('Vyg5mSbD', '85798539', 'quynhon', 'qn-hotel-3', 'qn-hotel-3-room-2', '12-22-2022', '12-24-2022', 3, 1, 1, '30000000', 'Chờ xác nhận', '2022-12-17 09:00:44', 'Hồ Quỳnh Hương', '0929046031', 'khoanguyen30lb@gmail.com', 0),
+('Vyg5mSbD', '92498834', 'phuquoc', 'pq-hotel-2', 'pq-hotel-2-room-1', '12-21-2022', '12-22-2022', 3, 1, 1, '3500000', 'Chờ xác nhận', '2022-12-17 09:00:05', 'Hồ Quỳnh Hương', '0929046031', 'khoanguyen30lb@gmail.com', 0),
+('AC7wvkbb', '93866325', 'phuquoc', 'pq-hotel-1', 'pq-hotel-1-room-1', '12-12-2022', '12-14-2022', 2, 0, 1, '5600000', 'Chờ xác nhận', '2022-12-14 11:09:44', 'Nguyễn Bảo Anh', '0659787888', 'mvmanh@gmail.com', 0),
+('jGkBN5C7', '97085059', 'dalat', 'dl-hotel-2', 'dl-hotel-2-room-1', '12-20-2022', '12-22-2022', 2, 2, 1, '3280000', 'Đã trả phòng', '2022-12-16 18:03:56', 'Nguyễn Văn Huy', '0547898788', 'kwonjiyong2702@gmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -107,9 +117,11 @@ INSERT INTO `buyservice` (`stt`, `iduser`, `idbooking`, `stt_service`, `dongia`,
 (31, 'LyrbUXfi', '09337502', '8', '1100000', 1, '1100000', 'Lặn biển', 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1670778793/afg80q6bcmqrxbpdogn7.jpg'),
 (33, 'AC7wvkbb', '03883343', 'pr-2', '100000', 1, '100000', 'Coffee', 'https://salt.tikicdn.com/cache/w1200/ts/product/ee/fc/48/4f0279f8e024537b8be2bde55353dc77.jpg'),
 (35, 'Vyg5mSbD', '13143307', '4', '800000', 1, '800000', 'Vinwonder', 'https://btnmt.1cdn.vn/2020/06/01/a4_toan-canh.jpg'),
-(36, 'jGkBN5C7', '48422009', '2', '1000000', 1, '1000000', 'Buffet', 'http://vinpearllandphuquoc.com/wp-content/uploads/2019/10/Salinda-Restaurant-8-Phu-Quoc.jpg'),
-(37, 'jGkBN5C7', '48422009', '11', '1100000', 1, '1100000', 'Gói Wedding tại Vinpearl Resort & Spa Phú Quốc', 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1670814835/zjkwdi5kuozdj9g3ezno.webp'),
-(39, 'Vyg5mSbD', '13143307', '2', '1000000', 1, '1000000', 'Buffet', 'http://vinpearllandphuquoc.com/wp-content/uploads/2019/10/Salinda-Restaurant-8-Phu-Quoc.jpg');
+(39, 'Vyg5mSbD', '13143307', '2', '1000000', 1, '1000000', 'Buffet', 'http://vinpearllandphuquoc.com/wp-content/uploads/2019/10/Salinda-Restaurant-8-Phu-Quoc.jpg'),
+(46, 'jGkBN5C7', '97085059', '8', '1100000', 1, '1100000', 'Lặn biển', 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1670778793/afg80q6bcmqrxbpdogn7.jpg'),
+(47, 'LyrbUXfi', '02331792', '4', '800000', 1, '800000', 'Vinwonder', 'https://btnmt.1cdn.vn/2020/06/01/a4_toan-canh.jpg'),
+(49, 'AC7wvkbb', '15598052', '1', '5000000', 1, '5000000', 'Nướng ngoài trời', 'http://vietnamtravelmarthcm.com/wp-content/uploads/2020/09/vinpearl-resort-spa-phu-quoc_vietnamtravelmarthcm_04.jpg'),
+(50, 'jGkBN5C7', '41200765', '8', '1100000', 1, '1100000', 'Lặn biển', 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1670778793/afg80q6bcmqrxbpdogn7.jpg');
 
 -- --------------------------------------------------------
 
@@ -136,7 +148,6 @@ CREATE TABLE `employee` (
 INSERT INTO `employee` (`idemp`, `tenemp`, `sdtemp`, `emailemp`, `genderemp`, `positionemp`, `passemp`, `createemp`, `avatar`) VALUES
 ('kt000001', 'Noo Phước Thịnh', '0369874521', 'noophuocthinh@gmail.com', 'Male', 'Kế toán', '123456', '2022-12-09 01:20:49', 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1670523648/seyqh9xmddmjuhmwhnjo.jpg'),
 ('lt000001', 'Minh Hằng', '0965874238', 'vanhuy1619@gmail.com', 'Female', 'Lễ tân', '123456', '2022-12-07 23:29:37', 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1670430575/cpazfbbm1nzywd9byrua.jpg'),
-('lt000002', 'Ngọc Trinh', '0652142111', 'ngoctrinh@gmail.com', 'Female', 'Lễ tân', '123456', '2022-12-14 02:40:45', 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1670960444/dbp3y7nlcflkgvteubxg.png'),
 ('ql000003', 'Đông Nhi', '0965874231', 'toctien@gmail.com', 'Female', 'Quản lý', '123456', '2022-08-03 13:56:37', 'https://scontent.fsgn9-1.fna.fbcdn.net/v/t1.6435-9/198152502_502686704273682_104451209091447411_n.jpg?stp=c0.169.827.827a_dst-jpg_s851x315&_nc_cat=104&ccb=1-7&_nc_sid=da31f3&_nc_ohc=VJllLKZA-VEAX-hwsNz&tn=KWoGFGK0B3e-EmZW&_nc_ht=scontent.fsgn9-1.fna&oh=00_AfBTilLK4pHvrIn_U4Pg0mc89jlM9uStnSD-agJP_Vt1Ng&oe=63B27E06'),
 ('ql000004', 'Hồ Ngọc Hà', '0125478544', 'hongoccha@gmail.com', 'Female', 'Quản lý', '123456', '2022-12-10 10:21:24', 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1670642484/umymd9y0p72mmpxmgstp.jpg');
 
@@ -170,7 +181,37 @@ INSERT INTO `feedback` (`idfeedback`, `idbooking`, `iduser`, `location`, `idhote
 (1421501298, '47226249', 'Vyg5mSbD', 'phuquoc', 'pq-hotel-1', 'pq-hotel-1-room-1', 5, 'Khách sạn rất đẹp', '2022-11-21 04:28:23'),
 (1421501299, '58384150', 'AC7wvkbb', 'dalat', 'dl-hotel-1', 'dl-hotel-1-room-2', 5, 'Nhân viên khách sạn rất nhiệt tình, khách sạn đẹp gần trung tâm dễ dàng di chuyển', '2022-11-24 10:08:39'),
 (1421501301, '52729983', 'LyrbUXfi', 'phuquoc', 'pq-hotel-3', 'pq-hotel-3-room-2', 5, 'An amazing hotel in its beauty, looks like heaven. Beautiful and clean rooms in every private pool, excellent gym, huge pool that is softer on the beach. A private beach and stunning in its beauty, it is impossible to put into words how beautiful the beach is coconut trees and clear water the hotel staff very services. Protecting the environment Using paper requests. There is an electric vehicle service available to transport you anytime, anywhere. In addition, a free airport shuttle service to the city. A rich dining room and a variety of hotel staff will prepare you to eat anything you request. In conclusion if you are looking for heaven this is exactly the place !!!', '2022-11-26 12:16:21'),
-(1421501303, '34096274', 'AC7wvkbb', 'phuquoc', 'pq-hotel-1', 'pq-hotel-1-room-4', 5, 'fvfvf', '2022-12-14 14:33:58');
+(1421501307, '97085059', 'jGkBN5C7', 'dalat', 'dl-hotel-2', 'dl-hotel-2-room-1', 4, 'Một điểm trừ nho nhỏ là vì vị trí khách sạn ở chợ nhưng ban ngày hơi ồn do tiếng xe chạy. Tuy nhiên là khách sạn sử dụng kính chống ồn nên không ảnh hưởng gì nhiều đến sự nghỉ ngơi của khách hàng.', '2022-12-16 18:07:03'),
+(1421501308, '41200765', 'jGkBN5C7', 'quynhon', 'qn-hotel-2', 'qn-hotel-2-room-1', 4, 'Khách sạn rất tốt', '2022-12-17 08:48:05');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `giftforuser`
+--
+
+CREATE TABLE `giftforuser` (
+  `stt` int(255) NOT NULL,
+  `idgift` varchar(255) DEFAULT NULL,
+  `noidunggift` varchar(255) DEFAULT NULL,
+  `hansudung` date DEFAULT NULL,
+  `foriduser` varchar(255) DEFAULT NULL,
+  `sudung` int(11) DEFAULT 0,
+  `giatri` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `giftforuser`
+--
+
+INSERT INTO `giftforuser` (`stt`, `idgift`, `noidunggift`, `hansudung`, `foriduser`, `sudung`, `giatri`) VALUES
+(1, 'xmashappy', 'Giáng sinh vui vẻ', '2022-12-23', 'AC7wvkbb', 0, '20%'),
+(3, 'happynewyear', 'Chúc mừng năm mới', '2022-12-18', 'AC7wvkbb', 1, '15%'),
+(4, 'TCBTRAGOP', 'Tặng bạn bữa ăn sáng buffet', '2022-12-24', 'Vyg5mSbD', 0, '25%'),
+(7, 'happybirthday', 'Chúc mừng sinh nhật bạn', '2022-12-25', 'jGkBN5C7', 1, '15%'),
+(14, 'khmayman', 'Khách hàng may mắn', '2022-12-18', 'LyrbUXfi', 0, '20%'),
+(25, 'happynewyear', 'Dành cho bạn', '2022-12-25', 'jGkBN5C7', 1, '20%'),
+(26, 'happybirthday', 'Chúc mừng sinh nhật bạn', '2022-12-24', 'LyrbUXfi', 1, '10%');
 
 -- --------------------------------------------------------
 
@@ -202,11 +243,8 @@ INSERT INTO `messagebycustomer` (`stt`, `iduser`, `message`, `rep`, `datesend`) 
 (12, 'Vyg5mSbD', 'Anh đặt phòng bên em rồi nhưng khi đến khách sạn không có phòng thì sao?', 1, '2022-12-12 16:04:30'),
 (13, 'LyrbUXfi', 'Làm sao để biết tôi đặt phòng thành công?', 0, '2022-12-12 20:54:19'),
 (14, 'LyrbUXfi', 'Tôi có thể tìm voucher ở đâu?', 1, '2022-12-13 22:31:36'),
-(77, 'LyrbUXfi', 'Thời gian giữ phòng là bao lâu?', 0, '2022-12-14 00:39:05'),
-(79, 'Vyg5mSbD', 'Tôi muốn mua thêm dịch vụ thì phải làm sao?', 0, '2022-12-14 00:55:36'),
-(83, 'AC7wvkbb', 'Tôi muốn hỏi quy trình đặt vé', 0, '2022-12-14 18:11:07'),
-(84, 'AC7wvkbb', 'hello🤣', 1, '2022-12-14 21:28:43'),
-(85, 'AC7wvkbb', '', 0, '2022-12-14 21:28:43');
+(98, 'jGkBN5C7', 'Tôi muốn hỏi về quy đặt phòng?😅', 1, '2022-12-17 14:15:18'),
+(99, 'jGkBN5C7', 'Tôi muốn hỏi quy trình đặt phòng😆', 1, '2022-12-17 15:20:50');
 
 -- --------------------------------------------------------
 
@@ -253,7 +291,9 @@ INSERT INTO `repmessage` (`stt`, `sttmessagesend`, `repcontent`, `daterep`, `use
 (13, 2, 'Chào bạn!\n\nTùy thuộc vào mỗi khách sạn, thường thì trẻ dưới 6 tuổi sẽ không tính phụ thu.\n\nBạn nên kiểm tra kĩ điều này trước khi đặt phòng để tránh những trường hợp không hay nhé!\n\nBạn có thể gọi điện thoại trực tiếp đến Hotline 24/7: (08) 3930 8290 để được nhân viên của iVIVU.com tư vấn kỹ hơn các vấn đề về đặt phòng khách sạn trực tuyến.', '2022-12-11 04:57:08', 0),
 (14, 7, '**Để thêm khách tham gia **\n\nRất tiếc, bạn không thể thêm khách tham gia sau khi đơn hàng đã được xác nhận.\n\nNếu dịch vụ có thể hoàn và vẫn trong giai đoạn có thể huỷ miễn phí, bạn có thể huỷ đơn hàng và đặt lại. Xin kiểm tra chính sách hoàn huỷ của dịch vụ trước bạn nhé!\n\nĐể xoá khách tham gia\n\nNếu dịch vụ có thể hoàn và vẫn trong giai đoạn có thể huỷ miễn phí, bạn có thể thay đổi đơn hàng của mình và yêu cầu huỷ một phần cho khách không muốn tiếp tham gia và cần được xoá. Xin kiểm tra chính sách hoàn huỷ của dịch vụ trước bạn nhé!\n\nNếu dịch vụ có thể hoàn và vẫn trong giai đoạn có thể huỷ miễn phí, nhưng bạn không thể huỷ, xin liên hệ với nhóm chăm sóc khách hàng của Klook.', '2022-12-11 22:02:39', 0),
 (15, 12, 'Chào anh!\n\nThật đáng tiếc nếu điều này xảy ra! Bộ phận Chăm sóc Khách hàng của iVIVU.com sẽ luôn hỗ trợ anh trong mọi trường hợp, anh có thể gọi điện thoại trực tiếp đến Hotline 24/7: (08) 3930 8290 để được nhân viên của iVIVU.com giúp đỡ. Chúng tôi sẽ yêu cầu khách sạn cung cấp phòng ngay. Nếu cần thiết, chúng tôi sẽ đặt phòng chất lượng tương đương ở chính khách sạn đó hoặc một khách sạn khác, đảm bảo chuyến đi của anh không bị gián đoạn.\n\nCảm ơn anh!', '2022-12-12 16:06:53', 0),
-(18, 14, 'Hệ thống sẽ tự động gửi mã voucher cho quý khách hàng.', '2022-12-13 23:01:08', 0);
+(18, 14, 'Hệ thống sẽ tự động gửi mã voucher cho quý khách hàng.', '2022-12-13 23:01:08', 0),
+(22, 98, 'Chào bạn!', '2022-12-17 14:16:16', 0),
+(23, 99, 'Bạn có thể xem tại link...', '2022-12-17 15:21:55', 0);
 
 -- --------------------------------------------------------
 
@@ -285,7 +325,9 @@ INSERT INTO `service` (`stt`, `name_service`, `price`, `amount`, `img_service`, 
 (7, 'Công viên Vinpearl Safari', '600000', 150, 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1670774191/ydudoqkcqvwlroe4newz.jpg', 'Vin Safari là khu vườn thú bán hoang dã. Với nhiều loại động vật: ngựa vằn, hươu cao cổ, cọp… Đến với Safari trẻ nhỏ và người lớn được xem các tiết mục biểu diễn của động vật, cho động vật ăn, ngồi trên 01 chiếc xe chuyên dụng lồng kính xuyên qua khu rừng nuôi động vật thả hoang chụp ảnh và tìm hiểu về từng loại động vật tại đây.', 'Active'),
 (8, 'Lặn biển', '1100000', 100, 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1670778793/afg80q6bcmqrxbpdogn7.jpg', 'Ở dưới độ cao gần chục mét ấn tượng đầu tiên khi tham gia trò chơi này chính là cảm giác được thỏa sức vũng vẫy dưới làn nước vô cùng trong xanh, mát mẻ. Càng lặn xuống sâu, du khách càng có cơ hội vén bức màn bí mật của đại dương bao la, tuyệt đẹp.  Lặn giữa làn nước trong xanh, mát rượi, xung quanh là những rặn san hô đủ màu sắc, du khách sẽ có cơ hội được chiêm ngưỡng hệ sinh thái vô cùng ấn tượng. Thêm vào đó, với sự hỗ trợ từ các dụng cụ lặn biển, bạn sẽ hoàn toàn yên tâm khám phá dưới đáy đại dương với khoảng thời gian cho phép', 'Active'),
 (10, 'Thưởng thức âm nhạc ngoài trời', '400000', 300, 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1670782004/jz5luqpa5h7f3v2n1om8.jpg', 'Lắng nghe những bản nhạc du dương tại Mây Lang Thang Đà Lạt là một trải nghiệm được nhiều bạn trẻ và các du khách yêu thích. Những đêm nhạc với các bản tình ca lãng mạn, sâu lắng kết hợp với sự bình yên của Đà Lạt đã làm xao xuyến biết bao con tim mang đến nhiều cảm xúc khó quên cho du khách. Đây là một trong những trải nghiệm, bạn nên một lần thử khi đến Đà Lạt. Hãy cùng Go2Joy, tìm hiểu điều này qua các thông tin sau.', 'Active'),
-(11, 'Gói Wedding tại Vinpearl Resort & Spa Phú Quốc', '1100000', 80, 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1670814835/zjkwdi5kuozdj9g3ezno.webp', 'Tiệc cưới thân mật ấm cúng, hay một kỳ nghỉ tân hôn “trọn gói” hoàn hảo từ hôn lễ cho đến trăng mật, trao lời thề ước giữa thiên nhiên khoáng đạt... chính là những xu hướng cưới thời thượng được các cô dâu, chú rể yêu thích, lựa chọn tại các resort biển đẳng cấp của Vinpearl.', 'Active');
+(11, 'Gói Wedding tại Vinpearl Resort & Spa Phú Quốc', '1100000', 80, 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1670814835/zjkwdi5kuozdj9g3ezno.webp', 'Tiệc cưới thân mật ấm cúng, hay một kỳ nghỉ tân hôn “trọn gói” hoàn hảo từ hôn lễ cho đến trăng mật, trao lời thề ước giữa thiên nhiên khoáng đạt... chính là những xu hướng cưới thời thượng được các cô dâu, chú rể yêu thích, lựa chọn tại các resort biển đẳng cấp của Vinpearl.', 'Active'),
+(12, 'Bãi biển vô cực', '500000', 100, 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1671261674/jtth4ttvxyozhbrej7oc.jpg', 'Bãi biển vô cực', 'Deleted'),
+(13, 'Bãi biển vô cực', '500000', 50, 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1671265888/ilvzlgxoqc1h3pvfklj4.jpg', 'Bãi Biển', 'Deleted');
 
 -- --------------------------------------------------------
 
@@ -315,7 +357,11 @@ INSERT INTO `totalbill` (`stt`, `iduser`, `idbooking`, `totalpricebill`, `status
 (7, 'Vyg5mSbD', '74358981', '15000000', 'Đã thanh toán'),
 (8, 'AC7wvkbb', '58384150', '700000', 'Đã thanh toán'),
 (9, 'Vyg5mSbD', '49858221', '7650000', 'Đã thanh toán'),
-(10, 'Vyg5mSbD', '13143307', '34800000', 'Đã thanh toán');
+(10, 'Vyg5mSbD', '13143307', '34800000', 'Đã thanh toán'),
+(15, 'jGkBN5C7', '97085059', '4380000', 'Đã thanh toán'),
+(16, 'LyrbUXfi', '02331792', '3500000', 'Đã thanh toán'),
+(17, 'AC7wvkbb', '15598052', '6800000', 'Đã thanh toán'),
+(18, 'jGkBN5C7', '41200765', '2124000', 'Đã thanh toán');
 
 -- --------------------------------------------------------
 
@@ -344,10 +390,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`iduser`, `ho`, `ten`, `email`, `password`, `avatar`, `role`, `gender`, `phone`, `point`, `creact_account`, `status`, `level`) VALUES
-('AC7wvkbb', 'Nguyễn', 'Bảo Anh', 'mvmanh@gmail.com', '123456', 'https://media.glamour.com/photos/6377a1e555f8e14c67143e19/master/pass/GettyImages-1406473123.jpg', 'USER_ROLE', 'Male', '0659787888', 55, '2022-11-14 20:38:00', 'Active', 'Khách hàng thường'),
-('jGkBN5C7', 'Nguyễn', 'Văn Huy', 'kwonjiyong2702@gmail.com', '123456', 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1670427575/cunuwerwx6xwvajlljk2.jpg', 'USER_ROLE', 'Male', '0547898788', 0, '2022-12-07 22:39:36', 'Active', 'Khách hàng thường'),
-('LyrbUXfi', 'Phạm', 'Băng Băng', 'vanhuy1619@gmail.com', '123', 'https://i.scdn.co/image/ab67616d0000b273a97c8b7dcb20c796540ffed2', 'USER_ROLE', 'Male', '0123456789', 28, '2022-11-21 10:36:42', 'Active', 'Khách hàng thường'),
+('AC7wvkbb', 'Nguyễn', 'Bảo Anh', 'mvmanh@gmail.com', '123456', 'https://media.glamour.com/photos/6377a1e555f8e14c67143e19/master/pass/GettyImages-1406473123.jpg', 'USER_ROLE', 'Male', '0659787888', 56, '2022-11-14 20:38:00', 'Vô hiệu', 'Khách VIP'),
+('jGkBN5C7', 'Nguyễn', 'Văn Huy', 'kwonjiyong2702@gmail.com', '1234567', 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1670427575/cunuwerwx6xwvajlljk2.jpg', 'USER_ROLE', 'Female', '0547898789', 8, '2022-12-07 22:39:36', 'Vô hiệu', 'Khách hàng thường'),
+('lIWdOY46', 'Mỹ Tâm', 'Băng Băng', 'kwonjiyongs2702@gmail.com', '111111', 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1671175750/s7c3wjibaoqps9osa12h.png', 'USER_ROLE', 'Female', '0929099063', 0, '2022-12-16 14:29:11', 'Active', 'Khách hàng thường'),
+('LyrbUXfi', 'Phạm', 'Băng Băng', 'vanhuy1619@gmail.com', '123', 'https://i.scdn.co/image/ab67616d0000b273a97c8b7dcb20c796540ffed2', 'USER_ROLE', 'Female', '0123456789', 30, '2022-11-21 10:36:42', 'Active', 'Khách hàng thường'),
+('m2DF2Kab', 'Phạm', 'Văn Huy', 'kwonjifyong2702@gmail.com', '123456', 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1671261074/urojmqmqdtkvhy51jjcb.png', 'USER_ROLE', NULL, '0982117541', 0, '2022-12-17 14:11:13', 'Active', 'Khách hàng thường'),
 ('PwzpbJqx', 'Triệu', 'Lệ Dĩnh', 'vipbigbang5xxx@gmail.com', '123', 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1669460434/hagwjuj2ckkyh0bm1qwz.jpg', 'USER_ROLE', 'Female', '0659787878', 0, '2022-11-26 18:00:35', 'Active', 'Khách VIP'),
+('t06kWpoU', 'Phạm', 'Văn Huy', 'kwonjiyongr2702@gmail.com', '123456', 'https://res.cloudinary.com/dnqk5fjla/image/upload/v1671265189/qqbkvcb1vin5hsftasp7.jpg', 'USER_ROLE', 'Male', '0929099066', 0, '2022-12-17 15:19:48', 'Active', 'Khách hàng thường'),
 ('Vyg5mSbD', 'Hồ', 'Quỳnh Hương', 'khoanguyen30lb@gmail.com', '123', 'https://kenh14cdn.com/thumb_w/660/203336854389633024/2022/9/29/5-16644449670421462690434.jpeg', 'USER_ROLE', 'Female', '0929046031', 121, '2022-11-21 10:14:59', 'Active', 'Khách VIP');
 
 -- --------------------------------------------------------
@@ -368,11 +417,10 @@ CREATE TABLE `voucher` (
 --
 
 INSERT INTO `voucher` (`idvoucher`, `discount`, `soluong`, `sudung`) VALUES
-('merryxmas', '15%', 60, 12),
-('vc123', '20%', 30, 18),
-('vc3', '10%', 15, 5),
-('vc4', '50%', 10, 10),
-('vfdgtrbvrgfv', '10%', 20, 0);
+('aqaqaq', '20%', 80, 0),
+('vc123', '20%', 30, 19),
+('vc3', '10%', 15, 10),
+('vc4', '50%', 15, 7);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -401,6 +449,12 @@ ALTER TABLE `employee`
 --
 ALTER TABLE `feedback`
   ADD PRIMARY KEY (`idfeedback`);
+
+--
+-- Chỉ mục cho bảng `giftforuser`
+--
+ALTER TABLE `giftforuser`
+  ADD PRIMARY KEY (`stt`);
 
 --
 -- Chỉ mục cho bảng `messagebycustomer`
@@ -453,37 +507,43 @@ ALTER TABLE `voucher`
 -- AUTO_INCREMENT cho bảng `buyservice`
 --
 ALTER TABLE `buyservice`
-  MODIFY `stt` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `stt` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT cho bảng `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `idfeedback` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1421501304;
+  MODIFY `idfeedback` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1421501309;
+
+--
+-- AUTO_INCREMENT cho bảng `giftforuser`
+--
+ALTER TABLE `giftforuser`
+  MODIFY `stt` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT cho bảng `messagebycustomer`
 --
 ALTER TABLE `messagebycustomer`
-  MODIFY `stt` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `stt` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT cho bảng `repmessage`
 --
 ALTER TABLE `repmessage`
-  MODIFY `stt` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `stt` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT cho bảng `service`
 --
 ALTER TABLE `service`
-  MODIFY `stt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `stt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `totalbill`
 --
 ALTER TABLE `totalbill`
-  MODIFY `stt` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `stt` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
