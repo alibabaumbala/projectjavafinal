@@ -391,12 +391,21 @@ public class APIController {
         return new ResponseEntity(giftRepository.getVC_id_value(request.get("foriduser")),HttpStatus.OK);
     }
 
+    //TRẢ VỀ GIFT CỦA KHÁCH HÀNG QUA IDUSER VÀ IDVOUCHER
+    @RequestMapping(value = "api/api/user/gift/searchbyid",method = RequestMethod.GET)
+    public ResponseEntity findListGiftIdUser(@RequestParam Map<String,String> request)
+    {
+        return new ResponseEntity(giftRepository.getListGiftByIDNotUsed(request.get("foriduser")),HttpStatus.OK);
+    }
+
     //THÊM VOUCHER CHO KHÁCH HÀNG
     @RequestMapping(value = "api/api/user/gift/add",method = RequestMethod.POST)
     public ResponseEntity Add_Gift_For_User(@RequestBody Giftforuser gift)
     {
         giftRepository.save(gift);
-        return new ResponseEntity<>(HttpStatus.OK);
+        String idgift = gift.getIdgift();
+        String iduser = gift.getForiduser();
+        return new ResponseEntity<>(giftRepository.findVoucherBy2ID(idgift,iduser),HttpStatus.OK);
     }
 
     //VOUCHER CỦA KHÁCH HÀNG ĐÃ DÙNG

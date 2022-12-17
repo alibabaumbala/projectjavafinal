@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @SpringBootTest
@@ -115,6 +116,11 @@ class Demo6ApplicationTests {
 //        System.out.println(api.webclient().get(0).getClass().getSimpleName());
 
 //        configEmail.emailConfig("vanhuy1619@gmail.com","Hello");
+
+//        Date date = new Date();
+//        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+//        System.out.println(formatter.format(date));
+//        if(formatter.format(date)>)
     }
 
 
